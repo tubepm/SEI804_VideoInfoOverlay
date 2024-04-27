@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name" translatable="false">SEI804 VideoInfoOverlay</string>
+    <string name="starting">Starting…</string>
+    <string name="video_format">Video Format: %1$s</string>
+    <string name="video_resolution">Video Resolution: %1$s</string>
+    <string name="frame_rate">Frame Rate: %1$s</string>
+    <string name="frame_count">Frame Count: %1$s</string>
+    <string name="display_resolution">Display Resolution: %1$s</string>
+    <string name="color_space">Color Space: %1$s</string>
+    <string name="hdr_status">HDR Status: %1$s</string>
+    <string name="hdr_policy">HDR Policy: %1$s</string>
+    <string name="hdr_priority">HDR Priority: %1$s</string>
+    <string name="digital_audio_format">Digital Audio Format: %1$s</string>
+    <string name="audio_mode">Audio Mode: %1$s</string>
+    <string name="app_name_tv">App Name: %1$s</string>
+    <string name="cpu_usage">CPU Usage: %1$s</string>
+    <string name="memory_usage">Memory Usage: %1$s</string>
+    <string name="connection_speed">Connection Speed: %1$s</string>
+</resources>

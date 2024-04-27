@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="starting">Starte…</string>
+    <string name="video_format">Videoformat: %1$s</string>
+    <string name="video_resolution">Videoauflösung: %1$s</string>
+    <string name="frame_rate">Framerate: %1$s</string>
+    <string name="frame_count">Anzahl der Frames: %1$s</string>
+    <string name="display_resolution">Display-Auflösung: %1$s</string>
+    <string name="color_space">Farbraum: %1$s</string>
+    <string name="hdr_status">HDR-Status: %1$s</string>
+    <string name="hdr_policy">HDR-Strategie: %1$s</string>
+    <string name="hdr_priority">HDR-Priorität: %1$s</string>
+    <string name="digital_audio_format">Digitales Audioformat: %1$s</string>
+    <string name="audio_mode">Audio-Modus: %1$s</string>
+    <string name="app_name_tv">App-Name: %1$s</string>
+    <string name="cpu_usage">CPU-Auslastung: %1$s</string>
+    <string name="memory_usage">Speichernutzung: %1$s</string>
+    <string name="connection_speed">Verbindungsgeschwindigkeit: %1$s</string>
+</resources>
