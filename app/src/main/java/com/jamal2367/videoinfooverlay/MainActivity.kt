@@ -41,7 +41,7 @@ class MainActivity : AccessibilityService() {
         params.gravity = Gravity.TOP or Gravity.END
 
         when (event.keyCode) {
-            KeyEvent.KEYCODE_PROG_RED -> {
+            KeyEvent.KEYCODE_BOOKMARK -> {
                 val currentTime = System.currentTimeMillis()
                 val elapsedTime = currentTime - lastClickTime
                 lastClickTime = currentTime
@@ -56,7 +56,7 @@ class MainActivity : AccessibilityService() {
 
                         val windowManager = getSystemService(WINDOW_SERVICE) as WindowManager
                         windowManager.addView(overlayView, params)
-                        startBitrateTimer()
+                        handler.postDelayed(updateData, 1000)
 
                         Log.d("TAG", "Overlay started")
                     }
@@ -155,10 +155,6 @@ class MainActivity : AccessibilityService() {
             // Update output every 1 second
             handler.postDelayed(this, 1000)
         }
-    }
-
-    private fun startBitrateTimer() {
-        handler.postDelayed(updateData, 1000)
     }
 
     private fun getSystemProperty(propertyName: String): String {
