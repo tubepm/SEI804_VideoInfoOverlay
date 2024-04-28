@@ -11,10 +11,10 @@ android {
         applicationId 'com.jamal2367.videoinfooverlay'
         minSdk 26
         targetSdk 34
-        versionCode 10
-        versionName '1.0'
+        versionCode 20
+        versionName '2.0'
         resConfigs 'en', 'de'
-        setProperty('archivesBaseName', 'SEI804_VideoInfoOverlay' + versionName)
+        setProperty('archivesBaseName', 'SEI804_VideoInfoOverlay_' + versionName)
     }
 
     compileOptions {
