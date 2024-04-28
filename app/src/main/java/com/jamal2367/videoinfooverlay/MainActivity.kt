@@ -30,16 +30,6 @@ class MainActivity : AccessibilityService() {
     }
 
     override fun onKeyEvent(event: KeyEvent): Boolean {
-        val params = WindowManager.LayoutParams(
-            WindowManager.LayoutParams.WRAP_CONTENT,
-            WindowManager.LayoutParams.WRAP_CONTENT,
-            WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY,
-            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
-            PixelFormat.TRANSLUCENT
-        )
-
-        params.gravity = Gravity.TOP or Gravity.END
-
         when (event.keyCode) {
             KeyEvent.KEYCODE_BOOKMARK -> {
                 val currentTime = System.currentTimeMillis()
@@ -51,13 +41,7 @@ class MainActivity : AccessibilityService() {
                         removeOverlay()
                         Log.d("TAG", "Overlay removed")
                     } else {
-                        overlayView = View.inflate(this, R.layout.activity_main, null)
-                        overlayTextView = overlayView!!.findViewById(R.id.overlayTextView)
-
-                        val windowManager = getSystemService(WINDOW_SERVICE) as WindowManager
-                        windowManager.addView(overlayView, params)
-                        handler.postDelayed(updateData, 1000)
-
+                        createOverlay()
                         Log.d("TAG", "Overlay started")
                     }
                 }
@@ -68,7 +52,24 @@ class MainActivity : AccessibilityService() {
         return super.onKeyEvent(event)
     }
 
+    private fun createOverlay() {
+        val params = WindowManager.LayoutParams(
+            WindowManager.LayoutParams.WRAP_CONTENT,
+            WindowManager.LayoutParams.WRAP_CONTENT,
+            WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY,
+            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+            PixelFormat.TRANSLUCENT
+        )
 
+        overlayView = View.inflate(this, R.layout.activity_main, null)
+        overlayTextView = overlayView!!.findViewById(R.id.overlayTextView)
+
+        params.gravity = Gravity.TOP or Gravity.END
+
+        val windowManager = getSystemService(WINDOW_SERVICE) as WindowManager
+        windowManager.addView(overlayView, params)
+        handler.postDelayed(updateData, 1000)
+    }
 
     private fun removeOverlay() {
         if (overlayView != null) {
@@ -119,20 +120,31 @@ class MainActivity : AccessibilityService() {
                 if (frameCount.isNotEmpty()) {
                     appendLine(getString(R.string.frame_count, frameCount))
                 }
-                if (hdrStatus.isNotEmpty()) {
-                    appendLine(getString(R.string.hdr_status, hdrStatus))
-                }
                 if (colorSpace.isNotEmpty()) {
                     appendLine(getString(R.string.color_space, colorSpace))
-                }
-                if (hdrPolicy.isNotEmpty()) {
-                    appendLine(getString(R.string.hdr_policy, hdrPolicy))
                 }
                 if (hdrPriority.isNotEmpty()) {
                     appendLine(getString(R.string.hdr_priority, hdrPriority))
                 }
+                if (hdrStatus.isNotEmpty()) {
+                    appendLine(getString(R.string.hdr_status, hdrStatus))
+                }
+                if (hdrPolicy.isNotEmpty()) {
+                    val modifiedHdrPolicy = when (hdrPolicy.trim()) {
+                        "Follow Source" -> getString(R.string.follow_source)
+                        "Follow Sink" -> getString(R.string.follow_sink)
+                        else -> hdrPolicy
+                    }
+                    appendLine(getString(R.string.hdr_policy, modifiedHdrPolicy))
+                }
                 if (digitalAudioFormat.isNotEmpty()) {
-                    appendLine(getString(R.string.digital_audio_format, digitalAudioFormat))
+                    val modifiedDigitalAudioFormat = when (digitalAudioFormat.trim()) {
+                        "Auto" -> getString(R.string.auto)
+                        "Passthrough" -> getString(R.string.passthrough)
+                        "Manual" -> getString(R.string.manual)
+                        else -> digitalAudioFormat
+                    }
+                    appendLine(getString(R.string.audio_format, modifiedDigitalAudioFormat))
                 }
                 if (audioMode.isNotEmpty()) {
                     appendLine(getString(R.string.audio_mode, audioMode))

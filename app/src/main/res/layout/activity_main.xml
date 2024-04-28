@@ -14,9 +14,11 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/background_rounded"
-        android:padding="12dp"
+        android:gravity="start"
+        android:padding="18dp"
         android:text="@string/starting"
         android:textColor="@android:color/white"
-        android:textSize="16sp" />
+        android:fontFamily="@font/inter"
+        android:textSize="12sp" />
 
 </RelativeLayout>
