@@ -6,4 +6,5 @@
     android:canRequestFilterKeyEvents="true"
     android:canRetrieveWindowContent="true"
     android:notificationTimeout="100"
-    android:packageNames="com.jamal2367.videoinfooverlay" />
+    android:packageNames="com.jamal2367.videoinfooverlay"
+    android:settingsActivity="com.jamal2367.videoinfooverlay.SettingsActivity" />

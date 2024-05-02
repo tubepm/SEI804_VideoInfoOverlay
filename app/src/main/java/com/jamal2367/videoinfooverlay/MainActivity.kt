@@ -1,6 +1,7 @@
 package com.jamal2367.videoinfooverlay
 
 import android.accessibilityservice.AccessibilityService
+import android.content.SharedPreferences
 import android.graphics.PixelFormat
 import android.os.Handler
 import android.os.Looper
@@ -11,15 +12,20 @@ import android.view.View
 import android.view.WindowManager
 import android.view.accessibility.AccessibilityEvent
 import android.widget.TextView
+import android.widget.Toast
+import androidx.preference.PreferenceManager
 import java.io.IOException
 
-class MainActivity : AccessibilityService() {
+class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenceChangeListener {
 
     private val handler = Handler(Looper.getMainLooper())
     private val clickDelay: Long = 500
     private var lastClickTime: Long = 0
     private var overlayView: View? = null
     private lateinit var overlayTextView: TextView
+
+    private var preference: String = "selected_key_code"
+    private var selectedKeyCode: Int = KeyEvent.KEYCODE_BOOKMARK
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
         // No command
@@ -30,27 +36,25 @@ class MainActivity : AccessibilityService() {
     }
 
     override fun onKeyEvent(event: KeyEvent): Boolean {
-        when (event.keyCode) {
-            KeyEvent.KEYCODE_BOOKMARK -> {
-                val currentTime = System.currentTimeMillis()
-                val elapsedTime = currentTime - lastClickTime
-                lastClickTime = currentTime
+        if (event.keyCode == selectedKeyCode) {
+            val currentTime = System.currentTimeMillis()
+            val elapsedTime = currentTime - lastClickTime
+            lastClickTime = currentTime
 
-                if (elapsedTime < clickDelay) {
-                    if (overlayView != null) {
-                        removeOverlay()
-                        Log.d("TAG", "Overlay removed")
-                    } else {
-                        createOverlay()
-                        Log.d("TAG", "Overlay started")
-                    }
+            if (elapsedTime < clickDelay) {
+                if (overlayView != null) {
+                    removeOverlay()
+                    Log.d("TAG", "Overlay removed")
+                } else {
+                    createOverlay()
+                    Log.d("TAG", "Overlay started")
                 }
-                return true
             }
+            return true
         }
-
         return super.onKeyEvent(event)
     }
+
 
     private fun createOverlay() {
         val params = WindowManager.LayoutParams(
@@ -84,6 +88,36 @@ class MainActivity : AccessibilityService() {
     override fun onServiceConnected() {
         super.onServiceConnected()
         Log.d("TAG", "onServiceConnected")
+
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+        val keyCodesArray = resources.getStringArray(R.array.key_codes)
+        val selectedKeyCodeString = sharedPreferences.getString(preference, keyCodesArray[0])
+
+        val index = keyCodesArray.indexOf(selectedKeyCodeString)
+
+        sharedPreferences.registerOnSharedPreferenceChangeListener(this)
+
+        selectedKeyCode = when (index) {
+            0 -> KeyEvent.KEYCODE_1
+            1 -> KeyEvent.KEYCODE_2
+            2 -> KeyEvent.KEYCODE_3
+            3 -> KeyEvent.KEYCODE_4
+            4 -> KeyEvent.KEYCODE_5
+            5 -> KeyEvent.KEYCODE_6
+            else -> KeyEvent.KEYCODE_1
+        }
+
+        sharedPreferences.edit().putString(preference, selectedKeyCodeString).apply()
+    }
+
+    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
+        if (key == preference) {
+            showPreferenceChangedDialog()
+        }
+    }
+
+    private fun showPreferenceChangedDialog() {
+        Toast.makeText(this, getString(R.string.accessibility_info), Toast.LENGTH_LONG).show()
     }
 
     private val updateData = object : Runnable {
@@ -177,5 +211,11 @@ class MainActivity : AccessibilityService() {
             e.printStackTrace()
             ""
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        PreferenceManager.getDefaultSharedPreferences(this)
+            .unregisterOnSharedPreferenceChangeListener(this)
     }
 }

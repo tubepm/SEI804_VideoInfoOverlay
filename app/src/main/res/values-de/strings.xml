@@ -21,4 +21,18 @@
     <string name="auto">Automatisch</string>
     <string name="passthrough">Passthrough</string>
     <string name="manual">Manuell</string>
+    <string name="overlay_button">Overlay-Taste</string>
+    <string name="select_a_button_to_activate_the_overlay">Wähle eine Schaltfläche, um das Overlay zu aktivieren</string>
+    <string name="select_button">Taste auswählen</string>
+    <string name="overlay_settings">Overlay-Einstellungen</string>
+    <string name="accessibility_info">Bitte schalte das SEI804 VideoInfoOverlay in den Barrierefreiheitseinstellungen aus und wieder ein, damit die Änderung funktioniert.</string>
+
+    <string-array name="key_code_labels">
+        <item>Lesezeichen-Taste</item>
+        <item>TV-Guide-Taste</item>
+        <item>Rote Taste</item>
+        <item>Grüne Taste</item>
+        <item>Gelbe Taste</item>
+        <item>Blaue Taste</item>
+    </string-array>
 </resources>
