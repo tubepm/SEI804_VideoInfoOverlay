@@ -98,13 +98,13 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         sharedPreferences.registerOnSharedPreferenceChangeListener(this)
 
         selectedKeyCode = when (index) {
-            0 -> KeyEvent.KEYCODE_1
-            1 -> KeyEvent.KEYCODE_2
-            2 -> KeyEvent.KEYCODE_3
-            3 -> KeyEvent.KEYCODE_4
-            4 -> KeyEvent.KEYCODE_5
-            5 -> KeyEvent.KEYCODE_6
-            else -> KeyEvent.KEYCODE_1
+            0 -> KeyEvent.KEYCODE_BOOKMARK
+            1 -> KeyEvent.KEYCODE_GUIDE
+            2 -> KeyEvent.KEYCODE_PROG_RED
+            3 -> KeyEvent.KEYCODE_PROG_GREEN
+            4 -> KeyEvent.KEYCODE_PROG_YELLOW
+            5 -> KeyEvent.KEYCODE_PROG_BLUE
+            else -> KeyEvent.KEYCODE_BOOKMARK
         }
 
         sharedPreferences.edit().putString(preference, selectedKeyCodeString).apply()
