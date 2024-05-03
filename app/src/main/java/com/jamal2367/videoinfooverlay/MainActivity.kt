@@ -19,8 +19,6 @@ import java.io.IOException
 class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenceChangeListener {
 
     private val handler = Handler(Looper.getMainLooper())
-    private val clickDelay: Long = 500
-    private var lastClickTime: Long = 0
     private var overlayView: View? = null
     private lateinit var overlayTextView: TextView
 
@@ -36,25 +34,18 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
     }
 
     override fun onKeyEvent(event: KeyEvent): Boolean {
-        if (event.keyCode == selectedKeyCode) {
-            val currentTime = System.currentTimeMillis()
-            val elapsedTime = currentTime - lastClickTime
-            lastClickTime = currentTime
-
-            if (elapsedTime < clickDelay) {
-                if (overlayView != null) {
-                    removeOverlay()
-                    Log.d("TAG", "Overlay removed")
-                } else {
-                    createOverlay()
-                    Log.d("TAG", "Overlay started")
-                }
+        if (event.keyCode == selectedKeyCode && event.action == KeyEvent.ACTION_DOWN) {
+            if (overlayView != null) {
+                removeOverlay()
+                Log.d("TAG", "Overlay removed")
+            } else {
+                createOverlay()
+                Log.d("TAG", "Overlay started")
             }
             return true
         }
         return super.onKeyEvent(event)
     }
-
 
     private fun createOverlay() {
         val params = WindowManager.LayoutParams(
