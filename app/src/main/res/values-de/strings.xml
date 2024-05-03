@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="starting">Starte…</string>
     <string name="video_format">Videoformat:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s\n</string>
@@ -31,6 +30,8 @@
     <string name="accessibility_info1">\"Bedienungshilfen\" -> \"SEI804 VideoInfoOverlay\"</string>
     <string name="accessibility_info2">aus-/einschalten, damit die Änderung wirksam wird.</string>
     <string name="no_connectivity">Keine Internetverbindung</string>
+    <string name="text_size">Textgröße</string>
+    <string name="text_size_summary">Wähle eine Textgröße für das Overlay</string>
 
     <string-array name="key_code_labels">
         <item>Lesezeichen-Taste</item>

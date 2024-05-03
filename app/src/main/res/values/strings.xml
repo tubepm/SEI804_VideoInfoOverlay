@@ -31,6 +31,8 @@
     <string name="accessibility_info1">\"Accessibility\" -> \"SEI804 VideoInfoOverlay\"</string>
     <string name="accessibility_info2">switch off/on for the change to take effect.</string>
     <string name="no_connectivity">No internet connection</string>
+    <string name="text_size">Text Size</string>
+    <string name="text_size_summary">Select a text size for the overlay</string>
 
     <string-array name="key_code_labels">
         <item>Bookmark button</item>

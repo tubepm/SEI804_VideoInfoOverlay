@@ -20,10 +20,12 @@ import java.io.IOException
 
 class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenceChangeListener {
 
+    private lateinit var overlayTextView: TextView
+    private lateinit var sharedPreferences: SharedPreferences
+
     private val handler = Handler(Looper.getMainLooper())
     private var overlayView: View? = null
-    private lateinit var overlayTextView: TextView
-
+    private val textSizeKey = "text_size_key"
     private var preference: String = "selected_key_code"
     private var selectedKeyCode: Int = KeyEvent.KEYCODE_BOOKMARK
 
@@ -61,6 +63,8 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         overlayView = View.inflate(this, R.layout.activity_main, null)
         overlayTextView = overlayView!!.findViewById(R.id.overlayTextView)
 
+        updateOverlayTextSize()
+
         params.gravity = Gravity.TOP or Gravity.END
 
         val windowManager = getSystemService(WINDOW_SERVICE) as WindowManager
@@ -82,7 +86,8 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         super.onServiceConnected()
         Log.d("TAG", "onServiceConnected")
 
-        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+
         val keyCodesArray = resources.getStringArray(R.array.key_codes)
         val selectedKeyCodeString = sharedPreferences.getString(preference, keyCodesArray[0])
 
@@ -106,6 +111,10 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
         if (key == preference) {
             showPreferenceChangedDialog()
+        }
+
+        if (key == textSizeKey) {
+            updateOverlayTextSize()
         }
     }
 
@@ -212,6 +221,13 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         } catch (e: IOException) {
             e.printStackTrace()
             ""
+        }
+    }
+
+    private fun updateOverlayTextSize() {
+        if (::overlayTextView.isInitialized) {
+            val textSize = sharedPreferences.getInt(textSizeKey, 12)
+            overlayTextView.textSize = textSize.toFloat()
         }
     }
 

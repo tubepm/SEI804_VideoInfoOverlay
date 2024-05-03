@@ -11,4 +11,13 @@
             android:summary="@string/select_a_button_to_activate_the_overlay"
             android:title="@string/overlay_button" />
     </PreferenceCategory>
+
+    <PreferenceCategory>
+        <SeekBarPreference
+            android:key="text_size_key"
+            android:title="@string/text_size"
+            android:summary="@string/text_size_summary"
+            android:defaultValue="12"
+            android:max="12" />
+    </PreferenceCategory>
 </PreferenceScreen>
