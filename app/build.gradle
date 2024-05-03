@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId 'com.jamal2367.videoinfooverlay'
-        minSdk 26
+        minSdk 31
         targetSdk 34
         versionCode 30
         versionName '3.0'
