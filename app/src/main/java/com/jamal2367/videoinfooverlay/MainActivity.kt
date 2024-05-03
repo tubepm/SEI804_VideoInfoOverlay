@@ -110,7 +110,8 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
     }
 
     private fun showPreferenceChangedDialog() {
-        Toast.makeText(this, getString(R.string.accessibility_info), Toast.LENGTH_LONG).show()
+        Toast.makeText(this, getString(R.string.accessibility_info1), Toast.LENGTH_LONG).show()
+        Toast.makeText(this, getString(R.string.accessibility_info2), Toast.LENGTH_LONG).show()
     }
 
     private val updateData = object : Runnable {
