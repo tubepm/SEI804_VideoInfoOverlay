@@ -63,7 +63,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
         val windowManager = getSystemService(WINDOW_SERVICE) as WindowManager
         windowManager.addView(overlayView, params)
-        handler.postDelayed(updateData, 1000)
+        handler.postDelayed(updateData, 500)
     }
 
     private fun removeOverlay() {
@@ -189,8 +189,8 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             }
             overlayTextView.text = overlayText.trim()
 
-            // Update output every 1 second
-            handler.postDelayed(this, 1000)
+            // Update output every 0.5 second
+            handler.postDelayed(this, 500)
         }
     }
 
