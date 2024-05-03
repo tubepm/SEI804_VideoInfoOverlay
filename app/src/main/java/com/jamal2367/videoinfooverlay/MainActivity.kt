@@ -1,8 +1,10 @@
 package com.jamal2367.videoinfooverlay
 
 import android.accessibilityservice.AccessibilityService
+import android.content.Context
 import android.content.SharedPreferences
 import android.graphics.PixelFormat
+import android.net.ConnectivityManager
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
@@ -180,6 +182,14 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                 if (memoryUsage.isNotEmpty()) {
                     appendLine(getString(R.string.memory_usage, memoryUsage))
                 }
+                if (getConnectionState().isNotEmpty()) {
+                    val modifiedgetConnectionState = when (getConnectionState().trim()) {
+                        "WIFI" -> getString(R.string.wifi)
+                        "Ethernet" -> getString(R.string.ethernet)
+                        else -> getConnectionState()
+                    }
+                    appendLine(getString(R.string.connection_type, modifiedgetConnectionState))
+                }
                 if (connectionSpeed.isNotEmpty()) {
                     appendLine(getString(R.string.connection_speed, connectionSpeed))
                 }
@@ -201,6 +211,18 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         } catch (e: IOException) {
             e.printStackTrace()
             ""
+        }
+    }
+
+    @Suppress("DEPRECATION")
+    fun getConnectionState(): String {
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val networkInfo = connectivityManager.activeNetworkInfo
+
+        return if (networkInfo != null && networkInfo.isConnected) {
+            networkInfo.typeName
+        } else {
+            getString(R.string.no_connectivity)
         }
     }
 

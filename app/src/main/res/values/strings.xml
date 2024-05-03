@@ -16,16 +16,20 @@
     <string name="cpu_usage">CPU Usage:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s\n</string>
     <string name="memory_usage">Memory Usage:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s\n</string>
     <string name="connection_speed">Connection Speed:&#160;&#160;&#160;&#160;&#160;&#160;%1$s\n</string>
+    <string name="connection_type">Connection Type:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s\n</string>
     <string name="follow_source">Follow Source (Player-Led)</string>
     <string name="follow_sink">Follow Sink (TV-Led)</string>
     <string name="auto">Auto</string>
     <string name="passthrough">Passthrough</string>
     <string name="manual">Manual</string>
+    <string name="wifi">Wi-Fi</string>
+    <string name="ethernet">Ethernet</string>
     <string name="overlay_button">Overlay button</string>
     <string name="select_a_button_to_activate_the_overlay">Select a button to activate the overlay</string>
     <string name="select_button">Select button</string>
     <string name="overlay_settings">Overlay settings</string>
     <string name="accessibility_info">Please turn the SEI804 VideoInfoOverlay off and on in the accessibility settings to see the change.</string>
+    <string name="no_connectivity">No internet connection</string>
 
     <string-array name="key_code_labels">
         <item>Bookmark button</item>
