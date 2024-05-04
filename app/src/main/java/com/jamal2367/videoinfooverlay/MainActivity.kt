@@ -186,6 +186,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         appendLine("")
                     }
                 }
+
                 if (videoResolution.isNotEmpty()) {
                     appendLine(getString(R.string.video_resolution, videoResolution))
 
@@ -193,6 +194,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         appendLine("")
                     }
                 }
+
                 if (displayResolution.isNotEmpty()) {
                     appendLine(getString(R.string.display_resolution, displayResolution))
 
@@ -200,6 +202,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         appendLine("")
                     }
                 }
+
                 if (frameRate.isNotEmpty()) {
                     appendLine(getString(R.string.frame_rate, frameRate))
 
@@ -207,6 +210,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         appendLine("")
                     }
                 }
+
                 if (frameCount.isNotEmpty()) {
                     appendLine(getString(R.string.frame_count, frameCount))
 
@@ -214,6 +218,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         appendLine("")
                     }
                 }
+
                 if (colorSpace.isNotEmpty()) {
                     appendLine(getString(R.string.color_space, colorSpace))
 
@@ -221,6 +226,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         appendLine("")
                     }
                 }
+
                 if (hdrPriority.isNotEmpty()) {
                     appendLine(getString(R.string.hdr_priority, hdrPriority))
 
@@ -228,6 +234,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         appendLine("")
                     }
                 }
+
                 if (hdrStatus.isNotEmpty()) {
                     appendLine(getString(R.string.hdr_status, hdrStatus))
 
@@ -235,6 +242,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         appendLine("")
                     }
                 }
+
                 if (hdrPolicy.isNotEmpty()) {
                     val modifiedHdrPolicy = when (hdrPolicy.trim()) {
                         "Follow Source" -> getString(R.string.follow_source)
@@ -247,6 +255,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         appendLine("")
                     }
                 }
+
                 if (digitalAudioFormat.isNotEmpty()) {
                     val modifiedDigitalAudioFormat = when (digitalAudioFormat.trim()) {
                         "Auto" -> getString(R.string.auto)
@@ -260,6 +269,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         appendLine("")
                     }
                 }
+
                 if (audioMode.isNotEmpty()) {
                     appendLine(getString(R.string.audio_mode, audioMode))
 
@@ -267,6 +277,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         appendLine("")
                     }
                 }
+
                 if (cpuUsage.isNotEmpty()) {
                     appendLine(getString(R.string.cpu_usage, cpuUsage))
 
@@ -274,6 +285,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         appendLine("")
                     }
                 }
+
                 if (memoryUsage.isNotEmpty()) {
                     appendLine(getString(R.string.memory_usage, memoryUsage))
 
@@ -281,6 +293,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         appendLine("")
                     }
                 }
+
                 if (getConnectionState().isNotEmpty()) {
                     val modifiedgetConnectionState = when (getConnectionState().trim()) {
                         "WIFI" -> getString(R.string.wifi)
@@ -293,6 +306,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         appendLine("")
                     }
                 }
+
                 if (connectionSpeed.isNotEmpty()) {
                     appendLine(getString(R.string.connection_speed, connectionSpeed))
 
@@ -300,6 +314,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         appendLine("")
                     }
                 }
+
                 if (appName.isNotEmpty()) {
                     appendLine(getString(R.string.app_name_tv, appName))
                 }
@@ -352,6 +367,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
     override fun onDestroy() {
         super.onDestroy()
+
         PreferenceManager.getDefaultSharedPreferences(this)
             .unregisterOnSharedPreferenceChangeListener(this)
     }
