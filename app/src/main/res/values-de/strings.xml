@@ -34,6 +34,8 @@
     <string name="text_size_summary">Wähle eine Textgröße für das Overlay.</string>
     <string name="text_color">Textfarbe</string>
     <string name="text_color_summary">Wähle eine Textfarbe für das Overlay.</string>
+    <string name="background_color">Hintergrundfarbe</string>
+    <string name="background_color_summary">Wähle eine Hintergrundfarbe für das Overlay.</string>
     <string name="line_break">Zeilenumbruch</string>
     <string name="line_break_summary">Diese Option fügt eine Leerzeile hinzu.</string>
     <string name="long_press">Langes Drücken</string>
@@ -46,10 +48,53 @@
         <item>Grüne Taste</item>
         <item>Gelbe Taste</item>
         <item>Blaue Taste</item>
+        <item>Taste 0</item>
+        <item>Taste 1</item>
+        <item>Taste 2</item>
+        <item>Taste 3</item>
+        <item>Taste 4</item>
+        <item>Taste 5</item>
+        <item>Taste 6</item>
+        <item>Taste 7</item>
+        <item>Taste 8</item>
+        <item>Taste 9</item>
     </string-array>
 
     <string-array name="text_color_options">
         <item>Weiß</item>
+        <item>Rot</item>
+        <item>Rosa</item>
+        <item>Lila</item>
+        <item>Dunkles Lila</item>
+        <item>Indigo</item>
+        <item>Blau</item>
+        <item>Hellblau</item>
+        <item>Türkis</item>
+        <item>Türkisblau</item>
+        <item>Grün</item>
+        <item>Hellgrün</item>
+        <item>Gelbgrün</item>
+        <item>Gelb</item>
+        <item>Bernstein</item>
+        <item>Orange</item>
+        <item>Dunkles Orange</item>
+        <item>Braun</item>
+        <item>Grau</item>
+        <item>Blaugrau</item>
+    </string-array>
+
+    <string-array name="background_color_options">
+        <item>Schwarz 100%</item>
+        <item>Schwarz 90%</item>
+        <item>Schwarz 80%</item>
+        <item>Schwarz 70%</item>
+        <item>Schwarz 60%</item>
+        <item>Schwarz 50%</item>
+        <item>Schwarz 40%</item>
+        <item>Schwarz 30%</item>
+        <item>Schwarz 20%</item>
+        <item>Schwarz 10%</item>
+        <item>Transparent</item>
         <item>Rot</item>
         <item>Rosa</item>
         <item>Lila</item>

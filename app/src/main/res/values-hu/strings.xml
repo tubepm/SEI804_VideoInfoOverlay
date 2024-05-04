@@ -1,21 +1,21 @@
 <resources>
     <string name="starting">Indítás…</string>
-    <string name="video_format">Videó formátum:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="video_resolution">Videó felbontás:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="frame_rate">Képkocka:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="frame_count">Képkockák száma:&#160;&#160;&#160;%1$s</string>
-    <string name="display_resolution">Kijelző felbontása:&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="color_space">Színtér:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="hdr_status">HDR-Státusz:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="hdr_policy">HDR-Irányelv:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="hdr_priority">HDR-Prioritás:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="audio_format">Hang formátum:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="audio_mode">Audió-Mód:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="app_name_tv">Alkalmazás-Név:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="cpu_usage">CPU-Használat:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="memory_usage">RAM-Használat:&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="connection_speed">Kapcsolat sebessége:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="connection_type">Csatlakozás típusa:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="video_format">Videó formátum:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="video_resolution">Videó felbontás:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="frame_rate">Képkocka:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="frame_count">Képkockák száma:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="display_resolution">Kijelző felbontása:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="color_space">Színtér:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="hdr_status">HDR-Státusz:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="hdr_policy">HDR-Irányelv:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="hdr_priority">HDR-Prioritás:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="audio_format">Hang formátum:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="audio_mode">Audió-Mód:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="app_name_tv">Alkalmazás-Név:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="cpu_usage">CPU-Használat:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="memory_usage">RAM-Használat:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="connection_speed">Kapcsolat sebessége:&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="connection_type">Csatlakozás típusa:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
     <string name="follow_source">Forrásvezérelt (Player-Led)</string>
     <string name="follow_sink">Lejátszóvezérelt (TV-Led)</string>
     <string name="auto">Automatikus</string>
@@ -34,6 +34,8 @@
     <string name="text_size_summary">Válassza ki a szöveg méretét az Overlayhoz.</string>
     <string name="text_color">Szövegszín</string>
     <string name="text_color_summary">Válassza ki a szöveg színét az Overlayhoz.</string>
+    <string name="background_color">Háttérszín</string>
+    <string name="background_color_summary">Válassza ki az Overlay háttérszínét.</string>
     <string name="line_break">Sor beszúrás</string>
     <string name="line_break_summary">Ez a beállítás egy üres sort ad hozzá.</string>
     <string name="long_press">Hosszú gombnyomás</string>
@@ -60,6 +62,39 @@
 
     <string-array name="text_color_options">
         <item>Fehér</item>
+        <item>Piros</item>
+        <item>Rózsaszín</item>
+        <item>Lila</item>
+        <item>Sötét Lila</item>
+        <item>Indigó</item>
+        <item>Kék</item>
+        <item>Világoskék</item>
+        <item>Türkiz</item>
+        <item>Türkizkék</item>
+        <item>Zöld</item>
+        <item>Világoszöld</item>
+        <item>Sárgászöld</item>
+        <item>Sárga</item>
+        <item>Borostyán</item>
+        <item>Narancs</item>
+        <item>Sötétnarancs</item>
+        <item>Barna</item>
+        <item>Szürke</item>
+        <item>Kékesszürke</item>
+    </string-array>
+
+    <string-array name="background_color_options">
+        <item>Fekete 100%</item>
+        <item>Fekete 90%</item>
+        <item>Fekete 80%</item>
+        <item>Fekete 70%</item>
+        <item>Fekete 60%</item>
+        <item>Fekete 50%</item>
+        <item>Fekete 40%</item>
+        <item>Fekete 30%</item>
+        <item>Fekete 20%</item>
+        <item>Fekete 10%</item>
+        <item>Átlátszó</item>
         <item>Piros</item>
         <item>Rózsaszín</item>
         <item>Lila</item>

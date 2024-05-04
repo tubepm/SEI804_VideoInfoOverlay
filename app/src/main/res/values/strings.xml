@@ -35,6 +35,8 @@
     <string name="text_size_summary">Select a text size for the overlay.</string>
     <string name="text_color">Text color</string>
     <string name="text_color_summary">Select a text color for the overlay.</string>
+    <string name="background_color">Background color</string>
+    <string name="background_color_summary">Select a background color for the overlay.</string>
     <string name="line_break">Line break</string>
     <string name="line_break_summary">This option adds an empty line.</string>
     <string name="long_press">Long press</string>
@@ -47,6 +49,16 @@
         <item>Green button</item>
         <item>Yellow button</item>
         <item>Blue button</item>
+        <item>Button 0</item>
+        <item>Button 1</item>
+        <item>Button 2</item>
+        <item>Button 3</item>
+        <item>Button 4</item>
+        <item>Button 5</item>
+        <item>Button 6</item>
+        <item>Button 7</item>
+        <item>Button 8</item>
+        <item>Button 9</item>
     </string-array>
 
     <string-array name="key_codes">
@@ -56,6 +68,17 @@
         <item>3</item>
         <item>4</item>
         <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
     </string-array>
 
     <string-array name="text_size_options">
@@ -120,6 +143,72 @@
         <item>#795548</item>
         <item>#9E9E9E</item>
         <item>#607D8B</item>
+    </string-array>
+
+    <string-array name="background_color_options">
+        <item>Black 100%</item>
+        <item>Black 90%</item>
+        <item>Black 80%</item>
+        <item>Black 70%</item>
+        <item>Black 60%</item>
+        <item>Black 50%</item>
+        <item>Black 40%</item>
+        <item>Black 30%</item>
+        <item>Black 20%</item>
+        <item>Black 10%</item>
+        <item>Transparent</item>
+        <item>Red</item>
+        <item>Pink</item>
+        <item>Purple</item>
+        <item>Deep Purple</item>
+        <item>Indigo</item>
+        <item>Blue</item>
+        <item>Light Blue</item>
+        <item>Cyan</item>
+        <item>Teal</item>
+        <item>Green</item>
+        <item>Light Green</item>
+        <item>Lime</item>
+        <item>Yellow</item>
+        <item>Amber</item>
+        <item>Orange</item>
+        <item>Deep Orange</item>
+        <item>Brown</item>
+        <item>Grey</item>
+        <item>Blue Grey</item>
+    </string-array>
+
+    <string-array name="background_color_values">
+        <item>#FF000000</item>
+        <item>#E6000000</item>
+        <item>#CC000000</item>
+        <item>#B3000000</item>
+        <item>#99000000</item>
+        <item>#80000000</item>
+        <item>#66000000</item>
+        <item>#4D000000</item>
+        <item>#33000000</item>
+        <item>#1A000000</item>
+        <item>#00000000</item>
+        <item>#20F44336</item>
+        <item>#20E91E63</item>
+        <item>#209C27B0</item>
+        <item>#20673AB7</item>
+        <item>#203F51B5</item>
+        <item>#202196F3</item>
+        <item>#2003A9F4</item>
+        <item>#2000BCD4</item>
+        <item>#20009688</item>
+        <item>#204CAF50</item>
+        <item>#208BC34A</item>
+        <item>#20CDDC39</item>
+        <item>#20FFEB3B</item>
+        <item>#20FFC107</item>
+        <item>#20FF9800</item>
+        <item>#20FF5722</item>
+        <item>#20795548</item>
+        <item>#209E9E9E</item>
+        <item>#20607D8B</item>
     </string-array>
 
 </resources>

@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.PixelFormat
+import android.graphics.drawable.GradientDrawable
 import android.net.ConnectivityManager
 import android.os.Handler
 import android.os.Looper
@@ -34,6 +35,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
     private val emptyLineKey = "empty_line_key"
     private val textSizeKey = "text_size_key"
     private val textColorKey = "text_color_key"
+    private val backgroundColorKey = "background_color_key"
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
         // No command
@@ -95,6 +97,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
         updateOverlayTextSize()
         updateOverlayTextColor()
+        updateOverlayBackgroundColor()
 
         params.gravity = Gravity.TOP or Gravity.END
 
@@ -133,6 +136,16 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             3 -> KeyEvent.KEYCODE_PROG_GREEN
             4 -> KeyEvent.KEYCODE_PROG_YELLOW
             5 -> KeyEvent.KEYCODE_PROG_BLUE
+            6 -> KeyEvent.KEYCODE_0
+            7 -> KeyEvent.KEYCODE_1
+            8 -> KeyEvent.KEYCODE_2
+            9 -> KeyEvent.KEYCODE_3
+            10 -> KeyEvent.KEYCODE_4
+            11 -> KeyEvent.KEYCODE_5
+            12 -> KeyEvent.KEYCODE_6
+            13 -> KeyEvent.KEYCODE_7
+            14 -> KeyEvent.KEYCODE_8
+            15 -> KeyEvent.KEYCODE_9
             else -> KeyEvent.KEYCODE_BOOKMARK
         }
 
@@ -150,6 +163,10 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
         if (key == textColorKey) {
             updateOverlayTextColor()
+        }
+
+        if (key == backgroundColorKey) {
+            updateOverlayBackgroundColor()
         }
     }
 
@@ -349,6 +366,19 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             val textColorKey = sharedPreferences.getString("text_color_key", "#FFFFFF") ?: "#FFFFFF"
             val textColor = Color.parseColor(textColorKey)
             overlayTextView.setTextColor(textColor)
+        }
+    }
+
+    private fun updateOverlayBackgroundColor() {
+        if (::overlayTextView.isInitialized) {
+            val backgroundColorKey = sharedPreferences.getString("background_color_key", "#E6000000") ?: "#E6000000"
+            val backgroundColor = Color.parseColor(backgroundColorKey)
+            val backgroundDrawable = GradientDrawable()
+
+            backgroundDrawable.setColor(backgroundColor)
+            backgroundDrawable.cornerRadius = 28.toFloat()
+
+            overlayTextView.background = backgroundDrawable
         }
     }
 
