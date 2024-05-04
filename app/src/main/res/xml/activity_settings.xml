@@ -7,12 +7,14 @@
             android:dialogTitle="@string/select_button"
             android:entries="@array/key_code_labels"
             android:entryValues="@array/key_codes"
+            android:icon="@drawable/ic_remote_24dp"
             android:key="selected_code_key"
             android:summary="@string/overlay_button_summary"
             android:title="@string/overlay_button" />
 
         <CheckBoxPreference
             android:defaultValue="false"
+            android:icon="@drawable/ic_long_press_24dp"
             android:key="long_press_key"
             android:summary="@string/long_press_summary"
             android:title="@string/long_press" />
@@ -21,6 +23,7 @@
     <PreferenceCategory>
 
         <CheckBoxPreference
+            android:icon="@drawable/ic_line_break_24dp"
             android:key="empty_line_key"
             android:summary="@string/line_break_summary"
             android:title="@string/line_break"
@@ -33,6 +36,7 @@
             android:defaultValue="12"
             android:entries="@array/text_size_options"
             android:entryValues="@array/text_size_values"
+            android:icon="@drawable/ic_size_24dp"
             android:key="text_size_key"
             android:summary="@string/text_size_summary"
             android:title="@string/text_size" />
@@ -41,6 +45,7 @@
             android:defaultValue="#FFFFFF"
             android:entries="@array/text_color_options"
             android:entryValues="@array/text_color_values"
+            android:icon="@drawable/ic_color_24dp"
             android:key="text_color_key"
             android:summary="@string/text_color_summary"
             android:title="@string/text_color" />
