@@ -17,7 +17,6 @@
         android:gravity="start"
         android:padding="12dp"
         android:text="@string/starting"
-        android:textColor="@android:color/white"
         android:fontFamily="@font/inter" />
 
 </RelativeLayout>
