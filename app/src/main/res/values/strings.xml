@@ -33,6 +33,8 @@
     <string name="no_connectivity">No internet connection</string>
     <string name="text_size">Text Size</string>
     <string name="text_size_summary">Select a text size for the overlay</string>
+    <string name="text_color">Text Color</string>
+    <string name="text_color_summary">Select a text color for the overlay</string>
 
     <string-array name="key_code_labels">
         <item>Bookmark button</item>
@@ -51,4 +53,69 @@
         <item>4</item>
         <item>5</item>
     </string-array>
+
+    <string-array name="text_size_options">
+        <item>7px</item>
+        <item>8px</item>
+        <item>9px</item>
+        <item>10px</item>
+        <item>11px</item>
+        <item>12px</item>
+    </string-array>
+
+    <string-array name="text_size_values">
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </string-array>
+
+    <string-array name="text_color_options">
+        <item>White</item>
+        <item>Red</item>
+        <item>Pink</item>
+        <item>Purple</item>
+        <item>Deep Purple</item>
+        <item>Indigo</item>
+        <item>Blue</item>
+        <item>Light Blue</item>
+        <item>Cyan</item>
+        <item>Teal</item>
+        <item>Green</item>
+        <item>Light Green</item>
+        <item>Lime</item>
+        <item>Yellow</item>
+        <item>Amber</item>
+        <item>Orange</item>
+        <item>Deep Orange</item>
+        <item>Brown</item>
+        <item>Grey</item>
+        <item>Blue Grey</item>
+    </string-array>
+
+    <string-array name="text_color_values">
+        <item>#FFFFFF</item>
+        <item>#F44336</item>
+        <item>#E91E63</item>
+        <item>#9C27B0</item>
+        <item>#673AB7</item>
+        <item>#3F51B5</item>
+        <item>#2196F3</item>
+        <item>#03A9F4</item>
+        <item>#00BCD4</item>
+        <item>#009688</item>
+        <item>#4CAF50</item>
+        <item>#8BC34A</item>
+        <item>#CDDC39</item>
+        <item>#FFEB3B</item>
+        <item>#FFC107</item>
+        <item>#FF9800</item>
+        <item>#FF5722</item>
+        <item>#795548</item>
+        <item>#9E9E9E</item>
+        <item>#607D8B</item>
+    </string-array>
+
 </resources>

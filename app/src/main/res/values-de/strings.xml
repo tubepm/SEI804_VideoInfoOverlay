@@ -32,6 +32,8 @@
     <string name="no_connectivity">Keine Internetverbindung</string>
     <string name="text_size">Textgröße</string>
     <string name="text_size_summary">Wähle eine Textgröße für das Overlay</string>
+    <string name="text_color">Textfarbe</string>
+    <string name="text_color_summary">Wähle eine Textfarbe für das Overlay</string>
 
     <string-array name="key_code_labels">
         <item>Lesezeichen-Taste</item>
@@ -41,4 +43,28 @@
         <item>Gelbe Taste</item>
         <item>Blaue Taste</item>
     </string-array>
+
+    <string-array name="text_color_options">
+        <item>Weiß</item>
+        <item>Rot</item>
+        <item>Rosa</item>
+        <item>Lila</item>
+        <item>Dunkles Lila</item>
+        <item>Indigo</item>
+        <item>Blau</item>
+        <item>Hellblau</item>
+        <item>Türkis</item>
+        <item>Türkisblau</item>
+        <item>Grün</item>
+        <item>Hellgrün</item>
+        <item>Gelbgrün</item>
+        <item>Gelb</item>
+        <item>Bernstein</item>
+        <item>Orange</item>
+        <item>Dunkles Orange</item>
+        <item>Braun</item>
+        <item>Grau</item>
+        <item>Blaugrau</item>
+    </string-array>
+
 </resources>

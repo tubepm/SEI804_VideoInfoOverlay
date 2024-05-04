@@ -3,6 +3,7 @@ package com.jamal2367.videoinfooverlay
 import android.accessibilityservice.AccessibilityService
 import android.content.Context
 import android.content.SharedPreferences
+import android.graphics.Color
 import android.graphics.PixelFormat
 import android.net.ConnectivityManager
 import android.os.Handler
@@ -25,9 +26,11 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
     private val handler = Handler(Looper.getMainLooper())
     private var overlayView: View? = null
+
     private val textSizeKey = "text_size_key"
-    private var preference: String = "selected_key_code"
-    private var selectedKeyCode: Int = KeyEvent.KEYCODE_BOOKMARK
+    private val textColorKey = "text_color_key"
+    private var selectedCodeKey= "selected_code_key"
+    private var standardKeyCode: Int = KeyEvent.KEYCODE_BOOKMARK
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
         // No command
@@ -38,7 +41,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
     }
 
     override fun onKeyEvent(event: KeyEvent): Boolean {
-        if (event.keyCode == selectedKeyCode && event.action == KeyEvent.ACTION_DOWN) {
+        if (event.keyCode == standardKeyCode && event.action == KeyEvent.ACTION_DOWN) {
             if (overlayView != null) {
                 removeOverlay()
                 Log.d("TAG", "Overlay removed")
@@ -64,6 +67,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         overlayTextView = overlayView!!.findViewById(R.id.overlayTextView)
 
         updateOverlayTextSize()
+        updateOverlayTextColor()
 
         params.gravity = Gravity.TOP or Gravity.END
 
@@ -89,13 +93,13 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
 
         val keyCodesArray = resources.getStringArray(R.array.key_codes)
-        val selectedKeyCodeString = sharedPreferences.getString(preference, keyCodesArray[0])
+        val selectedKeyCodeString = sharedPreferences.getString(selectedCodeKey, keyCodesArray[0])
 
         val index = keyCodesArray.indexOf(selectedKeyCodeString)
 
         sharedPreferences.registerOnSharedPreferenceChangeListener(this)
 
-        selectedKeyCode = when (index) {
+        standardKeyCode = when (index) {
             0 -> KeyEvent.KEYCODE_BOOKMARK
             1 -> KeyEvent.KEYCODE_GUIDE
             2 -> KeyEvent.KEYCODE_PROG_RED
@@ -105,16 +109,20 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             else -> KeyEvent.KEYCODE_BOOKMARK
         }
 
-        sharedPreferences.edit().putString(preference, selectedKeyCodeString).apply()
+        sharedPreferences.edit().putString(selectedCodeKey, selectedKeyCodeString).apply()
     }
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
-        if (key == preference) {
+        if (key == selectedCodeKey) {
             showPreferenceChangedDialog()
         }
 
         if (key == textSizeKey) {
             updateOverlayTextSize()
+        }
+
+        if (key == textColorKey) {
+            updateOverlayTextColor()
         }
     }
 
@@ -226,10 +234,20 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
     private fun updateOverlayTextSize() {
         if (::overlayTextView.isInitialized) {
-            val textSize = sharedPreferences.getInt(textSizeKey, 12)
+            val textSizeKey = sharedPreferences.getString("text_size_key", "12") ?: "12"
+            val textSize = textSizeKey.toInt()
             overlayTextView.textSize = textSize.toFloat()
         }
     }
+
+    private fun updateOverlayTextColor() {
+        if (::overlayTextView.isInitialized) {
+            val textColorKey = sharedPreferences.getString("text_color_key", "#FFFFFF") ?: "#FFFFFF"
+            val textColor = Color.parseColor(textColorKey)
+            overlayTextView.setTextColor(textColor)
+        }
+    }
+
 
     @Suppress("DEPRECATION")
     fun getConnectionState(): String {

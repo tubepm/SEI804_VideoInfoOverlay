@@ -15,10 +15,9 @@
         android:layout_marginEnd="12dp"
         android:background="@drawable/background_rounded"
         android:gravity="start"
-        android:padding="18dp"
+        android:padding="12dp"
         android:text="@string/starting"
         android:textColor="@android:color/white"
-        android:fontFamily="@font/inter"
-        android:textSize="12sp" />
+        android:fontFamily="@font/inter" />
 
 </RelativeLayout>
