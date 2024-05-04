@@ -24,14 +24,16 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
     private lateinit var overlayTextView: TextView
     private lateinit var sharedPreferences: SharedPreferences
 
-    private val handler = Handler(Looper.getMainLooper())
+    private var standardKeyCode: Int = KeyEvent.KEYCODE_BOOKMARK
     private var overlayView: View? = null
+    private var lastKeyDownTime: Long = 0
 
-    private var selectedCodeKey= "selected_code_key"
-    private var emptyLineKey= "empty_line_key"
+    private val handler = Handler(Looper.getMainLooper())
+    private val selectedCodeKey = "selected_code_key"
+    private val longPressKey = "long_press_key"
+    private val emptyLineKey = "empty_line_key"
     private val textSizeKey = "text_size_key"
     private val textColorKey = "text_color_key"
-    private var standardKeyCode: Int = KeyEvent.KEYCODE_BOOKMARK
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
         // No command
@@ -42,15 +44,39 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
     }
 
     override fun onKeyEvent(event: KeyEvent): Boolean {
-        if (event.keyCode == standardKeyCode && event.action == KeyEvent.ACTION_DOWN) {
-            if (overlayView != null) {
-                removeOverlay()
-                Log.d("TAG", "Overlay removed")
-            } else {
-                createOverlay()
-                Log.d("TAG", "Overlay started")
+        val isLongPress = sharedPreferences.getBoolean(longPressKey, false)
+
+        if (event.keyCode == standardKeyCode) {
+            if (event.action == KeyEvent.ACTION_DOWN) {
+                lastKeyDownTime = System.currentTimeMillis()
+                return true
+            } else if (event.action == KeyEvent.ACTION_UP) {
+                val currentTime = System.currentTimeMillis()
+                val pressDuration = currentTime - lastKeyDownTime
+
+                if (pressDuration >= 750) {
+                    if (isLongPress) {
+                        if (overlayView != null) {
+                            removeOverlay()
+                            Log.d("TAG", "Overlay removed")
+                        } else {
+                            createOverlay()
+                            Log.d("TAG", "Overlay started")
+                        }
+                    }
+                } else {
+                    if (!isLongPress) {
+                        if (overlayView != null) {
+                            removeOverlay()
+                            Log.d("TAG", "Overlay removed")
+                        } else {
+                            createOverlay()
+                            Log.d("TAG", "Overlay started")
+                        }
+                    }
+                }
+                return true
             }
-            return true
         }
         return super.onKeyEvent(event)
     }

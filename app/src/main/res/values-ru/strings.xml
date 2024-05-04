@@ -23,19 +23,21 @@
     <string name="manual">Manual</string>
     <string name="wifi">Wi-Fi</string>
     <string name="ethernet">Ethernet</string>
-    <string name="overlay_button">Кнопка наложения</string>
-    <string name="select_a_button_to_activate_the_overlay">Нажмите кнопку, чтобы активировать наложение</string>
-    <string name="select_button">Выбрать кнопку</string>
     <string name="overlay_settings">Настройки наложения</string>
     <string name="accessibility_info1">\"Специальные возможности\" -> \"SEI804 VideoInfoOverlay\"</string>
     <string name="accessibility_info2">выключите/включите, чтобы изменения вступили в силу.</string>
     <string name="no_connectivity">Нет подключения к Интернету</string>
+    <string name="overlay_button">Кнопка наложения</string>
+    <string name="overlay_button_summary">Нажмите кнопку, чтобы активировать наложение.</string>
+    <string name="select_button">Выбрать кнопку</string>
     <string name="text_size">Размер текста</string>
-    <string name="text_size_summary">Выберите размер текста для наложения</string>
+    <string name="text_size_summary">Выберите размер текста для наложения.</string>
     <string name="text_color">Цвет текста</string>
-    <string name="text_color_summary">Выберите цвет текста для наложения</string>
+    <string name="text_color_summary">Выберите цвет текста для наложения.</string>
     <string name="line_break">Разрыв строки</string>
-    <string name="line_break_summary">Этот вариант добавляет пустую строку</string>
+    <string name="line_break_summary">Этот вариант добавляет пустую строку.</string>
+    <string name="long_press">Длительное нажатие</string>
+    <string name="long_press_summary">Эта опция добавляет длительное нажатие кнопки. (мин. 750 мс)</string>
 
     <string-array name="key_code_labels">
         <item>Избранное</item>

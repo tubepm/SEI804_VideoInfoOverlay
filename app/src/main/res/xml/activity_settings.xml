@@ -8,14 +8,26 @@
             android:entries="@array/key_code_labels"
             android:entryValues="@array/key_codes"
             android:key="selected_code_key"
-            android:summary="@string/select_a_button_to_activate_the_overlay"
+            android:summary="@string/overlay_button_summary"
             android:title="@string/overlay_button" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="long_press_key"
+            android:summary="@string/long_press_summary"
+            android:title="@string/long_press" />
+
+    </PreferenceCategory>
+    <PreferenceCategory>
 
         <CheckBoxPreference
             android:key="empty_line_key"
             android:summary="@string/line_break_summary"
             android:title="@string/line_break"
             android:defaultValue="true" />
+
+    </PreferenceCategory>
+    <PreferenceCategory>
 
         <ListPreference
             android:defaultValue="12"

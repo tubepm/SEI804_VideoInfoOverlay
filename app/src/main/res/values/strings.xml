@@ -24,19 +24,21 @@
     <string name="manual">Manual</string>
     <string name="wifi">Wi-Fi</string>
     <string name="ethernet">Ethernet</string>
-    <string name="overlay_button">Overlay button</string>
-    <string name="select_a_button_to_activate_the_overlay">Select a button to activate the overlay</string>
-    <string name="select_button">Select button</string>
     <string name="overlay_settings">Overlay settings</string>
     <string name="accessibility_info1">\"Accessibility\" -> \"SEI804 VideoInfoOverlay\"</string>
     <string name="accessibility_info2">switch off/on for the change to take effect.</string>
     <string name="no_connectivity">No internet connection</string>
+    <string name="overlay_button">Overlay button</string>
+    <string name="overlay_button_summary">Select a button to activate the overlay.</string>
+    <string name="select_button">Select button</string>
     <string name="text_size">Text size</string>
-    <string name="text_size_summary">Select a text size for the overlay</string>
+    <string name="text_size_summary">Select a text size for the overlay.</string>
     <string name="text_color">Text color</string>
-    <string name="text_color_summary">Select a text color for the overlay</string>
-    <string name="line_break">Line break</string>+
-    <string name="line_break_summary">This option adds an empty line</string>
+    <string name="text_color_summary">Select a text color for the overlay.</string>
+    <string name="line_break">Line break</string>
+    <string name="line_break_summary">This option adds an empty line.</string>
+    <string name="long_press">Long press</string>
+    <string name="long_press_summary">This option adds a long button press. (min. 750ms)</string>
 
     <string-array name="key_code_labels">
         <item>Bookmark button</item>
