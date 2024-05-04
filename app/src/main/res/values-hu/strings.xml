@@ -1,0 +1,84 @@
+<resources>
+    <string name="starting">Indítás…</string>
+    <string name="video_format">Videó formátum:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="video_resolution">Videó felbontás:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="frame_rate">Képkocka:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="frame_count">Képkockák száma:&#160;&#160;&#160;%1$s</string>
+    <string name="display_resolution">Kijelző felbontása:&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="color_space">Színtér:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="hdr_status">HDR-Státusz:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="hdr_policy">HDR-Irányelv:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="hdr_priority">HDR-Prioritás:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="audio_format">Hang formátum:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="audio_mode">Audió-Mód:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="app_name_tv">Alkalmazás-Név:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="cpu_usage">CPU-Használat:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="memory_usage">RAM-Használat:&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="connection_speed">Kapcsolat sebessége:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="connection_type">Csatlakozás típusa:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="follow_source">Forrásvezérelt (Player-Led)</string>
+    <string name="follow_sink">Lejátszóvezérelt (TV-Led)</string>
+    <string name="auto">Automatikus</string>
+    <string name="passthrough">Hangtovábbítás</string>
+    <string name="manual">Manuális</string>
+    <string name="wifi">Wifi</string>
+    <string name="ethernet">Vezetékes</string>
+    <string name="overlay_settings">Overlay-Beállítások</string>
+    <string name="accessibility_info1">\"Hozzáférhetőség (Accesibility)\" -> \"SEI804 VideoInfoOverlay\"</string>
+    <string name="accessibility_info2">ki-/bekapcsolás, hogy a változás életbe lépjen.</string>
+    <string name="no_connectivity">Nincs csatlakozás</string>
+    <string name="overlay_button">Overlay-Aktiváló gomb</string>
+    <string name="overlay_button_summary">Válasszon egy gombot az Overlay aktiválásához.</string>
+    <string name="select_button">Gomb kiválasztása</string>
+    <string name="text_size">Szöveg méret</string>
+    <string name="text_size_summary">Válassza ki a szöveg méretét az Overlayhoz.</string>
+    <string name="text_color">Szövegszín</string>
+    <string name="text_color_summary">Válassza ki a szöveg színét az Overlayhoz.</string>
+    <string name="line_break">Sor beszúrás</string>
+    <string name="line_break_summary">Ez a beállítás egy üres sort ad hozzá.</string>
+    <string name="long_press">Hosszú gombnyomás</string>
+    <string name="long_press_summary">Ezzel az opcióval, hosszú gombnyomásra aktiválást adhatunk hozzá. (min. 750 ms)</string>
+
+    <string-array name="key_code_labels">
+        <item>Bookmark Gomb</item>
+        <item>TV-Guide Gomb</item>
+        <item>Vörös Gomb</item>
+        <item>Zöld Gomb</item>
+        <item>Sárga Gomb</item>
+        <item>Kék Gomb</item>
+        <item>0-ás szám gomb</item>
+        <item>1-es szám gomb</item>
+        <item>2-es szám gomb</item>
+        <item>3-as szám gomb</item>
+        <item>4-es szám gomb</item>
+        <item>5-ös szám gomb</item>
+        <item>6-os szám gomb</item>
+        <item>7-es szám gomb</item>
+        <item>8-as szám gomb</item>
+        <item>9-es szám gomb</item>
+    </string-array>
+
+    <string-array name="text_color_options">
+        <item>Fehér</item>
+        <item>Piros</item>
+        <item>Rózsaszín</item>
+        <item>Lila</item>
+        <item>Sötét Lila</item>
+        <item>Indigó</item>
+        <item>Kék</item>
+        <item>Világoskék</item>
+        <item>Türkiz</item>
+        <item>Türkizkék</item>
+        <item>Zöld</item>
+        <item>Világoszöld</item>
+        <item>Sárgászöld</item>
+        <item>Sárga</item>
+        <item>Borostyán</item>
+        <item>Narancs</item>
+        <item>Sötétnarancs</item>
+        <item>Barna</item>
+        <item>Szürke</item>
+        <item>Kékesszürke</item>
+    </string-array>
+
+</resources>
