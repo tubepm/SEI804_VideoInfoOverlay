@@ -27,9 +27,10 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
     private val handler = Handler(Looper.getMainLooper())
     private var overlayView: View? = null
 
+    private var selectedCodeKey= "selected_code_key"
+    private var emptyLineKey= "empty_line_key"
     private val textSizeKey = "text_size_key"
     private val textColorKey = "text_color_key"
-    private var selectedCodeKey= "selected_code_key"
     private var standardKeyCode: Int = KeyEvent.KEYCODE_BOOKMARK
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
@@ -133,6 +134,8 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
     private val updateData = object : Runnable {
         override fun run() {
+            val isEmptyLine = sharedPreferences.getBoolean(emptyLineKey, true)
+
             val videoFormat = getSystemProperty("sys.nes.info.video_format")
             val videoResolution = getSystemProperty("sys.nes.info.video_resolution")
             val frameRate = getSystemProperty("sys.nes.info.frame_rate")
@@ -152,27 +155,59 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             val overlayText = buildString {
                 if (videoFormat.isNotEmpty()) {
                     appendLine(getString(R.string.video_format, videoFormat))
+
+                    if (isEmptyLine) {
+                        appendLine("")
+                    }
                 }
                 if (videoResolution.isNotEmpty()) {
                     appendLine(getString(R.string.video_resolution, videoResolution))
+
+                    if (isEmptyLine) {
+                        appendLine("")
+                    }
                 }
                 if (displayResolution.isNotEmpty()) {
                     appendLine(getString(R.string.display_resolution, displayResolution))
+
+                    if (isEmptyLine) {
+                        appendLine("")
+                    }
                 }
                 if (frameRate.isNotEmpty()) {
                     appendLine(getString(R.string.frame_rate, frameRate))
+
+                    if (isEmptyLine) {
+                        appendLine("")
+                    }
                 }
                 if (frameCount.isNotEmpty()) {
                     appendLine(getString(R.string.frame_count, frameCount))
+
+                    if (isEmptyLine) {
+                        appendLine("")
+                    }
                 }
                 if (colorSpace.isNotEmpty()) {
                     appendLine(getString(R.string.color_space, colorSpace))
+
+                    if (isEmptyLine) {
+                        appendLine("")
+                    }
                 }
                 if (hdrPriority.isNotEmpty()) {
                     appendLine(getString(R.string.hdr_priority, hdrPriority))
+
+                    if (isEmptyLine) {
+                        appendLine("")
+                    }
                 }
                 if (hdrStatus.isNotEmpty()) {
                     appendLine(getString(R.string.hdr_status, hdrStatus))
+
+                    if (isEmptyLine) {
+                        appendLine("")
+                    }
                 }
                 if (hdrPolicy.isNotEmpty()) {
                     val modifiedHdrPolicy = when (hdrPolicy.trim()) {
@@ -181,6 +216,10 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         else -> hdrPolicy
                     }
                     appendLine(getString(R.string.hdr_policy, modifiedHdrPolicy))
+
+                    if (isEmptyLine) {
+                        appendLine("")
+                    }
                 }
                 if (digitalAudioFormat.isNotEmpty()) {
                     val modifiedDigitalAudioFormat = when (digitalAudioFormat.trim()) {
@@ -190,15 +229,31 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         else -> digitalAudioFormat
                     }
                     appendLine(getString(R.string.audio_format, modifiedDigitalAudioFormat))
+
+                    if (isEmptyLine) {
+                        appendLine("")
+                    }
                 }
                 if (audioMode.isNotEmpty()) {
                     appendLine(getString(R.string.audio_mode, audioMode))
+
+                    if (isEmptyLine) {
+                        appendLine("")
+                    }
                 }
                 if (cpuUsage.isNotEmpty()) {
                     appendLine(getString(R.string.cpu_usage, cpuUsage))
+
+                    if (isEmptyLine) {
+                        appendLine("")
+                    }
                 }
                 if (memoryUsage.isNotEmpty()) {
                     appendLine(getString(R.string.memory_usage, memoryUsage))
+
+                    if (isEmptyLine) {
+                        appendLine("")
+                    }
                 }
                 if (getConnectionState().isNotEmpty()) {
                     val modifiedgetConnectionState = when (getConnectionState().trim()) {
@@ -207,9 +262,17 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         else -> getConnectionState()
                     }
                     appendLine(getString(R.string.connection_type, modifiedgetConnectionState))
+
+                    if (isEmptyLine) {
+                        appendLine("")
+                    }
                 }
                 if (connectionSpeed.isNotEmpty()) {
                     appendLine(getString(R.string.connection_speed, connectionSpeed))
+
+                    if (isEmptyLine) {
+                        appendLine("")
+                    }
                 }
                 if (appName.isNotEmpty()) {
                     appendLine(getString(R.string.app_name_tv, appName))
