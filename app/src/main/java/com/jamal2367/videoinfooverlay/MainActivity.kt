@@ -24,6 +24,7 @@ import java.util.Locale
 class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenceChangeListener {
 
     private lateinit var overlayTextView: TextView
+    private lateinit var overlayTextView2: TextView
     private lateinit var sharedPreferences: SharedPreferences
 
     private var standardKeyCode: Int = KeyEvent.KEYCODE_BOOKMARK
@@ -95,6 +96,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
         overlayView = View.inflate(this, R.layout.activity_main, null)
         overlayTextView = overlayView!!.findViewById(R.id.overlayTextView)
+        overlayTextView2 = overlayView!!.findViewById(R.id.overlayTextView2)
 
         updateOverlayTextSize()
         updateOverlayTextColor()
@@ -196,7 +198,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             val connectionSpeed = getSystemProperty("sys.nes.info.connection_speed")
 
             val overlayText = buildString {
-                appendLine("Video:")
+                appendLine("⠀ ")
 
                 if (displayResolution.isNotEmpty()) {
                     val modifiedDisplayResolution = when (displayResolution.trim()) {
@@ -255,7 +257,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         "480i24hz" -> "854 × 480i, 24Hz"
                         else -> displayResolution
                     }
-                    appendLine(getString(R.string.display_resolution, modifiedDisplayResolution))
+                    appendLine(modifiedDisplayResolution)
                 }
 
                 if (videoResolution.isNotEmpty()) {
@@ -265,7 +267,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                     val frameRateFormatted = frameRateUpperCase.replace("\\s".toRegex(), "")
                     videoInfo += if (frameRateFormatted.isNotEmpty()) ", $frameRateFormatted" else ""
 
-                    appendLine(getString(R.string.video_resolution, videoInfo))
+                    appendLine(videoInfo)
                 }
 
                 if (videoFormat.isNotEmpty()) {
@@ -354,13 +356,13 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         "ammvdec_av1" -> "AV1"
                         else -> videoFormat
                     }
-                    appendLine(getString(R.string.video_format, modifiedVideoFormat))
+                    appendLine(modifiedVideoFormat)
                 }
 
                 if (isEmptyLine) {
-                    appendLine("")
+                    appendLine()
                 }
-                appendLine("Audio:")
+                appendLine()
 
                 if (digitalAudioFormat.isNotEmpty()) {
                     val modifiedDigitalAudioFormat = when (digitalAudioFormat.trim()) {
@@ -369,7 +371,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         "Manual" -> getString(R.string.manual)
                         else -> digitalAudioFormat
                     }
-                    appendLine(getString(R.string.audio_format, modifiedDigitalAudioFormat))
+                    appendLine(modifiedDigitalAudioFormat)
                 }
 
                 if (audioMode.isNotEmpty()) {
@@ -389,13 +391,13 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         "DTS EXPRESS" -> "DTS Express"
                         else -> audioMode
                     }
-                    appendLine(getString(R.string.audio_mode, modifiedAudioMode))
+                    appendLine(modifiedAudioMode)
                 }
 
                 if (isEmptyLine) {
-                    appendLine("")
+                    appendLine()
                 }
-                appendLine("Display:")
+                appendLine()
 
                 if (colorSpace.isNotEmpty()) {
                     val modifiedColorSpace = when (colorSpace.trim()) {
@@ -404,11 +406,11 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         "YCbCr444 8bit" -> "YCbCr 4:4:4 (8 Bit)"
                         else -> colorSpace
                     }
-                    appendLine(getString(R.string.color_space, modifiedColorSpace))
+                    appendLine(modifiedColorSpace)
                 }
 
                 if (hdrPriority.isNotEmpty()) {
-                    appendLine(getString(R.string.hdr_priority, hdrPriority))
+                    appendLine(hdrPriority)
                 }
 
                 if (hdrStatus.isNotEmpty()) {
@@ -420,7 +422,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         "DolbyVision-Std" -> "Dolby Vision (Standard)"
                         else -> hdrStatus
                     }
-                    appendLine(getString(R.string.hdr_status, modifiedHdrStatus))
+                    appendLine(modifiedHdrStatus)
                 }
 
                 if (hdrPolicy.isNotEmpty()) {
@@ -429,21 +431,21 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         "Follow Sink" -> getString(R.string.follow_sink)
                         else -> hdrPolicy
                     }
-                    appendLine(getString(R.string.hdr_policy, modifiedHdrPolicy))
+                    appendLine(modifiedHdrPolicy)
                 }
 
                 if (isEmptyLine) {
-                    appendLine("")
+                    appendLine()
                 }
-                appendLine("Other:")
+                appendLine()
 
                 if (cpuUsage.isNotEmpty()) {
                     val formattedCpuUsage = cpuUsage.replace(Regex("(\\d+)%"), "$1 %")
-                    appendLine(getString(R.string.cpu_usage, formattedCpuUsage))
+                    appendLine(formattedCpuUsage)
                 }
 
                 if (memoryUsage.isNotEmpty()) {
-                    appendLine(getString(R.string.memory_usage, memoryUsage))
+                    appendLine(memoryUsage)
                 }
 
                 if (getConnectionState().isNotEmpty()) {
@@ -457,23 +459,94 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         val formattedSpeed = connectionSpeed.replace(Regex("(\\d)([A-Za-z])"), "$1 $2")
                         val connectionInfo = "$modifiedgetConnectionState / $formattedSpeed"
                         if (modifiedgetConnectionState != getString(R.string.no_connectivity)) {
-                            appendLine(getString(R.string.connection, connectionInfo))
+                            appendLine(connectionInfo)
                         } else {
-                            appendLine(getString(R.string.connection, getString(R.string.no_connectivity)))
+                            appendLine(getString(R.string.no_connectivity))
                         }
                     }
                 }
 
-
-
-
                 if (appName.isNotEmpty()) {
-                    appendLine(getString(R.string.app_name_tv, appName))
+                    appendLine(appName)
                 }
             }
-            overlayTextView.text = overlayText.trim()
 
-            // Update output every 0.5 second
+            val overlayText2 = buildString {
+                appendLine(getString(R.string.video))
+
+                if (displayResolution.isNotEmpty()) {
+                    appendLine(getString(R.string.display_resolution))
+                }
+
+                if (videoResolution.isNotEmpty()) {
+                    appendLine(getString(R.string.video_resolution))
+                }
+
+                if (videoFormat.isNotEmpty()) {
+                    appendLine(getString(R.string.video_format))
+                }
+
+                if (isEmptyLine) {
+                    appendLine()
+                }
+                appendLine(getString(R.string.audio))
+
+                if (digitalAudioFormat.isNotEmpty()) {
+                    appendLine(getString(R.string.audio_format))
+                }
+
+                if (audioMode.isNotEmpty()) {
+                    appendLine(getString(R.string.audio_mode))
+                }
+
+                if (isEmptyLine) {
+                    appendLine()
+                }
+                appendLine(getString(R.string.display))
+
+                if (colorSpace.isNotEmpty()) {
+                    appendLine(getString(R.string.color_space))
+                }
+
+                if (hdrPriority.isNotEmpty()) {
+                    appendLine(getString(R.string.hdr_priority))
+                }
+
+                if (hdrStatus.isNotEmpty()) {
+                    appendLine(getString(R.string.hdr_status))
+                }
+
+                if (hdrPolicy.isNotEmpty()) {
+                    appendLine(getString(R.string.hdr_policy))
+                }
+
+                if (isEmptyLine) {
+                    appendLine()
+                }
+                appendLine(getString(R.string.other))
+
+                if (cpuUsage.isNotEmpty()) {
+                    appendLine(getString(R.string.cpu_usage))
+                }
+
+                if (memoryUsage.isNotEmpty()) {
+                    appendLine(getString(R.string.memory_usage))
+                }
+
+                if (getConnectionState().isNotEmpty()) {
+                    appendLine(getString(R.string.connection))
+
+                }
+
+                if (appName.isNotEmpty()) {
+                    appendLine(getString(R.string.app_name_tv))
+                }
+            }
+
+            overlayTextView.text = overlayText.trim()
+            overlayTextView2.text = overlayText2.trim()
+
+            // Update output every 0.75 second
             handler.postDelayed(this, 750)
         }
     }
@@ -489,33 +562,45 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
     }
 
     private fun updateOverlayTextSize() {
-        if (::overlayTextView.isInitialized) {
+        if (::overlayTextView.isInitialized && ::overlayTextView2.isInitialized) {
             val textSizeKey = sharedPreferences.getString("text_size_key", "12") ?: "12"
-            val textSize = textSizeKey.toInt()
-            overlayTextView.textSize = textSize.toFloat()
+            val textSize = textSizeKey.toFloat()
+
+            overlayTextView.textSize = textSize
+            overlayTextView2.textSize = textSize
         }
     }
 
+
     private fun updateOverlayTextColor() {
-        if (::overlayTextView.isInitialized) {
+        if (::overlayTextView.isInitialized && ::overlayTextView2.isInitialized) {
             val textColorKey = sharedPreferences.getString("text_color_key", "#FFFFFF") ?: "#FFFFFF"
             val textColor = Color.parseColor(textColorKey)
             overlayTextView.setTextColor(textColor)
+            overlayTextView2.setTextColor(textColor)
         }
     }
 
     private fun updateOverlayBackgroundColor() {
-        if (::overlayTextView.isInitialized) {
+        if (::overlayTextView.isInitialized && ::overlayTextView2.isInitialized) {
             val backgroundColorKey = sharedPreferences.getString("background_color_key", "#E6000000") ?: "#E6000000"
             val backgroundColor = Color.parseColor(backgroundColorKey)
-            val backgroundDrawable = GradientDrawable()
 
-            backgroundDrawable.setColor(backgroundColor)
-            backgroundDrawable.cornerRadius = 28.toFloat()
+            // Erstellen Sie separate Hintergrunddrawables für jede TextView
+            val backgroundDrawable1 = GradientDrawable()
+            val backgroundDrawable2 = GradientDrawable()
 
-            overlayTextView.background = backgroundDrawable
+            backgroundDrawable1.setColor(backgroundColor)
+            backgroundDrawable1.cornerRadii = floatArrayOf(0f, 0f, 28.toFloat(), 28.toFloat(), 28.toFloat(), 28.toFloat(), 0f, 0f)
+
+            backgroundDrawable2.setColor(backgroundColor)
+            backgroundDrawable2.cornerRadii = floatArrayOf(28.toFloat(), 28.toFloat(), 0f, 0f, 0f, 0f, 28.toFloat(), 28.toFloat())
+
+            overlayTextView.background = backgroundDrawable1
+            overlayTextView2.background = backgroundDrawable2
         }
     }
+
 
 
     @Suppress("DEPRECATION")

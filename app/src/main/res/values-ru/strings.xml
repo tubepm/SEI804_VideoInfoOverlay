@@ -1,18 +1,18 @@
 <resources>
     <string name="starting">Starting…</string>
-    <string name="video_format">Видео кодек:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="video_resolution">Разрешение видео:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="display_resolution">Видео режим:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="color_space">Цветовое пространство:&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="hdr_status">HDR Статус:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="hdr_policy">HDR Политика:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="hdr_priority">HDR Приоритет:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="audio_format">Аудиоформат:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="audio_mode">Аудиокодек:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="app_name_tv">Имя приложения:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="cpu_usage">Загрузка процессора:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="memory_usage">Использование памяти:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="connection">Тип подключения:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="video_format">Видео кодек:</string>
+    <string name="video_resolution">Разрешение видео:</string>
+    <string name="display_resolution">Видео режим:</string>
+    <string name="color_space">Цветовое пространство:</string>
+    <string name="hdr_status">HDR Статус:</string>
+    <string name="hdr_policy">HDR Политика:</string>
+    <string name="hdr_priority">HDR Приоритет:</string>
+    <string name="audio_format">Аудиоформат:</string>
+    <string name="audio_mode">Аудиокодек:</string>
+    <string name="app_name_tv">Имя приложения:</string>
+    <string name="cpu_usage">Загрузка процессора:</string>
+    <string name="memory_usage">Использование памяти:</string>
+    <string name="connection">Тип подключения:</string>
     <string name="follow_source">Follow Source (Player-Led)</string>
     <string name="follow_sink">Follow Sink (TV-Led)</string>
     <string name="auto">Авто</string>
@@ -37,6 +37,10 @@
     <string name="line_break_summary">Этот вариант добавляет пустую строку.</string>
     <string name="long_press">Длительное нажатие</string>
     <string name="long_press_summary">Эта опция добавляет длительное нажатие кнопки. (мин. 750 мс)</string>
+    <string name="other">Прочее:</string>
+    <string name="display">Дисплей:</string>
+    <string name="video">Видео:</string>
+    <string name="audio">Аудио:</string>
 
     <string-array name="key_code_labels">
         <item>Избранное</item>

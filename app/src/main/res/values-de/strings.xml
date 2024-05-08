@@ -1,18 +1,18 @@
 <resources>
     <string name="starting">Starte…</string>
-    <string name="video_format">Videoformat:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="video_resolution">Videoauflösung:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="display_resolution">Display-Auflösung:&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="color_space">Farbraum:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="hdr_status">HDR-Status:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="hdr_policy">HDR-Strategie:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="hdr_priority">HDR-Priorität:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="audio_format">Audioformat:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="audio_mode">Audio-Modus:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="app_name_tv">App-Name:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="cpu_usage">CPU-Auslastung:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="memory_usage">Speichernutzung:&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="connection">Verbindungstyp:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="video_format">Videoformat:</string>
+    <string name="video_resolution">Videoauflösung:</string>
+    <string name="display_resolution">Display-Auflösung:</string>
+    <string name="color_space">Farbraum:</string>
+    <string name="hdr_status">HDR-Status:</string>
+    <string name="hdr_policy">HDR-Strategie:</string>
+    <string name="hdr_priority">HDR-Priorität:</string>
+    <string name="audio_format">Audioformat:</string>
+    <string name="audio_mode">Audio-Modus:</string>
+    <string name="app_name_tv">App-Name:</string>
+    <string name="cpu_usage">CPU-Auslastung:</string>
+    <string name="memory_usage">Speichernutzung:</string>
+    <string name="connection">Verbindungstyp:</string>
     <string name="follow_source">Quellengeführt (Player-Led)</string>
     <string name="follow_sink">Gerätegeführt (TV-Led)</string>
     <string name="auto">Automatisch</string>
@@ -37,6 +37,10 @@
     <string name="line_break_summary">Diese Option fügt eine Leerzeile hinzu.</string>
     <string name="long_press">Langes Drücken</string>
     <string name="long_press_summary">Diese Option fügt einen langen Tastendruck hinzu. (min. 750ms)</string>
+    <string name="other">Sonstiges:</string>
+    <string name="display">Display:</string>
+    <string name="video">Video:</string>
+    <string name="audio">Ton:</string>
 
     <string-array name="key_code_labels">
         <item>Lesezeichen-Taste</item>
@@ -78,6 +82,7 @@
         <item>Braun</item>
         <item>Grau</item>
         <item>Blaugrau</item>
+        <item>Schwarz</item>
     </string-array>
 
     <string-array name="background_color_options">
@@ -91,6 +96,16 @@
         <item>Schwarz 30%</item>
         <item>Schwarz 20%</item>
         <item>Schwarz 10%</item>
+        <item>Weiß 100%</item>
+        <item>Weiß 90%</item>
+        <item>Weiß 80%</item>
+        <item>Weiß 70%</item>
+        <item>Weiß 60%</item>
+        <item>Weiß 50%</item>
+        <item>Weiß 40%</item>
+        <item>Weiß 30%</item>
+        <item>Weiß 20%</item>
+        <item>Weiß 10%</item>
         <item>Transparent</item>
         <item>Rot</item>
         <item>Rosa</item>
@@ -112,5 +127,4 @@
         <item>Grau</item>
         <item>Blaugrau</item>
     </string-array>
-
 </resources>

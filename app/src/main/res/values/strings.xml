@@ -1,19 +1,19 @@
 <resources>
     <string name="app_name" translatable="false">SEI804 VideoInfoOverlay</string>
     <string name="starting">Starting…</string>
-    <string name="video_format">Video Format:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="video_resolution">Video Resolution:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="display_resolution">Display Resolution:&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="color_space">Color Space:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="hdr_status">HDR Status:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="hdr_policy">HDR Policy:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="hdr_priority">HDR Priority:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="audio_format">Audio Format:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="audio_mode">Audio Mode:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="app_name_tv">App Name:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="cpu_usage">CPU Usage:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="memory_usage">Memory Usage:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="connection">Connection:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="video_format">Video Format:</string>
+    <string name="video_resolution">Video Resolution:</string>
+    <string name="display_resolution">Display Resolution:</string>
+    <string name="color_space">Color Space:</string>
+    <string name="hdr_status">HDR Status:</string>
+    <string name="hdr_policy">HDR Policy:</string>
+    <string name="hdr_priority">HDR Priority:</string>
+    <string name="audio_format">Audio Format:</string>
+    <string name="audio_mode">Audio Mode:</string>
+    <string name="app_name_tv">App Name:</string>
+    <string name="cpu_usage">CPU Usage:</string>
+    <string name="memory_usage">Memory Usage:</string>
+    <string name="connection">Connection:</string>
     <string name="follow_source">Follow Source (Player-Led)</string>
     <string name="follow_sink">Follow Sink (TV-Led)</string>
     <string name="auto">Auto</string>
@@ -38,6 +38,10 @@
     <string name="line_break_summary">This option adds an empty line.</string>
     <string name="long_press">Long press</string>
     <string name="long_press_summary">This option adds a long button press. (min. 750ms)</string>
+    <string name="other">Other:</string>
+    <string name="display">Display:</string>
+    <string name="video">Video:</string>
+    <string name="audio">Audio:</string>
 
     <string-array name="key_code_labels">
         <item>Bookmark button</item>
@@ -117,6 +121,7 @@
         <item>Brown</item>
         <item>Grey</item>
         <item>Blue Grey</item>
+        <item>Schwarz</item>
     </string-array>
 
     <string-array name="text_color_values">
@@ -140,6 +145,7 @@
         <item>#795548</item>
         <item>#9E9E9E</item>
         <item>#607D8B</item>
+        <item>#000000</item>
     </string-array>
 
     <string-array name="background_color_options">
@@ -153,6 +159,16 @@
         <item>Black 30%</item>
         <item>Black 20%</item>
         <item>Black 10%</item>
+        <item>White 100%</item>
+        <item>White 90%</item>
+        <item>White 80%</item>
+        <item>White 70%</item>
+        <item>White 60%</item>
+        <item>White 50%</item>
+        <item>White 40%</item>
+        <item>White 30%</item>
+        <item>White 20%</item>
+        <item>White 10%</item>
         <item>Transparent</item>
         <item>Red</item>
         <item>Pink</item>
@@ -186,26 +202,35 @@
         <item>#4D000000</item>
         <item>#33000000</item>
         <item>#1A000000</item>
+        <item>#FFFFFFFF</item>
+        <item>#E6FFFFFF</item>
+        <item>#CCFFFFFF</item>
+        <item>#B3FFFFFF</item>
+        <item>#99FFFFFF</item>
+        <item>#80FFFFFF</item>
+        <item>#66FFFFFF</item>
+        <item>#4DFFFFFF</item>
+        <item>#33FFFFFF</item>
+        <item>#1AFFFFFF</item>
         <item>#00000000</item>
-        <item>#20F44336</item>
-        <item>#20E91E63</item>
-        <item>#209C27B0</item>
-        <item>#20673AB7</item>
-        <item>#203F51B5</item>
-        <item>#202196F3</item>
-        <item>#2003A9F4</item>
-        <item>#2000BCD4</item>
-        <item>#20009688</item>
-        <item>#204CAF50</item>
-        <item>#208BC34A</item>
-        <item>#20CDDC39</item>
-        <item>#20FFEB3B</item>
-        <item>#20FFC107</item>
-        <item>#20FF9800</item>
-        <item>#20FF5722</item>
-        <item>#20795548</item>
-        <item>#209E9E9E</item>
-        <item>#20607D8B</item>
+        <item>#80F44336</item>
+        <item>#80E91E63</item>
+        <item>#809C27B0</item>
+        <item>#80673AB7</item>
+        <item>#803F51B5</item>
+        <item>#802196F3</item>
+        <item>#8003A9F4</item>
+        <item>#8000BCD4</item>
+        <item>#80009688</item>
+        <item>#804CAF50</item>
+        <item>#808BC34A</item>
+        <item>#80CDDC39</item>
+        <item>#80FFEB3B</item>
+        <item>#80FFC107</item>
+        <item>#80FF9800</item>
+        <item>#80FF5722</item>
+        <item>#80795548</item>
+        <item>#809E9E9E</item>
+        <item>#80607D8B</item>
     </string-array>
-
 </resources>
