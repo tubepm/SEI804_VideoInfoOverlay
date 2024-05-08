@@ -23,6 +23,13 @@
     <PreferenceCategory>
 
         <CheckBoxPreference
+            android:icon="@drawable/ic_title_24dp"
+            android:key="empty_title_key"
+            android:summary="@string/title_summary"
+            android:title="@string/title"
+            android:defaultValue="true" />
+
+        <CheckBoxPreference
             android:icon="@drawable/ic_line_break_24dp"
             android:key="empty_line_key"
             android:summary="@string/line_break_summary"

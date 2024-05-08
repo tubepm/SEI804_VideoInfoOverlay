@@ -35,6 +35,8 @@
     <string name="background_color_summary">Wähle eine Hintergrundfarbe für das Overlay.</string>
     <string name="line_break">Zeilenumbruch</string>
     <string name="line_break_summary">Diese Option fügt eine Leerzeile hinzu.</string>
+    <string name="title">Titel</string>
+    <string name="title_summary">Diese Option fügt einen Titel hinzu.</string>
     <string name="long_press">Langes Drücken</string>
     <string name="long_press_summary">Diese Option fügt einen langen Tastendruck hinzu. (min. 750ms)</string>
     <string name="other">Sonstiges:</string>

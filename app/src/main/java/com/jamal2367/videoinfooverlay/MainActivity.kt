@@ -19,10 +19,9 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.preference.PreferenceManager
 import java.io.IOException
-import java.util.Locale
+
 
 class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenceChangeListener {
-
     private lateinit var overlayTextView: TextView
     private lateinit var overlayTextView2: TextView
     private lateinit var sharedPreferences: SharedPreferences
@@ -35,16 +34,15 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
     private val selectedCodeKey = "selected_code_key"
     private val longPressKey = "long_press_key"
     private val emptyLineKey = "empty_line_key"
+    private val emptyTitleKey = "empty_title_key"
     private val textSizeKey = "text_size_key"
     private val textColorKey = "text_color_key"
     private val backgroundColorKey = "background_color_key"
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
-        // No command
     }
 
     override fun onInterrupt() {
-        // No command
     }
 
     override fun onKeyEvent(event: KeyEvent): Boolean {
@@ -181,6 +179,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
     private val updateData = object : Runnable {
         override fun run() {
             val isEmptyLine = sharedPreferences.getBoolean(emptyLineKey, true)
+            val isTitleLine = sharedPreferences.getBoolean(emptyTitleKey, true)
 
             val videoFormat = getSystemProperty("sys.nes.info.video_format")
             val videoResolution = getSystemProperty("sys.nes.info.video_resolution")
@@ -198,65 +197,65 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             val connectionSpeed = getSystemProperty("sys.nes.info.connection_speed")
 
             val overlayText = buildString {
-                if (isEmptyLine) {
+                if (isTitleLine) {
                     appendLine("⠀ ")
                 }
 
                 if (displayResolution.isNotEmpty()) {
                     val modifiedDisplayResolution = when (displayResolution.trim()) {
-                        "2160p60hz" -> "3840 x 2160, 60Hz"
-                        "2160p50hz" -> "3840 x 2160, 50Hz"
-                        "2160p30hz" -> "3840 x 2160, 30Hz"
-                        "2160p25hz" -> "3840 x 2160, 25Hz"
-                        "2160p24hz" -> "3840 x 2160, 24Hz"
+                        "2160p60hz" -> "3840 x 2160, 60hz"
+                        "2160p50hz" -> "3840 x 2160, 50hz"
+                        "2160p30hz" -> "3840 x 2160, 30hz"
+                        "2160p25hz" -> "3840 x 2160, 25hz"
+                        "2160p24hz" -> "3840 x 2160, 24hz"
 
-                        "1080p60hz" -> "1920 x 1080, 60Hz"
-                        "1080p50hz" -> "1920 x 1080, 50Hz"
-                        "1080p30hz" -> "1920 x 1080, 30Hz"
-                        "1080p25hz" -> "1920 x 1080, 25Hz"
-                        "1080p24hz" -> "1920 x 1080, 24Hz"
+                        "1080p60hz" -> "1920 x 1080, 60hz"
+                        "1080p50hz" -> "1920 x 1080, 50hz"
+                        "1080p30hz" -> "1920 x 1080, 30hz"
+                        "1080p25hz" -> "1920 x 1080, 25hz"
+                        "1080p24hz" -> "1920 x 1080, 24hz"
 
-                        "1080i60hz" -> "1920 x 1080i, 60Hz"
-                        "1080i50hz" -> "1920 x 1080i, 50Hz"
-                        "1080i30hz" -> "1920 x 1080i, 30Hz"
-                        "1080i25hz" -> "1920 x 1080i, 25Hz"
-                        "1080i24hz" -> "1920 x 1080i, 24Hz"
+                        "1080i60hz" -> "1920 x 1080i, 60hz"
+                        "1080i50hz" -> "1920 x 1080i, 50hz"
+                        "1080i30hz" -> "1920 x 1080i, 30hz"
+                        "1080i25hz" -> "1920 x 1080i, 25hz"
+                        "1080i24hz" -> "1920 x 1080i, 24hz"
 
-                        "720p60hz" -> "1280 x 720, 60Hz"
-                        "720p50hz" -> "1280 x 720, 50Hz"
-                        "720p30hz" -> "1280 x 720, 30Hz"
-                        "720p25hz" -> "1280 x 720, 25Hz"
-                        "720p24hz" -> "1280 x 720, 24Hz"
+                        "720p60hz" -> "1280 x 720, 60hz"
+                        "720p50hz" -> "1280 x 720, 50hz"
+                        "720p30hz" -> "1280 x 720, 30hz"
+                        "720p25hz" -> "1280 x 720, 25hz"
+                        "720p24hz" -> "1280 x 720, 24hz"
 
-                        "720i60hz" -> "1280 x 720i, 60Hz"
-                        "720i50hz" -> "1280 x 720i, 50Hz"
-                        "720i30hz" -> "1280 x 720i, 30Hz"
-                        "720i25hz" -> "1280 x 720i, 25Hz"
-                        "720i24hz" -> "1280 x 720i, 24Hz"
+                        "720i60hz" -> "1280 x 720i, 60hz"
+                        "720i50hz" -> "1280 x 720i, 50hz"
+                        "720i30hz" -> "1280 x 720i, 30hz"
+                        "720i25hz" -> "1280 x 720i, 25hz"
+                        "720i24hz" -> "1280 x 720i, 24hz"
 
-                        "576p60hz" -> "1024 x 576, 60Hz"
-                        "576p50hz" -> "1024 x 576, 50Hz"
-                        "576p30hz" -> "1024 x 576, 30Hz"
-                        "576p25hz" -> "1024 x 576, 25Hz"
-                        "576p24hz" -> "1024 x 576, 24Hz"
+                        "576p60hz" -> "1024 x 576, 60hz"
+                        "576p50hz" -> "1024 x 576, 50hz"
+                        "576p30hz" -> "1024 x 576, 30hz"
+                        "576p25hz" -> "1024 x 576, 25hz"
+                        "576p24hz" -> "1024 x 576, 24hz"
 
-                        "576i60hz" -> "1024 x 576i, 60Hz"
-                        "576i50hz" -> "1024 x 576i, 50Hz"
-                        "576i30hz" -> "1024 x 576i, 30Hz"
-                        "576i25hz" -> "1024 x 576i, 25Hz"
-                        "576i24hz" -> "1024 x 576i, 24Hz"
+                        "576i60hz" -> "1024 x 576i, 60hz"
+                        "576i50hz" -> "1024 x 576i, 50hz"
+                        "576i30hz" -> "1024 x 576i, 30hz"
+                        "576i25hz" -> "1024 x 576i, 25hz"
+                        "576i24hz" -> "1024 x 576i, 24hz"
 
-                        "480p60hz" -> "854 × 480, 60Hz"
-                        "480p50hz" -> "854 × 480, 50Hz"
-                        "480p30hz" -> "854 × 480, 30Hz"
-                        "480p25hz" -> "854 × 480, 25Hz"
-                        "480p24hz" -> "854 × 480, 24Hz"
+                        "480p60hz" -> "854 × 480, 60hz"
+                        "480p50hz" -> "854 × 480, 50hz"
+                        "480p30hz" -> "854 × 480, 30hz"
+                        "480p25hz" -> "854 × 480, 25hz"
+                        "480p24hz" -> "854 × 480, 24hz"
 
-                        "480i60hz" -> "854 × 480i, 60Hz"
-                        "480i50hz" -> "854 × 480i, 50Hz"
-                        "480i30hz" -> "854 × 480i, 30Hz"
-                        "480i25hz" -> "854 × 480i, 25Hz"
-                        "480i24hz" -> "854 × 480i, 24Hz"
+                        "480i60hz" -> "854 × 480i, 60hz"
+                        "480i50hz" -> "854 × 480i, 50hz"
+                        "480i30hz" -> "854 × 480i, 30hz"
+                        "480i25hz" -> "854 × 480i, 25hz"
+                        "480i24hz" -> "854 × 480i, 24hz"
                         else -> displayResolution
                     }
                     appendLine(modifiedDisplayResolution)
@@ -265,8 +264,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                 if (videoResolution.isNotEmpty()) {
                     var videoInfo = videoResolution
 
-                    val frameRateUpperCase = frameRate.uppercase(Locale.ROOT)
-                    val frameRateFormatted = frameRateUpperCase.replace("\\s".toRegex(), "")
+                    val frameRateFormatted = frameRate.replace("\\s".toRegex(), "")
                     videoInfo += if (frameRateFormatted.isNotEmpty()) ", $frameRateFormatted" else ""
 
                     appendLine(videoInfo)
@@ -363,17 +361,10 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
                 if (isEmptyLine) {
                     appendLine()
-                    appendLine()
                 }
 
-                if (digitalAudioFormat.isNotEmpty()) {
-                    val modifiedDigitalAudioFormat = when (digitalAudioFormat.trim()) {
-                        "Auto" -> getString(R.string.auto)
-                        "Passthrough" -> getString(R.string.passthrough)
-                        "Manual" -> getString(R.string.manual)
-                        else -> digitalAudioFormat
-                    }
-                    appendLine(modifiedDigitalAudioFormat)
+                if (isTitleLine) {
+                    appendLine()
                 }
 
                 if (audioMode.isNotEmpty()) {
@@ -396,23 +387,22 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                     appendLine(modifiedAudioMode)
                 }
 
+                if (digitalAudioFormat.isNotEmpty()) {
+                    val modifiedDigitalAudioFormat = when (digitalAudioFormat.trim()) {
+                        "Auto" -> getString(R.string.auto)
+                        "Passthrough" -> getString(R.string.passthrough)
+                        "Manual" -> getString(R.string.manual)
+                        else -> digitalAudioFormat
+                    }
+                    appendLine(modifiedDigitalAudioFormat)
+                }
+
                 if (isEmptyLine) {
                     appendLine()
+                }
+
+                if (isTitleLine) {
                     appendLine()
-                }
-
-                if (colorSpace.isNotEmpty()) {
-                    val modifiedColorSpace = when (colorSpace.trim()) {
-                        "default" -> "YCbCr 4:2:2 (10 Bit)"
-                        "YCbCr422 12bit" -> "YCbCr 4:2:2 (12 Bit)"
-                        "YCbCr444 8bit" -> "YCbCr 4:4:4 (8 Bit)"
-                        else -> colorSpace
-                    }
-                    appendLine(modifiedColorSpace)
-                }
-
-                if (hdrPriority.isNotEmpty()) {
-                    appendLine(hdrPriority)
                 }
 
                 if (hdrStatus.isNotEmpty()) {
@@ -427,6 +417,20 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                     appendLine(modifiedHdrStatus)
                 }
 
+                if (hdrPriority.isNotEmpty()) {
+                    appendLine(hdrPriority)
+                }
+
+                if (colorSpace.isNotEmpty()) {
+                    val modifiedColorSpace = when (colorSpace.trim()) {
+                        "default" -> "YCbCr 4:2:2 (10 Bit)"
+                        "YCbCr422 12bit" -> "YCbCr 4:2:2 (12 Bit)"
+                        "YCbCr444 8bit" -> "YCbCr 4:4:4 (8 Bit)"
+                        else -> colorSpace
+                    }
+                    appendLine(modifiedColorSpace)
+                }
+
                 if (hdrPolicy.isNotEmpty()) {
                     val modifiedHdrPolicy = when (hdrPolicy.trim()) {
                         "Follow Source" -> getString(R.string.follow_source)
@@ -438,6 +442,9 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
                 if (isEmptyLine) {
                     appendLine()
+                }
+
+                if (isTitleLine) {
                     appendLine()
                 }
 
@@ -474,7 +481,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             }
 
             val overlayText2 = buildString {
-                if (isEmptyLine) {
+                if (isTitleLine) {
                     appendLine(getString(R.string.video))
                 }
 
@@ -492,32 +499,38 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
                 if (isEmptyLine) {
                     appendLine()
-                    appendLine(getString(R.string.audio))
                 }
 
-                if (digitalAudioFormat.isNotEmpty()) {
-                    appendLine(getString(R.string.audio_format))
+                if (isTitleLine) {
+                    appendLine(getString(R.string.audio))
                 }
 
                 if (audioMode.isNotEmpty()) {
                     appendLine(getString(R.string.audio_mode))
                 }
 
+                if (digitalAudioFormat.isNotEmpty()) {
+                    appendLine(getString(R.string.audio_format))
+                }
+
                 if (isEmptyLine) {
                     appendLine()
+                }
+
+                if (isTitleLine) {
                     appendLine(getString(R.string.display))
                 }
 
-                if (colorSpace.isNotEmpty()) {
-                    appendLine(getString(R.string.color_space))
+                if (hdrStatus.isNotEmpty()) {
+                    appendLine(getString(R.string.hdr_status))
                 }
 
                 if (hdrPriority.isNotEmpty()) {
                     appendLine(getString(R.string.hdr_priority))
                 }
 
-                if (hdrStatus.isNotEmpty()) {
-                    appendLine(getString(R.string.hdr_status))
+                if (colorSpace.isNotEmpty()) {
+                    appendLine(getString(R.string.color_space))
                 }
 
                 if (hdrPolicy.isNotEmpty()) {
@@ -526,6 +539,9 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
                 if (isEmptyLine) {
                     appendLine()
+                }
+
+                if (isTitleLine) {
                     appendLine(getString(R.string.other))
                 }
 
@@ -603,8 +619,6 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             overlayTextView2.background = backgroundDrawable2
         }
     }
-
-
 
     @Suppress("DEPRECATION")
     fun getConnectionState(): String {

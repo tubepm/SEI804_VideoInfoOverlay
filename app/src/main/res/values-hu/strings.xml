@@ -35,6 +35,8 @@
     <string name="background_color_summary">Válaszd ki az overlay háttérszínét.</string>
     <string name="line_break">Sor beszúrás</string>
     <string name="line_break_summary">Ez a beállítás egy üres sort ad hozzá.</string>
+    <string name="title">Cím</string>
+    <string name="title_summary">Ez az opció címsort ad hozzá.</string>
     <string name="long_press">Hosszú gombnyomás</string>
     <string name="long_press_summary">Ezzel az opcióval, hosszú gombnyomásra aktiválást adhatsz hozzá. (min. 750 ms)</string>
     <string name="other">Más:</string>

@@ -35,6 +35,8 @@
     <string name="background_color_summary">Выберите цвет фона для наложения.</string>
     <string name="line_break">перенос строки</string>
     <string name="line_break_summary">Этот вариант добавляет пустую строку.</string>
+    <string name="title">Название</string>
+    <string name="title_summary">Этот параметр добавляет заголовок.</string>
     <string name="long_press">Длительное нажатие</string>
     <string name="long_press_summary">Эта опция добавляет длительное нажатие кнопки. (мин. 750 мс)</string>
     <string name="other">Прочее:</string>
