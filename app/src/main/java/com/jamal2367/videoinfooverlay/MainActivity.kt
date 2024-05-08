@@ -198,7 +198,9 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             val connectionSpeed = getSystemProperty("sys.nes.info.connection_speed")
 
             val overlayText = buildString {
-                appendLine("⠀ ")
+                if (isEmptyLine) {
+                    appendLine("⠀ ")
+                }
 
                 if (displayResolution.isNotEmpty()) {
                     val modifiedDisplayResolution = when (displayResolution.trim()) {
@@ -361,8 +363,8 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
                 if (isEmptyLine) {
                     appendLine()
+                    appendLine()
                 }
-                appendLine()
 
                 if (digitalAudioFormat.isNotEmpty()) {
                     val modifiedDigitalAudioFormat = when (digitalAudioFormat.trim()) {
@@ -396,8 +398,8 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
                 if (isEmptyLine) {
                     appendLine()
+                    appendLine()
                 }
-                appendLine()
 
                 if (colorSpace.isNotEmpty()) {
                     val modifiedColorSpace = when (colorSpace.trim()) {
@@ -436,8 +438,8 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
                 if (isEmptyLine) {
                     appendLine()
+                    appendLine()
                 }
-                appendLine()
 
                 if (cpuUsage.isNotEmpty()) {
                     val formattedCpuUsage = cpuUsage.replace(Regex("(\\d+)%"), "$1 %")
@@ -472,7 +474,9 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             }
 
             val overlayText2 = buildString {
-                appendLine(getString(R.string.video))
+                if (isEmptyLine) {
+                    appendLine(getString(R.string.video))
+                }
 
                 if (displayResolution.isNotEmpty()) {
                     appendLine(getString(R.string.display_resolution))
@@ -488,8 +492,8 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
                 if (isEmptyLine) {
                     appendLine()
+                    appendLine(getString(R.string.audio))
                 }
-                appendLine(getString(R.string.audio))
 
                 if (digitalAudioFormat.isNotEmpty()) {
                     appendLine(getString(R.string.audio_format))
@@ -501,8 +505,8 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
                 if (isEmptyLine) {
                     appendLine()
+                    appendLine(getString(R.string.display))
                 }
-                appendLine(getString(R.string.display))
 
                 if (colorSpace.isNotEmpty()) {
                     appendLine(getString(R.string.color_space))
@@ -522,8 +526,8 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
                 if (isEmptyLine) {
                     appendLine()
+                    appendLine(getString(R.string.other))
                 }
-                appendLine(getString(R.string.other))
 
                 if (cpuUsage.isNotEmpty()) {
                     appendLine(getString(R.string.cpu_usage))
