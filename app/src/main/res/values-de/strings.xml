@@ -2,8 +2,6 @@
     <string name="starting">Starte…</string>
     <string name="video_format">Videoformat:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
     <string name="video_resolution">Videoauflösung:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="frame_rate">Framerate:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="frame_count">Anzahl der Frames:&#160;&#160;&#160;%1$s</string>
     <string name="display_resolution">Display-Auflösung:&#160;&#160;&#160;&#160;%1$s</string>
     <string name="color_space">Farbraum:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
     <string name="hdr_status">HDR-Status:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
@@ -14,8 +12,7 @@
     <string name="app_name_tv">App-Name:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
     <string name="cpu_usage">CPU-Auslastung:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
     <string name="memory_usage">Speichernutzung:&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="connection_speed">Geschwindigkeit:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
-    <string name="connection_type">Verbindungstyp:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="connection">Verbindungstyp:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%1$s</string>
     <string name="follow_source">Quellengeführt (Player-Led)</string>
     <string name="follow_sink">Gerätegeführt (TV-Led)</string>
     <string name="auto">Automatisch</string>
