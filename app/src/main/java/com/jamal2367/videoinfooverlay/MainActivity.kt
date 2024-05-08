@@ -590,7 +590,6 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             val backgroundColorKey = sharedPreferences.getString("background_color_key", "#E6000000") ?: "#E6000000"
             val backgroundColor = Color.parseColor(backgroundColorKey)
 
-            // Erstellen Sie separate Hintergrunddrawables für jede TextView
             val backgroundDrawable1 = GradientDrawable()
             val backgroundDrawable2 = GradientDrawable()
 
