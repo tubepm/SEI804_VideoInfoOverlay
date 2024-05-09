@@ -10,7 +10,6 @@ import android.net.ConnectivityManager
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
-import android.view.Gravity
 import android.view.KeyEvent
 import android.view.View
 import android.view.WindowManager
@@ -103,10 +102,9 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         updateOverlayBackgroundColor()
         updateOverlayTextFont()
 
-        params.gravity = Gravity.TOP or Gravity.END
-
         val windowManager = getSystemService(WINDOW_SERVICE) as WindowManager
         windowManager.addView(overlayView, params)
+        
         handler.postDelayed(updateData, 750)
     }
 
@@ -158,7 +156,8 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
         if (key == selectedCodeKey) {
-            showPreferenceChangedDialog()
+            Toast.makeText(this, getString(R.string.accessibility_info1), Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.accessibility_info2), Toast.LENGTH_LONG).show()
         }
 
         if (key == textSizeKey) {
@@ -176,11 +175,6 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         if (key == textFontKey) {
             updateOverlayTextFont()
         }
-    }
-
-    private fun showPreferenceChangedDialog() {
-        Toast.makeText(this, getString(R.string.accessibility_info1), Toast.LENGTH_LONG).show()
-        Toast.makeText(this, getString(R.string.accessibility_info2), Toast.LENGTH_LONG).show()
     }
 
     private val updateData = object : Runnable {
