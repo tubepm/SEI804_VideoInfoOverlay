@@ -31,6 +31,8 @@
     <string name="text_size_summary">Выберите размер текста для наложения.</string>
     <string name="text_color">Цвет текста</string>
     <string name="text_color_summary">Выберите цвет текста для наложения.</string>
+    <string name="text_font">Текстовый шрифт</string>
+    <string name="text_font_summary">Выберите шрифт текста для наложения.</string>
     <string name="background_color">Цвет фона</string>
     <string name="background_color_summary">Выберите цвет фона для наложения.</string>
     <string name="line_break">перенос строки</string>

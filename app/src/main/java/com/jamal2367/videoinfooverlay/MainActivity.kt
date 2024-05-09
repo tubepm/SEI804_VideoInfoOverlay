@@ -17,6 +17,7 @@ import android.view.WindowManager
 import android.view.accessibility.AccessibilityEvent
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.res.ResourcesCompat
 import androidx.preference.PreferenceManager
 import java.io.IOException
 
@@ -38,6 +39,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
     private val textSizeKey = "text_size_key"
     private val textColorKey = "text_color_key"
     private val backgroundColorKey = "background_color_key"
+    private val textFontKey = "text_font_key"
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
     }
@@ -99,6 +101,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         updateOverlayTextSize()
         updateOverlayTextColor()
         updateOverlayBackgroundColor()
+        updateOverlayTextFont()
 
         params.gravity = Gravity.TOP or Gravity.END
 
@@ -168,6 +171,10 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
         if (key == backgroundColorKey) {
             updateOverlayBackgroundColor()
+        }
+
+        if (key == textFontKey) {
+            updateOverlayTextFont()
         }
     }
 
@@ -619,6 +626,32 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             overlayTextView2.background = backgroundDrawable2
         }
     }
+
+    private fun updateOverlayTextFont() {
+        if (::overlayTextView.isInitialized && ::overlayTextView2.isInitialized) {
+            val textFontKey = sharedPreferences.getString("text_font_key", "inter") ?: "inter"
+            val fontResId = getFontResourceId(textFontKey)
+            overlayTextView.typeface = ResourcesCompat.getFont(this, fontResId)
+            overlayTextView2.typeface = ResourcesCompat.getFont(this, fontResId)
+        }
+    }
+
+    private fun getFontResourceId(fontName: String): Int {
+        return when (fontName) {
+            "roboto" -> R.font.roboto
+            "robotomono" -> R.font.robotomono
+            "jetbrainsmono" -> R.font.jetbrainsmono
+            "inter" -> R.font.inter
+            "poppins" -> R.font.poppins
+            "quicksand" -> R.font.quicksand
+            "electrolize" -> R.font.electrolize
+            "poetsenone" -> R.font.poetsenone
+            "dotmatrix" -> R.font.dotmatrix
+            "squaredotmatrix" -> R.font.squaredotmatrix
+            else -> R.font.inter
+        }
+    }
+
 
     @Suppress("DEPRECATION")
     fun getConnectionState(): String {

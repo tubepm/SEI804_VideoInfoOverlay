@@ -31,6 +31,8 @@
     <string name="text_size_summary">Válaszd ki a szöveg méretét az overlayhoz.</string>
     <string name="text_color">Szövegszín</string>
     <string name="text_color_summary">Válaszd ki a szöveg színét az overlayhoz.</string>
+    <string name="text_font">Betűtípus</string>
+    <string name="text_font_summary">Válassz betűtípust az overlayhoz.</string>
     <string name="background_color">Háttérszín</string>
     <string name="background_color_summary">Válaszd ki az overlay háttérszínét.</string>
     <string name="line_break">Sor beszúrás</string>

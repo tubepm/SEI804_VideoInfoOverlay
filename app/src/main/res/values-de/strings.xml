@@ -27,10 +27,12 @@
     <string name="overlay_button">Overlay-Taste</string>
     <string name="overlay_button_summary">Wähle eine Schaltfläche, um das Overlay zu aktivieren.</string>
     <string name="select_button">Taste auswählen</string>
-    <string name="text_size">Textgröße</string>
-    <string name="text_size_summary">Wähle eine Textgröße für das Overlay.</string>
-    <string name="text_color">Textfarbe</string>
-    <string name="text_color_summary">Wähle eine Textfarbe für das Overlay.</string>
+    <string name="text_size">Schriftgröße</string>
+    <string name="text_size_summary">Wähle eine Schriftgröße für das Overlay.</string>
+    <string name="text_color">Schriftfarbe</string>
+    <string name="text_color_summary">Wähle eine Schriftfarbe für das Overlay.</string>
+    <string name="text_font">Schriftart</string>
+    <string name="text_font_summary">Wähle eine Schriftart für das Overlay.</string>
     <string name="background_color">Hintergrundfarbe</string>
     <string name="background_color_summary">Wähle eine Hintergrundfarbe für das Overlay.</string>
     <string name="line_break">Zeilenumbruch</string>

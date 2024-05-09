@@ -32,6 +32,8 @@
     <string name="text_size_summary">Select a text size for the overlay.</string>
     <string name="text_color">Text color</string>
     <string name="text_color_summary">Select a text color for the overlay.</string>
+    <string name="text_font">Text font</string>
+    <string name="text_font_summary">Select a text font for the overlay.</string>
     <string name="background_color">Background color</string>
     <string name="background_color_summary">Select a background color for the overlay.</string>
     <string name="line_break">Line break</string>
@@ -85,21 +87,33 @@
     </string-array>
 
     <string-array name="text_size_options">
+        <item>5px</item>
+        <item>6px</item>
         <item>7px</item>
         <item>8px</item>
         <item>9px</item>
         <item>10px</item>
         <item>11px</item>
         <item>12px</item>
+        <item>13px</item>
+        <item>14px</item>
+        <item>15px</item>
+        <item>16px</item>
     </string-array>
 
     <string-array name="text_size_values">
+        <item>5</item>
+        <item>6</item>
         <item>7</item>
         <item>8</item>
         <item>9</item>
         <item>10</item>
         <item>11</item>
         <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
     </string-array>
 
     <string-array name="text_color_options">
@@ -234,5 +248,31 @@
         <item>#80795548</item>
         <item>#809E9E9E</item>
         <item>#80607D8B</item>
+    </string-array>
+
+    <string-array name="text_font_options">
+        <item>Roboto</item>
+        <item>Roboto Mono</item>
+        <item>JetBrains Mono</item>
+        <item>Inter</item>
+        <item>Poppins</item>
+        <item>Quicksand</item>
+        <item>Electrolize</item>
+        <item>PoetsenOne</item>
+        <item>Dot Matrix</item>
+        <item>Square Dot Matrix</item>
+    </string-array>
+
+    <string-array name="text_font_values">
+        <item>roboto</item>
+        <item>robotomono</item>
+        <item>jetbrainsmono</item>
+        <item>inter</item>
+        <item>poppins</item>
+        <item>quicksand</item>
+        <item>electrolize</item>
+        <item>poetsenone</item>
+        <item>dotmatrix</item>
+        <item>squaredotmatrix</item>
     </string-array>
 </resources>
