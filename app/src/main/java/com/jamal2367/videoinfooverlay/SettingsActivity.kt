@@ -22,7 +22,7 @@ class SettingsActivity : AppCompatActivity() {
             val packageInfo = requireContext().packageManager.getPackageInfo(packageName, 0)
             val versionName = packageInfo.versionName
 
-            preferenceAppVersion?.title = "${getString(R.string.app_name)} $versionName"
+            preferenceAppVersion?.title = getString(R.string.app_name) + versionName
             preferenceAppVersion?.summary = "https://github.com/jamal2362/SEI804_VideoInfoOverlay"
             preferenceAppVersion?.setIcon(R.drawable.ic_info_24dp)
             preferenceAppVersion?.setOnPreferenceClickListener {
