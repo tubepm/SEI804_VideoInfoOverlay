@@ -21,8 +21,6 @@
     <string name="wifi">Wifi</string>
     <string name="ethernet">Vezetékes</string>
     <string name="overlay_settings">Overlay beállítások</string>
-    <string name="accessibility_info1">\"Hozzáférhetőség (Accesibility)\" -> \"SEI804 VideoInfoOverlay\"</string>
-    <string name="accessibility_info2">ki-/bekapcsolás, hogy a változás életbe lépjen.</string>
     <string name="no_connectivity">Nincs csatlakozás</string>
     <string name="overlay_button">Overlay aktiváló gomb</string>
     <string name="overlay_button_summary">Válassz egy gombot az overlay aktiválásához.</string>
@@ -35,6 +33,8 @@
     <string name="text_font_summary">Válassz betűtípust az overlayhoz.</string>
     <string name="background_color">Háttérszín</string>
     <string name="background_color_summary">Válaszd ki az overlay háttérszínét.</string>
+    <string name="rounded_corners">Kerekített sarkok</string>
+    <string name="rounded_corners_summary">Válaszd ki a kerekítés méretét az overlayhoz.</string>
     <string name="line_break">Sor beszúrás</string>
     <string name="line_break_summary">Ez a beállítás egy üres sort ad hozzá.</string>
     <string name="title">Cím</string>

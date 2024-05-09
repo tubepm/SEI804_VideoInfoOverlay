@@ -21,8 +21,6 @@
     <string name="wifi">WLAN</string>
     <string name="ethernet">LAN</string>
     <string name="overlay_settings">Overlay-Einstellungen</string>
-    <string name="accessibility_info1">\"Bedienungshilfen\" -> \"SEI804 VideoInfoOverlay\"</string>
-    <string name="accessibility_info2">aus-/einschalten, damit die Änderung wirksam wird.</string>
     <string name="no_connectivity">Keine Internetverbindung</string>
     <string name="overlay_button">Overlay-Taste</string>
     <string name="overlay_button_summary">Wähle eine Schaltfläche, um das Overlay zu aktivieren.</string>
@@ -35,6 +33,8 @@
     <string name="text_font_summary">Wähle eine Schriftart für das Overlay.</string>
     <string name="background_color">Hintergrundfarbe</string>
     <string name="background_color_summary">Wähle eine Hintergrundfarbe für das Overlay.</string>
+    <string name="rounded_corners">Abgerundete Ecken</string>
+    <string name="rounded_corners_summary">Wähle eine abgerundete Eckengröße für das Overlay.</string>
     <string name="line_break">Zeilenumbruch</string>
     <string name="line_break_summary">Diese Option fügt eine Leerzeile hinzu.</string>
     <string name="title">Titel</string>

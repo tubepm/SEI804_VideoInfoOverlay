@@ -38,6 +38,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
     private val textSizeKey = "text_size_key"
     private val textColorKey = "text_color_key"
     private val backgroundColorKey = "background_color_key"
+    private val roundedCornersKey = "rounded_corners_key"
     private val textFontKey = "text_font_key"
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
@@ -99,7 +100,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
         updateOverlayTextSize()
         updateOverlayTextColor()
-        updateOverlayBackgroundColor()
+        updateOverlayBackground()
         updateOverlayTextFont()
 
         val windowManager = getSystemService(WINDOW_SERVICE) as WindowManager
@@ -122,42 +123,12 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         super.onServiceConnected()
         Log.d("TAG", "onServiceConnected")
 
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
-
-        val keyCodesArray = resources.getStringArray(R.array.key_codes)
-        val selectedKeyCodeString = sharedPreferences.getString(selectedCodeKey, keyCodesArray[0])
-
-        val index = keyCodesArray.indexOf(selectedKeyCodeString)
-
-        sharedPreferences.registerOnSharedPreferenceChangeListener(this)
-
-        standardKeyCode = when (index) {
-            0 -> KeyEvent.KEYCODE_BOOKMARK
-            1 -> KeyEvent.KEYCODE_GUIDE
-            2 -> KeyEvent.KEYCODE_PROG_RED
-            3 -> KeyEvent.KEYCODE_PROG_GREEN
-            4 -> KeyEvent.KEYCODE_PROG_YELLOW
-            5 -> KeyEvent.KEYCODE_PROG_BLUE
-            6 -> KeyEvent.KEYCODE_0
-            7 -> KeyEvent.KEYCODE_1
-            8 -> KeyEvent.KEYCODE_2
-            9 -> KeyEvent.KEYCODE_3
-            10 -> KeyEvent.KEYCODE_4
-            11 -> KeyEvent.KEYCODE_5
-            12 -> KeyEvent.KEYCODE_6
-            13 -> KeyEvent.KEYCODE_7
-            14 -> KeyEvent.KEYCODE_8
-            15 -> KeyEvent.KEYCODE_9
-            else -> KeyEvent.KEYCODE_BOOKMARK
-        }
-
-        sharedPreferences.edit().putString(selectedCodeKey, selectedKeyCodeString).apply()
+        updateOverlayKeyButton()
     }
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
         if (key == selectedCodeKey) {
-            Toast.makeText(this, getString(R.string.accessibility_info1), Toast.LENGTH_LONG).show()
-            Toast.makeText(this, getString(R.string.accessibility_info2), Toast.LENGTH_LONG).show()
+            updateOverlayKeyButton()
         }
 
         if (key == textSizeKey) {
@@ -168,8 +139,8 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             updateOverlayTextColor()
         }
 
-        if (key == backgroundColorKey) {
-            updateOverlayBackgroundColor()
+        if (key == backgroundColorKey || key == roundedCornersKey) {
+            updateOverlayBackground()
         }
 
         if (key == textFontKey) {
@@ -559,7 +530,6 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             overlayTextView.text = overlayText.trim()
             overlayTextView2.text = overlayText2.trim()
 
-            // Update output every 0.75 second
             handler.postDelayed(this, 750)
         }
     }
@@ -572,6 +542,39 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             e.printStackTrace()
             ""
         }
+    }
+
+    private fun updateOverlayKeyButton() {
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+
+        val keyCodesArray = resources.getStringArray(R.array.key_codes)
+        val selectedKeyCodeString = sharedPreferences.getString(selectedCodeKey, keyCodesArray[0])
+
+        val index = keyCodesArray.indexOf(selectedKeyCodeString)
+
+        sharedPreferences.registerOnSharedPreferenceChangeListener(this)
+
+        standardKeyCode = when (index) {
+            0 -> KeyEvent.KEYCODE_BOOKMARK
+            1 -> KeyEvent.KEYCODE_GUIDE
+            2 -> KeyEvent.KEYCODE_PROG_RED
+            3 -> KeyEvent.KEYCODE_PROG_GREEN
+            4 -> KeyEvent.KEYCODE_PROG_YELLOW
+            5 -> KeyEvent.KEYCODE_PROG_BLUE
+            6 -> KeyEvent.KEYCODE_0
+            7 -> KeyEvent.KEYCODE_1
+            8 -> KeyEvent.KEYCODE_2
+            9 -> KeyEvent.KEYCODE_3
+            10 -> KeyEvent.KEYCODE_4
+            11 -> KeyEvent.KEYCODE_5
+            12 -> KeyEvent.KEYCODE_6
+            13 -> KeyEvent.KEYCODE_7
+            14 -> KeyEvent.KEYCODE_8
+            15 -> KeyEvent.KEYCODE_9
+            else -> KeyEvent.KEYCODE_BOOKMARK
+        }
+
+        sharedPreferences.edit().putString(selectedCodeKey, selectedKeyCodeString).apply()
     }
 
     private fun updateOverlayTextSize() {
@@ -594,19 +597,20 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         }
     }
 
-    private fun updateOverlayBackgroundColor() {
+    private fun updateOverlayBackground() {
         if (::overlayTextView.isInitialized && ::overlayTextView2.isInitialized) {
             val backgroundColorKey = sharedPreferences.getString("background_color_key", "#E6000000") ?: "#E6000000"
             val backgroundColor = Color.parseColor(backgroundColorKey)
+            val roundedCornersKey = sharedPreferences.getString("rounded_corners_key", "18") ?: "18"
+            val roundedCornersPx = convertDpToPx(roundedCornersKey.toFloat(), this)
 
             val backgroundDrawable1 = GradientDrawable()
             val backgroundDrawable2 = GradientDrawable()
 
             backgroundDrawable1.setColor(backgroundColor)
-            backgroundDrawable1.cornerRadii = floatArrayOf(0f, 0f, 28.toFloat(), 28.toFloat(), 28.toFloat(), 28.toFloat(), 0f, 0f)
-
+            backgroundDrawable1.cornerRadii = floatArrayOf(0f, 0f, roundedCornersPx, roundedCornersPx, roundedCornersPx, roundedCornersPx, 0f, 0f)
             backgroundDrawable2.setColor(backgroundColor)
-            backgroundDrawable2.cornerRadii = floatArrayOf(28.toFloat(), 28.toFloat(), 0f, 0f, 0f, 0f, 28.toFloat(), 28.toFloat())
+            backgroundDrawable2.cornerRadii = floatArrayOf(roundedCornersPx, roundedCornersPx, 0f, 0f, 0f, 0f, roundedCornersPx, roundedCornersPx)
 
             overlayTextView.background = backgroundDrawable1
             overlayTextView2.background = backgroundDrawable2
@@ -649,9 +653,13 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         }
     }
 
+    private fun convertDpToPx(dp: Float, context: Context): Float {
+        val density = context.resources.displayMetrics.density
+        return dp * density
+    }
+
     override fun onDestroy() {
         super.onDestroy()
-
         PreferenceManager.getDefaultSharedPreferences(this)
             .unregisterOnSharedPreferenceChangeListener(this)
     }

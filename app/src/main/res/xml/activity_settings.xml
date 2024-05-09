@@ -49,6 +49,15 @@
             android:title="@string/background_color" />
 
         <ListPreference
+            android:defaultValue="18"
+            android:entries="@array/rounded_corners_options"
+            android:entryValues="@array/rounded_corners_values"
+            android:icon="@drawable/ic_rounded_corners_24dp"
+            android:key="rounded_corners_key"
+            android:summary="@string/rounded_corners_summary"
+            android:title="@string/rounded_corners" />
+
+        <ListPreference
             android:defaultValue="inter"
             android:entries="@array/text_font_options"
             android:entryValues="@array/text_font_values"

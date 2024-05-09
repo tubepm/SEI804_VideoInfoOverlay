@@ -21,8 +21,6 @@
     <string name="wifi">Wi-Fi</string>
     <string name="ethernet">Ethernet</string>
     <string name="overlay_settings">Настройки наложения</string>
-    <string name="accessibility_info1">\"Специальные возможности\" -> \"SEI804 VideoInfoOverlay\"</string>
-    <string name="accessibility_info2">выключите/включите, чтобы изменения вступили в силу.</string>
     <string name="no_connectivity">Нет подключения к Интернету</string>
     <string name="overlay_button">Кнопка наложения</string>
     <string name="overlay_button_summary">Нажмите кнопку, чтобы активировать наложение.</string>
@@ -35,6 +33,8 @@
     <string name="text_font_summary">Выберите шрифт текста для наложения.</string>
     <string name="background_color">Цвет фона</string>
     <string name="background_color_summary">Выберите цвет фона для наложения.</string>
+    <string name="rounded_corners">Скругленные углы</string>
+    <string name="rounded_corners_summary">Выберите размер закругленного угла для наложения.</string>
     <string name="line_break">перенос строки</string>
     <string name="line_break_summary">Этот вариант добавляет пустую строку.</string>
     <string name="title">Название</string>
