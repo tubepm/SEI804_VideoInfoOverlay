@@ -646,8 +646,6 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             "quicksand" -> R.font.quicksand
             "electrolize" -> R.font.electrolize
             "poetsenone" -> R.font.poetsenone
-            "dotmatrix" -> R.font.dotmatrix
-            "squaredotmatrix" -> R.font.squaredotmatrix
             else -> R.font.inter
         }
     }

@@ -259,8 +259,6 @@
         <item>Quicksand</item>
         <item>Electrolize</item>
         <item>PoetsenOne</item>
-        <item>Dot Matrix</item>
-        <item>Square Dot Matrix</item>
     </string-array>
 
     <string-array name="text_font_values">
@@ -272,7 +270,5 @@
         <item>quicksand</item>
         <item>electrolize</item>
         <item>poetsenone</item>
-        <item>dotmatrix</item>
-        <item>squaredotmatrix</item>
     </string-array>
 </resources>
