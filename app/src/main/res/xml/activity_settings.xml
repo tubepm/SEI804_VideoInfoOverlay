@@ -66,4 +66,13 @@
             android:summary="@string/text_color_summary"
             android:title="@string/text_color" />
     </PreferenceCategory>
+
+    <PreferenceCategory>
+
+        <Preference
+            android:key="pref_version_key"
+            android:summary="Link"
+            android:title="Version"
+            android:icon="@drawable/ic_remote_24dp" />
+    </PreferenceCategory>
 </PreferenceScreen>
