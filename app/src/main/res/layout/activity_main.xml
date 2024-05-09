@@ -13,9 +13,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="14dp"
         android:layout_marginEnd="14dp"
-        android:gravity="start"
-        android:padding="12dp"
-        android:fontFamily="@font/inter" />
+        android:padding="12dp" />
 
     <TextView
         android:id="@+id/overlayTextView2"
@@ -24,9 +22,7 @@
         android:layout_alignParentTop="true"
         android:layout_toStartOf="@id/overlayTextView"
         android:layout_marginTop="14dp"
-        android:gravity="start"
         android:padding="12dp"
-        android:text="@string/starting"
-        android:fontFamily="@font/inter" />
+        android:text="@string/starting" />
 
 </RelativeLayout>
