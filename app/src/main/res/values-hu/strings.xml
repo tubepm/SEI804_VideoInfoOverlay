@@ -13,8 +13,8 @@
     <string name="cpu_usage">CPU használat:</string>
     <string name="memory_usage">RAM használat:</string>
     <string name="connection">Csatlakozás:</string>
-    <string name="follow_source">Forrásvezérelt (Player-Led)</string>
-    <string name="follow_sink">Lejátszóvezérelt (TV-Led)</string>
+    <string name="follow_source">Automatikus</string>
+    <string name="follow_sink">Mindig dv/hdr</string>
     <string name="auto">Automatikus</string>
     <string name="passthrough">Hangtovábbítás</string>
     <string name="manual">Manuális</string>
