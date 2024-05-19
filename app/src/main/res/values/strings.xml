@@ -177,7 +177,15 @@
         <item>Brown</item>
         <item>Grey</item>
         <item>Blue Grey</item>
-        <item>Schwarz</item>
+        <item>Gold</item>
+        <item>Silver</item>
+        <item>Rose Gold</item>
+        <item>Mint Green</item>
+        <item>Coral</item>
+        <item>Maroon</item>
+        <item>Navy Blue</item>
+        <item>Forest Green</item>
+        <item>Black</item>
     </string-array>
 
     <string-array name="text_color_values">
@@ -201,6 +209,15 @@
         <item>#795548</item>
         <item>#9E9E9E</item>
         <item>#607D8B</item>
+        <item>#FFD700</item>
+        <item>#C0C0C0</item>
+        <item>#B76E79</item>
+        <item>#98FF98</item>
+        <item>#FF7F50</item>
+        <item>#40E0D0</item>
+        <item>#800000</item>
+        <item>#000080</item>
+        <item>#228B22</item>
         <item>#000000</item>
     </string-array>
 
@@ -299,6 +316,11 @@
         <item>Quicksand</item>
         <item>Electrolize</item>
         <item>PoetsenOne</item>
+        <item>VT323</item>
+        <item>ShareTechMono</item>
+        <item>AnonymousPro</item>
+        <item>RedditMono</item>
+        <item>IBMPlexMono</item>
     </string-array>
 
     <string-array name="text_font_values">
@@ -310,5 +332,10 @@
         <item>quicksand</item>
         <item>electrolize</item>
         <item>poetsenone</item>
+        <item>vt323</item>
+        <item>sharetechmono</item>
+        <item>anonymouspro</item>
+        <item>redditmono</item>
+        <item>ibmplexmono</item>
     </string-array>
 </resources>
