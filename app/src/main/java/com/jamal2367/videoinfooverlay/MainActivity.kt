@@ -180,7 +180,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
             val overlayText = buildString {
                 if (isTitleLine) {
-                    appendLine("⠀ ")
+                    appendLine("\u200E")
                 }
 
                 if (displayResolution.isNotEmpty()) {
