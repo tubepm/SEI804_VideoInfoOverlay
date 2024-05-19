@@ -13,8 +13,8 @@
     <string name="cpu_usage">CPU-Auslastung:</string>
     <string name="memory_usage">Speichernutzung:</string>
     <string name="connection">Verbindungstyp:</string>
-    <string name="follow_source">Quellengeführt (Player-Led)</string>
-    <string name="follow_sink">Gerätegeführt (TV-Led)</string>
+    <string name="follow_source">Quellengeführt (Gerät)</string>
+    <string name="follow_sink">Gerätegeführt (TV)</string>
     <string name="auto">Automatisch</string>
     <string name="passthrough">Passthrough</string>
     <string name="manual">Manuell</string>
