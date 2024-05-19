@@ -317,6 +317,8 @@
         <item>Electrolize</item>
         <item>PoetsenOne</item>
         <item>VT323</item>
+        <item>ShareTechMono</item>
+        <item>AnonymousPro</item>
         <item>RedditMono</item>
         <item>IBMPlexMono</item>
     </string-array>
@@ -331,6 +333,8 @@
         <item>electrolize</item>
         <item>poetsenone</item>
         <item>vt323</item>
+        <item>sharetechmono</item>
+        <item>anonymouspro</item>
         <item>redditmono</item>
         <item>ibmplexmono</item>
     </string-array>

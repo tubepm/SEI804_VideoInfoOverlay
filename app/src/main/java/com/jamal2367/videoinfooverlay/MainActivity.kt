@@ -649,6 +649,8 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             "electrolize" -> R.font.electrolize
             "poetsenone" -> R.font.poetsenone
             "vt323" -> R.font.vt323
+            "sharetechmono" -> R.font.sharetechmono
+            "anonymouspro" -> R.font.anonymouspro
             "redditmono" -> R.font.redditmono
             "ibmplexmono" -> R.font.ibmplexmono
             else -> R.font.inter
