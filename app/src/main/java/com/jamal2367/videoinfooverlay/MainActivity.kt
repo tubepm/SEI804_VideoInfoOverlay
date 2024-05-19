@@ -2,6 +2,7 @@ package com.jamal2367.videoinfooverlay
 
 import android.accessibilityservice.AccessibilityService
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.PixelFormat
@@ -104,6 +105,8 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
         val windowManager = getSystemService(WINDOW_SERVICE) as WindowManager
         windowManager.addView(overlayView, params)
+
+        startTvBugTracker()
         
         handler.postDelayed(updateData, 750)
     }
@@ -116,6 +119,14 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             overlayView = null
             handler.removeCallbacks(updateData)
         }
+    }
+
+    private fun startTvBugTracker() {
+        val intent = Intent("com.nes.action.SHOW_DEBUG_VIEW")
+
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        intent.putExtra("invisible", 1)
+        startActivity(intent)
     }
 
     override fun onServiceConnected() {
