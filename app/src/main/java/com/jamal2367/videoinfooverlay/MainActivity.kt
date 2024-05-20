@@ -105,8 +105,6 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
         val windowManager = getSystemService(WINDOW_SERVICE) as WindowManager
         windowManager.addView(overlayView, params)
-
-        startTvBugTracker()
         
         handler.postDelayed(updateData, 750)
     }
@@ -133,6 +131,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         super.onServiceConnected()
         Log.d("TAG", "onServiceConnected")
 
+        startTvBugTracker()
         updateOverlayKeyButton()
     }
 
