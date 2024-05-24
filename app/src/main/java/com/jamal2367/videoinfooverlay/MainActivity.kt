@@ -1,14 +1,17 @@
 package com.jamal2367.videoinfooverlay
 
 import android.accessibilityservice.AccessibilityService
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.content.ServiceConnection
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.PixelFormat
 import android.graphics.drawable.GradientDrawable
 import android.net.ConnectivityManager
 import android.os.Handler
+import android.os.IBinder
 import android.os.Looper
 import android.util.Log
 import android.view.KeyEvent
@@ -29,6 +32,9 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
     private var standardKeyCode: Int = KeyEvent.KEYCODE_BOOKMARK
     private var overlayView: View? = null
     private var lastKeyDownTime: Long = 0
+    private val lock = Any()
+    private var serviceBinder: IBinder? = null
+    private var serviceConnection: ServiceConnection? = null
 
     private val handler = Handler(Looper.getMainLooper())
     private val selectedCodeKey = "selected_code_key"
@@ -45,6 +51,46 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
     }
 
     override fun onInterrupt() {
+    }
+
+    private fun ensureService(): IBinder? {
+        synchronized(lock) {
+            if (serviceConnection == null) {
+                serviceConnection = object : ServiceConnection {
+                    override fun onNullBinding(componentName: ComponentName) {
+                        synchronized(lock) {
+                            Log.d("TAG", "NES service is not supported")
+
+                        }
+                    }
+
+                    override fun onServiceConnected(componentName: ComponentName, iBinder: IBinder) {
+                        synchronized(lock) {
+                            Log.d("TAG", "NES service connected")
+                            serviceBinder = iBinder
+
+                            startTvBugTracker()
+                            updateOverlayKeyButton()
+
+                        }
+                    }
+
+                    override fun onServiceDisconnected(componentName: ComponentName) {
+                        synchronized(lock) {
+                            Log.d("TAG", "NES service disconnected")
+                            serviceBinder = null
+
+                        }
+                    }
+                }
+
+                val intent = Intent().setClassName("com.nes.tvbugtracker", "com.nes.tvbugtracker.MainService")
+                if (!this.bindService(intent, serviceConnection!!, 1)) {
+                    Log.d("TAG", "NES service not available")
+                }
+            }
+            return serviceBinder
+        }
     }
 
     override fun onKeyEvent(event: KeyEvent): Boolean {
@@ -131,8 +177,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         super.onServiceConnected()
         Log.d("TAG", "onServiceConnected")
 
-        startTvBugTracker()
-        updateOverlayKeyButton()
+        ensureService()
     }
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
@@ -676,6 +721,8 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
     override fun onDestroy() {
         super.onDestroy()
+        serviceConnection?.let { unbindService(it) }
+
         PreferenceManager.getDefaultSharedPreferences(this)
             .unregisterOnSharedPreferenceChangeListener(this)
     }
