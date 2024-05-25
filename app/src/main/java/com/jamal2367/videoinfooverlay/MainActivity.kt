@@ -60,7 +60,6 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                     override fun onNullBinding(componentName: ComponentName) {
                         synchronized(lock) {
                             Log.d("TAG", "NES service is not supported")
-
                         }
                     }
 
@@ -71,7 +70,6 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
                             startTvBugTracker()
                             updateOverlayKeyButton()
-
                         }
                     }
 
@@ -79,7 +77,6 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         synchronized(lock) {
                             Log.d("TAG", "NES service disconnected")
                             serviceBinder = null
-
                         }
                     }
                 }
@@ -89,6 +86,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                     Log.d("TAG", "NES service not available")
                 }
             }
+
             return serviceBinder
         }
     }
