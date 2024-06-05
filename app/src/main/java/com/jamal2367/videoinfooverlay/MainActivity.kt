@@ -272,6 +272,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         "480i30hz" -> "854 × 480i, 30hz"
                         "480i25hz" -> "854 × 480i, 25hz"
                         "480i24hz" -> "854 × 480i, 24hz"
+                        "smpte24hz" -> "SMPTE, 24hz"
                         else -> displayResolution
                     }
                     appendLine(modifiedDisplayResolution)
