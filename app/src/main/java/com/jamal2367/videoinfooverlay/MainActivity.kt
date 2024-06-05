@@ -442,8 +442,15 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                 if (colorSpace.isNotEmpty()) {
                     val modifiedColorSpace = when (colorSpace.trim()) {
                         "default" -> "YCbCr 4:2:2 (10 Bit)"
+                        "YCbCr422 8bit" -> "YCbCr 4:2:2 (8 Bit)"
+                        "YCbCr422 10bit" -> "YCbCr 4:2:2 (10 Bit)"
                         "YCbCr422 12bit" -> "YCbCr 4:2:2 (12 Bit)"
+                        "YCbCr420 8bit" -> "YCbCr 4:2:0 (8 Bit)"
+                        "YCbCr420 10bit" -> "YCbCr 4:2:0 (10 Bit)"
+                        "YCbCr420 12bit" -> "YCbCr 4:2:0 (12 Bit)"
                         "YCbCr444 8bit" -> "YCbCr 4:4:4 (8 Bit)"
+                        "YCbCr444 10bit" -> "YCbCr 4:4:4 (10 Bit)"
+                        "YCbCr444 12bit" -> "YCbCr 4:4:4 (12 Bit)"
                         else -> colorSpace
                     }
                     appendLine(modifiedColorSpace)
