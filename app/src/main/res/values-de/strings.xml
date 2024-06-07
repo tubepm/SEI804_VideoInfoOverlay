@@ -25,6 +25,10 @@
     <string name="overlay_button">Overlay-Taste</string>
     <string name="overlay_button_summary">Wähle eine Schaltfläche, um das Overlay zu aktivieren.</string>
     <string name="select_button">Taste auswählen</string>
+    <string name="right_margin">Rechter Seitenrand</string>
+    <string name="right_margin_summary">Wähle einen Abstand vom rechten Bildschirmrand für das Overlay.</string>
+    <string name="top_margin">Oberer Seitenrand</string>
+    <string name="top_margin_summary">Wähle einen Abstand zum oberen Bildschirmrand für das Overlay.</string>
     <string name="text_size">Schriftgröße</string>
     <string name="text_size_summary">Wähle eine Schriftgröße für das Overlay.</string>
     <string name="text_color">Schriftfarbe</string>

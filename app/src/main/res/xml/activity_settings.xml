@@ -58,6 +58,27 @@
             android:title="@string/rounded_corners" />
 
         <ListPreference
+            android:defaultValue="14"
+            android:entries="@array/margin_height_options"
+            android:entryValues="@array/margin_height_values"
+            android:icon="@drawable/ic_top_24dp"
+            android:key="margin_height_key"
+            android:summary="@string/top_margin_summary"
+            android:title="@string/top_margin" />
+
+        <ListPreference
+            android:defaultValue="14"
+            android:entries="@array/margin_width_options"
+            android:entryValues="@array/margin_width_values"
+            android:icon="@drawable/ic_right_24dp"
+            android:key="margin_width_key"
+            android:summary="@string/right_margin_summary"
+            android:title="@string/right_margin" />
+
+    </PreferenceCategory>
+    <PreferenceCategory>
+
+        <ListPreference
             android:defaultValue="inter"
             android:entries="@array/text_font_options"
             android:entryValues="@array/text_font_values"
@@ -83,8 +104,8 @@
             android:key="text_color_key"
             android:summary="@string/text_color_summary"
             android:title="@string/text_color" />
-    </PreferenceCategory>
 
+    </PreferenceCategory>
     <PreferenceCategory>
 
         <Preference
@@ -92,5 +113,6 @@
             android:summary="Link"
             android:title="Version"
             android:icon="@drawable/ic_remote_24dp" />
+
     </PreferenceCategory>
 </PreferenceScreen>

@@ -16,6 +16,7 @@ import android.os.Looper
 import android.util.Log
 import android.view.KeyEvent
 import android.view.View
+import android.view.ViewGroup
 import android.view.WindowManager
 import android.view.accessibility.AccessibilityEvent
 import android.widget.TextView
@@ -41,6 +42,8 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
     private val longPressKey = "long_press_key"
     private val emptyLineKey = "empty_line_key"
     private val emptyTitleKey = "empty_title_key"
+    private val marginWidthKey = "margin_width_key"
+    private val marginHeightKey = "margin_height_key"
     private val textSizeKey = "text_size_key"
     private val textColorKey = "text_color_key"
     private val backgroundColorKey = "background_color_key"
@@ -142,6 +145,8 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         overlayTextView = overlayView!!.findViewById(R.id.overlayTextView)
         overlayTextView2 = overlayView!!.findViewById(R.id.overlayTextView2)
 
+        updateOverlayMarginWidth()
+        updateOverlayMarginHeight()
         updateOverlayTextSize()
         updateOverlayTextColor()
         updateOverlayBackground()
@@ -181,6 +186,14 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
         if (key == selectedCodeKey) {
             updateOverlayKeyButton()
+        }
+
+        if (key == marginWidthKey) {
+            updateOverlayMarginWidth()
+        }
+
+        if (key == marginHeightKey) {
+            updateOverlayMarginHeight()
         }
 
         if (key == textSizeKey) {
@@ -649,6 +662,37 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         }
     }
 
+    private fun updateOverlayMarginWidth() {
+        if (::overlayTextView.isInitialized && ::overlayTextView2.isInitialized) {
+            val marginWidthKey = sharedPreferences.getString("margin_width_key", "14") ?: "14"
+            val marginWidth = marginWidthKey.toFloat()
+
+            val scale = resources.displayMetrics.density
+            val marginWidthInPx = (marginWidth * scale + 0.5f).toInt()
+
+            val params1 = overlayTextView.layoutParams as ViewGroup.MarginLayoutParams
+            params1.rightMargin = marginWidthInPx
+            overlayTextView.layoutParams = params1
+        }
+    }
+
+    private fun updateOverlayMarginHeight() {
+        if (::overlayTextView.isInitialized && ::overlayTextView2.isInitialized) {
+            val marginHeightKey = sharedPreferences.getString("margin_height_key", "14") ?: "14"
+            val marginHeight = marginHeightKey.toFloat()
+
+            val scale = resources.displayMetrics.density
+            val marginHeightInPx = (marginHeight * scale + 0.5f).toInt()
+
+            val params1 = overlayTextView.layoutParams as ViewGroup.MarginLayoutParams
+            params1.topMargin = marginHeightInPx
+            overlayTextView.layoutParams = params1
+
+            val params2 = overlayTextView2.layoutParams as ViewGroup.MarginLayoutParams
+            params2.topMargin = marginHeightInPx
+            overlayTextView2.layoutParams = params2
+        }
+    }
 
     private fun updateOverlayTextColor() {
         if (::overlayTextView.isInitialized && ::overlayTextView2.isInitialized) {
