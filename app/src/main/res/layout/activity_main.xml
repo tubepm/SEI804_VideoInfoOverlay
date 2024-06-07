@@ -19,7 +19,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_toStartOf="@id/overlayTextView"
-        android:padding="12dp"
         android:text="@string/starting" />
 
 </RelativeLayout>

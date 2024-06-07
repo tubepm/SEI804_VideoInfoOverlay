@@ -20,7 +20,6 @@
     <string name="manual">Manuell</string>
     <string name="wifi">WLAN</string>
     <string name="ethernet">LAN</string>
-    <string name="overlay_settings">Overlay-Einstellungen</string>
     <string name="no_connectivity">Keine Internetverbindung</string>
     <string name="overlay_button">Overlay-Taste</string>
     <string name="overlay_button_summary">Wähle eine Schaltfläche, um das Overlay zu aktivieren.</string>
@@ -128,27 +127,8 @@
     </string-array>
 
     <string-array name="background_color_left_options">
-        <item>Schwarz 100%</item>
-        <item>Schwarz 90%</item>
-        <item>Schwarz 80%</item>
-        <item>Schwarz 70%</item>
-        <item>Schwarz 60%</item>
-        <item>Schwarz 50%</item>
-        <item>Schwarz 40%</item>
-        <item>Schwarz 30%</item>
-        <item>Schwarz 20%</item>
-        <item>Schwarz 10%</item>
-        <item>Weiß 100%</item>
-        <item>Weiß 90%</item>
-        <item>Weiß 80%</item>
-        <item>Weiß 70%</item>
-        <item>Weiß 60%</item>
-        <item>Weiß 50%</item>
-        <item>Weiß 40%</item>
-        <item>Weiß 30%</item>
-        <item>Weiß 20%</item>
-        <item>Weiß 10%</item>
-        <item>Transparent</item>
+        <item>Schwarz</item>
+        <item>Weiß</item>
         <item>Rot</item>
         <item>Rosa</item>
         <item>Lila</item>
@@ -171,27 +151,8 @@
     </string-array>
 
     <string-array name="background_color_right_options">
-        <item>Schwarz 100%</item>
-        <item>Schwarz 90%</item>
-        <item>Schwarz 80%</item>
-        <item>Schwarz 70%</item>
-        <item>Schwarz 60%</item>
-        <item>Schwarz 50%</item>
-        <item>Schwarz 40%</item>
-        <item>Schwarz 30%</item>
-        <item>Schwarz 20%</item>
-        <item>Schwarz 10%</item>
-        <item>Weiß 100%</item>
-        <item>Weiß 90%</item>
-        <item>Weiß 80%</item>
-        <item>Weiß 70%</item>
-        <item>Weiß 60%</item>
-        <item>Weiß 50%</item>
-        <item>Weiß 40%</item>
-        <item>Weiß 30%</item>
-        <item>Weiß 20%</item>
-        <item>Weiß 10%</item>
-        <item>Transparent</item>
+        <item>Schwarz</item>
+        <item>Weiß</item>
         <item>Rot</item>
         <item>Rosa</item>
         <item>Lila</item>

@@ -21,7 +21,12 @@
     <string name="manual">Manual</string>
     <string name="wifi">Wi-Fi</string>
     <string name="ethernet">Ethernet</string>
-    <string name="overlay_settings">Overlay settings</string>
+    <string name="overlay_options">Overlay options</string>
+    <string name="background_options">Background options</string>
+    <string name="distance_options">Distance options</string>
+    <string name="corner_options">Corner options</string>
+    <string name="text_options">Text options</string>
+    <string name="about">About</string>
     <string name="no_connectivity">No internet connection</string>
     <string name="overlay_button">Overlay button</string>
     <string name="overlay_button_summary">Select a button to activate the overlay.</string>
@@ -30,6 +35,8 @@
     <string name="right_margin_summary">Select the distance to the right edge of the screen for the overlay.</string>
     <string name="top_margin">Top edge margin</string>
     <string name="top_margin_summary">Select the distance to the top edge of the screen for the overlay.</string>
+    <string name="both_margin">Middle margin</string>
+    <string name="both_margin_summary">Select the distance to the middle of the two overlays.</string>
     <string name="text_size">Text size</string>
     <string name="text_size_summary">Select a text size for the overlay.</string>
     <string name="text_color_left">Left text color</string>
@@ -42,6 +49,14 @@
     <string name="background_color_left_summary">Select a background color for the left overlay.</string>
     <string name="background_color_right">Right background color</string>
     <string name="background_color_right_summary">Select a background color for the right overlay.</string>
+    <string name="background_alpha_left">Left background alpha</string>
+    <string name="background_alpha_left_summary">Select a background alpha for the left overlay.</string>
+    <string name="background_alpha_right">Right background alpha</string>
+    <string name="background_alpha_right_summary">Select a background alpha for the right overlay.</string>
+    <string name="rounded_corners_left_overall">Rounded corners on all edges on the left overlay</string>
+    <string name="rounded_corners_left_overall_summary">This option adds rounded corners to all corners of the left overlay.</string>
+    <string name="rounded_corners_right_overall">Rounded corners on all edges on the right overlay</string>
+    <string name="rounded_corners_right_overall_summary">This option adds rounded corners to all corners of the right overlay.</string>
     <string name="rounded_corners_left">Left rounded corners</string>
     <string name="rounded_corners_left_summary">Select a rounded corner size for the left overlay.</string>
     <string name="rounded_corners_right">Right rounded corners</string>
@@ -712,6 +727,112 @@
         <item>300</item>
     </string-array>
 
+    <string-array name="margin_both_options">
+        <item>0px</item>
+        <item>2px</item>
+        <item>4px</item>
+        <item>6px</item>
+        <item>8px</item>
+        <item>10px</item>
+        <item>12px</item>
+        <item>14px</item>
+        <item>16px</item>
+        <item>18px</item>
+        <item>20px</item>
+        <item>22px</item>
+        <item>24px</item>
+        <item>26px</item>
+        <item>28px</item>
+        <item>30px</item>
+        <item>32px</item>
+        <item>34px</item>
+        <item>36px</item>
+        <item>38px</item>
+        <item>40px</item>
+        <item>42px</item>
+        <item>44px</item>
+        <item>46px</item>
+        <item>48px</item>
+        <item>50px</item>
+    </string-array>
+
+    <string-array name="margin_both_values">
+        <item>0</item>
+        <item>2</item>
+        <item>4</item>
+        <item>6</item>
+        <item>8</item>
+        <item>10</item>
+        <item>12</item>
+        <item>14</item>
+        <item>16</item>
+        <item>18</item>
+        <item>20</item>
+        <item>22</item>
+        <item>24</item>
+        <item>26</item>
+        <item>28</item>
+        <item>30</item>
+        <item>32</item>
+        <item>34</item>
+        <item>36</item>
+        <item>38</item>
+        <item>40</item>
+        <item>42</item>
+        <item>44</item>
+        <item>46</item>
+        <item>48</item>
+        <item>50</item>
+    </string-array>
+
+    <string-array name="text_padding_options">
+        <item>10px</item>
+        <item>12px</item>
+        <item>14px</item>
+        <item>16px</item>
+        <item>18px</item>
+        <item>20px</item>
+        <item>22px</item>
+        <item>24px</item>
+        <item>26px</item>
+        <item>28px</item>
+        <item>30px</item>
+        <item>32px</item>
+        <item>34px</item>
+        <item>36px</item>
+        <item>38px</item>
+        <item>40px</item>
+        <item>42px</item>
+        <item>44px</item>
+        <item>46px</item>
+        <item>48px</item>
+        <item>50px</item>
+    </string-array>
+
+    <string-array name="text_padding_values">
+        <item>10</item>
+        <item>12</item>
+        <item>14</item>
+        <item>16</item>
+        <item>18</item>
+        <item>20</item>
+        <item>22</item>
+        <item>24</item>
+        <item>26</item>
+        <item>28</item>
+        <item>30</item>
+        <item>32</item>
+        <item>34</item>
+        <item>36</item>
+        <item>38</item>
+        <item>40</item>
+        <item>42</item>
+        <item>44</item>
+        <item>46</item>
+        <item>48</item>
+        <item>50</item>
+    </string-array>
+
     <string-array name="text_size_options">
         <item>5px</item>
         <item>6px</item>
@@ -951,27 +1072,8 @@
     </string-array>
 
     <string-array name="background_color_left_options">
-        <item>Black 100%</item>
-        <item>Black 90%</item>
-        <item>Black 80%</item>
-        <item>Black 70%</item>
-        <item>Black 60%</item>
-        <item>Black 50%</item>
-        <item>Black 40%</item>
-        <item>Black 30%</item>
-        <item>Black 20%</item>
-        <item>Black 10%</item>
-        <item>White 100%</item>
-        <item>White 90%</item>
-        <item>White 80%</item>
-        <item>White 70%</item>
-        <item>White 60%</item>
-        <item>White 50%</item>
-        <item>White 40%</item>
-        <item>White 30%</item>
-        <item>White 20%</item>
-        <item>White 10%</item>
-        <item>Transparent</item>
+        <item>Black</item>
+        <item>White</item>
         <item>Red</item>
         <item>Pink</item>
         <item>Purple</item>
@@ -994,70 +1096,32 @@
     </string-array>
 
     <string-array name="background_color_left_values">
-        <item>#FF000000</item>
-        <item>#E6000000</item>
-        <item>#CC000000</item>
-        <item>#B3000000</item>
-        <item>#99000000</item>
-        <item>#80000000</item>
-        <item>#66000000</item>
-        <item>#4D000000</item>
-        <item>#33000000</item>
-        <item>#1A000000</item>
-        <item>#FFFFFFFF</item>
-        <item>#E6FFFFFF</item>
-        <item>#CCFFFFFF</item>
-        <item>#B3FFFFFF</item>
-        <item>#99FFFFFF</item>
-        <item>#80FFFFFF</item>
-        <item>#66FFFFFF</item>
-        <item>#4DFFFFFF</item>
-        <item>#33FFFFFF</item>
-        <item>#1AFFFFFF</item>
-        <item>#00000000</item>
-        <item>#80F44336</item>
-        <item>#80E91E63</item>
-        <item>#809C27B0</item>
-        <item>#80673AB7</item>
-        <item>#803F51B5</item>
-        <item>#802196F3</item>
-        <item>#8003A9F4</item>
-        <item>#8000BCD4</item>
-        <item>#80009688</item>
-        <item>#804CAF50</item>
-        <item>#808BC34A</item>
-        <item>#80CDDC39</item>
-        <item>#80FFEB3B</item>
-        <item>#80FFC107</item>
-        <item>#80FF9800</item>
-        <item>#80FF5722</item>
-        <item>#80795548</item>
-        <item>#809E9E9E</item>
-        <item>#80607D8B</item>
+        <item>#000000</item>
+        <item>#FFFFFF</item>
+        <item>#F44336</item>
+        <item>#E91E63</item>
+        <item>#9C27B0</item>
+        <item>#673AB7</item>
+        <item>#3F51B5</item>
+        <item>#2196F3</item>
+        <item>#03A9F4</item>
+        <item>#00BCD4</item>
+        <item>#009688</item>
+        <item>#4CAF50</item>
+        <item>#8BC34A</item>
+        <item>#CDDC39</item>
+        <item>#FFEB3B</item>
+        <item>#FFC107</item>
+        <item>#FF9800</item>
+        <item>#FF5722</item>
+        <item>#795548</item>
+        <item>#9E9E9E</item>
+        <item>#607D8B</item>
     </string-array>
 
     <string-array name="background_color_right_options">
-        <item>Black 100%</item>
-        <item>Black 90%</item>
-        <item>Black 80%</item>
-        <item>Black 70%</item>
-        <item>Black 60%</item>
-        <item>Black 50%</item>
-        <item>Black 40%</item>
-        <item>Black 30%</item>
-        <item>Black 20%</item>
-        <item>Black 10%</item>
-        <item>White 100%</item>
-        <item>White 90%</item>
-        <item>White 80%</item>
-        <item>White 70%</item>
-        <item>White 60%</item>
-        <item>White 50%</item>
-        <item>White 40%</item>
-        <item>White 30%</item>
-        <item>White 20%</item>
-        <item>White 10%</item>
-        <item>Transparent</item>
+        <item>Black</item>
+        <item>White</item>
         <item>Red</item>
         <item>Pink</item>
         <item>Purple</item>
@@ -1080,47 +1144,445 @@
     </string-array>
 
     <string-array name="background_color_right_values">
-        <item>#FF000000</item>
-        <item>#E6000000</item>
-        <item>#CC000000</item>
-        <item>#B3000000</item>
-        <item>#99000000</item>
-        <item>#80000000</item>
-        <item>#66000000</item>
-        <item>#4D000000</item>
-        <item>#33000000</item>
-        <item>#1A000000</item>
-        <item>#FFFFFFFF</item>
-        <item>#E6FFFFFF</item>
-        <item>#CCFFFFFF</item>
-        <item>#B3FFFFFF</item>
-        <item>#99FFFFFF</item>
-        <item>#80FFFFFF</item>
-        <item>#66FFFFFF</item>
-        <item>#4DFFFFFF</item>
-        <item>#33FFFFFF</item>
-        <item>#1AFFFFFF</item>
-        <item>#00000000</item>
-        <item>#80F44336</item>
-        <item>#80E91E63</item>
-        <item>#809C27B0</item>
-        <item>#80673AB7</item>
-        <item>#803F51B5</item>
-        <item>#802196F3</item>
-        <item>#8003A9F4</item>
-        <item>#8000BCD4</item>
-        <item>#80009688</item>
-        <item>#804CAF50</item>
-        <item>#808BC34A</item>
-        <item>#80CDDC39</item>
-        <item>#80FFEB3B</item>
-        <item>#80FFC107</item>
-        <item>#80FF9800</item>
-        <item>#80FF5722</item>
-        <item>#80795548</item>
-        <item>#809E9E9E</item>
-        <item>#80607D8B</item>
+        <item>#000000</item>
+        <item>#FFFFFF</item>
+        <item>#F44336</item>
+        <item>#E91E63</item>
+        <item>#9C27B0</item>
+        <item>#673AB7</item>
+        <item>#3F51B5</item>
+        <item>#2196F3</item>
+        <item>#03A9F4</item>
+        <item>#00BCD4</item>
+        <item>#009688</item>
+        <item>#4CAF50</item>
+        <item>#8BC34A</item>
+        <item>#CDDC39</item>
+        <item>#FFEB3B</item>
+        <item>#FFC107</item>
+        <item>#FF9800</item>
+        <item>#FF5722</item>
+        <item>#795548</item>
+        <item>#9E9E9E</item>
+        <item>#607D8B</item>
     </string-array>
+
+    <string-array name="background_alpha_left_options">
+        <item>100%</item>
+        <item>99%</item>
+        <item>98%</item>
+        <item>97%</item>
+        <item>96%</item>
+        <item>95%</item>
+        <item>94%</item>
+        <item>93%</item>
+        <item>92%</item>
+        <item>91%</item>
+        <item>90%</item>
+        <item>89%</item>
+        <item>88%</item>
+        <item>87%</item>
+        <item>86%</item>
+        <item>85%</item>
+        <item>84%</item>
+        <item>83%</item>
+        <item>82%</item>
+        <item>81%</item>
+        <item>80%</item>
+        <item>79%</item>
+        <item>78%</item>
+        <item>77%</item>
+        <item>76%</item>
+        <item>75%</item>
+        <item>74%</item>
+        <item>73%</item>
+        <item>72%</item>
+        <item>71%</item>
+        <item>70%</item>
+        <item>69%</item>
+        <item>68%</item>
+        <item>67%</item>
+        <item>66%</item>
+        <item>65%</item>
+        <item>64%</item>
+        <item>63%</item>
+        <item>62%</item>
+        <item>61%</item>
+        <item>60%</item>
+        <item>59%</item>
+        <item>58%</item>
+        <item>57%</item>
+        <item>56%</item>
+        <item>55%</item>
+        <item>54%</item>
+        <item>53%</item>
+        <item>52%</item>
+        <item>51%</item>
+        <item>50%</item>
+        <item>49%</item>
+        <item>48%</item>
+        <item>47%</item>
+        <item>46%</item>
+        <item>45%</item>
+        <item>44%</item>
+        <item>43%</item>
+        <item>42%</item>
+        <item>41%</item>
+        <item>40%</item>
+        <item>39%</item>
+        <item>38%</item>
+        <item>37%</item>
+        <item>36%</item>
+        <item>35%</item>
+        <item>34%</item>
+        <item>33%</item>
+        <item>32%</item>
+        <item>31%</item>
+        <item>30%</item>
+        <item>29%</item>
+        <item>28%</item>
+        <item>27%</item>
+        <item>26%</item>
+        <item>25%</item>
+        <item>24%</item>
+        <item>23%</item>
+        <item>22%</item>
+        <item>21%</item>
+        <item>20%</item>
+        <item>19%</item>
+        <item>18%</item>
+        <item>17%</item>
+        <item>16%</item>
+        <item>15%</item>
+        <item>14%</item>
+        <item>13%</item>
+        <item>12%</item>
+        <item>11%</item>
+        <item>10%</item>
+        <item>9%</item>
+        <item>8%</item>
+        <item>7%</item>
+        <item>6%</item>
+        <item>5%</item>
+        <item>4%</item>
+        <item>3%</item>
+        <item>2%</item>
+        <item>1%</item>
+        <item>0%</item>
+    </string-array>
+
+    <string-array name="background_alpha_left_values">
+        <item>1.0</item>
+        <item>0.99</item>
+        <item>0.98</item>
+        <item>0.97</item>
+        <item>0.96</item>
+        <item>0.95</item>
+        <item>0.94</item>
+        <item>0.93</item>
+        <item>0.92</item>
+        <item>0.91</item>
+        <item>0.9</item>
+        <item>0.89</item>
+        <item>0.88</item>
+        <item>0.87</item>
+        <item>0.86</item>
+        <item>0.85</item>
+        <item>0.84</item>
+        <item>0.83</item>
+        <item>0.82</item>
+        <item>0.81</item>
+        <item>0.8</item>
+        <item>0.79</item>
+        <item>0.78</item>
+        <item>0.77</item>
+        <item>0.76</item>
+        <item>0.75</item>
+        <item>0.74</item>
+        <item>0.73</item>
+        <item>0.72</item>
+        <item>0.71</item>
+        <item>0.7</item>
+        <item>0.69</item>
+        <item>0.68</item>
+        <item>0.67</item>
+        <item>0.66</item>
+        <item>0.65</item>
+        <item>0.64</item>
+        <item>0.63</item>
+        <item>0.62</item>
+        <item>0.61</item>
+        <item>0.6</item>
+        <item>0.59</item>
+        <item>0.58</item>
+        <item>0.57</item>
+        <item>0.56</item>
+        <item>0.55</item>
+        <item>0.54</item>
+        <item>0.53</item>
+        <item>0.52</item>
+        <item>0.51</item>
+        <item>0.5</item>
+        <item>0.49</item>
+        <item>0.48</item>
+        <item>0.47</item>
+        <item>0.46</item>
+        <item>0.45</item>
+        <item>0.44</item>
+        <item>0.43</item>
+        <item>0.42</item>
+        <item>0.41</item>
+        <item>0.4</item>
+        <item>0.39</item>
+        <item>0.38</item>
+        <item>0.37</item>
+        <item>0.36</item>
+        <item>0.35</item>
+        <item>0.34</item>
+        <item>0.33</item>
+        <item>0.32</item>
+        <item>0.31</item>
+        <item>0.3</item>
+        <item>0.29</item>
+        <item>0.28</item>
+        <item>0.27</item>
+        <item>0.26</item>
+        <item>0.25</item>
+        <item>0.24</item>
+        <item>0.23</item>
+        <item>0.2</item>
+        <item>0.21</item>
+        <item>0.20</item>
+        <item>0.19</item>
+        <item>0.18</item>
+        <item>0.17</item>
+        <item>0.16</item>
+        <item>0.15</item>
+        <item>0.14</item>
+        <item>0.13</item>
+        <item>0.12</item>
+        <item>0.11</item>
+        <item>0.1</item>
+        <item>0.09</item>
+        <item>0.08</item>
+        <item>0.07</item>
+        <item>0.06</item>
+        <item>0.05</item>
+        <item>0.04</item>
+        <item>0.03</item>
+        <item>0.02</item>
+        <item>0.01</item>
+        <item>0.0</item>
+    </string-array>
+
+    <string-array name="background_alpha_right_options">
+        <item>100%</item>
+        <item>99%</item>
+        <item>98%</item>
+        <item>97%</item>
+        <item>96%</item>
+        <item>95%</item>
+        <item>94%</item>
+        <item>93%</item>
+        <item>92%</item>
+        <item>91%</item>
+        <item>90%</item>
+        <item>89%</item>
+        <item>88%</item>
+        <item>87%</item>
+        <item>86%</item>
+        <item>85%</item>
+        <item>84%</item>
+        <item>83%</item>
+        <item>82%</item>
+        <item>81%</item>
+        <item>80%</item>
+        <item>79%</item>
+        <item>78%</item>
+        <item>77%</item>
+        <item>76%</item>
+        <item>75%</item>
+        <item>74%</item>
+        <item>73%</item>
+        <item>72%</item>
+        <item>71%</item>
+        <item>70%</item>
+        <item>69%</item>
+        <item>68%</item>
+        <item>67%</item>
+        <item>66%</item>
+        <item>65%</item>
+        <item>64%</item>
+        <item>63%</item>
+        <item>62%</item>
+        <item>61%</item>
+        <item>60%</item>
+        <item>59%</item>
+        <item>58%</item>
+        <item>57%</item>
+        <item>56%</item>
+        <item>55%</item>
+        <item>54%</item>
+        <item>53%</item>
+        <item>52%</item>
+        <item>51%</item>
+        <item>50%</item>
+        <item>49%</item>
+        <item>48%</item>
+        <item>47%</item>
+        <item>46%</item>
+        <item>45%</item>
+        <item>44%</item>
+        <item>43%</item>
+        <item>42%</item>
+        <item>41%</item>
+        <item>40%</item>
+        <item>39%</item>
+        <item>38%</item>
+        <item>37%</item>
+        <item>36%</item>
+        <item>35%</item>
+        <item>34%</item>
+        <item>33%</item>
+        <item>32%</item>
+        <item>31%</item>
+        <item>30%</item>
+        <item>29%</item>
+        <item>28%</item>
+        <item>27%</item>
+        <item>26%</item>
+        <item>25%</item>
+        <item>24%</item>
+        <item>23%</item>
+        <item>22%</item>
+        <item>21%</item>
+        <item>20%</item>
+        <item>19%</item>
+        <item>18%</item>
+        <item>17%</item>
+        <item>16%</item>
+        <item>15%</item>
+        <item>14%</item>
+        <item>13%</item>
+        <item>12%</item>
+        <item>11%</item>
+        <item>10%</item>
+        <item>9%</item>
+        <item>8%</item>
+        <item>7%</item>
+        <item>6%</item>
+        <item>5%</item>
+        <item>4%</item>
+        <item>3%</item>
+        <item>2%</item>
+        <item>1%</item>
+        <item>0%</item>
+    </string-array>
+
+    <string-array name="background_alpha_right_values">
+        <item>1.0</item>
+        <item>0.99</item>
+        <item>0.98</item>
+        <item>0.97</item>
+        <item>0.96</item>
+        <item>0.95</item>
+        <item>0.94</item>
+        <item>0.93</item>
+        <item>0.92</item>
+        <item>0.91</item>
+        <item>0.9</item>
+        <item>0.89</item>
+        <item>0.88</item>
+        <item>0.87</item>
+        <item>0.86</item>
+        <item>0.85</item>
+        <item>0.84</item>
+        <item>0.83</item>
+        <item>0.82</item>
+        <item>0.81</item>
+        <item>0.8</item>
+        <item>0.79</item>
+        <item>0.78</item>
+        <item>0.77</item>
+        <item>0.76</item>
+        <item>0.75</item>
+        <item>0.74</item>
+        <item>0.73</item>
+        <item>0.72</item>
+        <item>0.71</item>
+        <item>0.7</item>
+        <item>0.69</item>
+        <item>0.68</item>
+        <item>0.67</item>
+        <item>0.66</item>
+        <item>0.65</item>
+        <item>0.64</item>
+        <item>0.63</item>
+        <item>0.62</item>
+        <item>0.61</item>
+        <item>0.6</item>
+        <item>0.59</item>
+        <item>0.58</item>
+        <item>0.57</item>
+        <item>0.56</item>
+        <item>0.55</item>
+        <item>0.54</item>
+        <item>0.53</item>
+        <item>0.52</item>
+        <item>0.51</item>
+        <item>0.5</item>
+        <item>0.49</item>
+        <item>0.48</item>
+        <item>0.47</item>
+        <item>0.46</item>
+        <item>0.45</item>
+        <item>0.44</item>
+        <item>0.43</item>
+        <item>0.42</item>
+        <item>0.41</item>
+        <item>0.4</item>
+        <item>0.39</item>
+        <item>0.38</item>
+        <item>0.37</item>
+        <item>0.36</item>
+        <item>0.35</item>
+        <item>0.34</item>
+        <item>0.33</item>
+        <item>0.32</item>
+        <item>0.31</item>
+        <item>0.3</item>
+        <item>0.29</item>
+        <item>0.28</item>
+        <item>0.27</item>
+        <item>0.26</item>
+        <item>0.25</item>
+        <item>0.24</item>
+        <item>0.23</item>
+        <item>0.22</item>
+        <item>0.21</item>
+        <item>0.2</item>
+        <item>0.19</item>
+        <item>0.18</item>
+        <item>0.17</item>
+        <item>0.16</item>
+        <item>0.15</item>
+        <item>0.14</item>
+        <item>0.13</item>
+        <item>0.12</item>
+        <item>0.11</item>
+        <item>0.1</item>
+        <item>0.09</item>
+        <item>0.08</item>
+        <item>0.07</item>
+        <item>0.06</item>
+        <item>0.05</item>
+        <item>0.04</item>
+        <item>0.03</item>
+        <item>0.02</item>
+        <item>0.01</item>
+        <item>0.0</item>
+    </string-array>
+
 
     <string-array name="text_font_options">
         <item>Roboto</item>

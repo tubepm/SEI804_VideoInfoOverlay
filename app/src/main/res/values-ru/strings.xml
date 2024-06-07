@@ -20,7 +20,6 @@
     <string name="manual">Manual</string>
     <string name="wifi">Wi-Fi</string>
     <string name="ethernet">Ethernet</string>
-    <string name="overlay_settings">Настройки наложения</string>
     <string name="no_connectivity">Нет подключения к Интернету</string>
     <string name="overlay_button">Кнопка наложения</string>
     <string name="overlay_button_summary">Нажмите кнопку, чтобы активировать наложение.</string>

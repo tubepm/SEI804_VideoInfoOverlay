@@ -20,7 +20,6 @@
     <string name="manual">Manuális</string>
     <string name="wifi">Wifi</string>
     <string name="ethernet">Vezetékes</string>
-    <string name="overlay_settings">Overlay beállítások</string>
     <string name="no_connectivity">Nincs csatlakozás</string>
     <string name="overlay_button">Overlay aktiváló gomb</string>
     <string name="overlay_button_summary">Válassz egy gombot az overlay aktiválásához.</string>
@@ -124,27 +123,8 @@
     </string-array>
 
     <string-array name="background_color_left_options">
-        <item>Fekete 100%</item>
-        <item>Fekete 90%</item>
-        <item>Fekete 80%</item>
-        <item>Fekete 70%</item>
-        <item>Fekete 60%</item>
-        <item>Fekete 50%</item>
-        <item>Fekete 40%</item>
-        <item>Fekete 30%</item>
-        <item>Fekete 20%</item>
-        <item>Fekete 10%</item>
-        <item>Fehér 100%</item>
-        <item>Fehér 90%</item>
-        <item>Fehér 80%</item>
-        <item>Fehér 70%</item>
-        <item>Fehér 60%</item>
-        <item>Fehér 50%</item>
-        <item>Fehér 40%</item>
-        <item>Fehér 30%</item>
-        <item>Fehér 20%</item>
-        <item>Fehér 10%</item>
-        <item>Átlátszó</item>
+        <item>Fekete</item>
+        <item>Fehér</item>
         <item>Piros</item>
         <item>Rózsaszín</item>
         <item>Lila</item>
@@ -167,27 +147,8 @@
     </string-array>
 
     <string-array name="background_color_right_options">
-        <item>Fekete 100%</item>
-        <item>Fekete 90%</item>
-        <item>Fekete 80%</item>
-        <item>Fekete 70%</item>
-        <item>Fekete 60%</item>
-        <item>Fekete 50%</item>
-        <item>Fekete 40%</item>
-        <item>Fekete 30%</item>
-        <item>Fekete 20%</item>
-        <item>Fekete 10%</item>
-        <item>Fehér 100%</item>
-        <item>Fehér 90%</item>
-        <item>Fehér 80%</item>
-        <item>Fehér 70%</item>
-        <item>Fehér 60%</item>
-        <item>Fehér 50%</item>
-        <item>Fehér 40%</item>
-        <item>Fehér 30%</item>
-        <item>Fehér 20%</item>
-        <item>Fehér 10%</item>
-        <item>Átlátszó</item>
+        <item>Fekete</item>
+        <item>Fehér</item>
         <item>Piros</item>
         <item>Rózsaszín</item>
         <item>Lila</item>
