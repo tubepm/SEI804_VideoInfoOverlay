@@ -24,10 +24,6 @@
     <string name="overlay_button">Кнопка наложения</string>
     <string name="overlay_button_summary">Нажмите кнопку, чтобы активировать наложение.</string>
     <string name="select_button">Выбрать кнопку</string>
-    <string name="right_margin">Правое поле</string>
-    <string name="right_margin_summary">Выберите расстояние от правого края экрана для наложения.</string>
-    <string name="top_margin">Верхнее поле</string>
-    <string name="top_margin_summary">Выберите расстояние от верхнего края экрана для наложения.</string>
     <string name="text_size">Размер текста</string>
     <string name="text_size_summary">Выберите размер текста для наложения.</string>
     <string name="text_font">Текстовый шрифт</string>

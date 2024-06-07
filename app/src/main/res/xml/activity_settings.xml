@@ -164,8 +164,8 @@
             android:entryValues="@array/text_padding_values"
             android:icon="@drawable/ic_size_24dp"
             android:key="text_padding_key"
-            android:summary="This option can be used to change the distance between the overlay and the text."
-            android:title="Text padding" />
+            android:summary="@string/text_padding_summary"
+            android:title="@string/text_padding" />
 
         <ListPreference
             android:defaultValue="#FFFFFF"

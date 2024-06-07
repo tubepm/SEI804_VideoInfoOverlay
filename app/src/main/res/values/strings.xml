@@ -39,6 +39,8 @@
     <string name="both_margin_summary">Select the distance to the middle of the two overlays.</string>
     <string name="text_size">Text size</string>
     <string name="text_size_summary">Select a text size for the overlay.</string>
+    <string name="text_padding_summary">This option can be used to change the distance between the overlay and the text.</string>
+    <string name="text_padding">Text padding</string>
     <string name="text_color_left">Left text color</string>
     <string name="text_color_left_summary">Select a text color for the left overlay.</string>
     <string name="text_color_right">Right text color</string>
