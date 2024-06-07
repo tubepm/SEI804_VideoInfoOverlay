@@ -162,7 +162,7 @@
             android:defaultValue="12"
             android:entries="@array/text_padding_options"
             android:entryValues="@array/text_padding_values"
-            android:icon="@drawable/ic_size_24dp"
+            android:icon="@drawable/ic_text_padding_24dp"
             android:key="text_padding_key"
             android:summary="@string/text_padding_summary"
             android:title="@string/text_padding" />
