@@ -495,6 +495,9 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         "YCbCr444 8bit" -> "YCbCr 4:4:4 (8 Bit)"
                         "YCbCr444 10bit" -> "YCbCr 4:4:4 (10 Bit)"
                         "YCbCr444 12bit" -> "YCbCr 4:4:4 (12 Bit)"
+                        "RGB 8bit" -> "RGB (8 Bit)"
+                        "RGB 10bit" -> "RGB (10 Bit)"
+                        "RGB 12bit" -> "RGB (12 Bit)"
                         else -> colorSpace
                     }
                     appendLine(modifiedColorSpace)
