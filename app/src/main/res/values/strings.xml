@@ -32,14 +32,20 @@
     <string name="top_margin_summary">Select the distance to the top edge of the screen for the overlay.</string>
     <string name="text_size">Text size</string>
     <string name="text_size_summary">Select a text size for the overlay.</string>
-    <string name="text_color">Text color</string>
-    <string name="text_color_summary">Select a text color for the overlay.</string>
+    <string name="text_color_left">Left text color</string>
+    <string name="text_color_left_summary">Select a text color for the left overlay.</string>
+    <string name="text_color_right">Right text color</string>
+    <string name="text_color_right_summary">Select a text color for the right overlay.</string>
     <string name="text_font">Text font</string>
     <string name="text_font_summary">Select a text font for the overlay.</string>
-    <string name="background_color">Background color</string>
-    <string name="background_color_summary">Select a background color for the overlay.</string>
-    <string name="rounded_corners">Rounded corners</string>
-    <string name="rounded_corners_summary">Select a rounded corner size for the overlay.</string>
+    <string name="background_color_left">Left background color</string>
+    <string name="background_color_left_summary">Select a background color for the left overlay.</string>
+    <string name="background_color_right">Right background color</string>
+    <string name="background_color_right_summary">Select a background color for the right overlay.</string>
+    <string name="rounded_corners_left">Left rounded corners</string>
+    <string name="rounded_corners_left_summary">Select a rounded corner size for the left overlay.</string>
+    <string name="rounded_corners_right">Right rounded corners</string>
+    <string name="rounded_corners_right_summary">Select a rounded corner size for the right overlay.</string>
     <string name="line_break">Line break</string>
     <string name="line_break_summary">This option adds an empty line.</string>
     <string name="title">Title</string>
@@ -736,7 +742,7 @@
         <item>16</item>
     </string-array>
 
-    <string-array name="rounded_corners_options">
+    <string-array name="rounded_corners_left_options">
         <item>0px</item>
         <item>2px</item>
         <item>4px</item>
@@ -756,7 +762,7 @@
         <item>32px</item>
     </string-array>
 
-    <string-array name="rounded_corners_values">
+    <string-array name="rounded_corners_left_values">
         <item>0</item>
         <item>2</item>
         <item>4</item>
@@ -776,7 +782,47 @@
         <item>32</item>
     </string-array>
 
-    <string-array name="text_color_options">
+    <string-array name="rounded_corners_right_options">
+        <item>0px</item>
+        <item>2px</item>
+        <item>4px</item>
+        <item>6px</item>
+        <item>8px</item>
+        <item>10px</item>
+        <item>12px</item>
+        <item>14px</item>
+        <item>16px</item>
+        <item>18px</item>
+        <item>20px</item>
+        <item>22px</item>
+        <item>24px</item>
+        <item>26px</item>
+        <item>28px</item>
+        <item>30px</item>
+        <item>32px</item>
+    </string-array>
+
+    <string-array name="rounded_corners_right_values">
+        <item>0</item>
+        <item>2</item>
+        <item>4</item>
+        <item>6</item>
+        <item>8</item>
+        <item>10</item>
+        <item>12</item>
+        <item>14</item>
+        <item>16</item>
+        <item>18</item>
+        <item>20</item>
+        <item>22</item>
+        <item>24</item>
+        <item>26</item>
+        <item>28</item>
+        <item>30</item>
+        <item>32</item>
+    </string-array>
+
+    <string-array name="text_color_left_options">
         <item>White</item>
         <item>Red</item>
         <item>Pink</item>
@@ -808,7 +854,7 @@
         <item>Black</item>
     </string-array>
 
-    <string-array name="text_color_values">
+    <string-array name="text_color_left_values">
         <item>#FFFFFF</item>
         <item>#F44336</item>
         <item>#E91E63</item>
@@ -840,7 +886,71 @@
         <item>#000000</item>
     </string-array>
 
-    <string-array name="background_color_options">
+    <string-array name="text_color_right_options">
+        <item>White</item>
+        <item>Red</item>
+        <item>Pink</item>
+        <item>Purple</item>
+        <item>Deep Purple</item>
+        <item>Indigo</item>
+        <item>Blue</item>
+        <item>Light Blue</item>
+        <item>Cyan</item>
+        <item>Teal</item>
+        <item>Green</item>
+        <item>Light Green</item>
+        <item>Lime</item>
+        <item>Yellow</item>
+        <item>Amber</item>
+        <item>Orange</item>
+        <item>Deep Orange</item>
+        <item>Brown</item>
+        <item>Grey</item>
+        <item>Blue Grey</item>
+        <item>Gold</item>
+        <item>Silver</item>
+        <item>Rose Gold</item>
+        <item>Mint Green</item>
+        <item>Coral</item>
+        <item>Maroon</item>
+        <item>Navy Blue</item>
+        <item>Forest Green</item>
+        <item>Black</item>
+    </string-array>
+
+    <string-array name="text_color_right_values">
+        <item>#FFFFFF</item>
+        <item>#F44336</item>
+        <item>#E91E63</item>
+        <item>#9C27B0</item>
+        <item>#673AB7</item>
+        <item>#3F51B5</item>
+        <item>#2196F3</item>
+        <item>#03A9F4</item>
+        <item>#00BCD4</item>
+        <item>#009688</item>
+        <item>#4CAF50</item>
+        <item>#8BC34A</item>
+        <item>#CDDC39</item>
+        <item>#FFEB3B</item>
+        <item>#FFC107</item>
+        <item>#FF9800</item>
+        <item>#FF5722</item>
+        <item>#795548</item>
+        <item>#9E9E9E</item>
+        <item>#607D8B</item>
+        <item>#FFD700</item>
+        <item>#C0C0C0</item>
+        <item>#B76E79</item>
+        <item>#98FF98</item>
+        <item>#FF7F50</item>
+        <item>#800000</item>
+        <item>#000080</item>
+        <item>#228B22</item>
+        <item>#000000</item>
+    </string-array>
+
+    <string-array name="background_color_left_options">
         <item>Black 100%</item>
         <item>Black 90%</item>
         <item>Black 80%</item>
@@ -883,7 +993,93 @@
         <item>Blue Grey</item>
     </string-array>
 
-    <string-array name="background_color_values">
+    <string-array name="background_color_left_values">
+        <item>#FF000000</item>
+        <item>#E6000000</item>
+        <item>#CC000000</item>
+        <item>#B3000000</item>
+        <item>#99000000</item>
+        <item>#80000000</item>
+        <item>#66000000</item>
+        <item>#4D000000</item>
+        <item>#33000000</item>
+        <item>#1A000000</item>
+        <item>#FFFFFFFF</item>
+        <item>#E6FFFFFF</item>
+        <item>#CCFFFFFF</item>
+        <item>#B3FFFFFF</item>
+        <item>#99FFFFFF</item>
+        <item>#80FFFFFF</item>
+        <item>#66FFFFFF</item>
+        <item>#4DFFFFFF</item>
+        <item>#33FFFFFF</item>
+        <item>#1AFFFFFF</item>
+        <item>#00000000</item>
+        <item>#80F44336</item>
+        <item>#80E91E63</item>
+        <item>#809C27B0</item>
+        <item>#80673AB7</item>
+        <item>#803F51B5</item>
+        <item>#802196F3</item>
+        <item>#8003A9F4</item>
+        <item>#8000BCD4</item>
+        <item>#80009688</item>
+        <item>#804CAF50</item>
+        <item>#808BC34A</item>
+        <item>#80CDDC39</item>
+        <item>#80FFEB3B</item>
+        <item>#80FFC107</item>
+        <item>#80FF9800</item>
+        <item>#80FF5722</item>
+        <item>#80795548</item>
+        <item>#809E9E9E</item>
+        <item>#80607D8B</item>
+    </string-array>
+
+    <string-array name="background_color_right_options">
+        <item>Black 100%</item>
+        <item>Black 90%</item>
+        <item>Black 80%</item>
+        <item>Black 70%</item>
+        <item>Black 60%</item>
+        <item>Black 50%</item>
+        <item>Black 40%</item>
+        <item>Black 30%</item>
+        <item>Black 20%</item>
+        <item>Black 10%</item>
+        <item>White 100%</item>
+        <item>White 90%</item>
+        <item>White 80%</item>
+        <item>White 70%</item>
+        <item>White 60%</item>
+        <item>White 50%</item>
+        <item>White 40%</item>
+        <item>White 30%</item>
+        <item>White 20%</item>
+        <item>White 10%</item>
+        <item>Transparent</item>
+        <item>Red</item>
+        <item>Pink</item>
+        <item>Purple</item>
+        <item>Deep Purple</item>
+        <item>Indigo</item>
+        <item>Blue</item>
+        <item>Light Blue</item>
+        <item>Cyan</item>
+        <item>Teal</item>
+        <item>Green</item>
+        <item>Light Green</item>
+        <item>Lime</item>
+        <item>Yellow</item>
+        <item>Amber</item>
+        <item>Orange</item>
+        <item>Deep Orange</item>
+        <item>Brown</item>
+        <item>Grey</item>
+        <item>Blue Grey</item>
+    </string-array>
+
+    <string-array name="background_color_right_values">
         <item>#FF000000</item>
         <item>#E6000000</item>
         <item>#CC000000</item>

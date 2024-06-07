@@ -27,14 +27,8 @@
     <string name="select_button">Gomb kiválasztása</string>
     <string name="text_size">Szöveg méret</string>
     <string name="text_size_summary">Válaszd ki a szöveg méretét az overlayhoz.</string>
-    <string name="text_color">Szövegszín</string>
-    <string name="text_color_summary">Válaszd ki a szöveg színét az overlayhoz.</string>
     <string name="text_font">Betűtípus</string>
     <string name="text_font_summary">Válassz betűtípust az overlayhoz.</string>
-    <string name="background_color">Háttérszín</string>
-    <string name="background_color_summary">Válaszd ki az overlay háttérszínét.</string>
-    <string name="rounded_corners">Kerekített sarkok</string>
-    <string name="rounded_corners_summary">Válaszd ki a kerekítés méretét az overlayhoz.</string>
     <string name="line_break">Sor beszúrás</string>
     <string name="line_break_summary">Ez a beállítás egy üres sort ad hozzá.</string>
     <string name="title">Cím</string>
@@ -65,7 +59,7 @@
         <item>9-es szám gomb</item>
     </string-array>
 
-    <string-array name="text_color_options">
+    <string-array name="text_color_left_options">
         <item>Fehér</item>
         <item>Piros</item>
         <item>Rózsaszín</item>
@@ -97,7 +91,82 @@
         <item>Fekete</item>
     </string-array>
 
-    <string-array name="background_color_options">
+    <string-array name="text_color_right_options">
+        <item>Fehér</item>
+        <item>Piros</item>
+        <item>Rózsaszín</item>
+        <item>Lila</item>
+        <item>Sötét Lila</item>
+        <item>Indigó</item>
+        <item>Kék</item>
+        <item>Világoskék</item>
+        <item>Türkiz</item>
+        <item>Türkizkék</item>
+        <item>Zöld</item>
+        <item>Világoszöld</item>
+        <item>Sárgászöld</item>
+        <item>Sárga</item>
+        <item>Borostyán</item>
+        <item>Narancs</item>
+        <item>Sötétnarancs</item>
+        <item>Barna</item>
+        <item>Szürke</item>
+        <item>Kékesszürke</item>
+        <item>Arany</item>
+        <item>Ezüst</item>
+        <item>Rózsaarany</item>
+        <item>Mentazöld</item>
+        <item>Korál</item>
+        <item>Gesztenyebarna</item>
+        <item>Tengerészkék</item>
+        <item>Erdőzöld</item>
+        <item>Fekete</item>
+    </string-array>
+
+    <string-array name="background_color_left_options">
+        <item>Fekete 100%</item>
+        <item>Fekete 90%</item>
+        <item>Fekete 80%</item>
+        <item>Fekete 70%</item>
+        <item>Fekete 60%</item>
+        <item>Fekete 50%</item>
+        <item>Fekete 40%</item>
+        <item>Fekete 30%</item>
+        <item>Fekete 20%</item>
+        <item>Fekete 10%</item>
+        <item>Fehér 100%</item>
+        <item>Fehér 90%</item>
+        <item>Fehér 80%</item>
+        <item>Fehér 70%</item>
+        <item>Fehér 60%</item>
+        <item>Fehér 50%</item>
+        <item>Fehér 40%</item>
+        <item>Fehér 30%</item>
+        <item>Fehér 20%</item>
+        <item>Fehér 10%</item>
+        <item>Átlátszó</item>
+        <item>Piros</item>
+        <item>Rózsaszín</item>
+        <item>Lila</item>
+        <item>Sötét Lila</item>
+        <item>Indigó</item>
+        <item>Kék</item>
+        <item>Világoskék</item>
+        <item>Türkiz</item>
+        <item>Türkizkék</item>
+        <item>Zöld</item>
+        <item>Világoszöld</item>
+        <item>Sárgászöld</item>
+        <item>Sárga</item>
+        <item>Borostyán</item>
+        <item>Narancs</item>
+        <item>Sötétnarancs</item>
+        <item>Barna</item>
+        <item>Szürke</item>
+        <item>Kékesszürke</item>
+    </string-array>
+
+    <string-array name="background_color_right_options">
         <item>Fekete 100%</item>
         <item>Fekete 90%</item>
         <item>Fekete 80%</item>

@@ -31,14 +31,8 @@
     <string name="top_margin_summary">Wähle einen Abstand zum oberen Bildschirmrand für das Overlay.</string>
     <string name="text_size">Schriftgröße</string>
     <string name="text_size_summary">Wähle eine Schriftgröße für das Overlay.</string>
-    <string name="text_color">Schriftfarbe</string>
-    <string name="text_color_summary">Wähle eine Schriftfarbe für das Overlay.</string>
     <string name="text_font">Schriftart</string>
     <string name="text_font_summary">Wähle eine Schriftart für das Overlay.</string>
-    <string name="background_color">Hintergrundfarbe</string>
-    <string name="background_color_summary">Wähle eine Hintergrundfarbe für das Overlay.</string>
-    <string name="rounded_corners">Abgerundete Ecken</string>
-    <string name="rounded_corners_summary">Wähle eine abgerundete Eckengröße für das Overlay.</string>
     <string name="line_break">Zeilenumbruch</string>
     <string name="line_break_summary">Diese Option fügt eine Leerzeile hinzu.</string>
     <string name="title">Titel</string>
@@ -69,7 +63,7 @@
         <item>Taste 9</item>
     </string-array>
 
-    <string-array name="text_color_options">
+    <string-array name="text_color_left_options">
         <item>Weiß</item>
         <item>Rot</item>
         <item>Rosa</item>
@@ -101,7 +95,82 @@
         <item>Schwarz</item>
     </string-array>
 
-    <string-array name="background_color_options">
+    <string-array name="text_color_right_options">
+        <item>Weiß</item>
+        <item>Rot</item>
+        <item>Rosa</item>
+        <item>Lila</item>
+        <item>Dunkles Lila</item>
+        <item>Indigo</item>
+        <item>Blau</item>
+        <item>Hellblau</item>
+        <item>Türkis</item>
+        <item>Türkisblau</item>
+        <item>Grün</item>
+        <item>Hellgrün</item>
+        <item>Gelbgrün</item>
+        <item>Gelb</item>
+        <item>Bernstein</item>
+        <item>Orange</item>
+        <item>Dunkles Orange</item>
+        <item>Braun</item>
+        <item>Grau</item>
+        <item>Blaugrau</item>
+        <item>Gold</item>
+        <item>Silber</item>
+        <item>Roségold</item>
+        <item>Mint Grün</item>
+        <item>Koralle</item>
+        <item>Kastanienbraun</item>
+        <item>Marineblau</item>
+        <item>Waldgrün</item>
+        <item>Schwarz</item>
+    </string-array>
+
+    <string-array name="background_color_left_options">
+        <item>Schwarz 100%</item>
+        <item>Schwarz 90%</item>
+        <item>Schwarz 80%</item>
+        <item>Schwarz 70%</item>
+        <item>Schwarz 60%</item>
+        <item>Schwarz 50%</item>
+        <item>Schwarz 40%</item>
+        <item>Schwarz 30%</item>
+        <item>Schwarz 20%</item>
+        <item>Schwarz 10%</item>
+        <item>Weiß 100%</item>
+        <item>Weiß 90%</item>
+        <item>Weiß 80%</item>
+        <item>Weiß 70%</item>
+        <item>Weiß 60%</item>
+        <item>Weiß 50%</item>
+        <item>Weiß 40%</item>
+        <item>Weiß 30%</item>
+        <item>Weiß 20%</item>
+        <item>Weiß 10%</item>
+        <item>Transparent</item>
+        <item>Rot</item>
+        <item>Rosa</item>
+        <item>Lila</item>
+        <item>Dunkles Lila</item>
+        <item>Indigo</item>
+        <item>Blau</item>
+        <item>Hellblau</item>
+        <item>Türkis</item>
+        <item>Türkisblau</item>
+        <item>Grün</item>
+        <item>Hellgrün</item>
+        <item>Gelbgrün</item>
+        <item>Gelb</item>
+        <item>Bernstein</item>
+        <item>Orange</item>
+        <item>Dunkles Orange</item>
+        <item>Braun</item>
+        <item>Grau</item>
+        <item>Blaugrau</item>
+    </string-array>
+
+    <string-array name="background_color_right_options">
         <item>Schwarz 100%</item>
         <item>Schwarz 90%</item>
         <item>Schwarz 80%</item>

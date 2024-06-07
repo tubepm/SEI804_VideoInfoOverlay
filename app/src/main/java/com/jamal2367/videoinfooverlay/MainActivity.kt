@@ -45,9 +45,12 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
     private val marginWidthKey = "margin_width_key"
     private val marginHeightKey = "margin_height_key"
     private val textSizeKey = "text_size_key"
-    private val textColorKey = "text_color_key"
-    private val backgroundColorKey = "background_color_key"
-    private val roundedCornersKey = "rounded_corners_key"
+    private val textColorLeftKey = "text_color_left_key"
+    private val textColorRightKey = "text_color_right_key"
+    private val backgroundColorLeftKey = "background_color_left_key"
+    private val backgroundColorRightKey = "background_color_right_key"
+    private val roundedCornersLeftKey = "rounded_corners_left_key"
+    private val roundedCornersRightKey = "rounded_corners_right_key"
     private val textFontKey = "text_font_key"
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
@@ -148,8 +151,10 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         updateOverlayMarginWidth()
         updateOverlayMarginHeight()
         updateOverlayTextSize()
-        updateOverlayTextColor()
-        updateOverlayBackground()
+        updateOverlayLeftTextColor()
+        updateOverlayRightTextColor()
+        updateOverlayLeftBackground()
+        updateOverlayRightBackground()
         updateOverlayTextFont()
 
         val windowManager = getSystemService(WINDOW_SERVICE) as WindowManager
@@ -200,12 +205,20 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             updateOverlayTextSize()
         }
 
-        if (key == textColorKey) {
-            updateOverlayTextColor()
+        if (key == textColorLeftKey) {
+            updateOverlayLeftTextColor()
         }
 
-        if (key == backgroundColorKey || key == roundedCornersKey) {
-            updateOverlayBackground()
+        if (key == textColorRightKey) {
+            updateOverlayRightTextColor()
+        }
+
+        if (key == backgroundColorLeftKey || key == roundedCornersLeftKey) {
+            updateOverlayLeftBackground()
+        }
+
+        if (key == backgroundColorRightKey || key == roundedCornersRightKey) {
+            updateOverlayRightBackground()
         }
 
         if (key == textFontKey) {
@@ -694,32 +707,51 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         }
     }
 
-    private fun updateOverlayTextColor() {
+    private fun updateOverlayLeftTextColor() {
         if (::overlayTextView.isInitialized && ::overlayTextView2.isInitialized) {
-            val textColorKey = sharedPreferences.getString("text_color_key", "#FFFFFF") ?: "#FFFFFF"
+            val textColorKey = sharedPreferences.getString("text_color_left_key", "#FFFFFF") ?: "#FFFFFF"
             val textColor = Color.parseColor(textColorKey)
-            overlayTextView.setTextColor(textColor)
+
             overlayTextView2.setTextColor(textColor)
         }
     }
 
-    private fun updateOverlayBackground() {
+    private fun updateOverlayRightTextColor() {
         if (::overlayTextView.isInitialized && ::overlayTextView2.isInitialized) {
-            val backgroundColorKey = sharedPreferences.getString("background_color_key", "#E6000000") ?: "#E6000000"
-            val backgroundColor = Color.parseColor(backgroundColorKey)
-            val roundedCornersKey = sharedPreferences.getString("rounded_corners_key", "18") ?: "18"
-            val roundedCornersPx = convertDpToPx(roundedCornersKey.toFloat(), this)
+            val textColorKey = sharedPreferences.getString("text_color_right_key", "#FFFFFF") ?: "#FFFFFF"
+            val textColor = Color.parseColor(textColorKey)
 
-            val backgroundDrawable1 = GradientDrawable()
+            overlayTextView.setTextColor(textColor)
+        }
+    }
+
+    private fun updateOverlayLeftBackground() {
+        if (::overlayTextView.isInitialized && ::overlayTextView2.isInitialized) {
+            val backgroundColorKey = sharedPreferences.getString("background_color_left_key", "#E6000000") ?: "#E6000000"
+            val backgroundColor = Color.parseColor(backgroundColorKey)
+            val roundedCornersKey = sharedPreferences.getString("rounded_corners_left_key", "18") ?: "18"
+            val roundedCornersPx = convertDpToPx(roundedCornersKey.toFloat(), this)
             val backgroundDrawable2 = GradientDrawable()
 
-            backgroundDrawable1.setColor(backgroundColor)
-            backgroundDrawable1.cornerRadii = floatArrayOf(0f, 0f, roundedCornersPx, roundedCornersPx, roundedCornersPx, roundedCornersPx, 0f, 0f)
             backgroundDrawable2.setColor(backgroundColor)
             backgroundDrawable2.cornerRadii = floatArrayOf(roundedCornersPx, roundedCornersPx, 0f, 0f, 0f, 0f, roundedCornersPx, roundedCornersPx)
 
-            overlayTextView.background = backgroundDrawable1
             overlayTextView2.background = backgroundDrawable2
+        }
+    }
+
+    private fun updateOverlayRightBackground() {
+        if (::overlayTextView.isInitialized && ::overlayTextView2.isInitialized) {
+            val backgroundColorKey = sharedPreferences.getString("background_color_right_key", "#E6000000") ?: "#E6000000"
+            val backgroundColor = Color.parseColor(backgroundColorKey)
+            val roundedCornersKey = sharedPreferences.getString("rounded_corners_right_key", "18") ?: "18"
+            val roundedCornersPx = convertDpToPx(roundedCornersKey.toFloat(), this)
+            val backgroundDrawable1 = GradientDrawable()
+
+            backgroundDrawable1.setColor(backgroundColor)
+            backgroundDrawable1.cornerRadii = floatArrayOf(0f, 0f, roundedCornersPx, roundedCornersPx, roundedCornersPx, roundedCornersPx, 0f, 0f)
+
+            overlayTextView.background = backgroundDrawable1
         }
     }
 
