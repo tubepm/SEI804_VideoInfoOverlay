@@ -58,9 +58,9 @@
     <string name="rounded_corners_left_overall_summary">Diese Option fügt an allen Ecken des linken Overlays abgerundete Ecken hinzu.</string>
     <string name="rounded_corners_right_overall">Abgerundete Ecken an allen Ecken des rechten Overlays</string>
     <string name="rounded_corners_right_overall_summary">Diese Option fügt an allen Ecken des rechten Overlays abgerundete Ecken hinzu.</string>
-    <string name="rounded_corners_left">Abgerundete Ecken links</string>
+    <string name="rounded_corners_left">Abgerundete Ecken des linken Overlays</string>
     <string name="rounded_corners_left_summary">Wähle eine Eckengröße für das linke Overlay.</string>
-    <string name="rounded_corners_right">Abgerundete Ecken rechts</string>
+    <string name="rounded_corners_right">Abgerundete Ecken des rechten Overlays</string>
     <string name="rounded_corners_right_summary">Wähle eine Eckengröße für das rechte Overlay.</string>
     <string name="line_break">Zeilenumbruch</string>
     <string name="line_break_summary">Diese Option fügt eine Leerzeile hinzu.</string>
