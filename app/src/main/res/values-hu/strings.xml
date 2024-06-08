@@ -20,49 +20,49 @@
     <string name="manual">Manuális</string>
     <string name="wifi">Wifi</string>
     <string name="ethernet">Vezetékes</string>
-    <string name="overlay_options">Overlay beállítások</string>
+    <string name="overlay_options">Infóablak beállítások</string>
     <string name="background_options">Háttér beállítások</string>
     <string name="distance_options">Méret beállítások</string>
     <string name="corner_options">Sarok beállítások</string>
     <string name="text_options">Szöveg beállítások</string>
     <string name="about">Az alkalmazásról</string>
     <string name="no_connectivity">Nincs csatlakozás</string>
-    <string name="overlay_button">Overlay aktiváló gomb</string>
-    <string name="overlay_button_summary">Válassz egy gombot az overlay aktiválásához.</string>
+    <string name="overlay_button">Infóablak aktiváló gomb</string>
+    <string name="overlay_button_summary">Válassz egy gombot az infóablak aktiválásához.</string>
     <string name="select_button">Gomb kiválasztása</string>
     <string name="right_margin">Jobb margó</string>
-    <string name="right_margin_summary">Az overlay jobb széltől mért távolsága.</string>
+    <string name="right_margin_summary">Az infóablak jobb széltől mért távolsága.</string>
     <string name="top_margin">Felső margó</string>
-    <string name="top_margin_summary">Az overlay felső széltől mért távolsága.</string>
+    <string name="top_margin_summary">Az infóablak felső széltől mért távolsága.</string>
     <string name="both_margin">Középső margó</string>
-    <string name="both_margin_summary">Mindkét overlay középtől mért távolsága.</string>
+    <string name="both_margin_summary">Mindkét infóablak középtől mért távolsága.</string>
     <string name="text_size">Szöveg méret</string>
-    <string name="text_size_summary">Válaszd ki a szöveg méretét az overlayhoz.</string>
+    <string name="text_size_summary">Válaszd ki a szöveg méretét az infóablakhoz.</string>
     <string name="text_padding">Szöveg távolság</string>
-    <string name="text_padding_summary">Ezzel a beállítással módosítható az overlay és a szöveg közötti távolság.</string>
+    <string name="text_padding_summary">Ezzel a beállítással módosítható az infóablak és a szöveg közötti távolság.</string>
     <string name="text_color_left">Baloldali szövegszín</string>
-    <string name="text_color_left_summary">Válassz szövegszínt a bal oldali overlaynak.</string>
+    <string name="text_color_left_summary">Válassz szövegszínt a bal oldali infóablaknak.</string>
     <string name="text_color_right">Jobboldali szövegszín</string>
-    <string name="text_color_right_summary">Válassz szövegszínt a jobb oldali overlaynak.</string>
+    <string name="text_color_right_summary">Válassz szövegszínt a jobb oldali infóablaknak.</string>
     <string name="text_font">Betűtípus</string>
-    <string name="text_font_summary">Válassz betűtípust az overlayhoz.</string>
+    <string name="text_font_summary">Válassz betűtípust az infóablakhoz.</string>
     <string name="background_color_left">Baloldali háttérszín</string>
-    <string name="background_color_left_summary">Válassz háttérszínt a bal oldali overlaynak.</string>
+    <string name="background_color_left_summary">Válassz háttérszínt a bal oldali infóablakhoz.</string>
     <string name="background_color_right">Jobboldali háttérszín</string>
-    <string name="background_color_right_summary">Válassz háttérszínt a jobb oldali overlaynak.</string>
+    <string name="background_color_right_summary">Válassz háttérszínt a jobb oldali infóablakhoz.</string>
     <string name="background_alpha_left">Baloldali háttér áttetszőség</string>
-    <string name="background_alpha_left_summary">Válassz háttér áttetszőséget a bal oldali overlaynak.</string>
+    <string name="background_alpha_left_summary">Válassz háttér áttetszőséget a bal oldali infóablaknak.</string>
     <string name="background_alpha_right">Jobboldali háttér áttetszőség</string>
-    <string name="background_alpha_right_summary">Válassz háttér áttetszőséget a jobb oldali overlaynak.</string>
-    <string name="rounded_corners_left_overall">Összes sarok kerekítése a baloldali overlayon.</string>
-    <string name="rounded_corners_left_overall_summary">Ez a beállítás a sarkok kerekítését teszi lehetővé  a baloldali overlayon.</string>
+    <string name="background_alpha_right_summary">Válassz háttér áttetszőséget a jobb oldali infóablaknak.</string>
+    <string name="rounded_corners_left_overall">Összes sarok kerekítése a baloldali infóablakon.</string>
+    <string name="rounded_corners_left_overall_summary">Ez a beállítás a sarkok kerekítését teszi lehetővé  a baloldali infóablakon.</string>
     <string name="rounded_corners_right_overall">Összes sarok kerekítése a jobboldali overlayon.</string>
-    <string name="rounded_corners_right_overall_summary">Ez a beállítás a sarkok kerekítését teszi lehetővé  a jobboldali overlayon.</string>
+    <string name="rounded_corners_right_overall_summary">Ez a beállítás a sarkok kerekítését teszi lehetővé  a jobboldali infóablakon.</string>
     <string name="rounded_corners_left">Bal oldali kerekített sarkok</string>
-    <string name="rounded_corners_left_summary">Válassz kerekítés méretet a bal oldali overlaynak.</string>
+    <string name="rounded_corners_left_summary">Válassz kerekítés méretet a bal oldali infóablaknak.</string>
     <string name="rounded_corners_right">Jobb oldali kerekített sarkok</string>
-    <string name="rounded_corners_right_summary">Válassz kerekítés méretet a jobb oldali overlaynak.</string>
-    <string name="line_break">Sor beszúrás</string>
+    <string name="rounded_corners_right_summary">Válassz kerekítés méretet a jobb oldali infóablaknak.</string>
+    <string name="line_break">Sor beszúrása</string>
     <string name="line_break_summary">Ez a beállítás egy üres sort ad hozzá.</string>
     <string name="title">Cím</string>
     <string name="title_summary">Ez az opció címsort ad hozzá.</string>
@@ -74,7 +74,7 @@
     <string name="audio">Hang:</string>
 
     <string-array name="key_code_labels">
-        <item>Bookmark Gomb</item>
+        <item>Könyvjelző Gomb</item>
         <item>TV-Guide Gomb</item>
         <item>Vörös Gomb</item>
         <item>Zöld Gomb</item>
@@ -94,15 +94,15 @@
 
     <string-array name="text_color_left_options">
         <item>Fehér</item>
-        <item>Piros</item>
+        <item>Vörös</item>
         <item>Rózsaszín</item>
         <item>Lila</item>
-        <item>Sötét Lila</item>
-        <item>Indigó</item>
+        <item>Sötétlila</item>
+        <item>Indigókék</item>
         <item>Kék</item>
         <item>Világoskék</item>
-        <item>Türkiz</item>
-        <item>Türkizkék</item>
+        <item>Ciánkék</item>
+        <item>Kékeszöld</item>
         <item>Zöld</item>
         <item>Világoszöld</item>
         <item>Sárgászöld</item>
@@ -126,15 +126,15 @@
 
     <string-array name="text_color_right_options">
         <item>Fehér</item>
-        <item>Piros</item>
+        <item>Vörös</item>
         <item>Rózsaszín</item>
         <item>Lila</item>
-        <item>Sötét Lila</item>
-        <item>Indigó</item>
+        <item>Sötétlila</item>
+        <item>Indigókék</item>
         <item>Kék</item>
         <item>Világoskék</item>
-        <item>Türkiz</item>
-        <item>Türkizkék</item>
+        <item>Ciánkék</item>
+        <item>Kékeszöld</item>
         <item>Zöld</item>
         <item>Világoszöld</item>
         <item>Sárgászöld</item>
@@ -159,15 +159,15 @@
     <string-array name="background_color_left_options">
         <item>Fekete</item>
         <item>Fehér</item>
-        <item>Piros</item>
+        <item>Vörös</item>
         <item>Rózsaszín</item>
         <item>Lila</item>
-        <item>Sötét Lila</item>
-        <item>Indigó</item>
+        <item>Sötétlila</item>
+        <item>Indigókék</item>
         <item>Kék</item>
         <item>Világoskék</item>
-        <item>Türkiz</item>
-        <item>Türkizkék</item>
+        <item>Cián</item>
+        <item>Kékeszöld</item>
         <item>Zöld</item>
         <item>Világoszöld</item>
         <item>Sárgászöld</item>
@@ -183,15 +183,15 @@
     <string-array name="background_color_right_options">
         <item>Fekete</item>
         <item>Fehér</item>
-        <item>Piros</item>
+        <item>Vörös</item>
         <item>Rózsaszín</item>
         <item>Lila</item>
-        <item>Sötét Lila</item>
-        <item>Indigó</item>
+        <item>Sötétlila</item>
+        <item>Indigókék</item>
         <item>Kék</item>
         <item>Világoskék</item>
-        <item>Türkiz</item>
-        <item>Türkizkék</item>
+        <item>Cián</item>
+        <item>Kékeszöld</item>
         <item>Zöld</item>
         <item>Világoszöld</item>
         <item>Sárgászöld</item>
