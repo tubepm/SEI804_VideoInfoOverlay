@@ -47,7 +47,7 @@
     <string name="text_color_right_summary">Válassz szövegszínt a jobb oldali infóablaknak.</string>
     <string name="left_text_alignment">Bal oldali infósáv szöveg igazítása</string>
     <string name="left_text_alignment_summary">Ez az opció beállítja a szöveg igazítását a bal oldali infósávhoz.</string>
-    <string name="right_text_alignment">Infósáv szöveg jobb oldalra igazítása</string>
+    <string name="right_text_alignment">Jobb oldali infósáv szöveg igazítása</string>
     <string name="right_text_alignment_summary">Ez az opció beállítja a szöveg igazítását a jobb oldali infósávhoz.</string>
     <string name="text_font">Betűtípus</string>
     <string name="text_font_summary">Válassz betűtípust az infóablakhoz.</string>
