@@ -99,18 +99,18 @@
     <PreferenceCategory android:title="@string/corner_options">
 
         <CheckBoxPreference
+            android:defaultValue="false"
             android:icon="@drawable/ic_rounded_corners_overall_24dp"
             android:key="rounded_corner_overall_left_key"
             android:summary="@string/rounded_corners_left_overall_summary"
-            android:title="@string/rounded_corners_left_overall"
-            android:defaultValue="false" />
+            android:title="@string/rounded_corners_left_overall" />
 
         <CheckBoxPreference
+            android:defaultValue="false"
             android:icon="@drawable/ic_rounded_corners_overall_24dp"
             android:key="rounded_corner_overall_right_key"
             android:summary="@string/rounded_corners_right_overall_summary"
-            android:title="@string/rounded_corners_right_overall"
-            android:defaultValue="false" />
+            android:title="@string/rounded_corners_right_overall" />
 
         <ListPreference
             android:defaultValue="18"
@@ -134,18 +134,18 @@
     <PreferenceCategory android:title="@string/text_options">
 
         <CheckBoxPreference
+            android:defaultValue="true"
             android:icon="@drawable/ic_title_24dp"
             android:key="empty_title_key"
             android:summary="@string/title_summary"
-            android:title="@string/title"
-            android:defaultValue="true" />
+            android:title="@string/title" />
 
         <CheckBoxPreference
+            android:defaultValue="true"
             android:icon="@drawable/ic_line_break_24dp"
             android:key="empty_line_key"
             android:summary="@string/line_break_summary"
-            android:title="@string/line_break"
-            android:defaultValue="true" />
+            android:title="@string/line_break" />
 
         <ListPreference
             android:defaultValue="inter"
@@ -214,10 +214,10 @@
     <PreferenceCategory android:title="@string/about">
 
         <Preference
+            android:icon="@drawable/ic_remote_24dp"
             android:key="pref_version_key"
             android:summary="Link"
-            android:title="Version"
-            android:icon="@drawable/ic_remote_24dp" />
+            android:title="Version" />
 
     </PreferenceCategory>
 </PreferenceScreen>
