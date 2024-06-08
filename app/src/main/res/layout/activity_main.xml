@@ -11,14 +11,14 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:padding="12dp" />
+        android:padding="12dp"
+        android:text="@string/starting" />
 
     <TextView
         android:id="@+id/overlayTextView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_toStartOf="@id/overlayTextView"
-        android:text="@string/starting" />
+        android:layout_toStartOf="@id/overlayTextView" />
 
 </RelativeLayout>
