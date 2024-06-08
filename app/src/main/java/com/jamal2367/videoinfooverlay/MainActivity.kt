@@ -41,6 +41,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
     private val handler = Handler(Looper.getMainLooper())
     private val selectedCodeKey = "selected_code_key"
     private val longPressKey = "long_press_key"
+    private val hideLeftOverlay = "hide_left_overlay_key"
     private val emptyLineKey = "empty_line_key"
     private val emptyTitleKey = "empty_title_key"
     private val roundedCornerOverallLeftKey = "rounded_corner_overall_left_key"
@@ -52,6 +53,8 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
     private val textPaddingKey = "text_padding_key"
     private val textColorLeftKey = "text_color_left_key"
     private val textColorRightKey = "text_color_right_key"
+    private val textAlignLeftKey = "text_align_left_key"
+    private val textAlignRightKey = "text_align_right_key"
     private val backgroundColorLeftKey = "background_color_left_key"
     private val backgroundColorRightKey = "background_color_right_key"
     private val backgroundAlphaLeftKey = "background_alpha_left_key"
@@ -143,6 +146,8 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
     }
 
     private fun createOverlay() {
+        val isHideLeftOverlay = sharedPreferences.getBoolean(hideLeftOverlay, false)
+
         val params = WindowManager.LayoutParams(
             WindowManager.LayoutParams.MATCH_PARENT,
             WindowManager.LayoutParams.MATCH_PARENT,
@@ -153,7 +158,13 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
         overlayView = View.inflate(this, R.layout.activity_main, null)
         overlayTextView = overlayView!!.findViewById(R.id.overlayTextView)
-        overlayTextView2 = overlayView!!.findViewById(R.id.overlayTextView2)
+
+        if (!isHideLeftOverlay) {
+            overlayTextView2 = overlayView!!.findViewById(R.id.overlayTextView2)
+        } else {
+            overlayTextView2 = overlayView!!.findViewById(R.id.overlayTextView2)
+            overlayTextView2.visibility = View.GONE
+        }
 
         updateOverlayMarginWidth()
         updateOverlayMarginHeight()
@@ -162,13 +173,15 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         updateOverlayTextSize()
         updateOverlayLeftTextColor()
         updateOverlayRightTextColor()
+        updateOverlayLeftTextAlign()
+        updateOverlayRightTextAlign()
         updateOverlayLeftBackground()
         updateOverlayRightBackground()
         updateOverlayTextFont()
 
         val windowManager = getSystemService(WINDOW_SERVICE) as WindowManager
         windowManager.addView(overlayView, params)
-        
+
         handler.postDelayed(updateData, 1000)
     }
 
@@ -230,6 +243,14 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             updateOverlayRightTextColor()
         }
 
+        if (key == textAlignLeftKey) {
+            updateOverlayLeftTextAlign()
+        }
+
+        if (key == textAlignRightKey) {
+            updateOverlayRightTextAlign()
+        }
+
         if (key == backgroundColorLeftKey || key == roundedCornersLeftKey || key == backgroundAlphaLeftKey) {
             updateOverlayLeftBackground()
         }
@@ -240,6 +261,14 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
         if (key == textFontKey) {
             updateOverlayTextFont()
+        }
+
+        if (key == hideLeftOverlay) {
+            val isHideLeftOverlay = sharedPreferences?.getBoolean(hideLeftOverlay, false) ?: false
+
+            if (isHideLeftOverlay) {
+                sharedPreferences?.edit()?.putBoolean(emptyTitleKey, false)?.apply()
+            }
         }
     }
 
@@ -767,6 +796,34 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             val textColor = Color.parseColor(textColorKey)
 
             overlayTextView.setTextColor(textColor)
+        }
+    }
+
+    private fun updateOverlayLeftTextAlign() {
+        if (::overlayTextView.isInitialized && ::overlayTextView2.isInitialized) {
+            val textAlignKey = sharedPreferences.getString("text_align_left_key", "start") ?: "start"
+            val textAlign: Int = when (textAlignKey) {
+                "start" -> View.TEXT_ALIGNMENT_TEXT_START
+                "center" -> View.TEXT_ALIGNMENT_CENTER
+                "end" -> View.TEXT_ALIGNMENT_TEXT_END
+                else -> View.TEXT_ALIGNMENT_TEXT_START
+            }
+
+            overlayTextView2.textAlignment = textAlign
+        }
+    }
+
+    private fun updateOverlayRightTextAlign() {
+        if (::overlayTextView.isInitialized && ::overlayTextView2.isInitialized) {
+            val textAlignKey = sharedPreferences.getString("text_align_right_key", "textStart") ?: "textStart"
+            val textAlign: Int = when (textAlignKey) {
+                "start" -> View.TEXT_ALIGNMENT_TEXT_START
+                "center" -> View.TEXT_ALIGNMENT_CENTER
+                "end" -> View.TEXT_ALIGNMENT_TEXT_END
+                else -> View.TEXT_ALIGNMENT_TEXT_START
+            }
+
+            overlayTextView.textAlignment = textAlign
         }
     }
 

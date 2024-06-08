@@ -27,6 +27,7 @@
     <string name="corner_options">Corner options</string>
     <string name="text_options">Text options</string>
     <string name="about">About</string>
+    <string name="restart_overlay_toast">Please restart the overlay to see the change.</string>
     <string name="no_connectivity">No internet connection</string>
     <string name="overlay_button">Overlay button</string>
     <string name="overlay_button_summary">Select a button to activate the overlay.</string>
@@ -45,6 +46,10 @@
     <string name="text_color_left_summary">Select a text color for the left overlay.</string>
     <string name="text_color_right">Right text color</string>
     <string name="text_color_right_summary">Select a text color for the right overlay.</string>
+    <string name="left_text_alignment">Left overlay text alignment</string>
+    <string name="left_text_alignment_summary">This option sets the text alignment for the left overlay.</string>
+    <string name="right_text_alignment">Right overlay text alignment</string>
+    <string name="right_text_alignment_summary">This option sets the text alignment for the right overlay.</string>
     <string name="text_font">Text font</string>
     <string name="text_font_summary">Select a text font for the overlay.</string>
     <string name="background_color_left">Left background color</string>
@@ -63,6 +68,8 @@
     <string name="rounded_corners_left_summary">Select a rounded corner size for the left overlay.</string>
     <string name="rounded_corners_right">Right rounded corners</string>
     <string name="rounded_corners_right_summary">Select a rounded corner size for the right overlay.</string>
+    <string name="hide_left_overlay">Hide left overlay</string>
+    <string name="hide_left_overlay_summary">This option hides the left overlay.</string>
     <string name="line_break">Line break</string>
     <string name="line_break_summary">This option adds an empty line.</string>
     <string name="title">Title</string>
@@ -1075,6 +1082,30 @@
         <item>#000000</item>
     </string-array>
 
+    <string-array name="text_align_left_options">
+        <item>Left</item>
+        <item>Center</item>
+        <item>Right</item>
+    </string-array>
+
+    <string-array name="text_align_left_values">
+        <item>start</item>
+        <item>center</item>
+        <item>end</item>
+    </string-array>
+
+    <string-array name="text_align_right_options">
+        <item>Left</item>
+        <item>Center</item>
+        <item>Right</item>
+    </string-array>
+
+    <string-array name="text_align_right_values">
+        <item>start</item>
+        <item>center</item>
+        <item>end</item>
+    </string-array>
+
     <string-array name="background_color_left_options">
         <item>Black</item>
         <item>White</item>
@@ -1586,7 +1617,6 @@
         <item>0.01</item>
         <item>0.0</item>
     </string-array>
-
 
     <string-array name="text_font_options">
         <item>Roboto</item>

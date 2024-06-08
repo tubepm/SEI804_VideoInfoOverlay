@@ -19,6 +19,13 @@
             android:summary="@string/long_press_summary"
             android:title="@string/long_press" />
 
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_hide_overlay_24dp"
+            android:key="hide_left_overlay_key"
+            android:summary="@string/hide_left_overlay_summary"
+            android:title="@string/hide_left_overlay" />
+
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/background_options">
 
@@ -157,6 +164,24 @@
             android:key="text_size_key"
             android:summary="@string/text_size_summary"
             android:title="@string/text_size" />
+
+        <ListPreference
+            android:defaultValue="start"
+            android:entries="@array/text_align_left_options"
+            android:entryValues="@array/text_align_left_values"
+            android:icon="@drawable/ic_align_left_24dp"
+            android:key="text_align_left_key"
+            android:summary="@string/left_text_alignment_summary"
+            android:title="@string/left_text_alignment" />
+
+        <ListPreference
+            android:defaultValue="start"
+            android:entries="@array/text_align_right_options"
+            android:entryValues="@array/text_align_right_values"
+            android:icon="@drawable/ic_align_right_24dp"
+            android:key="text_align_right_key"
+            android:summary="@string/right_text_alignment_summary"
+            android:title="@string/right_text_alignment" />
 
         <ListPreference
             android:defaultValue="12"

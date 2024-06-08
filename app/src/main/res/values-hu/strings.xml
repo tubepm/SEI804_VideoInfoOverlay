@@ -26,6 +26,7 @@
     <string name="corner_options">Sarok beállítások</string>
     <string name="text_options">Szöveg beállítások</string>
     <string name="about">Az alkalmazásról</string>
+    <string name="restart_overlay_toast">Kérjük, indítsd újra az Infósávot a változás érvényesítéséhez.</string>
     <string name="no_connectivity">Nincs csatlakozás</string>
     <string name="overlay_button">Infóablak aktiváló gomb</string>
     <string name="overlay_button_summary">Válassz egy gombot az infóablak aktiválásához.</string>
@@ -44,6 +45,10 @@
     <string name="text_color_left_summary">Válassz szövegszínt a bal oldali infóablaknak.</string>
     <string name="text_color_right">Jobboldali szövegszín</string>
     <string name="text_color_right_summary">Válassz szövegszínt a jobb oldali infóablaknak.</string>
+    <string name="left_text_alignment">Bal oldali infósáv szöveg igazítása</string>
+    <string name="left_text_alignment_summary">Ez az opció beállítja a szöveg igazítását a bal oldali infósávhoz.</string>
+    <string name="right_text_alignment">Infósáv szöveg jobb oldalra igazítása</string>
+    <string name="right_text_alignment_summary">Ez az opció beállítja a szöveg igazítását a jobb oldali infósávhoz.</string>
     <string name="text_font">Betűtípus</string>
     <string name="text_font_summary">Válassz betűtípust az infóablakhoz.</string>
     <string name="background_color_left">Baloldali háttérszín</string>
@@ -62,6 +67,8 @@
     <string name="rounded_corners_left_summary">Válassz kerekítés méretet a bal oldali infóablaknak.</string>
     <string name="rounded_corners_right">Jobb oldali kerekített sarkok</string>
     <string name="rounded_corners_right_summary">Válassz kerekítés méretet a jobb oldali infóablaknak.</string>
+    <string name="hide_left_overlay">Bal oldali infósáv elrejtése</string>
+    <string name="hide_left_overlay_summary">Ez a beállítás elrejti a bal oldali infósávot.</string>
     <string name="line_break">Sor beszúrása</string>
     <string name="line_break_summary">Ez a beállítás egy üres sort ad hozzá.</string>
     <string name="title">Cím</string>
@@ -155,6 +162,18 @@
         <item>Tengerészkék</item>
         <item>Erdőzöld</item>
         <item>Fekete</item>
+    </string-array>
+
+    <string-array name="text_align_left_options">
+        <item>Balra</item>
+        <item>Középre</item>
+        <item>Jobbra</item>
+    </string-array>
+
+    <string-array name="text_align_right_options">
+        <item>Balra</item>
+        <item>Középre</item>
+        <item>Jobbra</item>
     </string-array>
 
     <string-array name="background_color_left_options">
