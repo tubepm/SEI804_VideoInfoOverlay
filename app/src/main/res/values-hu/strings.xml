@@ -61,7 +61,7 @@
     <string name="background_alpha_right_summary">Válassz háttér áttetszőséget a jobb oldali infóablaknak.</string>
     <string name="rounded_corners_left_overall">Összes sarok kerekítése a baloldali infóablakon.</string>
     <string name="rounded_corners_left_overall_summary">Ez a beállítás a sarkok kerekítését teszi lehetővé  a baloldali infóablakon.</string>
-    <string name="rounded_corners_right_overall">Összes sarok kerekítése a jobboldali overlayon.</string>
+    <string name="rounded_corners_right_overall">Összes sarok kerekítése a jobboldali infóablakon.</string>
     <string name="rounded_corners_right_overall_summary">Ez a beállítás a sarkok kerekítését teszi lehetővé  a jobboldali infóablakon.</string>
     <string name="rounded_corners_left">Bal oldali kerekített sarkok</string>
     <string name="rounded_corners_left_summary">Válassz kerekítés méretet a bal oldali infóablaknak.</string>
