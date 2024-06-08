@@ -90,6 +90,7 @@
         <item>Taste 7</item>
         <item>Taste 8</item>
         <item>Taste 9</item>
+        <item>Keine</item>
     </string-array>
 
     <string-array name="text_color_left_options">

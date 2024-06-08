@@ -90,6 +90,7 @@
         <item>7-es szám gomb</item>
         <item>8-as szám gomb</item>
         <item>9-es szám gomb</item>
+        <item>None</item>
     </string-array>
 
     <string-array name="text_color_left_options">
