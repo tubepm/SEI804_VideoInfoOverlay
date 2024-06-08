@@ -56,5 +56,6 @@
         <item>Кнопка 7</item>
         <item>Кнопка 8</item>
         <item>Кнопка 9</item>
+        <item>Без кнопки</item>
     </string-array>
 </resources>
