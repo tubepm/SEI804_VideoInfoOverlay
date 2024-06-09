@@ -56,10 +56,10 @@
     <string name="background_color_left_summary">Select a background color for the left overlay.</string>
     <string name="background_color_right">Right background color</string>
     <string name="background_color_right_summary">Select a background color for the right overlay.</string>
-    <string name="background_alpha_left">Left background alpha</string>
-    <string name="background_alpha_left_summary">Select a background alpha for the left overlay.</string>
-    <string name="background_alpha_right">Right background alpha</string>
-    <string name="background_alpha_right_summary">Select a background alpha for the right overlay.</string>
+    <string name="background_alpha_left">Left background transparency</string>
+    <string name="background_alpha_left_summary">Select a background transparency for the left overlay.</string>
+    <string name="background_alpha_right">Right background transparency</string>
+    <string name="background_alpha_right_summary">Select a background transparency for the right overlay.</string>
     <string name="rounded_corners_left_overall">Rounded corners on all edges on the left overlay</string>
     <string name="rounded_corners_left_overall_summary">This option adds rounded corners to all corners of the left overlay.</string>
     <string name="rounded_corners_right_overall">Rounded corners on all edges on the right overlay</string>
