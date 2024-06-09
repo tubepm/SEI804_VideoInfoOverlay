@@ -801,7 +801,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
     private fun updateOverlayLeftTextAlign() {
         if (::overlayTextView.isInitialized && ::overlayTextView2.isInitialized) {
-            val textAlignKey = sharedPreferences.getString("text_align_left_key", "start") ?: "start"
+            val textAlignKey = sharedPreferences.getString("text_align_left_key", "textStart") ?: "textStart"
             val textAlign: Int = when (textAlignKey) {
                 "start" -> View.TEXT_ALIGNMENT_TEXT_START
                 "center" -> View.TEXT_ALIGNMENT_CENTER
