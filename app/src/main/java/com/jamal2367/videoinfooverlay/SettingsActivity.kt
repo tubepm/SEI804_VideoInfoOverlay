@@ -43,7 +43,6 @@ class SettingsActivity : AppCompatActivity() {
             backgroundAlphaLeftPreference = findPreference("background_alpha_left_key")
             roundedCornersLeftPreference = findPreference("rounded_corners_left_key")
 
-
             // Check if preferences are not null
             if (hideLeftOverlayPreference == null || emptyTitlePreference == null) {
                 throw IllegalStateException("Preferences not found in XML")

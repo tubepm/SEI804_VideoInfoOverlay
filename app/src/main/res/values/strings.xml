@@ -1619,34 +1619,52 @@
     </string-array>
 
     <string-array name="text_font_options">
-        <item>Roboto</item>
-        <item>Roboto Mono</item>
-        <item>JetBrains Mono</item>
+        <item>Anonymous Pro</item>
+        <item>Chakra Petch</item>
+        <item>Comfortaa</item>
+        <item>Electrolize</item>
+        <item>IBM Plex Mono</item>
         <item>Inter</item>
+        <item>JetBrains Mono</item>
+        <item>Kode Mono</item>
+        <item>Martian Mono</item>
+        <item>Ojuju</item>
+        <item>Overpass Mono</item>
+        <item>PoetsenOne</item>
         <item>Poppins</item>
         <item>Quicksand</item>
-        <item>Electrolize</item>
-        <item>PoetsenOne</item>
+        <item>Reddit Mono</item>
+        <item>Roboto</item>
+        <item>Roboto Mono</item>
+        <item>Share Tech Mono</item>
+        <item>Silkscreen</item>
+        <item>Sono</item>
+        <item>Space Mono</item>
         <item>VT323</item>
-        <item>ShareTechMono</item>
-        <item>AnonymousPro</item>
-        <item>RedditMono</item>
-        <item>IBMPlexMono</item>
     </string-array>
 
     <string-array name="text_font_values">
-        <item>roboto</item>
-        <item>robotomono</item>
-        <item>jetbrainsmono</item>
+        <item>anonymouspro</item>
+        <item>chakrapetch</item>
+        <item>comfortaa</item>
+        <item>electrolize</item>
+        <item>ibmplexmono</item>
         <item>inter</item>
+        <item>jetbrainsmono</item>
+        <item>kodemono</item>
+        <item>martianmono</item>
+        <item>ojuju</item>
+        <item>overpassmono</item>
+        <item>poetsenone</item>
         <item>poppins</item>
         <item>quicksand</item>
-        <item>electrolize</item>
-        <item>poetsenone</item>
-        <item>vt323</item>
-        <item>sharetechmono</item>
-        <item>anonymouspro</item>
         <item>redditmono</item>
-        <item>ibmplexmono</item>
+        <item>roboto</item>
+        <item>robotomono</item>
+        <item>sharetechmono</item>
+        <item>silkscreen</item>
+        <item>sono</item>
+        <item>spacemono</item>
+        <item>vt323</item>
     </string-array>
 </resources>

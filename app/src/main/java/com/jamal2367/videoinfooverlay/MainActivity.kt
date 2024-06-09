@@ -883,7 +883,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
     private fun updateOverlayTextFont() {
         if (::overlayTextView.isInitialized && ::overlayTextView2.isInitialized) {
-            val textFontKey = sharedPreferences.getString("text_font_key", "inter") ?: "inter"
+            val textFontKey = sharedPreferences.getString("text_font_key", "jetbrainsmono") ?: "jetbrainsmono"
             val fontResId = getFontResourceId(textFontKey)
             overlayTextView.typeface = ResourcesCompat.getFont(this, fontResId)
             overlayTextView2.typeface = ResourcesCompat.getFont(this, fontResId)
@@ -892,23 +892,31 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
     private fun getFontResourceId(fontName: String): Int {
         return when (fontName) {
-            "roboto" -> R.font.roboto
-            "robotomono" -> R.font.robotomono
-            "jetbrainsmono" -> R.font.jetbrainsmono
+            "anonymouspro" -> R.font.anonymouspro
+            "chakrapetch" -> R.font.chakrapetch
+            "comfortaa" -> R.font.comfortaa
+            "electrolize" -> R.font.electrolize
+            "ibmplexmono" -> R.font.ibmplexmono
             "inter" -> R.font.inter
+            "jetbrainsmono" -> R.font.jetbrainsmono
+            "kodemono" -> R.font.kodemono
+            "martianmono" -> R.font.martianmono
+            "ojuju" -> R.font.ojuju
+            "overpassmono" -> R.font.overpassmono
+            "poetsenone" -> R.font.poetsenone
             "poppins" -> R.font.poppins
             "quicksand" -> R.font.quicksand
-            "electrolize" -> R.font.electrolize
-            "poetsenone" -> R.font.poetsenone
-            "vt323" -> R.font.vt323
-            "sharetechmono" -> R.font.sharetechmono
-            "anonymouspro" -> R.font.anonymouspro
             "redditmono" -> R.font.redditmono
-            "ibmplexmono" -> R.font.ibmplexmono
-            else -> R.font.inter
+            "roboto" -> R.font.roboto
+            "robotomono" -> R.font.robotomono
+            "sharetechmono" -> R.font.sharetechmono
+            "silkscreen" -> R.font.silkscreen
+            "sono" -> R.font.sono
+            "spacemono" -> R.font.spacemono
+            "vt323" -> R.font.vt323
+            else -> R.font.jetbrainsmono
         }
     }
-
 
     @Suppress("DEPRECATION")
     fun getConnectionState(): String {

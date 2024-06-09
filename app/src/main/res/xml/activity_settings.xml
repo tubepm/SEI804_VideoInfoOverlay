@@ -148,7 +148,7 @@
             android:title="@string/line_break" />
 
         <ListPreference
-            android:defaultValue="inter"
+            android:defaultValue="jetbrainsmono"
             android:entries="@array/text_font_options"
             android:entryValues="@array/text_font_values"
             android:icon="@drawable/ic_font_24dp"
