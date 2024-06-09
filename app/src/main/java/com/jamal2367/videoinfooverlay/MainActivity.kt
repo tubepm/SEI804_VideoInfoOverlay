@@ -512,6 +512,15 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                     appendLine(hdrPriority)
                 }
 
+                if (hdrPolicy.isNotEmpty()) {
+                    val modifiedHdrPolicy = when (hdrPolicy.trim()) {
+                        "Follow Source" -> getString(R.string.follow_source)
+                        "Follow Sink" -> getString(R.string.follow_sink)
+                        else -> hdrPolicy
+                    }
+                    appendLine(modifiedHdrPolicy)
+                }
+
                 if (colorSpace.isNotEmpty()) {
                     val modifiedColorSpace = when (colorSpace.trim()) {
                         "default" -> "YCbCr 4:2:2 (10 Bit)"
@@ -530,15 +539,6 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         else -> colorSpace
                     }
                     appendLine(modifiedColorSpace)
-                }
-
-                if (hdrPolicy.isNotEmpty()) {
-                    val modifiedHdrPolicy = when (hdrPolicy.trim()) {
-                        "Follow Source" -> getString(R.string.follow_source)
-                        "Follow Sink" -> getString(R.string.follow_sink)
-                        else -> hdrPolicy
-                    }
-                    appendLine(modifiedHdrPolicy)
                 }
 
                 if (isEmptyLine) {
@@ -630,12 +630,12 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                     appendLine(getString(R.string.hdr_priority))
                 }
 
-                if (colorSpace.isNotEmpty()) {
-                    appendLine(getString(R.string.color_space))
-                }
-
                 if (hdrPolicy.isNotEmpty()) {
                     appendLine(getString(R.string.hdr_policy))
+                }
+
+                if (colorSpace.isNotEmpty()) {
+                    appendLine(getString(R.string.color_space))
                 }
 
                 if (isEmptyLine) {
