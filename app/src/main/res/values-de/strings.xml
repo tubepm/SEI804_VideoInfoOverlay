@@ -2,13 +2,13 @@
     <string name="starting">Starte…</string>
     <string name="video_format">Videoformat:</string>
     <string name="video_resolution">Videoauflösung:</string>
-    <string name="display_resolution">Display-Auflösung:</string>
+    <string name="display_resolution">Displayauflösung:</string>
     <string name="color_space">Farbraum:</string>
     <string name="hdr_status">HDR-Status:</string>
     <string name="hdr_policy">HDR-Strategie:</string>
     <string name="hdr_priority">HDR-Priorität:</string>
     <string name="audio_format">Audioformat:</string>
-    <string name="audio_mode">Audio-Modus:</string>
+    <string name="audio_mode">Audiomodus:</string>
     <string name="app_name_tv">App-Name:</string>
     <string name="cpu_usage">CPU-Auslastung:</string>
     <string name="memory_usage">Speichernutzung:</string>
@@ -75,10 +75,10 @@
     <string name="title_summary">Diese Option fügt einen Titel hinzu.</string>
     <string name="long_press">Langes Drücken</string>
     <string name="long_press_summary">Diese Option fügt einen langen Tastendruck hinzu. (min. 750ms)</string>
-    <string name="other">Sonstiges:</string>
-    <string name="display">Display:</string>
-    <string name="video">Video:</string>
-    <string name="audio">Ton:</string>
+    <string name="other">Sonstiges</string>
+    <string name="display">Display</string>
+    <string name="video">Video</string>
+    <string name="audio">Ton</string>
 
     <string-array name="key_code_labels">
         <item>Lesezeichen-Taste</item>
