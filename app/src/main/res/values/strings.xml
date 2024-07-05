@@ -76,10 +76,10 @@
     <string name="title_summary">This option adds an title.</string>
     <string name="long_press">Long press</string>
     <string name="long_press_summary">This option adds a long button press. (min. 750ms)</string>
-    <string name="other">Other:</string>
-    <string name="display">Display:</string>
-    <string name="video">Video:</string>
-    <string name="audio">Audio:</string>
+    <string name="other">Other</string>
+    <string name="display">Display</string>
+    <string name="video">Video</string>
+    <string name="audio">Audio</string>
 
     <string-array name="key_code_labels">
         <item>Bookmark button</item>

@@ -1,0 +1,226 @@
+<resources>
+    <string name="starting">Завантаження…</string>
+    <string name="video_format">Відео кодек:</string>
+    <string name="video_resolution">Розширення відео:</string>
+    <string name="display_resolution">Розширення екрану:</string>
+    <string name="color_space">Колірний простір:</string>
+    <string name="hdr_status">Стан HDR:</string>
+    <string name="hdr_policy">Політика HDR:</string>
+    <string name="hdr_priority">Пріоритет HDR:</string>
+    <string name="audio_format">Формат звуку:</string>
+    <string name="audio_mode">Режим звуку:</string>
+    <string name="app_name_tv">Назва застосунку:</string>
+    <string name="cpu_usage">Використання процесора:</string>
+    <string name="memory_usage">Використання пам\'яті:</string>
+    <string name="connection">З\'єднання:</string>
+    <string name="follow_source">Follow Source (Player-Led)</string>
+    <string name="follow_sink">Follow Sink (TV-Led)</string>
+    <string name="auto">Авто</string>
+    <string name="passthrough">Passthrough</string>
+    <string name="manual">Manual</string>
+    <string name="wifi">Wi-Fi</string>
+    <string name="ethernet">Ethernet</string>
+    <string name="overlay_options">Парамерти оверлея</string>
+    <string name="background_options">Парамерти фону</string>
+    <string name="distance_options">Парамерти відступів</string>
+    <string name="corner_options">Параметри кутів</string>
+    <string name="text_options">Парамерти тексту</string>
+    <string name="about">Про програму</string>
+    <string name="restart_overlay_toast">Перезапустіть оверлей, щоб побачити зміни.</string>
+    <string name="no_connectivity">Немає підключення до інтернету</string>
+    <string name="overlay_button">Кнопка оверлея</string>
+    <string name="overlay_button_summary">Виберіть кнопку для активації оверлея.</string>
+    <string name="select_button">Вибір кнопки</string>
+    <string name="right_margin">Відступ від правого краю</string>
+    <string name="right_margin_summary">Виберіть відстань від правого краю екрану до оверлея.</string>
+    <string name="top_margin">Відступ від верхнього краю</string>
+    <string name="top_margin_summary">Виберіть відстань від верхнього краю екрану до оверлея.</string>
+    <string name="both_margin">Внутрішній відступ</string>
+    <string name="both_margin_summary">Виберіть відстань між двома оверлеями.</string>
+    <string name="text_size">Розмір шрифту</string>
+    <string name="text_size_summary">Виберіть розмір шрифту для оверлея.</string>
+    <string name="text_padding_summary">Цей параметр можна використовувати для зміни відстані між оверлеєм і текстом.</string>
+    <string name="text_padding">Відступ до тексту</string>
+    <string name="text_color_left">Колір тексту зліва</string>
+    <string name="text_color_left_summary">Вибір кольору тексту для лівого оверлея.</string>
+    <string name="text_color_right">Колір тексту справа</string>
+    <string name="text_color_right_summary">Вибір кольору тексту для правого оверлея.</string>
+    <string name="left_text_alignment">Вирівнювання тексту лівого оверлея</string>
+    <string name="left_text_alignment_summary">Цей параметр задає вирівнювання тексту для лівого оверлея.</string>
+    <string name="right_text_alignment">Вирівнювання тексту правого оверлея</string>
+    <string name="right_text_alignment_summary">Цей параметр задає вирівнювання тексту для правого оверлея.</string>
+    <string name="text_font">Шрифт тексту</string>
+    <string name="text_font_summary">Вибір шрифта для оверлея.</string>
+    <string name="background_color_left">Колір фону зліва</string>
+    <string name="background_color_left_summary">Вибір кольору фону для лівого оверлея.</string>
+    <string name="background_color_right">Колір фону справа</string>
+    <string name="background_color_right_summary">Вибір кольору фону для правого оверлея.</string>
+    <string name="background_alpha_left">Прозорість фону зліва</string>
+    <string name="background_alpha_left_summary">Вибір прозорості фону для лівого оверлея.</string>
+    <string name="background_alpha_right">Прозорість фону справа</string>
+    <string name="background_alpha_right_summary">Вибір прозорості фону для правого оверлея.</string>
+    <string name="rounded_corners_left_overall">Заокруглені кути на всіх краях лівого оверлея</string>
+    <string name="rounded_corners_left_overall_summary">Цей параметр додає закругленість всіх кутів лівого оверлея.</string>
+    <string name="rounded_corners_right_overall">Заокруглені кути на всіх краях правого оверлея</string>
+    <string name="rounded_corners_right_overall_summary">Цей параметр додає закругленість всіх кутів правого оверлея.</string>
+    <string name="rounded_corners_left">Закруглені кути зліва</string>
+    <string name="rounded_corners_left_summary">Вибрати розмір заокругленості кутів для лівого оверлея.</string>
+    <string name="rounded_corners_right">Закруглені кути справа</string>
+    <string name="rounded_corners_right_summary">Вибрати розмір заокругленості кутів для правого оверлея.</string>
+    <string name="hide_left_overlay">Приховати лівий оверлей</string>
+    <string name="hide_left_overlay_summary">Цей параметр приховує лівий оверлей.</string>
+    <string name="line_break">Розрив рядка</string>
+    <string name="line_break_summary">Цей параметр додає порожній рядок.</string>
+    <string name="title">Заголовок</string>
+    <string name="title_summary">Цей параметр додає заголовки до секцій.</string>
+    <string name="long_press">Довге натискання</string>
+    <string name="long_press_summary">Цей параметр додає довге натискання кнопки. (мінімум 750 мс)</string>
+    <string name="other">Інше</string>
+    <string name="display">Дисплей</string>
+    <string name="video">Відео</string>
+    <string name="audio">Аудіо</string>
+
+    <string-array name="key_code_labels">
+        <item>Кнопка Закладки</item>
+        <item>Кнопка Телегід</item>
+        <item>Червона кнопка</item>
+        <item>Зелена кнопка</item>
+        <item>Жовта кнопка</item>
+        <item>Синя кнопка</item>
+        <item>Кнопка 0</item>
+        <item>Кнопка 1</item>
+        <item>Кнопка 2</item>
+        <item>Кнопка 3</item>
+        <item>Кнопка 4</item>
+        <item>Кнопка 5</item>
+        <item>Кнопка 6</item>
+        <item>Кнопка 7</item>
+        <item>Кнопка 8</item>
+        <item>Кнопка 9</item>
+        <item>Немає</item>
+    </string-array>
+
+    <string-array name="text_color_left_options">
+        <item>Білий</item>
+        <item>Червоний</item>
+        <item>Рожевий</item>
+        <item>Фіолетовий</item>
+        <item>Темно-фіолетовий</item>
+        <item>Індиго</item>
+        <item>Синій</item>
+        <item>Світло-синій</item>
+        <item>Блакитний</item>
+        <item>Бірюзовий</item>
+        <item>Зелений</item>
+        <item>Світло-зелений</item>
+        <item>Лаймовий</item>
+        <item>Жовтий</item>
+        <item>Бурштиновий</item>
+        <item>Помаранчевий</item>
+        <item>Насичений помаранчевий</item>
+        <item>Коричневий</item>
+        <item>Сірий</item>
+        <item>Синьо-сірий</item>
+        <item>Золотий</item>
+        <item>Срібний</item>
+        <item>Рожево-золотий</item>
+        <item>М\'ятно-зелений</item>
+        <item>Кораловий</item>
+        <item>Бордовий</item>
+        <item>Темно-синій</item>
+        <item>Лісовий зелений</item>
+        <item>Чорний</item>
+    </string-array>
+
+    <string-array name="text_color_right_options">
+        <item>Білий</item>
+        <item>Червоний</item>
+        <item>Рожевий</item>
+        <item>Фіолетовий</item>
+        <item>Темно-фіолетовий</item>
+        <item>Індиго</item>
+        <item>Синій</item>
+        <item>Світло-синій</item>
+        <item>Блакитний</item>
+        <item>Бірюзовий</item>
+        <item>Зелений</item>
+        <item>Світло-зелений</item>
+        <item>Лаймовий</item>
+        <item>Жовтий</item>
+        <item>Бурштиновий</item>
+        <item>Помаранчевий</item>
+        <item>Насичений помаранчевий</item>
+        <item>Коричневий</item>
+        <item>Сірий</item>
+        <item>Синьо-сірий</item>
+        <item>Золотий</item>
+        <item>Срібний</item>
+        <item>Рожево-золотий</item>
+        <item>М\'ятно-зелений</item>
+        <item>Кораловий</item>
+        <item>Бордовий</item>
+        <item>Темно-синій</item>
+        <item>Лісовий зелений</item>
+        <item>Чорний</item>
+    </string-array>
+
+    <string-array name="text_align_left_options">
+        <item>Ліворуч</item>
+        <item>По центру</item>
+        <item>Праворуч</item>
+    </string-array>
+
+    <string-array name="text_align_right_options">
+        <item>Ліворуч</item>
+        <item>По центру</item>
+        <item>Праворуч</item>
+    </string-array>
+
+    <string-array name="background_color_left_options">
+        <item>Чорний</item>
+        <item>Білий</item>
+        <item>Червоний</item>
+        <item>Рожевий</item>
+        <item>Фіолетовий</item>
+        <item>Темно-фіолетовий</item>
+        <item>Індиго</item>
+        <item>Синій</item>
+        <item>Світло-синій</item>
+        <item>Блакитний</item>
+        <item>Бірюзовий</item>
+        <item>Зелений</item>
+        <item>Світло-зелений</item>
+        <item>Лаймовий</item>
+        <item>Жовтий</item>
+        <item>Бурштиновий</item>
+        <item>Помаранчевий</item>
+        <item>Насичений помаранчеви</item>
+        <item>Коричневий</item>
+        <item>Сірий</item>
+        <item>Синьо-сірий</item>
+    </string-array>
+
+    <string-array name="background_color_right_options">
+        <item>Чорний</item>
+        <item>Білий</item>
+        <item>Червоний</item>
+        <item>Рожевий</item>
+        <item>Фіолетовий</item>
+        <item>Темно-фіолетовий</item>
+        <item>Індиго</item>
+        <item>Синій</item>
+        <item>Світло-синій</item>
+        <item>Блакитний</item>
+        <item>Бірюзовий</item>
+        <item>Зелений</item>
+        <item>Світло-зелений</item>
+        <item>Лаймовий</item>
+        <item>Жовтий</item>
+        <item>Бурштиновий</item>
+        <item>Помаранчевий</item>
+        <item>Насичений помаранчеви</item>
+        <item>Коричневий</item>
+        <item>Сірий</item>
+        <item>Синьо-сірий</item>
+    </string-array>
+</resources>
