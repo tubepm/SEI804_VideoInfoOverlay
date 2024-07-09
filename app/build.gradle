@@ -13,7 +13,7 @@ android {
         targetSdk 34
         versionCode 170
         versionName '17.0'
-        resConfigs 'en', 'de', 'hu', 'ru', 'uk'
+        resConfigs 'bg', 'en', 'de', 'hu', 'ru', 'uk'
         setProperty('archivesBaseName', 'SEI804_VideoInfoOverlay_' + versionName)
     }
 

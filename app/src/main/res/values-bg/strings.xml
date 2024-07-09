@@ -1,0 +1,226 @@
+<resources>
+    <string name="starting">Стартиране…</string>
+    <string name="video_format">Видео Формат:</string>
+    <string name="video_resolution">Видео Резолюция:</string>
+    <string name="display_resolution">Резолюция на дисплея:</string>
+    <string name="color_space">Color Space:</string>
+    <string name="hdr_status">HDR Статус:</string>
+    <string name="hdr_policy">HDR Политика:</string>
+    <string name="hdr_priority">HDR Приоритет:</string>
+    <string name="audio_format">Аудио Формат:</string>
+    <string name="audio_mode">Аудио режим:</string>
+    <string name="app_name_tv">Приложение:</string>
+    <string name="cpu_usage">Изплзване на CPU:</string>
+    <string name="memory_usage">Използвана Памет:</string>
+    <string name="connection">Връзка:</string>
+    <string name="follow_source">Следвайте източника (Player-Led)</string>
+    <string name="follow_sink">Следвайте Синхронизацията (TV-Led)</string>
+    <string name="auto">Авто</string>
+    <string name="passthrough">Преминаване</string>
+    <string name="manual">Ръчно</string>
+    <string name="wifi">Wi-Fi</string>
+    <string name="ethernet">По кабел</string>
+    <string name="overlay_options">Опции за Оформление</string>
+    <string name="background_options">Опции за фон</string>
+    <string name="distance_options">Опции за разстояние</string>
+    <string name="corner_options">Оформление на Ъгли</string>
+    <string name="text_options">Текстови опции</string>
+    <string name="about">Още</string>
+    <string name="restart_overlay_toast">Моля, рестартирайте, за да видите промяната.</string>
+    <string name="no_connectivity">Няма интернет връзка</string>
+    <string name="overlay_button">Бутон за стартиране</string>
+    <string name="overlay_button_summary">Изберете бутон, за да активирате приложението.</string>
+    <string name="select_button">Изберете бутон</string>
+    <string name="right_margin">Ъгли на десното поле</string>
+    <string name="right_margin_summary">Изберете разстоянието до десния край на екрана за наслагването.</string>
+    <string name="top_margin">Top edge margin</string>
+    <string name="top_margin_summary">Изберете разстоянието до горния край на екрана за показване.</string>
+    <string name="both_margin">Средно поле</string>
+    <string name="both_margin_summary">Изберете разстоянието по средата на двата прозореца.</string>
+    <string name="text_size">Размер на текста</string>
+    <string name="text_size_summary">Изберете размер на текста в полетата.</string>
+    <string name="text_padding_summary">Тази опция може да се използва за промяна на разстоянието между полетата и текста.</string>
+    <string name="text_padding">Подложка на текст</string>
+    <string name="text_color_left">Цвят на текста от ляво</string>
+    <string name="text_color_left_summary">Изберете цвят на текста за левия прозорец.</string>
+    <string name="text_color_right">Цвят на текста от дясно</string>
+    <string name="text_color_right_summary">Изберете цвят на текста за десния прозорец.</string>
+    <string name="left_text_alignment">Подравняване на текста в левия прозорец</string>
+    <string name="left_text_alignment_summary">Тази опция задава подравняването на текста за левия прозорец.</string>
+    <string name="right_text_alignment">Подравняване на текста в десния прозорец</string>
+    <string name="right_text_alignment_summary">Тази опция задава подравняването на текста за десния прозорец.</string>
+    <string name="text_font">Шрифт на текста</string>
+    <string name="text_font_summary">Изберете текстов шрифт за показванев полетата.</string>
+    <string name="background_color_left">Цвят на левия фон</string>
+    <string name="background_color_left_summary">Изберете цвят на фона за левия прозорец.</string>
+    <string name="background_color_right">Цвят на десния фон</string>
+    <string name="background_color_right_summary">Изберете цвят на фона за десния прозорец.</string>
+    <string name="background_alpha_left">Прозрачност на левия фон</string>
+    <string name="background_alpha_left_summary">Изберете прозрачност на фона отляво.</string>
+    <string name="background_alpha_right">Прозрачност на десния фон</string>
+    <string name="background_alpha_right_summary">Изберете прозрачност на фона отдясно.</string>
+    <string name="rounded_corners_left_overall">Заоблени ъгли по всички ръбове отляво.</string>
+    <string name="rounded_corners_left_overall_summary">Тази опция добавя заоблени ъгли към всички ъгли отляво.</string>
+    <string name="rounded_corners_right_overall">Заоблени ъгли по всички ръбове вдясно</string>
+    <string name="rounded_corners_right_overall_summary">Тази опция добавя заоблени ъгли към всички ъгли вдясно.</string>
+    <string name="rounded_corners_left">Леви заоблени ъгли</string>
+    <string name="rounded_corners_left_summary">Изберете размер на заоблен ъгъл за лявото наслагване.</string>
+    <string name="rounded_corners_right">Десни заоблени ъгли</string>
+    <string name="rounded_corners_right_summary">Изберете размер на заоблен ъгъл за дясното наслагване.</string>
+    <string name="hide_left_overlay">Скриване на ляво наслагване</string>
+    <string name="hide_left_overlay_summary">Тази опция скрива лявото наслагване.</string>
+    <string name="line_break">Празен ред</string>
+    <string name="line_break_summary">Тази опция добавя празен ред.</string>
+    <string name="title">Заглавие</string>
+    <string name="title_summary">Тази опция добавя заглавие.</string>
+    <string name="long_press">Продължително натискане</string>
+    <string name="long_press_summary">Тази опция добавя дълго натискане на бутон. (min. 750ms)</string>
+    <string name="other">Друго</string>
+    <string name="display">Дисплей</string>
+    <string name="video">Видео</string>
+    <string name="audio">Аудио</string>
+
+    <string-array name="key_code_labels">
+        <item>Бутон за отметка</item>
+        <item>Бутон TV Guide</item>
+        <item>Червен бутон</item>
+        <item>Зелен бутон</item>
+        <item>Жълт бутон</item>
+        <item>Син бутон</item>
+        <item>Бутон 0</item>
+        <item>Бутон 1</item>
+        <item>Бутон 2</item>
+        <item>Бутон 3</item>
+        <item>Бутон 4</item>
+        <item>Бутон 5</item>
+        <item>Бутон 6</item>
+        <item>Бутон 7</item>
+        <item>Бутон 8</item>
+        <item>Бутон 9</item>
+        <item>Нито един</item>
+    </string-array>
+
+    <string-array name="text_color_left_options">
+        <item>Бял</item>
+        <item>Червен</item>
+        <item>Розов</item>
+        <item>Пурпурен</item>
+        <item>Тъмно пурпурен</item>
+        <item>Индиго</item>
+        <item>Синьо</item>
+        <item>Светло синьо</item>
+        <item>Циан</item>
+        <item>Сивкаво</item>
+        <item>Зелен</item>
+        <item>Светло зелен</item>
+        <item>Лайм</item>
+        <item>Жълто</item>
+        <item>Amber</item>
+        <item>Оранжево</item>
+        <item>Тъмно оранжево</item>
+        <item>Кафяв</item>
+        <item>Сив</item>
+        <item>Синьо сиво</item>
+        <item>Злато</item>
+        <item>Сребро</item>
+        <item>Розово злато</item>
+        <item>Ментово зелено</item>
+        <item>Корал</item>
+        <item>Maroon</item>
+        <item>Небесно синьо</item>
+        <item>Горско зелено</item>
+        <item>Черно</item>
+    </string-array>
+
+    <string-array name="text_color_right_options">
+        <item>Бял</item>
+        <item>Червен</item>
+        <item>Розов</item>
+        <item>Пурпурен</item>
+        <item>Тъмно пурпурен</item>
+        <item>Индиго</item>
+        <item>Синьо</item>
+        <item>Светло синьо</item>
+        <item>Циан</item>
+        <item>Сивкаво</item>
+        <item>Зелен</item>
+        <item>Светло зелен</item>
+        <item>Лайм</item>
+        <item>Жълто</item>
+        <item>Amber</item>
+        <item>Оранжево</item>
+        <item>Тъмно оранжево</item>
+        <item>Кафяв</item>
+        <item>Сив</item>
+        <item>Синьо сиво</item>
+        <item>Злато</item>
+        <item>Сребро</item>
+        <item>Розово злато</item>
+        <item>Ментово зелено</item>
+        <item>Корал</item>
+        <item>Maroon</item>
+        <item>Небесно синьо</item>
+        <item>Горско зелено</item>
+        <item>Черно</item>
+    </string-array>
+
+    <string-array name="text_align_left_options">
+        <item>Ляво</item>
+        <item>Център</item>
+        <item>Дясно</item>
+    </string-array>
+
+    <string-array name="text_align_right_options">
+        <item>Ляво</item>
+        <item>Център</item>
+        <item>Дясно</item>
+    </string-array>
+
+    <string-array name="background_color_left_options">
+        <item>Черен</item>
+        <item>Бял</item>
+        <item>Червен</item>
+        <item>Розов</item>
+        <item>Пурпурен</item>
+        <item>Тъмно пурпурно</item>
+        <item>Индиго</item>
+        <item>Син</item>
+        <item>Светло синьо</item>
+        <item>Циан</item>
+        <item>Сивкав</item>
+        <item>Зелен</item>
+        <item>Светло зелен</item>
+        <item>Лайм</item>
+        <item>Жълт</item>
+        <item>Amber</item>
+        <item>Оранжево</item>
+        <item>Тъмно ораннжево</item>
+        <item>Кафяв</item>
+        <item>Сив</item>
+        <item>Синьо сив</item>
+    </string-array>
+
+    <string-array name="background_color_right_options">
+        <item>Черен</item>
+        <item>Бял</item>
+        <item>Червен</item>
+        <item>Розов</item>
+        <item>Пурпурен</item>
+        <item>Тъмно пурпурно</item>
+        <item>Индиго</item>
+        <item>Син</item>
+        <item>Светло синьо</item>
+        <item>Циан</item>
+        <item>Сивкав</item>
+        <item>Зелен</item>
+        <item>Светло зелен</item>
+        <item>Лайм</item>
+        <item>Жълт</item>
+        <item>Amber</item>
+        <item>Оранжево</item>
+        <item>Тъмно ораннжево</item>
+        <item>Кафяв</item>
+        <item>Сив</item>
+        <item>Синьо сив</item>
+    </string-array>
+</resources>
