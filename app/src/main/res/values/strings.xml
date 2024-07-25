@@ -11,7 +11,9 @@
     <string name="audio_format">Audio Format:</string>
     <string name="audio_mode">Audio Mode:</string>
     <string name="app_name_tv">App Name:</string>
-    <string name="cpu_usage">CPU Usage:</string>
+    <string name="cpu_usage">CPU Load:</string>
+    <string name="cpu_index">CPU %d Clock:</string>
+    <string name="cpu_governor" translatable="false">CPU Governor:</string>
     <string name="memory_usage">Memory Usage:</string>
     <string name="connection">Connection:</string>
     <string name="follow_source">Follow Source (Player-Led)</string>
@@ -29,6 +31,7 @@
     <string name="about">About</string>
     <string name="restart_overlay_toast">Please restart the overlay to see the change.</string>
     <string name="no_connectivity">No internet connection</string>
+    <string name="mbps">%.2f Mbps</string>
     <string name="overlay_button">Overlay button</string>
     <string name="overlay_button_summary">Select a button to activate the overlay.</string>
     <string name="select_button">Select button</string>
@@ -78,6 +81,7 @@
     <string name="long_press_summary">This option adds a long button press. (min. 750ms)</string>
     <string name="other">Other</string>
     <string name="display">Display</string>
+    <string name="cpu">Processor</string>
     <string name="video">Video</string>
     <string name="audio">Audio</string>
 

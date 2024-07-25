@@ -11,6 +11,7 @@
     <string name="audio_mode">Audió mód:</string>
     <string name="app_name_tv">Futó alkalmazásnév:</string>
     <string name="cpu_usage">CPU használat:</string>
+    <string name="cpu_index">CPU %d sebesség:</string>
     <string name="memory_usage">RAM használat:</string>
     <string name="connection">Csatlakozás:</string>
     <string name="follow_source">Forrásvezérelt (Automatikus)</string>
@@ -28,6 +29,7 @@
     <string name="about">Az alkalmazásról</string>
     <string name="restart_overlay_toast">Kérjük, indítsd újra az Infósávot a változás érvényesítéséhez.</string>
     <string name="no_connectivity">Nincs csatlakozás</string>
+    <string name="mbps">%.2f Mbps</string>
     <string name="overlay_button">Infóablak aktiváló gomb</string>
     <string name="overlay_button_summary">Válassz egy gombot az infóablak aktiválásához.</string>
     <string name="select_button">Gomb kiválasztása</string>
@@ -77,6 +79,7 @@
     <string name="long_press_summary">Ezzel az opcióval, hosszú gombnyomásra aktiválást adhatsz hozzá. (min. 750 ms)</string>
     <string name="other">Rendszer</string>
     <string name="display">Megjelenítés</string>
+    <string name="cpu">CPU</string>
     <string name="video">Videó</string>
     <string name="audio">Hang</string>
 

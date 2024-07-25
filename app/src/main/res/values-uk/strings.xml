@@ -11,6 +11,7 @@
     <string name="audio_mode">Режим звуку:</string>
     <string name="app_name_tv">Назва застосунку:</string>
     <string name="cpu_usage">Використання процесора:</string>
+    <string name="cpu_index">Процесора %d тактова:</string>
     <string name="memory_usage">Використання пам\'яті:</string>
     <string name="connection">З\'єднання:</string>
     <string name="follow_source">Follow Source (Player-Led)</string>
@@ -28,6 +29,7 @@
     <string name="about">Про програму</string>
     <string name="restart_overlay_toast">Перезапустіть оверлей, щоб побачити зміни.</string>
     <string name="no_connectivity">Немає підключення до інтернету</string>
+    <string name="mbps">%.2f Mbps</string>
     <string name="overlay_button">Кнопка оверлея</string>
     <string name="overlay_button_summary">Виберіть кнопку для активації оверлея.</string>
     <string name="select_button">Вибір кнопки</string>
@@ -77,6 +79,7 @@
     <string name="long_press_summary">Цей параметр додає довге натискання кнопки. (мінімум 750 мс)</string>
     <string name="other">Інше</string>
     <string name="display">Дисплей</string>
+    <string name="cpu">Процесора</string>
     <string name="video">Відео</string>
     <string name="audio">Аудіо</string>
 

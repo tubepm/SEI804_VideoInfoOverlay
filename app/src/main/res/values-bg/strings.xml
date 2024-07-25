@@ -11,6 +11,7 @@
     <string name="audio_mode">Аудио режим:</string>
     <string name="app_name_tv">Приложение:</string>
     <string name="cpu_usage">Изплзване на CPU:</string>
+    <string name="cpu_index">CPU %d тактово:</string>
     <string name="memory_usage">Използвана Памет:</string>
     <string name="connection">Връзка:</string>
     <string name="follow_source">Следвайте източника (Player-Led)</string>
@@ -28,6 +29,7 @@
     <string name="about">Още</string>
     <string name="restart_overlay_toast">Моля, рестартирайте, за да видите промяната.</string>
     <string name="no_connectivity">Няма интернет връзка</string>
+    <string name="mbps">%.2f Mbps</string>
     <string name="overlay_button">Бутон за стартиране</string>
     <string name="overlay_button_summary">Изберете бутон, за да активирате приложението.</string>
     <string name="select_button">Изберете бутон</string>
@@ -77,6 +79,7 @@
     <string name="long_press_summary">Тази опция добавя дълго натискане на бутон. (min. 750ms)</string>
     <string name="other">Друго</string>
     <string name="display">Дисплей</string>
+    <string name="cpu">CPU</string>
     <string name="video">Видео</string>
     <string name="audio">Аудио</string>
 

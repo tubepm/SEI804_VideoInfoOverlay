@@ -23,6 +23,8 @@ import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.ColorUtils
 import androidx.preference.PreferenceManager
+import java.io.File
+import java.io.FileNotFoundException
 import java.io.IOException
 
 
@@ -182,7 +184,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         val windowManager = getSystemService(WINDOW_SERVICE) as WindowManager
         windowManager.addView(overlayView, params)
 
-        handler.postDelayed(updateData, 1000)
+        handler.postDelayed(updateData, 750)
     }
 
     private fun removeOverlay() {
@@ -288,7 +290,9 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             val digitalAudioFormat = getSystemProperty("sys.nes.info.digital_audio_format")
             val audioMode = getSystemProperty("sys.nes.info.audio_mode")
             val appName = getSystemProperty("sys.nes.info.app_name")
+            val cpuFreq = printCpuFrequencies()
             val cpuUsage = getSystemProperty("sys.nes.info.cpu_usage")
+            val cpuGovernor = printCpuGovernor()
             val memoryUsage = getSystemProperty("sys.nes.info.memory_usage")
             val connectionSpeed = getSystemProperty("sys.nes.info.connection_speed")
 
@@ -554,8 +558,25 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                     appendLine(formattedCpuUsage)
                 }
 
+                if (cpuFreq.isNotEmpty()) {
+                    appendLine(cpuFreq)
+                }
+
+                if (cpuGovernor.isNotEmpty()) {
+                    appendLine(cpuGovernor)
+                }
+
+                if (isEmptyLine) {
+                    appendLine()
+                }
+
+                if (isTitleLine) {
+                    appendLine()
+                }
+
                 if (memoryUsage.isNotEmpty()) {
-                    appendLine(memoryUsage)
+                    val formattedMemoryUsage = memoryUsage.replace("(MB)", "MB")
+                    appendLine(formattedMemoryUsage)
                 }
 
                 if (getConnectionState().isNotEmpty()) {
@@ -566,8 +587,8 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                     }
 
                     if (connectionSpeed.isNotEmpty()) {
-                        val formattedSpeed = connectionSpeed.replace(Regex("(\\d)([A-Za-z])"), "$1 $2")
-                        val connectionInfo = "$modifiedgetConnectionState / $formattedSpeed"
+                        val speedInMbps = convertSpeedToMbps(connectionSpeed).replace(Regex(","), ".")
+                        val connectionInfo = "$modifiedgetConnectionState / $speedInMbps"
                         if (modifiedgetConnectionState != getString(R.string.no_connectivity)) {
                             appendLine(connectionInfo)
                         } else {
@@ -643,11 +664,27 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                 }
 
                 if (isTitleLine) {
-                    appendLine(getString(R.string.other))
+                    appendLine(getString(R.string.cpu))
                 }
 
                 if (cpuUsage.isNotEmpty()) {
                     appendLine(getString(R.string.cpu_usage))
+                }
+
+                if (cpuFreq.isNotEmpty()) {
+                    appendLine(printCpuIndex())
+                }
+
+                if (cpuGovernor.isNotEmpty()) {
+                    appendLine(getString(R.string.cpu_governor))
+                }
+
+                if (isEmptyLine) {
+                    appendLine()
+                }
+
+                if (isTitleLine) {
+                    appendLine(getString(R.string.other))
                 }
 
                 if (memoryUsage.isNotEmpty()) {
@@ -667,7 +704,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             overlayTextView.text = overlayText.trim()
             overlayTextView2.text = overlayText2.trim()
 
-            handler.postDelayed(this, 1000)
+            handler.postDelayed(this, 750)
         }
     }
 
@@ -927,6 +964,107 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             networkInfo.typeName
         } else {
             getString(R.string.no_connectivity)
+        }
+    }
+
+    private fun convertSpeedToMbps(speed: String): String {
+        val regex = Regex("(\\d+\\.?\\d*)\\s*([kKmM]?[bB]?[iI]?[tT]?[pP]?/[sS])")
+        val matchResult = regex.find(speed)
+
+        return if (matchResult != null) {
+            val value = matchResult.groupValues[1].toDouble()
+            val unit = matchResult.groupValues[2].lowercase()
+
+            val speedInMbps = when (unit) {
+                "kb/s" -> value / 125
+                "mb/s" -> value * 8
+                else -> value
+            }
+
+            String.format(getString(R.string.mbps), speedInMbps)
+        } else {
+            speed
+        }
+    }
+
+    private fun getCpuFrequency(): List<Long> {
+        val cpuFrequencies = mutableListOf<Long>()
+
+        for (i in 0 until Runtime.getRuntime().availableProcessors()) {
+            val cpuFreqFilePath = "/sys/devices/system/cpu/cpu$i/cpufreq/scaling_cur_freq"
+            try {
+                val cpuFreqFile = File(cpuFreqFilePath)
+                if (cpuFreqFile.exists()) {
+                    val frequency = cpuFreqFile.readText().trim().toLong()
+                    cpuFrequencies.add(frequency)
+                } else {
+                    cpuFrequencies.add(0L)
+                }
+            } catch (e: FileNotFoundException) {
+                e.printStackTrace()
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+        }
+
+        return cpuFrequencies
+    }
+
+    private fun getMaxCpuFrequency(): List<Long> {
+        val maxCpuFrequencies = mutableListOf<Long>()
+
+        for (i in 0 until Runtime.getRuntime().availableProcessors()) {
+            val maxCpuFreqFilePath = "/sys/devices/system/cpu/cpu$i/cpufreq/cpuinfo_max_freq"
+            try {
+                val maxCpuFreqFile = File(maxCpuFreqFilePath)
+                if (maxCpuFreqFile.exists()) {
+                    val maxFrequency = maxCpuFreqFile.readText().trim().toLong()
+                    maxCpuFrequencies.add(maxFrequency)
+                } else {
+                    maxCpuFrequencies.add(0L)
+                }
+            } catch (e: FileNotFoundException) {
+                e.printStackTrace()
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+        }
+
+        return maxCpuFrequencies
+    }
+
+    private fun printCpuFrequencies(): String {
+        val frequencies = getCpuFrequency()
+        val maxFrequencies = getMaxCpuFrequency()
+        return frequencies.mapIndexed { index, frequency ->
+            val frequencyInMHz = frequency / 1000
+            val utilization = if (maxFrequencies[index] > 0) {
+                (frequency.toDouble() / maxFrequencies[index] * 100).toInt()
+            } else {
+                0
+            }
+            "$frequencyInMHz MHz ($utilization%)"
+        }.joinToString("\n")
+    }
+
+    private fun printCpuIndex(): String {
+        val frequencies = getCpuFrequency()
+        return List(frequencies.size) { index ->
+            getString(R.string.cpu_index, index)
+        }.joinToString("\n")
+    }
+
+    private fun printCpuGovernor(): String {
+        val governorFilePath = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor"
+        return try {
+            val file = File(governorFilePath)
+            if (file.exists()) {
+                file.readText().trim()
+            } else {
+                "Governor file does not exist"
+            }
+        } catch (e: Exception) {
+            "Error reading governor: ${e.message}"
         }
     }
 

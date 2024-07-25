@@ -10,9 +10,10 @@
     <string name="audio_format">Аудиоформат:</string>
     <string name="audio_mode">Аудиокодек:</string>
     <string name="app_name_tv">Приложение:</string>
-    <string name="cpu_usage">Загрузка ЦПУ:</string>
+    <string name="cpu_usage">ЦПУ Загрузка:</string>
+    <string name="cpu_index">ЦПУ %d тактовая:</string>
     <string name="memory_usage">Использование памяти:</string>
-    <string name="connection">Тип подключения:</string>
+    <string name="connection">Подключения:</string>
     <string name="follow_source">Follow Source (Player-Led)</string>
     <string name="follow_sink">Follow Sink (TV-Led)</string>
     <string name="auto">Авто</string>
@@ -28,6 +29,7 @@
     <string name="about">О программе</string>
     <string name="restart_overlay_toast">Перезапустите утилиту, чтобы увидеть изменения.</string>
     <string name="no_connectivity">Нет подключения к Интернету</string>
+    <string name="mbps">%.2f Mbps</string>
     <string name="overlay_button">Кнопка наложения</string>
     <string name="overlay_button_summary">Выберите кнопку запуска утилиты.</string>
     <string name="select_button">Выбрать кнопку</string>
@@ -75,10 +77,11 @@
     <string name="title_summary">Эта опция добавляет заголовок.</string>
     <string name="long_press">Длительное нажатие</string>
     <string name="long_press_summary">Эта опция добавляет длительность нажатия кнопки. (мин. 750 мс)</string>
-    <string name="other">Прочее:</string>
-    <string name="display">Дисплей:</string>
-    <string name="video">Видео:</string>
-    <string name="audio">Аудио:</string>
+    <string name="other">Прочее</string>
+    <string name="display">Дисплей</string>
+    <string name="cpu">ЦПУ</string>
+    <string name="video">Видео</string>
+    <string name="audio">Аудио</string>
 
     <string-array name="key_code_labels">
         <item>Избранное</item>

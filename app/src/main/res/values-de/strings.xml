@@ -10,9 +10,10 @@
     <string name="audio_format">Audioformat:</string>
     <string name="audio_mode">Audiomodus:</string>
     <string name="app_name_tv">App-Name:</string>
-    <string name="cpu_usage">CPU-Auslastung:</string>
+    <string name="cpu_usage">Auslastung:</string>
+    <string name="cpu_index">CPU %d Takt:</string>
     <string name="memory_usage">Speichernutzung:</string>
-    <string name="connection">Verbindungstyp:</string>
+    <string name="connection">Verbindung:</string>
     <string name="follow_source">Quellengeführt (Gerät)</string>
     <string name="follow_sink">Gerätegeführt (TV)</string>
     <string name="auto">Automatisch</string>
@@ -28,6 +29,7 @@
     <string name="about">Über</string>
     <string name="restart_overlay_toast">Starte das Overlay neu, um die Änderung zu sehen.</string>
     <string name="no_connectivity">Keine Internetverbindung</string>
+    <string name="mbps">%.2f Mbit/s</string>
     <string name="overlay_button">Overlay-Taste</string>
     <string name="overlay_button_summary">Wähle eine Schaltfläche, um das Overlay zu aktivieren.</string>
     <string name="select_button">Taste auswählen</string>
@@ -77,6 +79,7 @@
     <string name="long_press_summary">Diese Option fügt einen langen Tastendruck hinzu. (min. 750ms)</string>
     <string name="other">Sonstiges</string>
     <string name="display">Display</string>
+    <string name="cpu">Prozessor</string>
     <string name="video">Video</string>
     <string name="audio">Ton</string>
 
