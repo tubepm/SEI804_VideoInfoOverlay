@@ -15,6 +15,7 @@
     <string name="cpu_index">CPU %d Clock:</string>
     <string name="cpu_governor" translatable="false">CPU Governor:</string>
     <string name="memory_usage">Memory Usage:</string>
+    <string name="time">Time:</string>
     <string name="connection">Connection:</string>
     <string name="follow_source">Follow Source (Player-Led)</string>
     <string name="follow_sink">Follow Sink (TV-Led)</string>

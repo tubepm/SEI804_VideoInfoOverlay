@@ -13,6 +13,7 @@
     <string name="cpu_usage">Изплзване на CPU:</string>
     <string name="cpu_index">CPU %d тактово:</string>
     <string name="memory_usage">Използвана Памет:</string>
+    <string name="time">Време:</string>
     <string name="connection">Връзка:</string>
     <string name="follow_source">Следвайте източника (Player-Led)</string>
     <string name="follow_sink">Следвайте Синхронизацията (TV-Led)</string>

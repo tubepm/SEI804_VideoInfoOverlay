@@ -26,6 +26,11 @@ import androidx.preference.PreferenceManager
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.IOException
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
+import android.text.format.DateFormat as AndroidDateFormat
 
 
 class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenceChangeListener {
@@ -295,6 +300,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             val cpuGovernor = printCpuGovernor()
             val memoryUsage = getSystemProperty("sys.nes.info.memory_usage")
             val connectionSpeed = getSystemProperty("sys.nes.info.connection_speed")
+            val localTime = getCurrentTimeFormatted(applicationContext)
 
             val overlayText = buildString {
                 if (isTitleLine) {
@@ -574,8 +580,12 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                     appendLine()
                 }
 
+                if (localTime.isNotEmpty()) {
+                    appendLine(localTime)
+                }
+
                 if (memoryUsage.isNotEmpty()) {
-                    val formattedMemoryUsage = memoryUsage.replace("(MB)", "MB")
+                    val formattedMemoryUsage = memoryUsage.replace("(MB)", "MB").replace("/", "|")
                     appendLine(formattedMemoryUsage)
                 }
 
@@ -588,7 +598,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
                     if (connectionSpeed.isNotEmpty()) {
                         val speedInMbps = convertSpeedToMbps(connectionSpeed).replace(Regex(","), ".")
-                        val connectionInfo = "$modifiedgetConnectionState / $speedInMbps"
+                        val connectionInfo = "$modifiedgetConnectionState | $speedInMbps"
                         if (modifiedgetConnectionState != getString(R.string.no_connectivity)) {
                             appendLine(connectionInfo)
                         } else {
@@ -685,6 +695,10 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
                 if (isTitleLine) {
                     appendLine(getString(R.string.other))
+                }
+
+                if (localTime.isNotEmpty()) {
+                    appendLine(getString(R.string.time))
                 }
 
                 if (memoryUsage.isNotEmpty()) {
@@ -1066,6 +1080,25 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         } catch (e: Exception) {
             "Error reading governor: ${e.message}"
         }
+    }
+
+    private fun getCurrentTimeFormatted(context: Context): String {
+        val now = Date()
+        val is24HourFormat = AndroidDateFormat.is24HourFormat(context)
+
+        val timeFormatPattern = if (is24HourFormat) {
+            "H:mm"
+        } else {
+            "h:mm a"
+        }
+
+        val dateFormat = DateFormat.getDateInstance(DateFormat.DEFAULT, Locale.getDefault())
+        val timeFormat = SimpleDateFormat(timeFormatPattern, Locale.getDefault())
+
+        val formattedDate = dateFormat.format(now)
+        val formattedTime = timeFormat.format(now)
+
+        return "$formattedTime | $formattedDate"
     }
 
     private fun convertDpToPx(dp: Float, context: Context): Float {

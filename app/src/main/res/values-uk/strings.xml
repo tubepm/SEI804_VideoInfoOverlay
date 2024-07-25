@@ -13,6 +13,7 @@
     <string name="cpu_usage">Використання процесора:</string>
     <string name="cpu_index">Процесора %d тактова:</string>
     <string name="memory_usage">Використання пам\'яті:</string>
+    <string name="time">Час:</string>
     <string name="connection">З\'єднання:</string>
     <string name="follow_source">Follow Source (Player-Led)</string>
     <string name="follow_sink">Follow Sink (TV-Led)</string>

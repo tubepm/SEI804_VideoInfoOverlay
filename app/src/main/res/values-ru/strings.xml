@@ -13,7 +13,8 @@
     <string name="cpu_usage">ЦПУ Загрузка:</string>
     <string name="cpu_index">ЦПУ %d тактовая:</string>
     <string name="memory_usage">Использование памяти:</string>
-    <string name="connection">Подключения:</string>
+    <string name="time">Время:</string>
+    <string name="connection">Тип подключения:</string>
     <string name="follow_source">Follow Source (Player-Led)</string>
     <string name="follow_sink">Follow Sink (TV-Led)</string>
     <string name="auto">Авто</string>
