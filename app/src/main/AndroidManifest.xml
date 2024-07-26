@@ -33,6 +33,22 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".settings.OverlaySettingsActivity" />
+
+        <activity android:name=".settings.BackgroundSettingsActivity" />
+
+        <activity android:name=".settings.DistanceSettingsActivity" />
+
+        <activity android:name=".settings.CornerSettingsActivity" />
+
+        <activity android:name=".settings.TextSettingsActivity" />
+
+        <activity android:name=".settings.ReplacementSettingsActivity" />
+
+        <activity android:name=".settings.HideSettingsActivity" />
+
+        <activity android:name=".settings.AboutSettingsActivity" />
+
 
     </application>
 

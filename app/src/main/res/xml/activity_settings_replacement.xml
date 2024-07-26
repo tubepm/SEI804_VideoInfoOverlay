@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/replacement_options">
+
+        <ListPreference
+            android:defaultValue="currperc"
+            android:entries="@array/cpu_clock_options"
+            android:entryValues="@array/cpu_clock_values"
+            android:icon="@drawable/ic_processor_24dp"
+            android:key="cpu_clock_key"
+            android:summary="@string/select_the_cpu_clock_output_for_the_overlay"
+            android:title="@string/cpu_clock_output" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_time_24dp"
+            android:key="text_seconds_key"
+            android:summary="@string/this_option_adds_seconds_to_the_time"
+            android:title="@string/display_seconds" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_memory_24dp"
+            android:key="text_gb_key"
+            android:summary="@string/show_gb_instead_of_mb_in_the_overlay"
+            android:title="@string/show_gb" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_speed_24dp"
+            android:key="text_mbps_key"
+            android:summary="@string/show_mbps_instead_of_mb_s_in_the_overlay"
+            android:title="@string/show_mbps" />
+
+    </PreferenceCategory>
+</PreferenceScreen>
