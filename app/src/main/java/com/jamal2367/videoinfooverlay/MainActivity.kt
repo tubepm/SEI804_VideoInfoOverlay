@@ -76,18 +76,22 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
     private val textHideDisplayResolutionKey = "pref_hide_display_resolution_key"
     private val textHideVideoResolutionKey = "pref_hide_video_resolution_key"
     private val textHideVideoFormatKey = "pref_hide_video_format_key"
+    private val textHideEmptyVideoAudioLineKey = "pref_hide_empty_video_audio_line_key"
     private val textHideAudioTitleKey = "pref_hide_audio_title_key"
     private val textHideAudioModeKey = "pref_hide_audio_mode_key"
     private val textHideAudioFormatKey = "pref_hide_audio_format_key"
+    private val textHideEmptyAudioDisplayLineKey = "pref_hide_empty_audio_display_line_key"
     private val textHideDisplayTitleKey = "pref_hide_display_title_key"
     private val textHideHdrStatusKey = "pref_hide_hdr_status_key"
     private val textHideHdrPriorityKey = "pref_hide_hdr_priority_key"
     private val textHideHdrPolicyKey = "pref_hide_hdr_policy_key"
     private val textHideColorSpaceKey = "pref_hide_color_space_key"
+    private val textHideEmptyDisplayProcessorLineKey = "pref_hide_empty_display_processor_line_key"
     private val textHideProcessorTitleKey = "pref_hide_processor_title_key"
     private val textHideCpuLoadKey = "pref_hide_cpu_load_key"
     private val textHideCpuClockKey = "pref_hide_cpu_clock_key"
     private val textHideCpuGovernorKey = "pref_hide_cpu_governor_key"
+    private val textHideEmptyProcessorOtherLineKey = "pref_hide_empty_processor_other_line_key"
     private val textHideOtherTitleKey = "pref_hide_other_title_key"
     private val textHideTimeKey = "pref_hide_time_key"
     private val textHideMemoryUsageKey = "pref_hide_memory_usage_key"
@@ -311,18 +315,22 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             val isHideDisplayResolution = sharedPreferences.getBoolean(textHideDisplayResolutionKey, false)
             val isHideVideoResolution = sharedPreferences.getBoolean(textHideVideoResolutionKey, false)
             val isHideVideoFormat = sharedPreferences.getBoolean(textHideVideoFormatKey, false)
+            val isHideEmptyVideoAudioLine = sharedPreferences.getBoolean(textHideEmptyVideoAudioLineKey, false)
             val isHideAudioTitle = sharedPreferences.getBoolean(textHideAudioTitleKey, false)
             val isHideAudioMode = sharedPreferences.getBoolean(textHideAudioModeKey, false)
             val isHideAudioFormat = sharedPreferences.getBoolean(textHideAudioFormatKey, false)
+            val isHideEmptyAudioDisplayLine = sharedPreferences.getBoolean(textHideEmptyAudioDisplayLineKey, false)
             val isHideDisplayTitle = sharedPreferences.getBoolean(textHideDisplayTitleKey, false)
             val isHideHdrStatus = sharedPreferences.getBoolean(textHideHdrStatusKey, false)
             val isHideHdrPriority = sharedPreferences.getBoolean(textHideHdrPriorityKey, false)
             val isHideHdrPolicy = sharedPreferences.getBoolean(textHideHdrPolicyKey, false)
             val isHideColorSpace = sharedPreferences.getBoolean(textHideColorSpaceKey, false)
+            val isHideEmptyDisplayProcessorLine = sharedPreferences.getBoolean(textHideEmptyDisplayProcessorLineKey, false)
             val isHideProcessorTitle = sharedPreferences.getBoolean(textHideProcessorTitleKey, false)
             val isHideCpuLoad = sharedPreferences.getBoolean(textHideCpuLoadKey, false)
             val isHideCpuClock = sharedPreferences.getBoolean(textHideCpuClockKey, false)
             val isHideCpuGovernor = sharedPreferences.getBoolean(textHideCpuGovernorKey, false)
+            val isHideEmptyProcessorOtherLine = sharedPreferences.getBoolean(textHideEmptyProcessorOtherLineKey, false)
             val isHideOtherTitle = sharedPreferences.getBoolean(textHideOtherTitleKey, false)
             val isHideTime = sharedPreferences.getBoolean(textHideTimeKey, false)
             val isHideMemoryUsage = sharedPreferences.getBoolean(textHideMemoryUsageKey, false)
@@ -513,7 +521,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                     }
                 }
 
-                if (!isEmptyLine) {
+                if (!isHideEmptyVideoAudioLine && !isEmptyLine) {
                     appendLine()
                 }
 
@@ -557,7 +565,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                     }
                 }
 
-                if (!isEmptyLine) {
+                if (!isHideEmptyAudioDisplayLine && !isEmptyLine) {
                     appendLine()
                 }
 
@@ -620,7 +628,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                     }
                 }
 
-                if (!isEmptyLine) {
+                if (!isHideEmptyDisplayProcessorLine && !isEmptyLine) {
                     appendLine()
                 }
 
@@ -649,7 +657,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                     }
                 }
 
-                if (!isEmptyLine) {
+                if (!isHideEmptyProcessorOtherLine && !isEmptyLine) {
                     appendLine()
                 }
 
@@ -754,7 +762,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                     }
                 }
 
-                if (!isEmptyLine) {
+                if (!isHideEmptyVideoAudioLine && !isEmptyLine) {
                     appendLine()
                 }
 
@@ -776,7 +784,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                     }
                 }
 
-                if (!isEmptyLine) {
+                if (!isHideEmptyAudioDisplayLine && !isEmptyLine) {
                     appendLine()
                 }
 
@@ -810,7 +818,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                     }
                 }
 
-                if (!isEmptyLine) {
+                if (!isHideEmptyDisplayProcessorLine && !isEmptyLine) {
                     appendLine()
                 }
 
@@ -838,7 +846,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                     }
                 }
 
-                if (!isEmptyLine) {
+                if (!isHideEmptyProcessorOtherLine && !isEmptyLine) {
                     appendLine()
                 }
 

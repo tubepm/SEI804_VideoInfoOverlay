@@ -268,6 +268,13 @@
         <CheckBoxPreference
             android:defaultValue="false"
             android:icon="@drawable/ic_strikethrough_24dp"
+            android:key="pref_hide_empty_video_audio_line_key"
+            android:summary="@string/hide_empty_line_between_video_and_audio"
+            android:title="@string/hide_empty_line" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_strikethrough_24dp"
             android:key="pref_hide_audio_title_key"
             android:summary="@string/hide_audio_title_in_the_overlay"
             android:title="@string/hide_audio_title" />
@@ -285,6 +292,13 @@
             android:key="pref_hide_audio_format_key"
             android:summary="@string/hide_audio_format_in_the_overlay"
             android:title="@string/hide_audio_format" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_strikethrough_24dp"
+            android:key="pref_hide_empty_audio_display_line_key"
+            android:summary="@string/hide_empty_line_between_audio_and_display"
+            android:title="@string/hide_empty_line" />
 
         <CheckBoxPreference
             android:defaultValue="false"
@@ -324,6 +338,13 @@
         <CheckBoxPreference
             android:defaultValue="false"
             android:icon="@drawable/ic_strikethrough_24dp"
+            android:key="pref_hide_empty_display_processor_line_key"
+            android:summary="@string/hide_empty_line_between_display_und_processor"
+            android:title="@string/hide_empty_line" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_strikethrough_24dp"
             android:key="pref_hide_processor_title_key"
             android:summary="@string/hide_processor_title_in_the_overlay"
             android:title="@string/hide_processor_title" />
@@ -348,6 +369,13 @@
             android:key="pref_hide_cpu_governor_key"
             android:summary="@string/hide_cpu_governor_in_the_overlay"
             android:title="@string/hide_cpu_governor" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_strikethrough_24dp"
+            android:key="pref_hide_empty_processor_other_line_key"
+            android:summary="@string/hide_empty_line_between_processor_und_other"
+            android:title="@string/hide_empty_line" />
 
         <CheckBoxPreference
             android:defaultValue="false"

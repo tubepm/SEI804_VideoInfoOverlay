@@ -135,6 +135,11 @@
     <string name="hide_connection">Hide connection</string>
     <string name="hide_app_name_in_the_overlay">Hide app name in the overlay.</string>
     <string name="hide_app_name">Hide app name</string>
+    <string name="hide_empty_line">Hide empty line</string>
+    <string name="hide_empty_line_between_processor_und_other">Hide empty line between processor und other.</string>
+    <string name="hide_empty_line_between_display_und_processor">Hide empty line between display und processor.</string>
+    <string name="hide_empty_line_between_audio_and_display">Hide empty line between audio and display.</string>
+    <string name="hide_empty_line_between_video_and_audio">Hide empty line between video and audio.</string>
 
     <string-array name="key_code_labels">
         <item>Bookmark button</item>
