@@ -100,8 +100,8 @@
     <string name="hide_display_resolution">Kimenő felbontás elrejtése</string>
     <string name="hide_video_resolution_in_the_overlay">Videó felbontás elrejtése az infóablakon.</string>
     <string name="hide_video_resolution">Videó felbontás elrejtése</string>
-    <string name="hide_video_format_in_the_overlay">Videó formátum elrejtése az infóablakon.</string>
-    <string name="hide_video_format">Videó formátum elrejtése</string>
+    <string name="hide_video_format_in_the_overlay">Videó kodek elrejtése az infóablakon.</string>
+    <string name="hide_video_format">Videó kodek elrejtése</string>
     <string name="hide_audio_title_in_the_overlay">Hang cím elrejtése az infóablakon.</string>
     <string name="hide_audio_title">Hang cím elrejtése</string>
     <string name="hide_audio_mode_in_the_overlay">Audió mód elrejtése az infóablakon.</string>
