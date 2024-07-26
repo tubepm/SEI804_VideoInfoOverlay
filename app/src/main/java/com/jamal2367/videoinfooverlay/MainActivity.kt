@@ -69,6 +69,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
     private val roundedCornersLeftKey = "rounded_corners_left_key"
     private val roundedCornersRightKey = "rounded_corners_right_key"
     private val textFontKey = "text_font_key"
+    private val textSecondsKey = "text_seconds_key"
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
     }
@@ -1085,11 +1086,13 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
     private fun getCurrentTimeFormatted(context: Context): String {
         val now = Date()
         val is24HourFormat = AndroidDateFormat.is24HourFormat(context)
+        val isSecondsText = sharedPreferences.getBoolean(textSecondsKey, false)
 
-        val timeFormatPattern = if (is24HourFormat) {
-            "H:mm"
-        } else {
-            "h:mm a"
+        val timeFormatPattern = when {
+            is24HourFormat && isSecondsText -> "H:mm:ss"
+            is24HourFormat -> "H:mm"
+            isSecondsText -> "h:mm:ss a"
+            else -> "h:mm a"
         }
 
         val dateFormat = DateFormat.getDateInstance(DateFormat.DEFAULT, Locale.getDefault())
@@ -1100,6 +1103,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
         return "$formattedTime | $formattedDate"
     }
+
 
     private fun convertDpToPx(dp: Float, context: Context): Float {
         val density = context.resources.displayMetrics.density

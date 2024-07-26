@@ -210,6 +210,13 @@
             android:summary="@string/text_color_right_summary"
             android:title="@string/text_color_right" />
 
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_time_24dp"
+            android:key="text_seconds_key"
+            android:summary="@string/this_option_adds_seconds_to_the_time"
+            android:title="@string/display_seconds" />
+
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/about">
 
