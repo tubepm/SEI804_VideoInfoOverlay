@@ -70,12 +70,6 @@
     <string name="rounded_corners_left_summary">Изберете размер на заоблен ъгъл за лявото наслагване.</string>
     <string name="rounded_corners_right">Десни заоблени ъгли</string>
     <string name="rounded_corners_right_summary">Изберете размер на заоблен ъгъл за дясното наслагване.</string>
-    <string name="hide_left_overlay">Скриване на ляво наслагване</string>
-    <string name="hide_left_overlay_summary">Тази опция скрива лявото наслагване.</string>
-    <string name="line_break">Празен ред</string>
-    <string name="line_break_summary">Тази опция добавя празен ред.</string>
-    <string name="title">Заглавие</string>
-    <string name="title_summary">Тази опция добавя заглавие.</string>
     <string name="long_press">Продължително натискане</string>
     <string name="long_press_summary">Тази опция добавя дълго натискане на бутон. (min. 750ms)</string>
     <string name="other">Друго</string>

@@ -70,12 +70,6 @@
     <string name="rounded_corners_left_summary">Wähle eine Eckengröße für das linke Overlay.</string>
     <string name="rounded_corners_right">Abgerundete Ecken des rechten Overlays</string>
     <string name="rounded_corners_right_summary">Wähle eine Eckengröße für das rechte Overlay.</string>
-    <string name="hide_left_overlay">Linkes Overlay ausblenden</string>
-    <string name="hide_left_overlay_summary">Diese Option blendet das linke Overlay aus.</string>
-    <string name="line_break">Zeilenumbruch</string>
-    <string name="line_break_summary">Diese Option fügt eine Leerzeile hinzu.</string>
-    <string name="title">Titel</string>
-    <string name="title_summary">Diese Option fügt einen Titel hinzu.</string>
     <string name="long_press">Langes Drücken</string>
     <string name="long_press_summary">Diese Option fügt einen langen Tastendruck hinzu. (min. 750ms)</string>
     <string name="other">Sonstiges</string>

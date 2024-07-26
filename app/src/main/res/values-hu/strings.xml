@@ -70,12 +70,6 @@
     <string name="rounded_corners_left_summary">Válassz kerekítés méretet a bal oldali infóablaknak.</string>
     <string name="rounded_corners_right">Jobb oldali kerekített sarkok</string>
     <string name="rounded_corners_right_summary">Válassz kerekítés méretet a jobb oldali infóablaknak.</string>
-    <string name="hide_left_overlay">Bal oldali infósáv elrejtése</string>
-    <string name="hide_left_overlay_summary">Ez a beállítás elrejti a bal oldali infósávot.</string>
-    <string name="line_break">Sor beszúrása</string>
-    <string name="line_break_summary">Ez a beállítás egy üres sort ad hozzá.</string>
-    <string name="title">Cím</string>
-    <string name="title_summary">Ez az opció címsort ad hozzá.</string>
     <string name="long_press">Hosszú gombnyomás</string>
     <string name="long_press_summary">Ezzel az opcióval, hosszú gombnyomásra aktiválást adhatsz hozzá. (min. 750 ms)</string>
     <string name="other">Rendszer</string>

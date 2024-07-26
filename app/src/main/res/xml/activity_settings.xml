@@ -19,13 +19,6 @@
             android:summary="@string/long_press_summary"
             android:title="@string/long_press" />
 
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:icon="@drawable/ic_hide_overlay_24dp"
-            android:key="hide_left_overlay_key"
-            android:summary="@string/hide_left_overlay_summary"
-            android:title="@string/hide_left_overlay" />
-
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/background_options">
 
@@ -133,20 +126,6 @@
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/text_options">
 
-        <CheckBoxPreference
-            android:defaultValue="true"
-            android:icon="@drawable/ic_title_24dp"
-            android:key="empty_title_key"
-            android:summary="@string/title_summary"
-            android:title="@string/title" />
-
-        <CheckBoxPreference
-            android:defaultValue="true"
-            android:icon="@drawable/ic_line_break_24dp"
-            android:key="empty_line_key"
-            android:summary="@string/line_break_summary"
-            android:title="@string/line_break" />
-
         <ListPreference
             android:defaultValue="jetbrainsmono"
             android:entries="@array/text_font_options"
@@ -210,6 +189,9 @@
             android:summary="@string/text_color_right_summary"
             android:title="@string/text_color_right" />
 
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/replacement_options">
+
         <CheckBoxPreference
             android:defaultValue="false"
             android:icon="@drawable/ic_time_24dp"
@@ -223,6 +205,177 @@
             android:key="text_mbps_key"
             android:summary="@string/show_mbps_instead_of_mb_s_in_the_overlay"
             android:title="@string/show_mbps" />
+
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/hide_options">
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_hide_overlay_24dp"
+            android:key="hide_left_overlay_key"
+            android:summary="@string/hide_the_left_overlay_completely"
+            android:title="@string/hide_left_overlay" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_title_24dp"
+            android:key="empty_title_key"
+            android:summary="@string/hide_all_titles_in_the_overlay"
+            android:title="@string/hide_all_titles" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_line_break_24dp"
+            android:key="empty_line_key"
+            android:summary="@string/hide_all_empty_lines_in_the_overlay"
+            android:title="@string/hide_all_empty_lines" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_hide_overlay_24dp"
+            android:key="pref_hide_video_title_key"
+            android:summary="@string/hide_video_title_in_the_overlay"
+            android:title="@string/hide_video_title" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_hide_overlay_24dp"
+            android:key="pref_hide_display_resolution_key"
+            android:summary="@string/hide_display_resolution_in_the_overlay"
+            android:title="@string/hide_display_resolution" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_hide_overlay_24dp"
+            android:key="pref_hide_video_resolution_key"
+            android:summary="@string/hide_video_resolution_in_the_overlay"
+            android:title="@string/hide_video_resolution" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_hide_overlay_24dp"
+            android:key="pref_hide_video_format_key"
+            android:summary="@string/hide_video_format_in_the_overlay"
+            android:title="@string/hide_video_format" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_hide_overlay_24dp"
+            android:key="pref_hide_audio_title_key"
+            android:summary="@string/hide_audio_title_in_the_overlay"
+            android:title="@string/hide_audio_title" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_hide_overlay_24dp"
+            android:key="pref_hide_audio_mode_key"
+            android:summary="@string/hide_audio_mode_in_the_overlay"
+            android:title="@string/hide_audio_mode" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_hide_overlay_24dp"
+            android:key="pref_hide_audio_format_key"
+            android:summary="@string/hide_audio_format_in_the_overlay"
+            android:title="@string/hide_audio_format" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_hide_overlay_24dp"
+            android:key="pref_hide_display_title_key"
+            android:summary="@string/hide_display_title_in_the_overlay"
+            android:title="@string/hide_display_title" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_hide_overlay_24dp"
+            android:key="pref_hide_hdr_status_key"
+            android:summary="@string/hide_hdr_status_in_the_overlay"
+            android:title="@string/hide_hdr_status" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_hide_overlay_24dp"
+            android:key="pref_hide_hdr_priority_key"
+            android:summary="@string/hide_hdr_priority_in_the_overlay"
+            android:title="@string/hide_hdr_priority" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_hide_overlay_24dp"
+            android:key="pref_hide_hdr_policy_key"
+            android:summary="@string/hide_hdr_policy_in_the_overlay"
+            android:title="@string/hide_hdr_policy" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_hide_overlay_24dp"
+            android:key="pref_hide_color_space_key"
+            android:summary="@string/hide_color_space_in_the_overlay"
+            android:title="@string/hide_color_space" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_hide_overlay_24dp"
+            android:key="pref_hide_processor_title_key"
+            android:summary="@string/hide_processor_title_in_the_overlay"
+            android:title="@string/hide_processor_title" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_hide_overlay_24dp"
+            android:key="pref_hide_cpu_load_key"
+            android:summary="@string/hide_cpu_load_in_the_overlay"
+            android:title="@string/hide_cpu_load" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_hide_overlay_24dp"
+            android:key="pref_hide_cpu_clock_key"
+            android:summary="@string/hide_cpu_clock_in_the_overlay"
+            android:title="@string/hide_cpu_clock" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_hide_overlay_24dp"
+            android:key="pref_hide_cpu_governor_key"
+            android:summary="@string/hide_cpu_governor_in_the_overlay"
+            android:title="@string/hide_cpu_governor" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_hide_overlay_24dp"
+            android:key="pref_hide_other_title_key"
+            android:summary="@string/hide_other_title_in_the_overlay"
+            android:title="@string/hide_other_title" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_hide_overlay_24dp"
+            android:key="pref_hide_time_key"
+            android:summary="@string/hide_time_in_the_overlay"
+            android:title="@string/hide_time" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_hide_overlay_24dp"
+            android:key="pref_hide_memory_usage_key"
+            android:summary="@string/hide_memory_usage_in_the_overlay"
+            android:title="@string/hide_memory_usage" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_hide_overlay_24dp"
+            android:key="pref_hide_connection_key"
+            android:summary="@string/hide_connection_in_the_overlay"
+            android:title="@string/hide_connection" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_hide_overlay_24dp"
+            android:key="pref_hide_app_name_key"
+            android:summary="@string/hide_app_name_in_the_overlay"
+            android:title="@string/hide_app_name" />
 
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/about">

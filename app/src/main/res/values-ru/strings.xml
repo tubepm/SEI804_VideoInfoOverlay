@@ -70,12 +70,6 @@
     <string name="rounded_corners_left_summary">Выберите размер закругленного угла для наложения слева.</string>
     <string name="rounded_corners_right">Скругленные углы справа</string>
     <string name="rounded_corners_right_summary">Выберите размер закругленного угла для наложения справа.</string>
-    <string name="hide_left_overlay">Скрыть левое наложение</string>
-    <string name="hide_left_overlay_summary">Эта опция скрывает левое наложение.</string>
-    <string name="line_break">Разрыв строки</string>
-    <string name="line_break_summary">Эта опция добавляет пустую строку.</string>
-    <string name="title">Заголовок</string>
-    <string name="title_summary">Эта опция добавляет заголовок.</string>
     <string name="long_press">Длительное нажатие</string>
     <string name="long_press_summary">Эта опция добавляет длительность нажатия кнопки. (мин. 750 мс)</string>
     <string name="other">Прочее</string>
