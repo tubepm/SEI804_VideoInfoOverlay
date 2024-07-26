@@ -80,10 +80,12 @@
     <string name="video">Video</string>
     <string name="audio">Audio</string>
     <string name="replacement_options">Replacement options</string>
-    <string name="this_option_adds_seconds_to_the_time">This option adds seconds to the time.</string>
-    <string name="display_seconds">Display seconds</string>
-    <string name="show_mbps_instead_of_mb_s_in_the_overlay">Show Mbps instead of MB/s in the overlay.</string>
-    <string name="show_mbps">Show Mbps</string>
+    <string name="this_option_adds_seconds_to_the_time">Show Seconds for the time in the overlay.</string>
+    <string name="display_seconds">Display seconds in time</string>
+    <string name="show_mbps_instead_of_mb_s_in_the_overlay">Show Mbps instead of MB/s for connection in the overlay.</string>
+    <string name="show_mbps">Show Mbps instead of MB/s</string>
+    <string name="show_gb_instead_of_mb_in_the_overlay">Show GB instead of MB for memory usage in the overlay.</string>
+    <string name="show_gb">Show GB instead of MB</string>
     <string name="hide_options">Hide options</string>
     <string name="hide_the_left_overlay_completely">Hide the left overlay completely.</string>
     <string name="hide_left_overlay">Hide left overlay</string>

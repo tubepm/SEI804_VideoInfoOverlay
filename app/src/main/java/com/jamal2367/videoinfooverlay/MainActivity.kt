@@ -68,6 +68,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
     private val roundedCornersRightKey = "rounded_corners_right_key"
     private val textFontKey = "text_font_key"
     private val textSecondsKey = "text_seconds_key"
+    private val textGbKey = "text_gb_key"
     private val textMbpsKey = "text_mbps_key"
     private val emptyLineKey = "empty_line_key"
     private val emptyTitleKey = "empty_title_key"
@@ -666,8 +667,26 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
                 if (!isHideMemoryUsage) {
                     if (memoryUsage.isNotEmpty()) {
-                        val formattedMemoryUsage = memoryUsage.replace("(MB)", "MB").replace("/", "|")
-                        appendLine(formattedMemoryUsage)
+                        val isGbText = sharedPreferences.getBoolean(textGbKey, false)
+
+                        if (!isGbText) {
+                            val formattedMemoryUsage = memoryUsage.replace("(MB)", "MB").replace("/", "|")
+                            appendLine(formattedMemoryUsage)
+                        } else {
+                            val pattern = """(\d+) / (\d+) \(MB\)""".toRegex()
+                            val matchResult = pattern.find(memoryUsage)
+
+                            if (matchResult != null) {
+                                val (usedMB, totalMB) = matchResult.destructured
+                                val usedGB = usedMB.toInt() / 1000.0
+                                val totalGB = totalMB.toInt() / 1000.0
+
+                                val resultInGB = "%.2f | %.2f GB".format(usedGB, totalGB)
+                                appendLine(resultInGB)
+                            } else {
+                                appendLine(memoryUsage)
+                            }
+                        }
                     }
                 }
 
@@ -692,7 +711,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                                 }
                             } else {
                                 val formattedSpeed = connectionSpeed.replace(Regex("(\\d)([A-Za-z])"), "$1 $2")
-                                val connectionInfo = "$modifiedgetConnectionState / $formattedSpeed"
+                                val connectionInfo = "$modifiedgetConnectionState | $formattedSpeed"
                                 if (modifiedgetConnectionState != getString(R.string.no_connectivity)) {
                                     appendLine(connectionInfo)
                                 } else {
