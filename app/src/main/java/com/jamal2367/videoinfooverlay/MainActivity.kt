@@ -514,7 +514,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                 }
 
                 if (!isEmptyLine) {
-                    appendLine("\u200E")
+                    appendLine()
                 }
 
                 if (!isHideAudioTitle) {
@@ -558,7 +558,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                 }
 
                 if (!isEmptyLine) {
-                    appendLine("\u200E")
+                    appendLine()
                 }
 
                 if (!isHideDisplayTitle) {
@@ -621,7 +621,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                 }
 
                 if (!isEmptyLine) {
-                    appendLine("\u200E")
+                    appendLine()
                 }
 
                 if (!isHideProcessorTitle) {
@@ -650,7 +650,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                 }
 
                 if (!isEmptyLine) {
-                    appendLine("\u200E")
+                    appendLine()
                 }
 
                 if (!isHideOtherTitle) {
@@ -755,7 +755,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                 }
 
                 if (!isEmptyLine) {
-                    appendLine("\u200E")
+                    appendLine()
                 }
 
                 if (!isHideAudioTitle) {
@@ -777,7 +777,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                 }
 
                 if (!isEmptyLine) {
-                    appendLine("\u200E")
+                    appendLine()
                 }
 
                 if (!isHideDisplayTitle) {
@@ -811,7 +811,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                 }
 
                 if (!isEmptyLine) {
-                    appendLine("\u200E")
+                    appendLine()
                 }
 
                 if (!isHideProcessorTitle) {
@@ -839,7 +839,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                 }
 
                 if (!isEmptyLine) {
-                    appendLine("\u200E")
+                    appendLine()
                 }
 
                 if (!isHideOtherTitle) {

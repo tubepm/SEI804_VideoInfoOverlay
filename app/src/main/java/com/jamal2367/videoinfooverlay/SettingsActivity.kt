@@ -90,20 +90,12 @@ class SettingsActivity : AppCompatActivity() {
 
         private fun updateEmptyTitleState(hideLeftOverlay: Boolean = hideLeftOverlayPreference?.isChecked ?: false) {
 
-            emptyTitlePreference?.let {
-                if (hideLeftOverlay) {
-                    it.isChecked = false
-                    it.isEnabled = false
-                } else {
-                    it.isEnabled = true
-                }
-            }
-
             roundedCornerOverallRightPreference?.let {
                 if (hideLeftOverlay) {
                     it.isChecked = true
                     it.isEnabled = false
                 } else {
+                    it.isChecked = false
                     it.isEnabled = true
                 }
             }
