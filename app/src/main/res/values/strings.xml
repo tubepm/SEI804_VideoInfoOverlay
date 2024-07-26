@@ -1731,10 +1731,10 @@
     </string-array>
 
     <string-array name="cpu_clock_options">
-        <item>MHz + (%)</item>
+        <item>Current MHz + (%)</item>
         <item>Current MHz + Max MHz + (%)</item>
         <item>Current MHz + Max MHz</item>
-        <item>MHz</item>
+        <item>Current MHz</item>
         <item>%</item>
     </string-array>
 
