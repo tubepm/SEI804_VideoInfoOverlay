@@ -348,7 +348,11 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             val digitalAudioFormat = getSystemProperty("sys.nes.info.digital_audio_format")
             val audioMode = getSystemProperty("sys.nes.info.audio_mode")
             val appName = getSystemProperty("sys.nes.info.app_name")
-            val cpuFreq = printCpuFrequencies()
+            val cpuCurrPerc = printCpuCurrPerc()
+            val cpuCurrMaxPerc = printCpuCurrMaxPerc()
+            val cpuCurr = printCpuCurr()
+            val cpuCurrMax = printCpuCurrMax()
+            val cpuPercentage = printCpuPercentage()
             val cpuUsage = getSystemProperty("sys.nes.info.cpu_usage")
             val cpuGovernor = printCpuGovernor()
             val memoryUsage = getSystemProperty("sys.nes.info.memory_usage")
@@ -640,15 +644,22 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
                 if (!isHideCpuLoad) {
                     if (cpuUsage.isNotEmpty()) {
-                        val formattedCpuUsage = cpuUsage.replace(Regex("(\\d+)%"), "$1 %")
-                        appendLine(formattedCpuUsage)
+                        appendLine(cpuUsage)
                     }
                 }
 
                 if (!isHideCpuClock) {
-                    if (cpuFreq.isNotEmpty()) {
-                        appendLine(cpuFreq)
+                    val cpuClockPreference = sharedPreferences.getString("cpu_clock_key", "currperc")
+                    val displayText = when (cpuClockPreference) {
+                        "currperc" -> cpuCurrPerc
+                        "currmaxperc" -> cpuCurrMaxPerc
+                        "currmax" -> cpuCurrMax
+                        "curr" -> cpuCurr
+                        "percentage" -> cpuPercentage
+                        else -> cpuCurrPerc
                     }
+
+                    appendLine(displayText)
                 }
 
                 if (!isHideCpuGovernor) {
@@ -835,9 +846,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                 }
 
                 if (!isHideCpuClock) {
-                    if (cpuFreq.isNotEmpty()) {
-                        appendLine(printCpuIndex())
-                    }
+                    appendLine(printCpuIndex())
                 }
 
                 if (!isHideCpuGovernor) {
@@ -1237,7 +1246,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         return maxCpuFrequencies
     }
 
-    private fun printCpuFrequencies(): String {
+    private fun printCpuCurrPerc(): String {
         val frequencies = getCpuFrequency()
         val minFrequencies = getMinCpuFrequency()
         val maxFrequencies = getMaxCpuFrequency()
@@ -1253,7 +1262,61 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                 0
             }
 
-            "$frequencyInMHz MHz ($utilization%)"
+            "$frequencyInMHz MHz | $utilization%"
+        }.joinToString("\n")
+    }
+
+    private fun printCpuCurrMaxPerc(): String {
+        val frequencies = getCpuFrequency()
+        val maxFrequencies = getMaxCpuFrequency()
+        return frequencies.mapIndexed { index, frequency ->
+            val frequencyInMHz = frequency / 1000
+            val maxFrequencyInMHz = maxFrequencies[index] / 1000
+            val utilization = if (maxFrequencies[index] > 0) {
+                (frequency.toDouble() / maxFrequencies[index] * 100).toInt()
+            } else {
+                0
+            }
+            "$frequencyInMHz | $maxFrequencyInMHz MHz | $utilization%"
+        }.joinToString(separator = "\n")
+    }
+
+    private fun printCpuCurr(): String {
+        val frequencies = getCpuFrequency()
+        return frequencies.mapIndexed { _, frequency ->
+            val frequencyInMHz = frequency / 1000
+
+            "$frequencyInMHz MHz"
+        }.joinToString("\n")
+    }
+
+    private fun printCpuCurrMax(): String {
+        val frequencies = getCpuFrequency()
+        val maxFrequencies = getMaxCpuFrequency()
+        return frequencies.mapIndexed { index, frequency ->
+            val frequencyInMHz = frequency / 1000
+            val maxFrequencyInMHz = maxFrequencies[index] / 1000
+
+            "$frequencyInMHz | $maxFrequencyInMHz MHz"
+        }.joinToString(separator = "\n")
+    }
+
+    private fun printCpuPercentage(): String {
+        val frequencies = getCpuFrequency()
+        val minFrequencies = getMinCpuFrequency()
+        val maxFrequencies = getMaxCpuFrequency()
+        return frequencies.mapIndexed { index, frequency ->
+            val minFrequency = minFrequencies[index]
+            val maxFrequency = maxFrequencies[index]
+
+            val utilization = if (maxFrequency > minFrequency) {
+                val utilizationValue = (frequency - minFrequency).toDouble() / (maxFrequency - minFrequency) * 100
+                utilizationValue.toInt()
+            } else {
+                0
+            }
+
+            "$utilization%"
         }.joinToString("\n")
     }
 

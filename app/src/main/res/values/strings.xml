@@ -80,6 +80,8 @@
     <string name="video">Video</string>
     <string name="audio">Audio</string>
     <string name="replacement_options">Replacement options</string>
+    <string name="select_the_cpu_clock_output_for_the_overlay">Select the CPU clock output for the overlay.</string>
+    <string name="cpu_clock_output">CPU clock output</string>
     <string name="this_option_adds_seconds_to_the_time">Show Seconds for the time in the overlay.</string>
     <string name="display_seconds">Display seconds in time</string>
     <string name="show_mbps_instead_of_mb_s_in_the_overlay">Show Mbps instead of MB/s for connection in the overlay.</string>
@@ -1726,5 +1728,21 @@
         <item>sono</item>
         <item>spacemono</item>
         <item>vt323</item>
+    </string-array>
+
+    <string-array name="cpu_clock_options">
+        <item>MHz / %</item>
+        <item>Current MHz / Max MHz / %</item>
+        <item>Current MHz / Max MHz</item>
+        <item>MHz</item>
+        <item>%</item>
+    </string-array>
+
+    <string-array name="cpu_clock_values">
+        <item>currperc</item>
+        <item>currmaxperc</item>
+        <item>currmax</item>
+        <item>curr</item>
+        <item>percentage</item>
     </string-array>
 </resources>

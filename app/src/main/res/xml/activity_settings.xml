@@ -192,6 +192,15 @@
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/replacement_options">
 
+        <ListPreference
+            android:defaultValue="both"
+            android:entries="@array/cpu_clock_options"
+            android:entryValues="@array/cpu_clock_values"
+            android:icon="@drawable/ic_processor_24dp"
+            android:key="cpu_clock_key"
+            android:summary="@string/select_the_cpu_clock_output_for_the_overlay"
+            android:title="@string/cpu_clock_output" />
+
         <CheckBoxPreference
             android:defaultValue="false"
             android:icon="@drawable/ic_time_24dp"

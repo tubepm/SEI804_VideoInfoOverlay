@@ -26,6 +26,7 @@ class SettingsActivity : AppCompatActivity() {
         private var backgroundColorLeftPreference: ListPreference? = null
         private var backgroundAlphaLeftPreference: ListPreference? = null
         private var roundedCornersLeftPreference: ListPreference? = null
+        private var cpuClockPreference: ListPreference? = null
 
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.activity_settings, rootKey)
@@ -42,6 +43,7 @@ class SettingsActivity : AppCompatActivity() {
             backgroundColorLeftPreference = findPreference("background_color_left_key")
             backgroundAlphaLeftPreference = findPreference("background_alpha_left_key")
             roundedCornersLeftPreference = findPreference("rounded_corners_left_key")
+            cpuClockPreference = findPreference("cpu_clock_key")
 
             // Check if preferences are not null
             if (hideLeftOverlayPreference == null || emptyTitlePreference == null) {
@@ -89,7 +91,6 @@ class SettingsActivity : AppCompatActivity() {
         }
 
         private fun updateEmptyTitleState(hideLeftOverlay: Boolean = hideLeftOverlayPreference?.isChecked ?: false) {
-
             roundedCornerOverallRightPreference?.let {
                 if (hideLeftOverlay) {
                     it.isChecked = true
