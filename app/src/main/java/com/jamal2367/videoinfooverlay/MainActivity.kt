@@ -70,6 +70,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
     private val roundedCornersRightKey = "rounded_corners_right_key"
     private val textFontKey = "text_font_key"
     private val textSecondsKey = "text_seconds_key"
+    private val textMbpsKey = "text_mbps_key"
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
     }
@@ -598,12 +599,24 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                     }
 
                     if (connectionSpeed.isNotEmpty()) {
-                        val speedInMbps = convertSpeedToMbps(connectionSpeed).replace(Regex(","), ".")
-                        val connectionInfo = "$modifiedgetConnectionState | $speedInMbps"
-                        if (modifiedgetConnectionState != getString(R.string.no_connectivity)) {
-                            appendLine(connectionInfo)
+                        val isMbpsText = sharedPreferences.getBoolean(textMbpsKey, false)
+
+                        if (isMbpsText) {
+                            val speedInMbps = convertSpeedToMbps(connectionSpeed).replace(Regex(","), ".")
+                            val connectionInfo = "$modifiedgetConnectionState | $speedInMbps"
+                            if (modifiedgetConnectionState != getString(R.string.no_connectivity)) {
+                                appendLine(connectionInfo)
+                            } else {
+                                appendLine(getString(R.string.no_connectivity))
+                            }
                         } else {
-                            appendLine(getString(R.string.no_connectivity))
+                            val formattedSpeed = connectionSpeed.replace(Regex("(\\d)([A-Za-z])"), "$1 $2")
+                            val connectionInfo = "$modifiedgetConnectionState / $formattedSpeed"
+                            if (modifiedgetConnectionState != getString(R.string.no_connectivity)) {
+                                appendLine(connectionInfo)
+                            } else {
+                                appendLine(getString(R.string.no_connectivity))
+                            }
                         }
                     }
                 }

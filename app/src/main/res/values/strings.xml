@@ -78,6 +78,8 @@
     <string name="line_break_summary">This option adds an empty line.</string>
     <string name="this_option_adds_seconds_to_the_time">This option adds seconds to the time.</string>
     <string name="display_seconds">Display seconds</string>
+    <string name="show_mbps_instead_of_mb_s_in_the_overlay">Show Mbps instead of MB/s in the overlay.</string>
+    <string name="show_mbps">Show Mbps</string>
     <string name="title">Title</string>
     <string name="title_summary">This option adds an title.</string>
     <string name="long_press">Long press</string>

@@ -217,6 +217,13 @@
             android:summary="@string/this_option_adds_seconds_to_the_time"
             android:title="@string/display_seconds" />
 
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_speed_24dp"
+            android:key="text_mbps_key"
+            android:summary="@string/show_mbps_instead_of_mb_s_in_the_overlay"
+            android:title="@string/show_mbps" />
+
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/about">
 
