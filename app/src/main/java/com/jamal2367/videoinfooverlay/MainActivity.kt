@@ -1183,6 +1183,29 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         return cpuFrequencies
     }
 
+    private fun getMinCpuFrequency(): List<Long> {
+        val maxCpuFrequencies = mutableListOf<Long>()
+
+        for (i in 0 until Runtime.getRuntime().availableProcessors()) {
+            val maxCpuFreqFilePath = "/sys/devices/system/cpu/cpu$i/cpufreq/cpuinfo_min_freq"
+            try {
+                val maxCpuFreqFile = File(maxCpuFreqFilePath)
+                if (maxCpuFreqFile.exists()) {
+                    val maxFrequency = maxCpuFreqFile.readText().trim().toLong()
+                    maxCpuFrequencies.add(maxFrequency)
+                } else {
+                    maxCpuFrequencies.add(0L)
+                }
+            } catch (e: FileNotFoundException) {
+                e.printStackTrace()
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+        }
+
+        return maxCpuFrequencies
+    }
+
     private fun getMaxCpuFrequency(): List<Long> {
         val maxCpuFrequencies = mutableListOf<Long>()
 
@@ -1208,14 +1231,20 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
     private fun printCpuFrequencies(): String {
         val frequencies = getCpuFrequency()
+        val minFrequencies = getMinCpuFrequency()
         val maxFrequencies = getMaxCpuFrequency()
         return frequencies.mapIndexed { index, frequency ->
             val frequencyInMHz = frequency / 1000
-            val utilization = if (maxFrequencies[index] > 0) {
-                (frequency.toDouble() / maxFrequencies[index] * 100).toInt()
+            val minFrequency = minFrequencies[index]
+            val maxFrequency = maxFrequencies[index]
+
+            val utilization = if (maxFrequency > minFrequency) {
+                val utilizationValue = (frequency - minFrequency).toDouble() / (maxFrequency - minFrequency) * 100
+                utilizationValue.toInt()
             } else {
                 0
             }
+
             "$frequencyInMHz MHz ($utilization%)"
         }.joinToString("\n")
     }
