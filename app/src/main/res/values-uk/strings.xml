@@ -78,6 +78,69 @@
     <string name="cpu">ЦП</string>
     <string name="video">Відео</string>
     <string name="audio">Аудіо</string>
+    <string name="replacement_options">Параметри заміни</string>
+    <string name="select_the_cpu_clock_output_for_the_overlay">Вибрати вихідну тактову частоту ЦП для оверлея.</string>
+    <string name="cpu_clock_output">Вихідна тактова частота ЦП</string>
+    <string name="this_option_adds_seconds_to_the_time">Показувати секунди при відображенні часу на оверлеї.</string>
+    <string name="display_seconds">Показувати секунди при відображенні часу</string>
+    <string name="show_mbps_instead_of_mb_s_in_the_overlay">Показувати швидкість з\'єднання у Mbps замість MB/s.</string>
+    <string name="show_mbps">Показувати Mbps замість MB/s</string>
+    <string name="show_gb_instead_of_mb_in_the_overlay">Показувати використання пам\'яті у GB замість MB.</string>
+    <string name="show_gb">Показувати GB замість MB</string>
+    <string name="hide_options">Параметри приховування</string>
+    <string name="hide_the_left_overlay_completely">Повністю приховати лівий оверлей.</string>
+    <string name="hide_left_overlay">Приховати лівий оверлей</string>
+    <string name="hide_all_titles_in_the_overlay">Приховати заголовки всіх секцій на оверлеї.</string>
+    <string name="hide_all_titles">Приховати всі заголовки</string>
+    <string name="hide_all_empty_lines_in_the_overlay">Приховати всі порожні рядки на оверлеї.</string>
+    <string name="hide_all_empty_lines">Приховати всі порожні рядки</string>
+    <string name="hide_video_title_in_the_overlay">Приховати заголовок секції Відео на оверлеї.</string>
+    <string name="hide_video_title">Приховати заголовок Відео</string>
+    <string name="hide_display_resolution_in_the_overlay">Приховати Розширення екрану на оверлеї.</string>
+    <string name="hide_display_resolution">Приховати Розширення екрану</string>
+    <string name="hide_video_resolution_in_the_overlay">Приховати Розширення відео на оверлеї.</string>
+    <string name="hide_video_resolution">Приховати Розширення відео</string>
+    <string name="hide_video_format_in_the_overlay">Приховати Відео кодек на оверлеї.</string>
+    <string name="hide_video_format">Приховати Відео кодек</string>
+    <string name="hide_audio_title_in_the_overlay">Приховати заголовок секції Аудіо на оверлеї.</string>
+    <string name="hide_audio_title">Приховати заголовок Аудіо</string>
+    <string name="hide_audio_mode_in_the_overlay">Приховати Режим звуку на оверлеї.</string>
+    <string name="hide_audio_mode">Приховати Режим звуку</string>
+    <string name="hide_audio_format_in_the_overlay">Приховати Формат звуку на оверлеї.</string>
+    <string name="hide_audio_format">Приховати Формат звуку</string>
+    <string name="hide_display_title_in_the_overlay">Приховати заголовок секції Дисплей на оверлеї.</string>
+    <string name="hide_display_title">Приховати заголовок Дисплей</string>
+    <string name="hide_hdr_status_in_the_overlay">Приховати Стан HDR на оверлеї.</string>
+    <string name="hide_hdr_status">Приховати Стан HDR</string>
+    <string name="hide_hdr_priority_in_the_overlay">Приховати Пріоритет HDR на оверлеї.</string>
+    <string name="hide_hdr_priority">Приховати Пріоритет HDR</string>
+    <string name="hide_hdr_policy_in_the_overlay">Приховати Політику HDR на оверлеї.</string>
+    <string name="hide_hdr_policy">Приховати Політику HDR</string>
+    <string name="hide_color_space_in_the_overlay">Приховати Колірний простір на оверлеї.</string>
+    <string name="hide_color_space">Приховати Колірний простір</string>
+    <string name="hide_processor_title_in_the_overlay">Приховати заголовок секції ЦП на оверлеї.</string>
+    <string name="hide_processor_title">Приховати заголовок ЦП</string>
+    <string name="hide_cpu_load_in_the_overlay">Приховати Завантаження ЦП на оверлеї.</string>
+    <string name="hide_cpu_load">Приховати Завантаження ЦП</string>
+    <string name="hide_cpu_clock_in_the_overlay">Приховати Тактову частоту ЦП на оверлеї.</string>
+    <string name="hide_cpu_clock">Приховати Тактову частоту ЦП</string>
+    <string name="hide_cpu_governor_in_the_overlay">Приховати Governor ЦП на оверлеї.</string>
+    <string name="hide_cpu_governor">Приховати Governor ЦП</string>
+    <string name="hide_other_title_in_the_overlay">Приховати заголовок секції Інше на оверлеї.</string>
+    <string name="hide_other_title">Приховати заголовок Інше</string>
+    <string name="hide_time_in_the_overlay">Приховати відображення часу на оверлеї.</string>
+    <string name="hide_time">Приховати відображення часу</string>
+    <string name="hide_memory_usage_in_the_overlay">Приховати Використання пам\'яті на оверлеї.</string>
+    <string name="hide_memory_usage">Приховати Використання пам\'яті</string>
+    <string name="hide_connection_in_the_overlay">Приховати швидкість з\'єднання на оверлеї.</string>
+    <string name="hide_connection">Приховати З\'єднання</string>
+    <string name="hide_app_name_in_the_overlay">Приховати Назву застосунку на оверлеї.</string>
+    <string name="hide_app_name">Приховати Назву застосунку</string>
+    <string name="hide_empty_line">Приховати порожній рядок</string>
+    <string name="hide_empty_line_between_processor_und_other">Приховати порожній рядок між секціями ЦП та Інше.</string>
+    <string name="hide_empty_line_between_display_und_processor">Приховати порожній рядок між секціями Дисплей та ЦП.</string>
+    <string name="hide_empty_line_between_audio_and_display">Приховати порожній рядок між секціями Аудіо та Дисплей.</string>
+    <string name="hide_empty_line_between_video_and_audio">Приховати порожній рядок між секціями Відео та Аудіо.</string>
 
     <string-array name="key_code_labels">
         <item>Кнопка Закладки</item>
@@ -221,5 +284,13 @@
         <item>Коричневий</item>
         <item>Сірий</item>
         <item>Синьо-сірий</item>
+    </string-array>
+    
+    <string-array name="cpu_clock_options">
+        <item>Поточне MHz + (%)</item>
+        <item>Поточне MHz + Максимальне MHz + (%)</item>
+        <item>Поточне MHz + Максимальне MHz</item>
+        <item>Поточне MHz</item>
+        <item>%</item>
     </string-array>
 </resources>
