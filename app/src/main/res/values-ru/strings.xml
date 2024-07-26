@@ -78,6 +78,69 @@
     <string name="cpu">ЦПУ</string>
     <string name="video">Видео</string>
     <string name="audio">Аудио</string>
+    <string name="replacement_options">Опции замены</string>
+    <string name="select_the_cpu_clock_output_for_the_overlay">Выберите варианты вывода CPU частоты при отображении.</string>
+    <string name="cpu_clock_output">Вывод частоты CPU</string>
+    <string name="this_option_adds_seconds_to_the_time">Показывать секунды при отображении времени</string>
+    <string name="display_seconds">Показать секунды при отображении времени</string>
+    <string name="show_mbps_instead_of_mb_s_in_the_overlay">Показывать Mbps вместо МБ/с для скорости соединения при отображении.</string>
+    <string name="show_mbps">Показывать Mbps вместо MB/с</string>
+    <string name="show_gb_instead_of_mb_in_the_overlay">Показывать GB вместо MB для использования памяти при отображении.</string>
+    <string name="show_gb">Показывать GB вместо MB</string>
+    <string name="hide_options">Скрыть опции</string>
+    <string name="hide_the_left_overlay_completely">Скрыть левую часть информации при отображении.</string>
+    <string name="hide_left_overlay">Скрыть левую часть</string>
+    <string name="hide_all_titles_in_the_overlay">Скрыть все названия пунктов при отображении.</string>
+    <string name="hide_all_titles">Скрыть все названия пунктов</string>
+    <string name="hide_all_empty_lines_in_the_overlay">Скрыть все пустые строки при отображении.</string>
+    <string name="hide_all_empty_lines">Скрыть все пустые строки</string>
+    <string name="hide_video_title_in_the_overlay">Скрыть заголовок 'Видео' при отображении.</string>
+    <string name="hide_video_title">Скрыть название 'Видео'</string>
+    <string name="hide_display_resolution_in_the_overlay">Скрыть разрешение экрана при отображении.</string>
+    <string name="hide_display_resolution">Скрыть разрешение экрана</string>
+    <string name="hide_video_resolution_in_the_overlay">Скрыть разрешение видео при отображении.</string>
+    <string name="hide_video_resolution">Скрыть разрешение видео</string>
+    <string name="hide_video_format_in_the_overlay">Скрыть видеокодек при отображении.</string>
+    <string name="hide_video_format">Скрыть видеокодек</string>
+    <string name="hide_audio_title_in_the_overlay">Скрыть заголовок 'Аудио' при отображении.</string>
+    <string name="hide_audio_title">Скрыть заголовок 'Аудио'</string>
+    <string name="hide_audio_mode_in_the_overlay">Скрыть режим аудиовыхода при отображения.</string>
+    <string name="hide_audio_mode">Скрыть режим аудиовыхода</string>
+    <string name="hide_audio_format_in_the_overlay">Скрыть аудиоформат при отображении.</string>
+    <string name="hide_audio_format">Скрыть аудиоформат</string>
+    <string name="hide_display_title_in_the_overlay">Скрыть название 'Экран' при отображении.</string>
+    <string name="hide_display_title">Скрыть название 'Экран'</string>
+    <string name="hide_hdr_status_in_the_overlay">Скрыть статус HDR при отображении.</string>
+    <string name="hide_hdr_status">Скрыть статус HDR</string>
+    <string name="hide_hdr_priority_in_the_overlay">Скрыть приоритет HDR при отображении.</string>
+    <string name="hide_hdr_priority">Скрыть приоритет HDR</string>
+    <string name="hide_hdr_policy_in_the_overlay">Скрыть политику HDR при отображении.</string>
+    <string name="hide_hdr_policy">Скрыть политику HDR</string>
+    <string name="hide_color_space_in_the_overlay">Скрыть режим цветового пространства при отображения.</string>
+    <string name="hide_color_space">Скрыть режим цветового пространства</string>
+    <string name="hide_processor_title_in_the_overlay">Скрыть название 'Процессор' при отображении.</string>
+    <string name="hide_processor_title">Скрыть название "Процессор"</string>
+    <string name="hide_cpu_load_in_the_overlay">Скрыть загрузку CPU при выводе.</string>
+    <string name="hide_cpu_load">Скрыть загрузку CPU</string>
+    <string name="hide_cpu_clock_in_the_overlay">Скрыть частоту CPU при выводе.</string>
+    <string name="hide_cpu_clock">Скрыть частоту CPU</string>
+    <string name="hide_cpu_governor_in_the_overlay">Скрыть политику управления частотой CPU при выводе.</string>
+    <string name="hide_cpu_governor">Скрыть политику управления частотой CPU</string>
+    <string name="hide_other_title_in_the_overlay">Скрыть название 'Прочее' при выводе.</string>
+    <string name="hide_other_title">Скрыть название 'Прочее'</string>
+    <string name="hide_time_in_the_overlay">Скрыть показ времени при выводе.</string>
+    <string name="hide_time">Скрыть показ времени</string>
+    <string name="hide_memory_usage_in_the_overlay">Скрыть потребление памяти при выводе.</string>
+    <string name="hide_memory_usage">Скрыть потребление памяти</string>
+    <string name="hide_connection_in_the_overlay">Скрыть скорость соединения при выводе.</string>
+    <string name="hide_connection">Скрыть скорость соединения</string>
+    <string name="hide_app_name_in_the_overlay">Скрыть название активного приложения при выводе.</string>
+    <string name="hide_app_name">Скрыть название активного приложения</string>
+    <string name="hide_empty_line">Скрыть пустые строки</string>
+    <string name="hide_empty_line_between_processor_und_other">Скрыть пустую строку между блоками Процессор и Другие.</string>
+    <string name="hide_empty_line_between_display_und_processor">Скрыть пустую строку между блоками Экран und Процессор.</string>
+    <string name="hide_empty_line_between_audio_and_display">Скрыть пустую строку между блоками Аудио и Экран.</string>
+    <string name="hide_empty_line_between_video_and_audio">Скрыть пустую строку между блоками Видео и Аудио.</string>
 
     <string-array name="key_code_labels">
         <item>Избранное</item>
@@ -221,5 +284,13 @@
         <item>Коричневый</item>
         <item>Серый</item>
         <item>Серо-голубой</item>
+    </string-array>
+    
+    <string-array name="cpu_clock_options">
+        <item>Текущее MHz + (%)</item>
+        <item>Текущее MHz + Макс MHz + (%)</item>
+        <item>Текущее MHz + Макс MHz</item>
+        <item>Текущее MHz</item>
+        <item>%</item>
     </string-array>
 </resources>
