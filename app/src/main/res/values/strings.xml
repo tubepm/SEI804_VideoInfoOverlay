@@ -1732,8 +1732,8 @@
 
     <string-array name="cpu_clock_options">
         <item>Current MHz + (%)</item>
-        <item>Current MHz + Max MHz + (%)</item>
-        <item>Current MHz + Max MHz</item>
+        <item>Current MHz + Maximal MHz + (%)</item>
+        <item>Current MHz + Maximal MHz</item>
         <item>Current MHz</item>
         <item>%</item>
     </string-array>
