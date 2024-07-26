@@ -10,8 +10,8 @@
     <string name="audio_format">Audioformat:</string>
     <string name="audio_mode">Audiomodus:</string>
     <string name="app_name_tv">Anwendungsname:</string>
-    <string name="cpu_usage">Auslastung:</string>
-    <string name="cpu_index">CPU %d Takt:</string>
+    <string name="cpu_usage">CPU Auslastung:</string>
+    <string name="cpu_index">CPU %d Taktrate:</string>
     <string name="cpu_governor">CPU Governor:</string>
     <string name="memory_usage">Speichernutzung:</string>
     <string name="time">Aktuelle Zeit:</string>
@@ -23,17 +23,17 @@
     <string name="manual">Manuell</string>
     <string name="wifi">WLAN</string>
     <string name="ethernet">LAN</string>
-    <string name="overlay_options">Overlay-Optionen</string>
-    <string name="background_options">Hintergrund-Optionen</string>
-    <string name="distance_options">Optionen für den Abstand</string>
-    <string name="corner_options">Optionen für Ecken</string>
-    <string name="text_options">Text-Optionen</string>
+    <string name="overlay_options">Overlay</string>
+    <string name="background_options">Hintergrund</string>
+    <string name="distance_options">Abstand</string>
+    <string name="corner_options">Abgerundete Ecken</string>
+    <string name="text_options">Text</string>
     <string name="about">Über</string>
     <string name="restart_overlay_toast">Starte das Overlay neu, um die Änderung zu sehen.</string>
     <string name="no_connectivity">Keine Internetverbindung</string>
     <string name="mbps">%.2f Mbit/s</string>
-    <string name="overlay_button">Overlay-Taste</string>
-    <string name="overlay_button_summary">Wähle eine Schaltfläche, um das Overlay zu aktivieren.</string>
+    <string name="overlay_button">Taste für Fernbedienung</string>
+    <string name="overlay_button_summary">Taste für die Fernbedienung auswählen, um das Overlay zu starten.</string>
     <string name="select_button">Taste auswählen</string>
     <string name="right_margin">Rechter Seitenrand</string>
     <string name="right_margin_summary">Wähle einen Abstand vom rechten Bildschirmrand für das Overlay.</string>
@@ -64,30 +64,30 @@
     <string name="background_alpha_right">Rechte Hintergrundtransparenz</string>
     <string name="background_alpha_right_summary">Wähle eine Hintergrundtransparenz für das rechte Overlay.</string>
     <string name="rounded_corners_left_overall">Abgerundete Ecken an allen Ecken des linken Overlays</string>
-    <string name="rounded_corners_left_overall_summary">Diese Option fügt an allen Ecken des linken Overlays abgerundete Ecken hinzu.</string>
+    <string name="rounded_corners_left_overall_summary">An allen Ecken des linken Overlays werden abgerundete Ecken hinzugefügt.</string>
     <string name="rounded_corners_right_overall">Abgerundete Ecken an allen Ecken des rechten Overlays</string>
-    <string name="rounded_corners_right_overall_summary">Diese Option fügt an allen Ecken des rechten Overlays abgerundete Ecken hinzu.</string>
+    <string name="rounded_corners_right_overall_summary">An allen Ecken des rechten Overlays werden abgerundete Ecken hinzugefügt.</string>
     <string name="rounded_corners_left">Abgerundete Ecken des linken Overlays</string>
-    <string name="rounded_corners_left_summary">Wähle eine Eckengröße für das linke Overlay.</string>
+    <string name="rounded_corners_left_summary">Eine Größe für die abgerundeten Ecken des linken Overlays wählen.</string>
     <string name="rounded_corners_right">Abgerundete Ecken des rechten Overlays</string>
-    <string name="rounded_corners_right_summary">Wähle eine Eckengröße für das rechte Overlay.</string>
-    <string name="long_press">Langes Drücken</string>
-    <string name="long_press_summary">Diese Option fügt einen langen Tastendruck hinzu. (min. 750ms)</string>
+    <string name="rounded_corners_right_summary">Eine Größe für die abgerundeten Ecken des rechten Overlays wählen.</string>
+    <string name="long_press">Langer Tastendruck</string>
+    <string name="long_press_summary">Fügt die Möglichkeit eines langen Tastendrucks (mindestens 750 ms) hinzu.</string>
     <string name="other">Sonstiges</string>
     <string name="display">Display</string>
     <string name="cpu">Prozessor</string>
     <string name="video">Video</string>
     <string name="audio">Ton</string>
-    <string name="replacement_options">Austauschoptionen</string>
-    <string name="select_the_cpu_clock_output_for_the_overlay">Wähle eine CPU-Taktausgabe für das Overlay.</string>
-    <string name="cpu_clock_output">CPU-Takt-Ausgabe</string>
-    <string name="this_option_adds_seconds_to_the_time">Sekunden für die Uhrzeit im Overlay anzeigen.</string>
-    <string name="display_seconds">Sekunden in der Uhrzeit anzeigen</string>
-    <string name="show_mbps_instead_of_mb_s_in_the_overlay">Mbit/s anstelle von MB/s für die Verbindung im Overlay anzeigen.</string>
-    <string name="show_mbps">Mbit/s anstelle von MB/s anzeigen</string>
-    <string name="show_gb_instead_of_mb_in_the_overlay">Zeige GB statt MB für die Speichernutzung im Overlay an.</string>
+    <string name="replacement_options">Ersetzen</string>
+    <string name="select_the_cpu_clock_output_for_the_overlay">Eine CPU Taktausgabe für das Overlay auswählen.</string>
+    <string name="cpu_clock_output">CPU Taktausgabe</string>
+    <string name="this_option_adds_seconds_to_the_time">Sekunden für die Uhrzeit im Overlay anzeigen lassen.</string>
+    <string name="display_seconds">Sekunden in der Uhrzeit</string>
+    <string name="show_mbps_instead_of_mb_s_in_the_overlay">Mbit/s anstelle von MB/s für Verbindungstyp im Overlay anzeigen.</string>
+    <string name="show_mbps">Mbit/s anstelle von MB/s</string>
+    <string name="show_gb_instead_of_mb_in_the_overlay">GB anstelle von MB für die Speichernutzung im Overlay anzeigen.</string>
     <string name="show_gb">GB anstelle von MB anzeigen</string>
-    <string name="hide_options">Optionen ausblenden</string>
+    <string name="hide_options">Ausblenden</string>
     <string name="hide_the_left_overlay_completely">Das linke Overlay komplett ausblenden.</string>
     <string name="hide_left_overlay">Linkes Overlay ausblenden</string>
     <string name="hide_all_titles_in_the_overlay">Alle Titel im Overlay ausblenden.</string>
@@ -122,8 +122,8 @@
     <string name="hide_processor_title">Titel "Prozessor" ausblenden</string>
     <string name="hide_cpu_load_in_the_overlay">Auslastung im Overlay ausblenden.</string>
     <string name="hide_cpu_load">Auslastung ausblenden</string>
-    <string name="hide_cpu_clock_in_the_overlay">CPU Takt im Overlay ausblenden.</string>
-    <string name="hide_cpu_clock">CPU Takt ausblenden</string>
+    <string name="hide_cpu_clock_in_the_overlay">CPU Taktrate im Overlay ausblenden.</string>
+    <string name="hide_cpu_clock">CPU Taktrate ausblenden</string>
     <string name="hide_cpu_governor_in_the_overlay">CPU Governor im Overlay ausblenden.</string>
     <string name="hide_cpu_governor">CPU Governor ausblenden</string>
     <string name="hide_other_title_in_the_overlay">Den Titel "Sonstiges" im Overlay ausblenden.</string>
@@ -132,8 +132,8 @@
     <string name="hide_time">Aktuelle Zeit ausblenden</string>
     <string name="hide_memory_usage_in_the_overlay">Speichernutzung im Overlay ausblenden.</string>
     <string name="hide_memory_usage">Speichernutzung ausblenden</string>
-    <string name="hide_connection_in_the_overlay">Verbindung im Overlay ausblenden.</string>
-    <string name="hide_connection">Verbindung ausblenden</string>
+    <string name="hide_connection_in_the_overlay">Verbindungstyp im Overlay ausblenden.</string>
+    <string name="hide_connection">Verbindungstyp ausblenden</string>
     <string name="hide_app_name_in_the_overlay">Anwendungsname im Overlay ausblenden.</string>
     <string name="hide_app_name">Anwendungsname ausblenden</string>
     <string name="hide_empty_line">Leere Zeile ausblenden</string>
@@ -143,23 +143,23 @@
     <string name="hide_empty_line_between_video_and_audio">Leere Zeile zwischen Video und Audio ausblenden.</string>
 
     <string-array name="key_code_labels">
-        <item>Lesezeichen-Taste</item>
-        <item>TV-Guide-Taste</item>
-        <item>Rote Taste</item>
-        <item>Grüne Taste</item>
-        <item>Gelbe Taste</item>
-        <item>Blaue Taste</item>
-        <item>Taste 0</item>
-        <item>Taste 1</item>
-        <item>Taste 2</item>
-        <item>Taste 3</item>
-        <item>Taste 4</item>
-        <item>Taste 5</item>
-        <item>Taste 6</item>
-        <item>Taste 7</item>
-        <item>Taste 8</item>
-        <item>Taste 9</item>
-        <item>Keine</item>
+        <item>Lesezeichen</item>
+        <item>Programmführer (EPG)</item>
+        <item>Rote Farbtaste</item>
+        <item>Grüne Farbtaste</item>
+        <item>Gelbe Farbtaste</item>
+        <item>Blaue Farbtaste</item>
+        <item>Ziffer 0</item>
+        <item>Ziffer 1</item>
+        <item>Ziffer 2</item>
+        <item>Ziffer 3</item>
+        <item>Ziffer 4</item>
+        <item>Ziffer 5</item>
+        <item>Ziffer 6</item>
+        <item>Ziffer 7</item>
+        <item>Ziffer 8</item>
+        <item>Ziffer 9</item>
+        <item>Keine Taste</item>
     </string-array>
 
     <string-array name="text_color_left_options">
@@ -227,15 +227,15 @@
     </string-array>
 
     <string-array name="text_align_left_options">
-        <item>Links</item>
-        <item>Mittig</item>
-        <item>Rechts</item>
+        <item>Linksbündig</item>
+        <item>Zentriert</item>
+        <item>Rechtsbündig</item>
     </string-array>
 
     <string-array name="text_align_right_options">
-        <item>Links</item>
-        <item>Mittig</item>
-        <item>Rechts</item>
+        <item>Linksbündig</item>
+        <item>Zentriert</item>
+        <item>Rechtsbündig</item>
     </string-array>
 
     <string-array name="background_color_left_options">
