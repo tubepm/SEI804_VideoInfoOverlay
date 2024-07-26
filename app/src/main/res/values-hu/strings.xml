@@ -78,6 +78,69 @@
     <string name="cpu">CPU</string>
     <string name="video">Videó</string>
     <string name="audio">Hang</string>
+    <string name="replacement_options">Beállítási lehetőségek</string>
+    <string name="select_the_cpu_clock_output_for_the_overlay">Válasszd ki a CPU órajelet az infóablakhoz.</string>
+    <string name="cpu_clock_output">CPU órajel kimenet</string>
+    <string name="this_option_adds_seconds_to_the_time">Mutasd a másodperceket az infóablakon.</string>
+    <string name="display_seconds">Mutasd a másodperceket</string>
+    <string name="show_mbps_instead_of_mb_s_in_the_overlay">Mutass Mbps-t a MB/s helyett a hálózati csatlakozásnál.</string>
+    <string name="show_mbps">Mutass Mbps-t a MB/s helyett</string>
+    <string name="show_gb_instead_of_mb_in_the_overlay">Mutass GB-ot a MB helyett a memória használatnál.</string>
+    <string name="show_gb">Mutass GB-ot a MB helyett</string>
+    <string name="hide_options">Elrejtési opciók</string>
+    <string name="hide_the_left_overlay_completely">Bal oldali infósáv teljes elrejtése.</string>
+    <string name="hide_left_overlay">Bal oldali infósáv teljes elrejtése</string>
+    <string name="hide_all_titles_in_the_overlay">Összes cím elrejtése az infóablakon.</string>
+    <string name="hide_all_titles">Összes cím elrejtése</string>
+    <string name="hide_all_empty_lines_in_the_overlay">Üres sorok elrejtése az infóablakon.</string>
+    <string name="hide_all_empty_lines">Üres sorok elrejtése</string>
+    <string name="hide_video_title_in_the_overlay">Videó cím elrejtése az infóablakon.</string>
+    <string name="hide_video_title">Videó cím elrejtése</string>
+    <string name="hide_display_resolution_in_the_overlay">Kimenő felbontás elrejtése az infóablakon.</string>
+    <string name="hide_display_resolution">Kimenő felbontás elrejtése</string>
+    <string name="hide_video_resolution_in_the_overlay">Videó felbontás elrejtése az infóablakon.</string>
+    <string name="hide_video_resolution">Videó felbontás elrejtése</string>
+    <string name="hide_video_format_in_the_overlay">Videó formátum elrejtése az infóablakon.</string>
+    <string name="hide_video_format">Videó formátum elrejtése</string>
+    <string name="hide_audio_title_in_the_overlay">Hang cím elrejtése az infóablakon.</string>
+    <string name="hide_audio_title">Hang cím elrejtése</string>
+    <string name="hide_audio_mode_in_the_overlay">Audió mód elrejtése az infóablakon.</string>
+    <string name="hide_audio_mode">Audió mód elrejtése</string>
+    <string name="hide_audio_format_in_the_overlay">Hangformátum elrejtése az infóablakon.</string>
+    <string name="hide_audio_format">Hangformátum elrejtése</string>
+    <string name="hide_display_title_in_the_overlay">Megjelenítés cím  elrejtése az infóablakon.</string>
+    <string name="hide_display_title">Megjelenítés cím  elrejtése</string>
+    <string name="hide_hdr_status_in_the_overlay">HDR státusz elrejtése az infóablakon.</string>
+    <string name="hide_hdr_status">HDR státusz elrejtése</string>
+    <string name="hide_hdr_priority_in_the_overlay">HDR prioritás elrejtése az infóablakon.</string>
+    <string name="hide_hdr_priority">HDR prioritás elrejtése</string>
+    <string name="hide_hdr_policy_in_the_overlay">HDR irányelv elrejtése az infóablakon.</string>
+    <string name="hide_hdr_policy">HDR irányelv elrejtése</string>
+    <string name="hide_color_space_in_the_overlay">Színtér elrejtése az infóablakon.</string>
+    <string name="hide_color_space">Színtér elrejtése</string>
+    <string name="hide_processor_title_in_the_overlay">CPU cím elrejtése az infóablakon.</string>
+    <string name="hide_processor_title">CPU cím elrejtése</string>
+    <string name="hide_cpu_load_in_the_overlay">CPU használat elrejtése az infóablakon.</string>
+    <string name="hide_cpu_load">CPU használat elrejtése</string>
+    <string name="hide_cpu_clock_in_the_overlay">CPU sebesség elrejtése az infóablakon.</string>
+    <string name="hide_cpu_clock">CPU sebesség elrejtése</string>
+    <string name="hide_cpu_governor_in_the_overlay">CPU governor elrejtése az infóablakon.</string>
+    <string name="hide_cpu_governor">CPU governor elrejtése</string>
+    <string name="hide_other_title_in_the_overlay">Rendszer cím elrejtése az infóablakon.</string>
+    <string name="hide_other_title">Rendszer cím elrejtése</string>
+    <string name="hide_time_in_the_overlay">Idő elrejtése az infóablakon.</string>
+    <string name="hide_time">Idő elrejtése</string>
+    <string name="hide_memory_usage_in_the_overlay">Memória használat elrejtése az infóablakon.</string>
+    <string name="hide_memory_usage">Memória használat elrejtése</string>
+    <string name="hide_connection_in_the_overlay">Csatlakozás elrejtése az infóablakon.</string>
+    <string name="hide_connection">Csatlakozás elrejtése</string>
+    <string name="hide_app_name_in_the_overlay">Alkalmazásnév elrejtése az infóablakon.</string>
+    <string name="hide_app_name">Alkalmazásnév elrejtése</string>
+    <string name="hide_empty_line">Üres sor elrejtése</string>
+    <string name="hide_empty_line_between_processor_und_other">Üres sor elrejtése a CPU és a Rendszer között.</string>
+    <string name="hide_empty_line_between_display_und_processor">Üres sor elrejtése a CPU és Megjelenítés között.</string>
+    <string name="hide_empty_line_between_audio_and_display">Üres sor elrejtése a Hang és Megjelenítés között.</string>
+    <string name="hide_empty_line_between_video_and_audio">Üres sor elrejtése a Videó és Hang között</string>
 
     <string-array name="key_code_labels">
         <item>Könyvjelző Gomb</item>
@@ -221,5 +284,13 @@
         <item>Barna</item>
         <item>Szürke</item>
         <item>Kékesszürke</item>
+    </string-array>
+
+    <string-array name="cpu_clock_options">
+        <item>Jelenlegi MHz + (%)</item>
+        <item>Jelenlegi MHz + Maximális MHz + (%)</item>
+        <item>Jelenlegi MHz + Maximális MHz</item>
+        <item>Jelenlegi MHz</item>
+        <item>%</item>
     </string-array>
 </resources>
