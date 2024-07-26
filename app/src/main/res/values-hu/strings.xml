@@ -12,6 +12,7 @@
     <string name="app_name_tv">Futó alkalmazásnév:</string>
     <string name="cpu_usage">CPU használat:</string>
     <string name="cpu_index">CPU %d sebesség:</string>
+    <string name="cpu_governor">CPU Governor:</string>
     <string name="memory_usage">RAM használat:</string>
     <string name="time">Idő:</string>
     <string name="connection">Csatlakozás:</string>

@@ -12,6 +12,7 @@
     <string name="app_name_tv">Приложение:</string>
     <string name="cpu_usage">ЦПУ Загрузка:</string>
     <string name="cpu_index">ЦПУ %d тактовая:</string>
+    <string name="cpu_governor">ЦПУ Governor:</string>
     <string name="memory_usage">Использование памяти:</string>
     <string name="time">Время:</string>
     <string name="connection">Тип подключения:</string>

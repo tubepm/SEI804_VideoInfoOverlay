@@ -12,6 +12,7 @@
     <string name="app_name_tv">Anwendungsname:</string>
     <string name="cpu_usage">Auslastung:</string>
     <string name="cpu_index">CPU %d Takt:</string>
+    <string name="cpu_governor">CPU Governor:</string>
     <string name="memory_usage">Speichernutzung:</string>
     <string name="time">Aktuelle Zeit:</string>
     <string name="connection">Verbindungstyp:</string>
@@ -77,6 +78,69 @@
     <string name="cpu">Prozessor</string>
     <string name="video">Video</string>
     <string name="audio">Ton</string>
+    <string name="replacement_options">Austauschoptionen</string>
+    <string name="select_the_cpu_clock_output_for_the_overlay">Wähle eine CPU-Taktausgabe für das Overlay.</string>
+    <string name="cpu_clock_output">CPU-Takt-Ausgabe</string>
+    <string name="this_option_adds_seconds_to_the_time">Sekunden für die Uhrzeit im Overlay anzeigen.</string>
+    <string name="display_seconds">Sekunden in der Uhrzeit anzeigen</string>
+    <string name="show_mbps_instead_of_mb_s_in_the_overlay">Mbit/s anstelle von MB/s für die Verbindung im Overlay anzeigen.</string>
+    <string name="show_mbps">Mbit/s anstelle von MB/s anzeigen</string>
+    <string name="show_gb_instead_of_mb_in_the_overlay">Zeige GB statt MB für die Speichernutzung im Overlay an.</string>
+    <string name="show_gb">GB anstelle von MB anzeigen</string>
+    <string name="hide_options">Optionen ausblenden</string>
+    <string name="hide_the_left_overlay_completely">Das linke Overlay komplett ausblenden.</string>
+    <string name="hide_left_overlay">Linkes Overlay ausblenden</string>
+    <string name="hide_all_titles_in_the_overlay">Alle Titel im Overlay ausblenden.</string>
+    <string name="hide_all_titles">Alle Titel ausblenden</string>
+    <string name="hide_all_empty_lines_in_the_overlay">Alle Leerzeilen im Overlay ausblenden.</string>
+    <string name="hide_all_empty_lines">Alle Leerzeilen ausblenden</string>
+    <string name="hide_video_title_in_the_overlay">Den Titel "Video" im Overlay ausblenden.</string>
+    <string name="hide_video_title">Titel "Video" ausblenden</string>
+    <string name="hide_display_resolution_in_the_overlay">Displayauflösung im Overlay ausblenden.</string>
+    <string name="hide_display_resolution">Displayauflösung ausblenden</string>
+    <string name="hide_video_resolution_in_the_overlay">Videoauflösung im Overlay ausblenden.</string>
+    <string name="hide_video_resolution">Videoauflösung ausblenden</string>
+    <string name="hide_video_format_in_the_overlay">Videoformat im Overlay ausblenden.</string>
+    <string name="hide_video_format">Videoformat ausblenden</string>
+    <string name="hide_audio_title_in_the_overlay">Den Titel "Audio" im Overlay ausblenden.</string>
+    <string name="hide_audio_title">Titel "Audio" ausblenden</string>
+    <string name="hide_audio_mode_in_the_overlay">Audiomodus im Overlay ausblenden.</string>
+    <string name="hide_audio_mode">Audiomodus ausblenden</string>
+    <string name="hide_audio_format_in_the_overlay">Audioformat im Overlay ausblenden.</string>
+    <string name="hide_audio_format">Audioformat ausblenden</string>
+    <string name="hide_display_title_in_the_overlay">Den Titel "Display" im Overlay ausblenden.</string>
+    <string name="hide_display_title">Titel "Display" ausblenden</string>
+    <string name="hide_hdr_status_in_the_overlay">HDR Status im Overlay ausblenden.</string>
+    <string name="hide_hdr_status">HDR Status ausblenden</string>
+    <string name="hide_hdr_priority_in_the_overlay">HDR Priorität im Overlay ausblenden.</string>
+    <string name="hide_hdr_priority">HDR Priorität ausblenden</string>
+    <string name="hide_hdr_policy_in_the_overlay">Die HDR Strategie im Overlay ausblenden.</string>
+    <string name="hide_hdr_policy">HDR Strategie ausblenden</string>
+    <string name="hide_color_space_in_the_overlay">Farbraum im Overlay ausblenden.</string>
+    <string name="hide_color_space">Farbraum ausblenden</string>
+    <string name="hide_processor_title_in_the_overlay">Den Titel "Prozessor" im Overlay ausblenden.</string>
+    <string name="hide_processor_title">Titel "Prozessor" ausblenden</string>
+    <string name="hide_cpu_load_in_the_overlay">Auslastung im Overlay ausblenden.</string>
+    <string name="hide_cpu_load">Auslastung ausblenden</string>
+    <string name="hide_cpu_clock_in_the_overlay">CPU Takt im Overlay ausblenden.</string>
+    <string name="hide_cpu_clock">CPU Takt ausblenden</string>
+    <string name="hide_cpu_governor_in_the_overlay">CPU Governor im Overlay ausblenden.</string>
+    <string name="hide_cpu_governor">CPU Governor ausblenden</string>
+    <string name="hide_other_title_in_the_overlay">Den Titel "Sonstiges" im Overlay ausblenden.</string>
+    <string name="hide_other_title">Titel "Sonstiges" ausblenden</string>
+    <string name="hide_time_in_the_overlay">Aktuelle Zeit im Overlay ausblenden.</string>
+    <string name="hide_time">Aktuelle Zeit ausblenden</string>
+    <string name="hide_memory_usage_in_the_overlay">Speichernutzung im Overlay ausblenden.</string>
+    <string name="hide_memory_usage">Speichernutzung ausblenden</string>
+    <string name="hide_connection_in_the_overlay">Verbindung im Overlay ausblenden.</string>
+    <string name="hide_connection">Verbindung ausblenden</string>
+    <string name="hide_app_name_in_the_overlay">Anwendungsname im Overlay ausblenden.</string>
+    <string name="hide_app_name">Anwendungsname ausblenden</string>
+    <string name="hide_empty_line">Leere Zeile ausblenden</string>
+    <string name="hide_empty_line_between_processor_und_other">Leere Zeile zwischen Prozessor und Sonstiges ausblenden.</string>
+    <string name="hide_empty_line_between_display_und_processor">Leere Zeile zwischen Display und Prozessor ausblenden.</string>
+    <string name="hide_empty_line_between_audio_and_display">Leere Zeile zwischen Audio und Display ausblenden.</string>
+    <string name="hide_empty_line_between_video_and_audio">Leere Zeile zwischen Video und Audio ausblenden.</string>
 
     <string-array name="key_code_labels">
         <item>Lesezeichen-Taste</item>
@@ -220,5 +284,13 @@
         <item>Braun</item>
         <item>Grau</item>
         <item>Blaugrau</item>
+    </string-array>
+
+    <string-array name="cpu_clock_options">
+        <item>Aktuelle MHz + (%)</item>
+        <item>Aktuelle MHz + Maximale MHz + (%)</item>
+        <item>Aktuelle MHz + Maximale MHz</item>
+        <item>Aktuelle MHz</item>
+        <item>%</item>
     </string-array>
 </resources>

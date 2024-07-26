@@ -13,7 +13,7 @@
     <string name="app_name_tv">App Name:</string>
     <string name="cpu_usage">CPU Load:</string>
     <string name="cpu_index">CPU %d Clock:</string>
-    <string name="cpu_governor" translatable="false">CPU Governor:</string>
+    <string name="cpu_governor">CPU Governor:</string>
     <string name="memory_usage">Memory Usage:</string>
     <string name="time">Time:</string>
     <string name="connection">Connection:</string>
@@ -1731,9 +1731,9 @@
     </string-array>
 
     <string-array name="cpu_clock_options">
-        <item>MHz / %</item>
-        <item>Current MHz / Max MHz / %</item>
-        <item>Current MHz / Max MHz</item>
+        <item>MHz + (%)</item>
+        <item>Current MHz + Max MHz + (%)</item>
+        <item>Current MHz + Max MHz</item>
         <item>MHz</item>
         <item>%</item>
     </string-array>

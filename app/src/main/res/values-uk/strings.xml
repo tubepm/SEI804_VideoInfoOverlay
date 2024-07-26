@@ -12,6 +12,7 @@
     <string name="app_name_tv">Назва застосунку:</string>
     <string name="cpu_usage">Використання ЦП:</string>
     <string name="cpu_index">Тактова частота ЦП %d:</string>
+    <string name="cpu_governor">ЦП Governor:</string>
     <string name="memory_usage">Використання пам\'яті:</string>
     <string name="time">Час:</string>
     <string name="connection">З\'єднання:</string>

@@ -1262,7 +1262,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                 0
             }
 
-            "$frequencyInMHz MHz | $utilization%"
+            "$frequencyInMHz MHz ($utilization%)"
         }.joinToString("\n")
     }
 
@@ -1277,7 +1277,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             } else {
                 0
             }
-            "$frequencyInMHz | $maxFrequencyInMHz MHz | $utilization%"
+            "$frequencyInMHz | $maxFrequencyInMHz MHz ($utilization%)"
         }.joinToString(separator = "\n")
     }
 
