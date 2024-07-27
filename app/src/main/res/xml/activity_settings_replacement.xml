@@ -11,6 +11,9 @@
             android:summary="@string/select_the_cpu_clock_output_for_the_overlay"
             android:title="@string/cpu_clock_output" />
 
+    </PreferenceCategory>
+    <PreferenceCategory>
+
         <CheckBoxPreference
             android:defaultValue="false"
             android:icon="@drawable/ic_time_24dp"

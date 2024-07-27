@@ -20,6 +20,9 @@
             android:summary="@string/background_color_right_summary"
             android:title="@string/background_color_right" />
 
+    </PreferenceCategory>
+    <PreferenceCategory>
+
         <ListPreference
             android:defaultValue="0.9"
             android:entries="@array/background_alpha_left_options"

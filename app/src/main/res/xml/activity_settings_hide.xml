@@ -9,6 +9,9 @@
             android:summary="@string/hide_the_left_overlay_completely"
             android:title="@string/hide_left_overlay" />
 
+    </PreferenceCategory>
+    <PreferenceCategory>
+
         <CheckBoxPreference
             android:defaultValue="false"
             android:icon="@drawable/ic_title_24dp"
@@ -22,6 +25,9 @@
             android:key="empty_line_key"
             android:summary="@string/hide_all_empty_lines_in_the_overlay"
             android:title="@string/hide_all_empty_lines" />
+
+    </PreferenceCategory>
+    <PreferenceCategory>
 
         <CheckBoxPreference
             android:defaultValue="false"

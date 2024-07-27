@@ -16,6 +16,9 @@
             android:summary="@string/rounded_corners_right_overall_summary"
             android:title="@string/rounded_corners_right_overall" />
 
+    </PreferenceCategory>
+    <PreferenceCategory>
+
         <ListPreference
             android:defaultValue="18"
             android:entries="@array/rounded_corners_left_options"
