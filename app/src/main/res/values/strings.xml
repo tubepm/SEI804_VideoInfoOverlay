@@ -1732,18 +1732,18 @@
     </string-array>
 
     <string-array name="cpu_clock_options">
-        <item>Current MHz + (%)</item>
-        <item>Current MHz + Maximal MHz + (%)</item>
-        <item>Current MHz + Maximal MHz</item>
-        <item>Current MHz</item>
         <item>%</item>
+        <item>Current MHz</item>
+        <item>Current MHz + (%)</item>
+        <item>Current MHz + Maximal MHz</item>
+        <item>Current MHz + Maximal MHz + (%)</item>
     </string-array>
 
     <string-array name="cpu_clock_values">
-        <item>currperc</item>
-        <item>currmaxperc</item>
-        <item>currmax</item>
-        <item>curr</item>
         <item>percentage</item>
+        <item>current</item>
+        <item>currentPercentage</item>
+        <item>currentMaximal</item>
+        <item>currentMaximalPerc</item>
     </string-array>
 </resources>

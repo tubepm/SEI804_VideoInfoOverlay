@@ -648,13 +648,13 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                 }
 
                 if (!isHideCpuClock) {
-                    val cpuClockPreference = sharedPreferences.getString("cpu_clock_key", "currperc")
+                    val cpuClockPreference = sharedPreferences.getString("cpu_clock_key", "currentPercentage")
                     val displayText = when (cpuClockPreference) {
-                        "currperc" -> cpuCurrPerc
-                        "currmaxperc" -> cpuCurrMaxPerc
-                        "currmax" -> cpuCurrMax
-                        "curr" -> cpuCurr
                         "percentage" -> cpuPercentage
+                        "current" -> cpuCurr
+                        "currentPercentage" -> cpuCurrPerc
+                        "currentMaximal" -> cpuCurrMax
+                        "currentMaximalPerc" -> cpuCurrMaxPerc
                         else -> cpuCurrPerc
                     }
 

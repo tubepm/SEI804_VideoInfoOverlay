@@ -288,10 +288,10 @@
     </string-array>
 
     <string-array name="cpu_clock_options">
-        <item>Aktuelle MHz + (%)</item>
-        <item>Aktuelle MHz + Maximale MHz + (%)</item>
-        <item>Aktuelle MHz + Maximale MHz</item>
-        <item>Aktuelle MHz</item>
         <item>%</item>
+        <item>Aktuelle MHz</item>
+        <item>Aktuelle MHz + (%)</item>
+        <item>Aktuelle MHz + Maximale MHz</item>
+        <item>Aktuelle MHz + Maximale MHz + (%)</item>
     </string-array>
 </resources>

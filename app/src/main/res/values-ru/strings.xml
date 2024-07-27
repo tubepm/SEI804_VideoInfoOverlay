@@ -288,10 +288,10 @@
     </string-array>
     
     <string-array name="cpu_clock_options">
-        <item>Текущее MHz + (%)</item>
-        <item>Текущее MHz + Макс MHz + (%)</item>
-        <item>Текущее MHz + Макс MHz</item>
-        <item>Текущее MHz</item>
         <item>%</item>
+        <item>Текущее MHz</item>
+        <item>Текущее MHz + (%)</item>
+        <item>Текущее MHz + Макс MHz</item>
+        <item>Текущее MHz + Макс MHz + (%)</item>
     </string-array>
 </resources>

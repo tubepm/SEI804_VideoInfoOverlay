@@ -288,10 +288,10 @@
     </string-array>
 
     <string-array name="cpu_clock_options">
-        <item>Jelenlegi MHz + (%)</item>
-        <item>Jelenlegi MHz + Maximális MHz + (%)</item>
-        <item>Jelenlegi MHz + Maximális MHz</item>
-        <item>Jelenlegi MHz</item>
         <item>%</item>
+        <item>Jelenlegi MHz</item>
+        <item>Jelenlegi MHz + (%)</item>
+        <item>Jelenlegi MHz + Maximális MHz</item>
+        <item>Jelenlegi MHz + Maximális MHz + (%)</item>
     </string-array>
 </resources>
