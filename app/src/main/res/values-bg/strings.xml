@@ -79,6 +79,69 @@
     <string name="video">Видео</string>
     <string name="audio">Аудио</string>
     <string name="settings">Настройки</string>
+    <string name="replacement_options">Замяна</string>
+    <string name="select_the_cpu_clock_output_for_the_overlay">Изберете изхода на тактовия генератор на процесора за наслагването.</string>
+    <string name="cpu_clock_output">Изход на тактовия генератор на процесора</string>
+    <string name="this_option_adds_seconds_to_the_time">Показвайте секундите за времето в наслагването.</string>
+    <string name="display_seconds">Секунди във времето</string>
+    <string name="show_mbps_instead_of_mb_s_in_the_overlay">Показвайте Mbps вместо MB/s за връзката в наслагването.</string>
+    <string name="show_mbps">Mbps вместо MB/s</string>
+    <string name="show_gb_instead_of_mb_in_the_overlay">Показвайте GB вместо MB за използването на паметта в наслагването.</string>
+    <string name="show_gb">GB вместо MB</string>
+    <string name="hide_options">Скриване</string>
+    <string name="hide_the_left_overlay_completely">Скриване на лявото наслагване напълно.</string>
+    <string name="hide_left_overlay">Скриване на лявото наслагване</string>
+    <string name="hide_all_titles_in_the_overlay">Скриване на всички заглавия в горното покритие.</string>
+    <string name="hide_all_titles">Скриване на всички заглавия</string>
+    <string name="hide_all_empty_lines_in_the_overlay">Скриване на всички празни редове в наслагването.</string>
+    <string name="hide_all_empty_lines">Скриване на всички празни линии</string>
+    <string name="hide_video_title_in_the_overlay">Скриване на заглавието на видеото в наслагването.</string>
+    <string name="hide_video_title">Скриване на заглавието на видеоклипа</string>
+    <string name="hide_display_resolution_in_the_overlay">Скриване на резолюцията на дисплея в наслагването.</string>
+    <string name="hide_display_resolution">Скриване на резолюцията на дисплея</string>
+    <string name="hide_video_resolution_in_the_overlay">Скриване на разделителната способност на видеото в наслагването.</string>
+    <string name="hide_video_resolution">Скриване на видео резолюцията</string>
+    <string name="hide_video_format_in_the_overlay">Скриване на формата на видеото в наслагването.</string>
+    <string name="hide_video_format">Скриване на формата на видеото</string>
+    <string name="hide_audio_title_in_the_overlay">Скриване на аудиозаглавието в наслагването.</string>
+    <string name="hide_audio_title">Скриване на аудио заглавието</string>
+    <string name="hide_audio_mode_in_the_overlay">Скриване на аудио режима в наслагването.</string>
+    <string name="hide_audio_mode">Скриване на аудио режима</string>
+    <string name="hide_audio_format_in_the_overlay">Скриване на аудиоформата в наслагването.</string>
+    <string name="hide_audio_format">Скриване на аудиоформата</string>
+    <string name="hide_display_title_in_the_overlay">Скриване на заглавието на дисплея в наслагването.</string>
+    <string name="hide_display_title">Скриване на заглавието на дисплея</string>
+    <string name="hide_hdr_status_in_the_overlay">Скриване на HDR статуса в наслагването.</string>
+    <string name="hide_hdr_status">Скриване на състоянието на HDR</string>
+    <string name="hide_hdr_priority_in_the_overlay">Скриване на приоритета на HDR в наслагването.</string>
+    <string name="hide_hdr_priority">Скриване на приоритета на HDR</string>
+    <string name="hide_hdr_policy_in_the_overlay">Скриване на политиката за HDR в наслагването.</string>
+    <string name="hide_hdr_policy">Скриване на политиката за HDR</string>
+    <string name="hide_color_space_in_the_overlay">Скриване на цветовото пространство в наслагването.</string>
+    <string name="hide_color_space">Скриване на цветовото пространство</string>
+    <string name="hide_processor_title_in_the_overlay">Скриване на заглавието на процесора в наслагването.</string>
+    <string name="hide_processor_title">Скриване на заглавието на процесора</string>
+    <string name="hide_cpu_load_in_the_overlay">Скриване на натоварването на процесора в горното покритие.</string>
+    <string name="hide_cpu_load">Скриване на натоварването на процесора</string>
+    <string name="hide_cpu_clock_in_the_overlay">Скрива часовника на процесора в наслагването.</string>
+    <string name="hide_cpu_clock">Скриване на часовника на процесора</string>
+    <string name="hide_cpu_governor_in_the_overlay">Скриване на процесорния регулатор в наслагването.</string>
+    <string name="hide_cpu_governor">Скриване на CPU гуверньора</string>
+    <string name="hide_other_title_in_the_overlay">Скриване на друго заглавие в горното покритие.</string>
+    <string name="hide_other_title">Скриване на друго заглавие</string>
+    <string name="hide_time_in_the_overlay">Скриване на времето в наслагването.</string>
+    <string name="hide_time">Скриване на времето</string>
+    <string name="hide_memory_usage_in_the_overlay">Скриване на използването на паметта в наслагването.</string>
+    <string name="hide_memory_usage">Скрива използването на паметта</string>
+    <string name="hide_connection_in_the_overlay">Скриване на връзката в наслагването.</string>
+    <string name="hide_connection">Скриване на връзката</string>
+    <string name="hide_app_name_in_the_overlay">Скриване на името на приложението в наслагването.</string>
+    <string name="hide_app_name">Скриване на името на приложението</string>
+    <string name="hide_empty_line">Скрива празния ред</string>
+    <string name="hide_empty_line_between_processor_und_other">Скриване на празен ред между процесора и другото.</string>
+    <string name="hide_empty_line_between_display_und_processor">Скриване на празен ред между дисплей и процесор.</string>
+    <string name="hide_empty_line_between_audio_and_display">Скриване на празен ред между аудио и дисплей.</string>
+    <string name="hide_empty_line_between_video_and_audio">Скриване на празен ред между видео и аудио.</string>
 
     <string-array name="key_code_labels">
         <item>Бутон за отметка</item>
@@ -222,5 +285,13 @@
         <item>Кафяв</item>
         <item>Сив</item>
         <item>Синьо сив</item>
+    </string-array>
+
+    <string-array name="cpu_clock_options">
+        <item>%</item>
+        <item>Текущ MHz</item>
+        <item>Текущ MHz + (%)</item>
+        <item>Текущ MHz + Максимален MHz</item>
+        <item>Текущ MHz + Максимален MHz + (%)</item>
     </string-array>
 </resources>
