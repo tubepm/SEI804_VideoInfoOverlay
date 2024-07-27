@@ -80,8 +80,8 @@
     <string name="audio">Аудіо</string>
     <string name="settings">Налаштування</string>
     <string name="replacement_options">Параметри заміни</string>
-    <string name="select_the_cpu_clock_output_for_the_overlay">Вибрати вихідну тактову частоту ЦП для оверлея.</string>
-    <string name="cpu_clock_output">Вихідна тактова частота ЦП</string>
+    <string name="select_the_cpu_clock_output_for_the_overlay">Вибрати шаблон відображення тактової частоти ЦП для оверлея.</string>
+    <string name="cpu_clock_output">Шаблон тактової частоти ЦП</string>
     <string name="this_option_adds_seconds_to_the_time">Показувати секунди при відображенні часу на оверлеї.</string>
     <string name="display_seconds">Показувати секунди при відображенні часу</string>
     <string name="show_mbps_instead_of_mb_s_in_the_overlay">Показувати швидкість з\'єднання у Mbps замість MB/s.</string>
@@ -121,8 +121,8 @@
     <string name="hide_color_space">Приховати Колірний простір</string>
     <string name="hide_processor_title_in_the_overlay">Приховати заголовок секції ЦП на оверлеї.</string>
     <string name="hide_processor_title">Приховати заголовок ЦП</string>
-    <string name="hide_cpu_load_in_the_overlay">Приховати Завантаження ЦП на оверлеї.</string>
-    <string name="hide_cpu_load">Приховати Завантаження ЦП</string>
+    <string name="hide_cpu_load_in_the_overlay">Приховати Використання ЦП на оверлеї.</string>
+    <string name="hide_cpu_load">Приховати Використання ЦП</string>
     <string name="hide_cpu_clock_in_the_overlay">Приховати Тактову частоту ЦП на оверлеї.</string>
     <string name="hide_cpu_clock">Приховати Тактову частоту ЦП</string>
     <string name="hide_cpu_governor_in_the_overlay">Приховати Governor ЦП на оверлеї.</string>
