@@ -41,10 +41,9 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
     private var standardKeyCode: Int = KeyEvent.KEYCODE_BOOKMARK
     private var overlayView: View? = null
     private var lastKeyDownTime: Long = 0
-    private val lock = Any()
     private var serviceBinder: IBinder? = null
     private var serviceConnection: ServiceConnection? = null
-
+    private val lock = Any()
     private val handler = Handler(Looper.getMainLooper())
     private val selectedCodeKey = "selected_code_key"
     private val longPressKey = "long_press_key"
