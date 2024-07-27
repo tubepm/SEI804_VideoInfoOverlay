@@ -78,6 +78,7 @@
     <string name="cpu">CPU</string>
     <string name="video">Videó</string>
     <string name="audio">Hang</string>
+    <string name="settings">Beállítások</string>
     <string name="replacement_options">Beállítási lehetőségek</string>
     <string name="select_the_cpu_clock_output_for_the_overlay">Válasszd ki a CPU órajelet az infóablakhoz.</string>
     <string name="cpu_clock_output">CPU órajel kimenet</string>

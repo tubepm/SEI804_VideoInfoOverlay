@@ -78,6 +78,7 @@
     <string name="cpu">Prozessor</string>
     <string name="video">Video</string>
     <string name="audio">Ton</string>
+    <string name="settings">Einstellungen</string>
     <string name="replacement_options">Ersetzen</string>
     <string name="select_the_cpu_clock_output_for_the_overlay">Eine CPU Taktausgabe für das Overlay auswählen.</string>
     <string name="cpu_clock_output">CPU Taktausgabe</string>

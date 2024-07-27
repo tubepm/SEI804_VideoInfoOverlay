@@ -78,6 +78,7 @@
     <string name="cpu">ЦП</string>
     <string name="video">Відео</string>
     <string name="audio">Аудіо</string>
+    <string name="settings">Налаштування</string>
     <string name="replacement_options">Параметри заміни</string>
     <string name="select_the_cpu_clock_output_for_the_overlay">Вибрати вихідну тактову частоту ЦП для оверлея.</string>
     <string name="cpu_clock_output">Вихідна тактова частота ЦП</string>

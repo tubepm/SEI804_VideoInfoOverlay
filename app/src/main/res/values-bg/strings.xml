@@ -78,6 +78,7 @@
     <string name="cpu">CPU</string>
     <string name="video">Видео</string>
     <string name="audio">Аудио</string>
+    <string name="settings">Настройки</string>
 
     <string-array name="key_code_labels">
         <item>Бутон за отметка</item>

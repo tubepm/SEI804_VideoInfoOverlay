@@ -79,7 +79,8 @@
     <string name="cpu">Processor</string>
     <string name="video">Video</string>
     <string name="audio">Audio</string>
-    <string name="replacement_options">Replacement options</string>
+    <string name="settings">Settings</string>
+    <string name="replacement_options">Replace</string>
     <string name="select_the_cpu_clock_output_for_the_overlay">Select the CPU clock output for the overlay.</string>
     <string name="cpu_clock_output">CPU clock output</string>
     <string name="this_option_adds_seconds_to_the_time">Show Seconds for the time in the overlay.</string>

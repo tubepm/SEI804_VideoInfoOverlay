@@ -78,6 +78,7 @@
     <string name="cpu">Процессор</string>
     <string name="video">Видео</string>
     <string name="audio">Аудио</string>
+    <string name="settings">Настройки</string>
     <string name="replacement_options">Опции замены</string>
     <string name="select_the_cpu_clock_output_for_the_overlay">Выберите варианты вывода CPU частоты при отображении.</string>
     <string name="cpu_clock_output">Вывод частоты ЦПУ</string>
