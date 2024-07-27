@@ -13,6 +13,7 @@ import android.net.ConnectivityManager
 import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
+import android.text.format.DateFormat as AndroidDateFormat
 import android.util.Log
 import android.view.KeyEvent
 import android.view.View
@@ -30,7 +31,6 @@ import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
-import android.text.format.DateFormat as AndroidDateFormat
 
 
 class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenceChangeListener {
