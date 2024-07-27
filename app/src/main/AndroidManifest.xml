@@ -25,13 +25,7 @@
                 android:resource="@xml/accessibility_service_config" />
         </service>
 
-        <activity android:name=".SettingsActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".settings.SettingsActivity" />
 
         <activity android:name=".settings.OverlaySettingsActivity" />
 
@@ -48,7 +42,6 @@
         <activity android:name=".settings.HideSettingsActivity" />
 
         <activity android:name=".settings.AboutSettingsActivity" />
-
 
     </application>
 

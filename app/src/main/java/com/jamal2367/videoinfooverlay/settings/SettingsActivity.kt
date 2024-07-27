@@ -1,18 +1,11 @@
-package com.jamal2367.videoinfooverlay
+package com.jamal2367.videoinfooverlay.settings
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
-import com.jamal2367.videoinfooverlay.settings.AboutSettingsActivity
-import com.jamal2367.videoinfooverlay.settings.BackgroundSettingsActivity
-import com.jamal2367.videoinfooverlay.settings.CornerSettingsActivity
-import com.jamal2367.videoinfooverlay.settings.DistanceSettingsActivity
-import com.jamal2367.videoinfooverlay.settings.HideSettingsActivity
-import com.jamal2367.videoinfooverlay.settings.OverlaySettingsActivity
-import com.jamal2367.videoinfooverlay.settings.ReplacementSettingsActivity
-import com.jamal2367.videoinfooverlay.settings.TextSettingsActivity
+import com.jamal2367.videoinfooverlay.R
 
 class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
