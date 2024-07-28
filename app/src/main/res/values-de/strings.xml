@@ -83,7 +83,7 @@
     <string name="select_the_cpu_clock_output_for_the_overlay">Eine CPU Taktausgabe für das Overlay auswählen.</string>
     <string name="cpu_clock_output">CPU Taktausgabe</string>
     <string name="this_option_adds_seconds_to_the_time">Sekunden für die Uhrzeit im Overlay anzeigen lassen.</string>
-    <string name="display_seconds">Sekunden in der Uhrzeit</string>
+    <string name="display_seconds">Sekunden für die Uhrzeit</string>
     <string name="show_mbps_instead_of_mb_s_in_the_overlay">Mbit/s anstelle von MB/s für Verbindungstyp im Overlay anzeigen.</string>
     <string name="show_mbps">Mbit/s anstelle von MB/s</string>
     <string name="show_gb_instead_of_mb_in_the_overlay">GB anstelle von MB für die Speichernutzung im Overlay anzeigen.</string>
