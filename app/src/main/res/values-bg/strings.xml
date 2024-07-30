@@ -125,6 +125,8 @@
     <string name="hide_cpu_load">Скриване на натоварването на процесора</string>
     <string name="hide_cpu_clock_in_the_overlay">Скрива часовника на процесора в наслагването.</string>
     <string name="hide_cpu_clock">Скриване на часовника на процесора</string>
+    <string name="hide_cpu_temperature_in_the_overlay">Скриване на температурата на процесора в наслагването.</string>
+    <string name="hide_cpu_temperature">Скриване на температурата на процесора</string>
     <string name="hide_cpu_governor_in_the_overlay">Скриване на процесорния регулатор в наслагването.</string>
     <string name="hide_cpu_governor">Скриване на CPU гуверньора</string>
     <string name="hide_other_title_in_the_overlay">Скриване на друго заглавие в горното покритие.</string>
@@ -142,6 +144,11 @@
     <string name="hide_empty_line_between_display_und_processor">Скриване на празен ред между дисплей и процесор.</string>
     <string name="hide_empty_line_between_audio_and_display">Скриване на празен ред между аудио и дисплей.</string>
     <string name="hide_empty_line_between_video_and_audio">Скриване на празен ред между видео и аудио.</string>
+    <string name="temperature_request">Заявка за температура</string>
+    <string name="temperature_request_summary">Изключване: ThermalService\nВключване: HardwareProperties</string>
+    <string name="temperature_unit">Единица за температура</string>
+    <string name="temperature_unit_summary">Изключване: Целзий\nВключване: Фаренхайт</string>
+    <string name="cpu_temperature">Температура на процесора:</string>
 
     <string-array name="key_code_labels">
         <item>Бутон за отметка</item>

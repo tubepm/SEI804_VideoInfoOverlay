@@ -125,6 +125,8 @@
     <string name="hide_cpu_load">Скрыть загрузку ЦПУ</string>
     <string name="hide_cpu_clock_in_the_overlay">Скрыть частоту ЦПУ при выводе.</string>
     <string name="hide_cpu_clock">Скрыть частоту ЦПУ</string>
+    <string name="hide_cpu_temperature_in_the_overlay">Скрыть температуру ЦПУ при выводе.</string>
+    <string name="hide_cpu_temperature">Скрыть температуру ЦПУ</string>
     <string name="hide_cpu_governor_in_the_overlay">Скрыть политику управления частотой ЦПУ при выводе.</string>
     <string name="hide_cpu_governor">Скрыть политику управления частотой ЦПУ</string>
     <string name="hide_other_title_in_the_overlay">Скрыть название \"Прочее\" при выводе.</string>
@@ -142,6 +144,11 @@
     <string name="hide_empty_line_between_display_und_processor">Скрыть пустую строку между блоками Экран und Процессор.</string>
     <string name="hide_empty_line_between_audio_and_display">Скрыть пустую строку между блоками Аудио и Экран.</string>
     <string name="hide_empty_line_between_video_and_audio">Скрыть пустую строку между блоками Видео и Аудио.</string>
+    <string name="temperature_request">Запрос ЦПУ температуры</string>
+    <string name="temperature_request_summary">ВЫКЛ: Значение температуры\nВКЛ: Свойства оборудования</string>
+    <string name="temperature_unit">Единица измерения ЦПУ температуры</string>
+    <string name="temperature_unit_summary">ВЫКЛ: градусы Цельсия\nВКЛ: градусы Фаренгейта</string>
+    <string name="cpu_temperature">ЦПУ Температура:</string>
 
     <string-array name="key_code_labels">
         <item>Избранное</item>

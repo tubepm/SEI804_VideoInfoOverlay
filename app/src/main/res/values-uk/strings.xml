@@ -125,6 +125,8 @@
     <string name="hide_cpu_load">Приховати Використання ЦП</string>
     <string name="hide_cpu_clock_in_the_overlay">Приховати Тактову частоту ЦП на оверлеї.</string>
     <string name="hide_cpu_clock">Приховати Тактову частоту ЦП</string>
+    <string name="hide_cpu_temperature_in_the_overlay">Приховати температуру ЦП на оверлеї.</string>
+    <string name="hide_cpu_temperature">Приховати температуру ЦП</string>
     <string name="hide_cpu_governor_in_the_overlay">Приховати Governor ЦП на оверлеї.</string>
     <string name="hide_cpu_governor">Приховати Governor ЦП</string>
     <string name="hide_other_title_in_the_overlay">Приховати заголовок секції Інше на оверлеї.</string>
@@ -142,6 +144,11 @@
     <string name="hide_empty_line_between_display_und_processor">Приховати порожній рядок між секціями Дисплей та ЦП.</string>
     <string name="hide_empty_line_between_audio_and_display">Приховати порожній рядок між секціями Аудіо та Дисплей.</string>
     <string name="hide_empty_line_between_video_and_audio">Приховати порожній рядок між секціями Відео та Аудіо.</string>
+    <string name="temperature_request">Запит ЦП температури</string>
+    <string name="temperature_request_summary">Вимкнути: ThermalService\nУвімкнути: HardwareProperties</string>
+    <string name="temperature_unit">Одиниці виміру ЦП температури</string>
+    <string name="temperature_unit_summary">Вимкнути: Цельсій\nУвімкнути: Фаренгейт</string>
+    <string name="cpu_temperature">ЦП Температура:</string>
 
     <string-array name="key_code_labels">
         <item>Кнопка Закладки</item>

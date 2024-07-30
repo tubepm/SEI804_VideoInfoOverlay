@@ -158,6 +158,13 @@
         <CheckBoxPreference
             android:defaultValue="false"
             android:icon="@drawable/ic_strikethrough_24dp"
+            android:key="pref_hide_cpu_temperature_key"
+            android:summary="@string/hide_cpu_temperature_in_the_overlay"
+            android:title="@string/hide_cpu_temperature" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_strikethrough_24dp"
             android:key="pref_hide_cpu_governor_key"
             android:summary="@string/hide_cpu_governor_in_the_overlay"
             android:title="@string/hide_cpu_governor" />

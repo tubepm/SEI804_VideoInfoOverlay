@@ -125,6 +125,8 @@
     <string name="hide_cpu_load">Auslastung ausblenden</string>
     <string name="hide_cpu_clock_in_the_overlay">CPU Taktrate im Overlay ausblenden.</string>
     <string name="hide_cpu_clock">CPU Taktrate ausblenden</string>
+    <string name="hide_cpu_temperature_in_the_overlay">CPU Temperatur im Overlay ausblenden.</string>
+    <string name="hide_cpu_temperature">CPU Temperatur ausblenden</string>
     <string name="hide_cpu_governor_in_the_overlay">CPU Governor im Overlay ausblenden.</string>
     <string name="hide_cpu_governor">CPU Governor ausblenden</string>
     <string name="hide_other_title_in_the_overlay">Den Titel \"Sonstiges\" im Overlay ausblenden.</string>
@@ -142,6 +144,11 @@
     <string name="hide_empty_line_between_display_und_processor">Leere Zeile zwischen Display und Prozessor ausblenden.</string>
     <string name="hide_empty_line_between_audio_and_display">Leere Zeile zwischen Audio und Display ausblenden.</string>
     <string name="hide_empty_line_between_video_and_audio">Leere Zeile zwischen Video und Audio ausblenden.</string>
+    <string name="temperature_request">CPU Temperaturanfrage</string>
+    <string name="temperature_request_summary">Aus: ThermalService\nAn: HardwareProperties</string>
+    <string name="temperature_unit">CPU Temperatureinheit</string>
+    <string name="temperature_unit_summary">Aus: Celsius\nAn: Fahrenheit</string>
+    <string name="cpu_temperature">CPU Temperatur:</string>
 
     <string-array name="key_code_labels">
         <item>Lesezeichen</item>

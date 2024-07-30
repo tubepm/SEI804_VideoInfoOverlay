@@ -126,6 +126,8 @@
     <string name="hide_cpu_load">Hide CPU load</string>
     <string name="hide_cpu_clock_in_the_overlay">Hide CPU clock in the overlay.</string>
     <string name="hide_cpu_clock">Hide CPU clock</string>
+    <string name="hide_cpu_temperature_in_the_overlay">Hide CPU temperature in the overlay.</string>
+    <string name="hide_cpu_temperature">Hide CPU temperature</string>
     <string name="hide_cpu_governor_in_the_overlay">Hide CPU governor in the overlay.</string>
     <string name="hide_cpu_governor">Hide CPU governor</string>
     <string name="hide_other_title_in_the_overlay">Hide other title in the overlay.</string>
@@ -143,6 +145,11 @@
     <string name="hide_empty_line_between_display_und_processor">Hide empty line between display und processor.</string>
     <string name="hide_empty_line_between_audio_and_display">Hide empty line between audio and display.</string>
     <string name="hide_empty_line_between_video_and_audio">Hide empty line between video and audio.</string>
+    <string name="temperature_request">CPU temperature request</string>
+    <string name="temperature_request_summary">Off: ThermalService\nOn: HardwareProperties</string>
+    <string name="temperature_unit">CPU temperature unit</string>
+    <string name="temperature_unit_summary">Off: Celsius\nOn: Fahrenheit</string>
+    <string name="cpu_temperature">CPU Temperature:</string>
 
     <string-array name="key_code_labels">
         <item>Bookmark button</item>

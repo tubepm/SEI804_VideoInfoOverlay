@@ -13,7 +13,7 @@ import android.net.ConnectivityManager
 import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
-import android.text.format.DateFormat as AndroidDateFormat
+import android.util.Base64
 import android.util.Log
 import android.view.KeyEvent
 import android.view.View
@@ -24,13 +24,27 @@ import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.ColorUtils
 import androidx.preference.PreferenceManager
+import com.tananaev.adblib.AdbBase64
+import com.tananaev.adblib.AdbConnection
+import com.tananaev.adblib.AdbCrypto
+import com.tananaev.adblib.AdbStream
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.IOException
+import java.lang.ref.WeakReference
+import java.net.Socket
 import java.text.DateFormat
+import java.text.DecimalFormat
+import java.text.DecimalFormatSymbols
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import android.text.format.DateFormat as AndroidDateFormat
 
 
 class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenceChangeListener {
@@ -45,6 +59,14 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
     private var serviceConnection: ServiceConnection? = null
     private val lock = Any()
     private val handler = Handler(Looper.getMainLooper())
+    private var connection: AdbConnection? = null
+    private var stream: AdbStream? = null
+    private var myAsyncTask: MyAsyncTask? = null
+    private val ipAddress = "0.0.0.0"
+    private var requestKey= "request_key"
+    private var celFahrKey= "celsius_fahrenheit_key"
+    private val publicKeyName: String = "public.key"
+    private val privateKeyName: String = "private.key"
     private val selectedCodeKey = "selected_code_key"
     private val longPressKey = "long_press_key"
     private val hideLeftOverlay = "hide_left_overlay_key"
@@ -89,6 +111,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
     private val textHideProcessorTitleKey = "pref_hide_processor_title_key"
     private val textHideCpuLoadKey = "pref_hide_cpu_load_key"
     private val textHideCpuClockKey = "pref_hide_cpu_clock_key"
+    private val textHideCpuTemperatureKey = "pref_hide_cpu_temperature_key"
     private val textHideCpuGovernorKey = "pref_hide_cpu_governor_key"
     private val textHideEmptyProcessorOtherLineKey = "pref_hide_empty_processor_other_line_key"
     private val textHideOtherTitleKey = "pref_hide_other_title_key"
@@ -158,6 +181,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                             removeOverlay()
                             Log.d("TAG", "Overlay removed")
                         } else {
+                            onKeyCE()
                             createOverlay()
                             Log.d("TAG", "Overlay started")
                         }
@@ -168,6 +192,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                             removeOverlay()
                             Log.d("TAG", "Overlay removed")
                         } else {
+                            onKeyCE()
                             createOverlay()
                             Log.d("TAG", "Overlay started")
                         }
@@ -306,594 +331,625 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         }
     }
 
-    private val updateData = object : Runnable {
-        override fun run() {
-            val isEmptyLine = sharedPreferences.getBoolean(emptyLineKey, false)
-            val isTitleLine = sharedPreferences.getBoolean(emptyTitleKey, false)
-            val isHideVideoTitle = sharedPreferences.getBoolean(textHideVideoTitleKey, false)
-            val isHideDisplayResolution = sharedPreferences.getBoolean(textHideDisplayResolutionKey, false)
-            val isHideVideoResolution = sharedPreferences.getBoolean(textHideVideoResolutionKey, false)
-            val isHideVideoFormat = sharedPreferences.getBoolean(textHideVideoFormatKey, false)
-            val isHideEmptyVideoAudioLine = sharedPreferences.getBoolean(textHideEmptyVideoAudioLineKey, false)
-            val isHideAudioTitle = sharedPreferences.getBoolean(textHideAudioTitleKey, false)
-            val isHideAudioMode = sharedPreferences.getBoolean(textHideAudioModeKey, false)
-            val isHideAudioFormat = sharedPreferences.getBoolean(textHideAudioFormatKey, false)
-            val isHideEmptyAudioDisplayLine = sharedPreferences.getBoolean(textHideEmptyAudioDisplayLineKey, false)
-            val isHideDisplayTitle = sharedPreferences.getBoolean(textHideDisplayTitleKey, false)
-            val isHideHdrStatus = sharedPreferences.getBoolean(textHideHdrStatusKey, false)
-            val isHideHdrPriority = sharedPreferences.getBoolean(textHideHdrPriorityKey, false)
-            val isHideHdrPolicy = sharedPreferences.getBoolean(textHideHdrPolicyKey, false)
-            val isHideColorSpace = sharedPreferences.getBoolean(textHideColorSpaceKey, false)
-            val isHideEmptyDisplayProcessorLine = sharedPreferences.getBoolean(textHideEmptyDisplayProcessorLineKey, false)
-            val isHideProcessorTitle = sharedPreferences.getBoolean(textHideProcessorTitleKey, false)
-            val isHideCpuLoad = sharedPreferences.getBoolean(textHideCpuLoadKey, false)
-            val isHideCpuClock = sharedPreferences.getBoolean(textHideCpuClockKey, false)
-            val isHideCpuGovernor = sharedPreferences.getBoolean(textHideCpuGovernorKey, false)
-            val isHideEmptyProcessorOtherLine = sharedPreferences.getBoolean(textHideEmptyProcessorOtherLineKey, false)
-            val isHideOtherTitle = sharedPreferences.getBoolean(textHideOtherTitleKey, false)
-            val isHideTime = sharedPreferences.getBoolean(textHideTimeKey, false)
-            val isHideMemoryUsage = sharedPreferences.getBoolean(textHideMemoryUsageKey, false)
-            val isHideConnection = sharedPreferences.getBoolean(textHideConnectionKey, false)
-            val isHideAppName = sharedPreferences.getBoolean(textHideAppNameKey, false)
+    private val updateData: Runnable by lazy {
+        Runnable {
+            CoroutineScope(Dispatchers.Main).launch {
+                val isEmptyLine = sharedPreferences.getBoolean(emptyLineKey, false)
+                val isTitleLine = sharedPreferences.getBoolean(emptyTitleKey, false)
+                val isHideVideoTitle = sharedPreferences.getBoolean(textHideVideoTitleKey, false)
+                val isHideDisplayResolution = sharedPreferences.getBoolean(textHideDisplayResolutionKey, false)
+                val isHideVideoResolution = sharedPreferences.getBoolean(textHideVideoResolutionKey, false)
+                val isHideVideoFormat = sharedPreferences.getBoolean(textHideVideoFormatKey, false)
+                val isHideEmptyVideoAudioLine = sharedPreferences.getBoolean(textHideEmptyVideoAudioLineKey, false)
+                val isHideAudioTitle = sharedPreferences.getBoolean(textHideAudioTitleKey, false)
+                val isHideAudioMode = sharedPreferences.getBoolean(textHideAudioModeKey, false)
+                val isHideAudioFormat = sharedPreferences.getBoolean(textHideAudioFormatKey, false)
+                val isHideEmptyAudioDisplayLine = sharedPreferences.getBoolean(textHideEmptyAudioDisplayLineKey, false)
+                val isHideDisplayTitle = sharedPreferences.getBoolean(textHideDisplayTitleKey, false)
+                val isHideHdrStatus = sharedPreferences.getBoolean(textHideHdrStatusKey, false)
+                val isHideHdrPriority = sharedPreferences.getBoolean(textHideHdrPriorityKey, false)
+                val isHideHdrPolicy = sharedPreferences.getBoolean(textHideHdrPolicyKey, false)
+                val isHideColorSpace = sharedPreferences.getBoolean(textHideColorSpaceKey, false)
+                val isHideEmptyDisplayProcessorLine = sharedPreferences.getBoolean(textHideEmptyDisplayProcessorLineKey, false)
+                val isHideProcessorTitle = sharedPreferences.getBoolean(textHideProcessorTitleKey, false)
+                val isHideCpuLoad = sharedPreferences.getBoolean(textHideCpuLoadKey, false)
+                val isHideCpuClock = sharedPreferences.getBoolean(textHideCpuClockKey, false)
+                val isHideCpuTemperature = sharedPreferences.getBoolean(textHideCpuTemperatureKey, false)
+                val isHideCpuGovernor = sharedPreferences.getBoolean(textHideCpuGovernorKey, false)
+                val isHideEmptyProcessorOtherLine = sharedPreferences.getBoolean(textHideEmptyProcessorOtherLineKey, false)
+                val isHideOtherTitle = sharedPreferences.getBoolean(textHideOtherTitleKey, false)
+                val isHideTime = sharedPreferences.getBoolean(textHideTimeKey, false)
+                val isHideMemoryUsage = sharedPreferences.getBoolean(textHideMemoryUsageKey, false)
+                val isHideConnection = sharedPreferences.getBoolean(textHideConnectionKey, false)
+                val isHideAppName = sharedPreferences.getBoolean(textHideAppNameKey, false)
+                val isRequest = sharedPreferences.getBoolean(requestKey, false)
+                val isCelFahr = sharedPreferences.getBoolean(celFahrKey, false)
+                val videoFormat = getSystemProperty("sys.nes.info.video_format")
+                val videoResolution = getSystemProperty("sys.nes.info.video_resolution")
+                val frameRate = getSystemProperty("sys.nes.info.frame_rate")
+                val displayResolution = getSystemProperty("sys.nes.info.display_resolution")
+                val colorSpace = getSystemProperty("sys.nes.info.color_space")
+                val hdrStatus = getSystemProperty("sys.nes.info.hdr_status")
+                val hdrPolicy = getSystemProperty("sys.nes.info.hdr_policy")
+                val hdrPriority = getSystemProperty("sys.nes.info.hdr_priority")
+                val digitalAudioFormat = getSystemProperty("sys.nes.info.digital_audio_format")
+                val audioMode = getSystemProperty("sys.nes.info.audio_mode")
+                val appName = getSystemProperty("sys.nes.info.app_name")
+                val cpuCurrPerc = printCpuCurrPerc()
+                val cpuCurrMaxPerc = printCpuCurrMaxPerc()
+                val cpuCurr = printCpuCurr()
+                val cpuCurrMax = printCpuCurrMax()
+                val cpuPercentage = printCpuPercentage()
+                val cpuUsage = getSystemProperty("sys.nes.info.cpu_usage")
+                val cpuGovernor = printCpuGovernor()
+                val memoryUsage = getSystemProperty("sys.nes.info.memory_usage")
+                val connectionSpeed = getSystemProperty("sys.nes.info.connection_speed")
+                val localTime = getCurrentTimeFormatted(applicationContext)
+                val cpuTemp = getHardwarePropertiesCelsius()
 
-            val videoFormat = getSystemProperty("sys.nes.info.video_format")
-            val videoResolution = getSystemProperty("sys.nes.info.video_resolution")
-            val frameRate = getSystemProperty("sys.nes.info.frame_rate")
-            val displayResolution = getSystemProperty("sys.nes.info.display_resolution")
-            val colorSpace = getSystemProperty("sys.nes.info.color_space")
-            val hdrStatus = getSystemProperty("sys.nes.info.hdr_status")
-            val hdrPolicy = getSystemProperty("sys.nes.info.hdr_policy")
-            val hdrPriority = getSystemProperty("sys.nes.info.hdr_priority")
-            val digitalAudioFormat = getSystemProperty("sys.nes.info.digital_audio_format")
-            val audioMode = getSystemProperty("sys.nes.info.audio_mode")
-            val appName = getSystemProperty("sys.nes.info.app_name")
-            val cpuCurrPerc = printCpuCurrPerc()
-            val cpuCurrMaxPerc = printCpuCurrMaxPerc()
-            val cpuCurr = printCpuCurr()
-            val cpuCurrMax = printCpuCurrMax()
-            val cpuPercentage = printCpuPercentage()
-            val cpuUsage = getSystemProperty("sys.nes.info.cpu_usage")
-            val cpuGovernor = printCpuGovernor()
-            val memoryUsage = getSystemProperty("sys.nes.info.memory_usage")
-            val connectionSpeed = getSystemProperty("sys.nes.info.connection_speed")
-            val localTime = getCurrentTimeFormatted(applicationContext)
-
-            val overlayText = buildString {
-                if (!isHideVideoTitle) {
-                    if (!isTitleLine) {
-                        appendLine("\u200E")
-                    }
-                }
-
-                if (!isHideDisplayResolution) {
-                    if (displayResolution.isNotEmpty()) {
-                        val modifiedDisplayResolution = when (displayResolution.trim()) {
-                            "2160p60hz" -> "3840 x 2160, 60hz"
-                            "2160p50hz" -> "3840 x 2160, 50hz"
-                            "2160p30hz" -> "3840 x 2160, 30hz"
-                            "2160p25hz" -> "3840 x 2160, 25hz"
-                            "2160p24hz" -> "3840 x 2160, 24hz"
-                            "1080p60hz" -> "1920 x 1080, 60hz"
-                            "1080p50hz" -> "1920 x 1080, 50hz"
-                            "1080p30hz" -> "1920 x 1080, 30hz"
-                            "1080p25hz" -> "1920 x 1080, 25hz"
-                            "1080p24hz" -> "1920 x 1080, 24hz"
-                            "1080i60hz" -> "1920 x 1080i, 60hz"
-                            "1080i50hz" -> "1920 x 1080i, 50hz"
-                            "1080i30hz" -> "1920 x 1080i, 30hz"
-                            "1080i25hz" -> "1920 x 1080i, 25hz"
-                            "1080i24hz" -> "1920 x 1080i, 24hz"
-                            "720p60hz" -> "1280 x 720, 60hz"
-                            "720p50hz" -> "1280 x 720, 50hz"
-                            "720p30hz" -> "1280 x 720, 30hz"
-                            "720p25hz" -> "1280 x 720, 25hz"
-                            "720p24hz" -> "1280 x 720, 24hz"
-                            "720i60hz" -> "1280 x 720i, 60hz"
-                            "720i50hz" -> "1280 x 720i, 50hz"
-                            "720i30hz" -> "1280 x 720i, 30hz"
-                            "720i25hz" -> "1280 x 720i, 25hz"
-                            "720i24hz" -> "1280 x 720i, 24hz"
-                            "576p60hz" -> "1024 x 576, 60hz"
-                            "576p50hz" -> "1024 x 576, 50hz"
-                            "576p30hz" -> "1024 x 576, 30hz"
-                            "576p25hz" -> "1024 x 576, 25hz"
-                            "576p24hz" -> "1024 x 576, 24hz"
-                            "576i60hz" -> "1024 x 576i, 60hz"
-                            "576i50hz" -> "1024 x 576i, 50hz"
-                            "576i30hz" -> "1024 x 576i, 30hz"
-                            "576i25hz" -> "1024 x 576i, 25hz"
-                            "576i24hz" -> "1024 x 576i, 24hz"
-                            "480p60hz" -> "854 × 480, 60hz"
-                            "480p50hz" -> "854 × 480, 50hz"
-                            "480p30hz" -> "854 × 480, 30hz"
-                            "480p25hz" -> "854 × 480, 25hz"
-                            "480p24hz" -> "854 × 480, 24hz"
-                            "480i60hz" -> "854 × 480i, 60hz"
-                            "480i50hz" -> "854 × 480i, 50hz"
-                            "480i30hz" -> "854 × 480i, 30hz"
-                            "480i25hz" -> "854 × 480i, 25hz"
-                            "480i24hz" -> "854 × 480i, 24hz"
-                            "smpte24hz" -> "SMPTE, 24hz"
-                            else -> displayResolution
+                val overlayText = buildString {
+                    if (!isHideVideoTitle) {
+                        if (!isTitleLine) {
+                            appendLine("\u200E")
                         }
-                        appendLine(modifiedDisplayResolution)
-                    }
-                }
-
-                if (!isHideVideoResolution) {
-                    if (videoResolution.isNotEmpty()) {
-                        var videoInfo = videoResolution
-
-                        val frameRateFormatted = frameRate.replace("\\s".toRegex(), "")
-                        videoInfo += if (frameRateFormatted.isNotEmpty()) ", $frameRateFormatted" else ""
-
-                        appendLine(videoInfo)
-                    }
-                }
-
-                if (!isHideVideoFormat) {
-                    if (videoFormat.isNotEmpty()) {
-                        val modifiedVideoFormat = when (videoFormat.trim()) {
-                            "amvdec_avs_v4l" -> "AVS"
-                            "amvdec_avs2_v4l" -> "AVS2"
-                            "amvdec_avs2_fb_v4l" -> "AVS2"
-                            "amvdec_avs3_v4l" -> "AVS3"
-                            "amvdec_mavs_v4l" -> "AVS Multi"
-                            "amvdec_h264_v4l" -> "H.264"
-                            "amvdec_mh264_v4l" -> "H.264 Multi"
-                            "amvdec_h265_v4l" -> "H.265"
-                            "amvdec_h265_fb_v4l" -> "H.265"
-                            "amvdec_mmjpeg_v4l" -> "Motion JPEG"
-                            "amvdec_mmpeg12_v4l" -> "MPEG 1/2"
-                            "amvdec_mmpeg4_v4l" -> "MPEG 4"
-                            "amvdec_av1_v4l" -> "AV1"
-                            "amvdec_av1_fb_v4l" -> "AV1"
-                            "amvdec_av1_t5d_v4l" -> "AV1"
-                            "amvdec_vp9_v4l" -> "VP9"
-                            "amvdec_vp9_fb_v4l" -> "VP9"
-                            "amvdec_avs_v4" -> "AVS"
-                            "amvdec_avs2_v4" -> "AVS2"
-                            "amvdec_avs2_fb_v4" -> "AVS2"
-                            "amvdec_avs3_v4" -> "AVS3"
-                            "amvdec_mavs_v4" -> "AVS Multi"
-                            "amvdec_h264_v4" -> "H.264"
-                            "amvdec_h264-00" -> "H.264"
-                            "amvdec_mh264_v4" -> "H.264 Multi"
-                            "amvdec_h265_v4" -> "H.265"
-                            "amvdec_h265_fb_v4" -> "H.265"
-                            "amvdec_mmjpeg_v4" -> "Motion JPEG"
-                            "amvdec_mmpeg12_v4" -> "MPEG 1/2"
-                            "amvdec_mmpeg4_v4" -> "MPEG 4"
-                            "amvdec_av1_v4" -> "AV1"
-                            "amvdec_av1_fb_v4" -> "AV1"
-                            "amvdec_av1_t5d_v4" -> "AV1"
-                            "amvdec_vp9_v4" -> "VP9"
-                            "amvdec_vp9_fb_v4" -> "VP9"
-                            "ammvdec_avs_v4" -> "AVS"
-                            "ammvdec_avs2_v4" -> "AVS2"
-                            "ammvdec_avs2_fb_v4" -> "AVS2"
-                            "ammvdec_avs3_v4" -> "AVS3"
-                            "ammvdec_mavs_v4" -> "AVS Multi"
-                            "ammvdec_h264_v4" -> "H.264"
-                            "ammvdec_h264-00" -> "H.264"
-                            "ammvdec_mh264_v4" -> "H.264 Multi"
-                            "ammvdec_h265_v4" -> "H.265"
-                            "ammvdec_h265_fb_v4" -> "H.265"
-                            "ammvdec_mmjpeg_v4" -> "Motion JPEG"
-                            "ammvdec_mmpeg12_v4" -> "MPEG 1/2"
-                            "ammvdec_mmpeg4_v4" -> "MPEG 4"
-                            "ammvdec_av1_v4" -> "AV1"
-                            "ammvdec_av1_fb_v4" -> "AV1"
-                            "ammvdec_av1_t5d_v4" -> "AV1"
-                            "ammvdec_vp9_v4" -> "VP9"
-                            "ammvdec_vp9_fb_v4" -> "VP9"
-                            "amvdec_avs" -> "AVS"
-                            "amvdec_avs2" -> "AVS2"
-                            "amvdec_avs2_fb" -> "AVS2"
-                            "amvdec_avs3" -> "AVS3"
-                            "amvdec_mavs" -> "AVS Multi"
-                            "amvdec_h264" -> "H.264"
-                            "amvdec_mh264" -> "H.264 Multi"
-                            "amvdec_h265" -> "H.265"
-                            "amvdec_h265_fb" -> "H.265"
-                            "amvdec_mmjpeg" -> "Motion JPEG"
-                            "amvdec_mmpeg12" -> "MPEG 1/2"
-                            "amvdec_mmpeg4" -> "MPEG 4"
-                            "amvdec_av1" -> "AV1"
-                            "amvdec_av1_fb" -> "AV1"
-                            "amvdec_av1_t5d" -> "AV1"
-                            "amvdec_vp9" -> "VP9"
-                            "amvdec_vp9_fb" -> "VP9"
-                            "ammvdec_mpeg12" -> "MPEG 1/2"
-                            "ammvdec_mpeg4" -> "MPEG 4"
-                            "ammvdec_h264" -> "H.264"
-                            "ammvdec_mjpeg" -> "Motion JPEG"
-                            "ammvdec_vc1" -> "VC1"
-                            "ammvdec_avs" -> "AVS"
-                            "ammvdec_yuv" -> "YUV"
-                            "ammvdec_h264mvc" -> "H.264 MVC"
-                            "ammvdec_h264_4k2k" -> "H.264 4K/2K"
-                            "ammvdec_h265" -> "H.265"
-                            "amvenc_avc" -> "AVC"
-                            "ammvdec_vp9" -> "VP9"
-                            "ammvdec_avs2" -> "AVS2"
-                            "ammvdec_av1" -> "AV1"
-                            else -> videoFormat
-                        }
-                        appendLine(modifiedVideoFormat)
-                    }
-                }
-
-                if (!isHideEmptyVideoAudioLine && !isEmptyLine) {
-                    appendLine()
-                }
-
-                if (!isHideAudioTitle) {
-                    if (!isTitleLine) {
-                        appendLine("\u200E")
-                    }
-                }
-
-                if (!isHideAudioMode) {
-                    if (audioMode.isNotEmpty()) {
-                        val modifiedAudioMode = when (audioMode.trim()) {
-                            "AC3" -> "Dolby Digital"
-                            "AC4" -> "Dolby AC-4"
-                            "EAC3" -> "Dolby Digital+"
-                            "MULTI PCM" -> "Multi PCM"
-                            "PCM HIGH SR" -> "PCM High SR"
-                            "TRUE HD" -> "Dolby TrueHD"
-                            "DTS HD" -> "DTS-HD"
-                            "DTS HD MA" -> "DTS-HD Master Audio"
-                            "MAT" -> "Dolby MAT"
-                            "DDP ATMOS" -> "Dolby Digital+ (Atmos)"
-                            "TRUE HD ATMOS" -> "Dolby TrueHD (Atmos)"
-                            "AC4 ATMOS" -> "Dolby AC-4 (Atmos)"
-                            "DTS EXPRESS" -> "DTS Express"
-                            else -> audioMode
-                        }
-                        appendLine(modifiedAudioMode)
-                    }
-                }
-
-                if (!isHideAudioFormat) {
-                    if (digitalAudioFormat.isNotEmpty()) {
-                        val modifiedDigitalAudioFormat = when (digitalAudioFormat.trim()) {
-                            "Auto" -> getString(R.string.auto)
-                            "Passthrough" -> getString(R.string.passthrough)
-                            "Manual" -> getString(R.string.manual)
-                            else -> digitalAudioFormat
-                        }
-                        appendLine(modifiedDigitalAudioFormat)
-                    }
-                }
-
-                if (!isHideEmptyAudioDisplayLine && !isEmptyLine) {
-                    appendLine()
-                }
-
-                if (!isHideDisplayTitle) {
-                    if (!isTitleLine) {
-                        appendLine("\u200E")
-                    }
-                }
-
-                if (!isHideHdrStatus) {
-                    if (hdrStatus.isNotEmpty()) {
-                        val modifiedHdrStatus = when (hdrStatus.trim()) {
-                            "HDR10-GAMMA_ST2084" -> "HDR10"
-                            "HDR10-GAMMA_HLG" -> "HLG"
-                            "HDR10Plus-VSIF" -> "HDR10+"
-                            "DolbyVision-Lowlatency" -> "Dolby Vision (Low Latency)"
-                            "DolbyVision-Std" -> "Dolby Vision (Standard)"
-                            else -> hdrStatus
-                        }
-                        appendLine(modifiedHdrStatus)
-                    }
-                }
-
-                if (!isHideHdrPriority) {
-                    if (hdrPriority.isNotEmpty()) {
-                        appendLine(hdrPriority)
-                    }
-                }
-
-                if (!isHideHdrPolicy) {
-                    if (hdrPolicy.isNotEmpty()) {
-                        val modifiedHdrPolicy = when (hdrPolicy.trim()) {
-                            "Follow Source" -> getString(R.string.follow_source)
-                            "Follow Sink" -> getString(R.string.follow_sink)
-                            else -> hdrPolicy
-                        }
-                        appendLine(modifiedHdrPolicy)
-                    }
-                }
-
-                if (!isHideColorSpace) {
-                    if (colorSpace.isNotEmpty()) {
-                        val modifiedColorSpace = when (colorSpace.trim()) {
-                            "default" -> "YCbCr 4:2:2 (10 Bit)"
-                            "YCbCr422 8bit" -> "YCbCr 4:2:2 (8 Bit)"
-                            "YCbCr422 10bit" -> "YCbCr 4:2:2 (10 Bit)"
-                            "YCbCr422 12bit" -> "YCbCr 4:2:2 (12 Bit)"
-                            "YCbCr420 8bit" -> "YCbCr 4:2:0 (8 Bit)"
-                            "YCbCr420 10bit" -> "YCbCr 4:2:0 (10 Bit)"
-                            "YCbCr420 12bit" -> "YCbCr 4:2:0 (12 Bit)"
-                            "YCbCr444 8bit" -> "YCbCr 4:4:4 (8 Bit)"
-                            "YCbCr444 10bit" -> "YCbCr 4:4:4 (10 Bit)"
-                            "YCbCr444 12bit" -> "YCbCr 4:4:4 (12 Bit)"
-                            "RGB 8bit" -> "RGB (8 Bit)"
-                            "RGB 10bit" -> "RGB (10 Bit)"
-                            "RGB 12bit" -> "RGB (12 Bit)"
-                            else -> colorSpace
-                        }
-                        appendLine(modifiedColorSpace)
-                    }
-                }
-
-                if (!isHideEmptyDisplayProcessorLine && !isEmptyLine) {
-                    appendLine()
-                }
-
-                if (!isHideProcessorTitle) {
-                    if (!isTitleLine) {
-                        appendLine("\u200E")
-                    }
-                }
-
-                if (!isHideCpuLoad) {
-                    if (cpuUsage.isNotEmpty()) {
-                        appendLine(cpuUsage)
-                    }
-                }
-
-                if (!isHideCpuClock) {
-                    val cpuClockPreference = sharedPreferences.getString("cpu_clock_key", "currentPercentage")
-                    val displayText = when (cpuClockPreference) {
-                        "percentage" -> cpuPercentage
-                        "current" -> cpuCurr
-                        "currentPercentage" -> cpuCurrPerc
-                        "currentMaximal" -> cpuCurrMax
-                        "currentMaximalPerc" -> cpuCurrMaxPerc
-                        else -> cpuCurrPerc
                     }
 
-                    appendLine(displayText)
-                }
-
-                if (!isHideCpuGovernor) {
-                    if (cpuGovernor.isNotEmpty()) {
-                        appendLine(cpuGovernor)
-                    }
-                }
-
-                if (!isHideEmptyProcessorOtherLine && !isEmptyLine) {
-                    appendLine()
-                }
-
-                if (!isHideOtherTitle) {
-                    if (!isTitleLine) {
-                        appendLine("\u200E")
-                    }
-                }
-
-                if (!isHideTime) {
-                    if (localTime.isNotEmpty()) {
-                        appendLine(localTime)
-                    }
-                }
-
-                if (!isHideMemoryUsage) {
-                    if (memoryUsage.isNotEmpty()) {
-                        val isGbText = sharedPreferences.getBoolean(textGbKey, false)
-
-                        if (!isGbText) {
-                            val formattedMemoryUsage = memoryUsage.replace("(MB)", "MB").replace("/", "|")
-                            appendLine(formattedMemoryUsage)
-                        } else {
-                            val pattern = """(\d+) / (\d+) \(MB\)""".toRegex()
-                            val matchResult = pattern.find(memoryUsage)
-
-                            if (matchResult != null) {
-                                val (usedMB, totalMB) = matchResult.destructured
-                                val usedGB = usedMB.toInt() / 1000.0
-                                val totalGB = totalMB.toInt() / 1000.0
-
-                                val resultInGB = "%.2f | %.2f GB".format(usedGB, totalGB)
-                                appendLine(resultInGB)
-                            } else {
-                                appendLine(memoryUsage)
+                    if (!isHideDisplayResolution) {
+                        if (displayResolution.isNotEmpty()) {
+                            val modifiedDisplayResolution = when (displayResolution.trim()) {
+                                "2160p60hz" -> "3840 x 2160, 60hz"
+                                "2160p50hz" -> "3840 x 2160, 50hz"
+                                "2160p30hz" -> "3840 x 2160, 30hz"
+                                "2160p25hz" -> "3840 x 2160, 25hz"
+                                "2160p24hz" -> "3840 x 2160, 24hz"
+                                "1080p60hz" -> "1920 x 1080, 60hz"
+                                "1080p50hz" -> "1920 x 1080, 50hz"
+                                "1080p30hz" -> "1920 x 1080, 30hz"
+                                "1080p25hz" -> "1920 x 1080, 25hz"
+                                "1080p24hz" -> "1920 x 1080, 24hz"
+                                "1080i60hz" -> "1920 x 1080i, 60hz"
+                                "1080i50hz" -> "1920 x 1080i, 50hz"
+                                "1080i30hz" -> "1920 x 1080i, 30hz"
+                                "1080i25hz" -> "1920 x 1080i, 25hz"
+                                "1080i24hz" -> "1920 x 1080i, 24hz"
+                                "720p60hz" -> "1280 x 720, 60hz"
+                                "720p50hz" -> "1280 x 720, 50hz"
+                                "720p30hz" -> "1280 x 720, 30hz"
+                                "720p25hz" -> "1280 x 720, 25hz"
+                                "720p24hz" -> "1280 x 720, 24hz"
+                                "720i60hz" -> "1280 x 720i, 60hz"
+                                "720i50hz" -> "1280 x 720i, 50hz"
+                                "720i30hz" -> "1280 x 720i, 30hz"
+                                "720i25hz" -> "1280 x 720i, 25hz"
+                                "720i24hz" -> "1280 x 720i, 24hz"
+                                "576p60hz" -> "1024 x 576, 60hz"
+                                "576p50hz" -> "1024 x 576, 50hz"
+                                "576p30hz" -> "1024 x 576, 30hz"
+                                "576p25hz" -> "1024 x 576, 25hz"
+                                "576p24hz" -> "1024 x 576, 24hz"
+                                "576i60hz" -> "1024 x 576i, 60hz"
+                                "576i50hz" -> "1024 x 576i, 50hz"
+                                "576i30hz" -> "1024 x 576i, 30hz"
+                                "576i25hz" -> "1024 x 576i, 25hz"
+                                "576i24hz" -> "1024 x 576i, 24hz"
+                                "480p60hz" -> "854 × 480, 60hz"
+                                "480p50hz" -> "854 × 480, 50hz"
+                                "480p30hz" -> "854 × 480, 30hz"
+                                "480p25hz" -> "854 × 480, 25hz"
+                                "480p24hz" -> "854 × 480, 24hz"
+                                "480i60hz" -> "854 × 480i, 60hz"
+                                "480i50hz" -> "854 × 480i, 50hz"
+                                "480i30hz" -> "854 × 480i, 30hz"
+                                "480i25hz" -> "854 × 480i, 25hz"
+                                "480i24hz" -> "854 × 480i, 24hz"
+                                "smpte24hz" -> "SMPTE, 24hz"
+                                else -> displayResolution
                             }
+                            appendLine(modifiedDisplayResolution)
                         }
                     }
-                }
 
-                if (!isHideConnection) {
-                    if (getConnectionState().isNotEmpty()) {
-                        val modifiedgetConnectionState = when (getConnectionState().trim()) {
-                            "WIFI" -> getString(R.string.wifi)
-                            "Ethernet" -> getString(R.string.ethernet)
-                            else -> getConnectionState()
+                    if (!isHideVideoResolution) {
+                        if (videoResolution.isNotEmpty()) {
+                            var videoInfo = videoResolution
+
+                            val frameRateFormatted = frameRate.replace("\\s".toRegex(), "")
+                            videoInfo += if (frameRateFormatted.isNotEmpty()) ", $frameRateFormatted" else ""
+
+                            appendLine(videoInfo)
+                        }
+                    }
+
+                    if (!isHideVideoFormat) {
+                        if (videoFormat.isNotEmpty()) {
+                            val modifiedVideoFormat = when (videoFormat.trim()) {
+                                "amvdec_avs_v4l" -> "AVS"
+                                "amvdec_avs2_v4l" -> "AVS2"
+                                "amvdec_avs2_fb_v4l" -> "AVS2"
+                                "amvdec_avs3_v4l" -> "AVS3"
+                                "amvdec_mavs_v4l" -> "AVS Multi"
+                                "amvdec_h264_v4l" -> "H.264"
+                                "amvdec_mh264_v4l" -> "H.264 Multi"
+                                "amvdec_h265_v4l" -> "H.265"
+                                "amvdec_h265_fb_v4l" -> "H.265"
+                                "amvdec_mmjpeg_v4l" -> "Motion JPEG"
+                                "amvdec_mmpeg12_v4l" -> "MPEG 1/2"
+                                "amvdec_mmpeg4_v4l" -> "MPEG 4"
+                                "amvdec_av1_v4l" -> "AV1"
+                                "amvdec_av1_fb_v4l" -> "AV1"
+                                "amvdec_av1_t5d_v4l" -> "AV1"
+                                "amvdec_vp9_v4l" -> "VP9"
+                                "amvdec_vp9_fb_v4l" -> "VP9"
+                                "amvdec_avs_v4" -> "AVS"
+                                "amvdec_avs2_v4" -> "AVS2"
+                                "amvdec_avs2_fb_v4" -> "AVS2"
+                                "amvdec_avs3_v4" -> "AVS3"
+                                "amvdec_mavs_v4" -> "AVS Multi"
+                                "amvdec_h264_v4" -> "H.264"
+                                "amvdec_h264-00" -> "H.264"
+                                "amvdec_mh264_v4" -> "H.264 Multi"
+                                "amvdec_h265_v4" -> "H.265"
+                                "amvdec_h265_fb_v4" -> "H.265"
+                                "amvdec_mmjpeg_v4" -> "Motion JPEG"
+                                "amvdec_mmpeg12_v4" -> "MPEG 1/2"
+                                "amvdec_mmpeg4_v4" -> "MPEG 4"
+                                "amvdec_av1_v4" -> "AV1"
+                                "amvdec_av1_fb_v4" -> "AV1"
+                                "amvdec_av1_t5d_v4" -> "AV1"
+                                "amvdec_vp9_v4" -> "VP9"
+                                "amvdec_vp9_fb_v4" -> "VP9"
+                                "ammvdec_avs_v4" -> "AVS"
+                                "ammvdec_avs2_v4" -> "AVS2"
+                                "ammvdec_avs2_fb_v4" -> "AVS2"
+                                "ammvdec_avs3_v4" -> "AVS3"
+                                "ammvdec_mavs_v4" -> "AVS Multi"
+                                "ammvdec_h264_v4" -> "H.264"
+                                "ammvdec_h264-00" -> "H.264"
+                                "ammvdec_mh264_v4" -> "H.264 Multi"
+                                "ammvdec_h265_v4" -> "H.265"
+                                "ammvdec_h265_fb_v4" -> "H.265"
+                                "ammvdec_mmjpeg_v4" -> "Motion JPEG"
+                                "ammvdec_mmpeg12_v4" -> "MPEG 1/2"
+                                "ammvdec_mmpeg4_v4" -> "MPEG 4"
+                                "ammvdec_av1_v4" -> "AV1"
+                                "ammvdec_av1_fb_v4" -> "AV1"
+                                "ammvdec_av1_t5d_v4" -> "AV1"
+                                "ammvdec_vp9_v4" -> "VP9"
+                                "ammvdec_vp9_fb_v4" -> "VP9"
+                                "amvdec_avs" -> "AVS"
+                                "amvdec_avs2" -> "AVS2"
+                                "amvdec_avs2_fb" -> "AVS2"
+                                "amvdec_avs3" -> "AVS3"
+                                "amvdec_mavs" -> "AVS Multi"
+                                "amvdec_h264" -> "H.264"
+                                "amvdec_mh264" -> "H.264 Multi"
+                                "amvdec_h265" -> "H.265"
+                                "amvdec_h265_fb" -> "H.265"
+                                "amvdec_mmjpeg" -> "Motion JPEG"
+                                "amvdec_mmpeg12" -> "MPEG 1/2"
+                                "amvdec_mmpeg4" -> "MPEG 4"
+                                "amvdec_av1" -> "AV1"
+                                "amvdec_av1_fb" -> "AV1"
+                                "amvdec_av1_t5d" -> "AV1"
+                                "amvdec_vp9" -> "VP9"
+                                "amvdec_vp9_fb" -> "VP9"
+                                "ammvdec_mpeg12" -> "MPEG 1/2"
+                                "ammvdec_mpeg4" -> "MPEG 4"
+                                "ammvdec_h264" -> "H.264"
+                                "ammvdec_mjpeg" -> "Motion JPEG"
+                                "ammvdec_vc1" -> "VC1"
+                                "ammvdec_avs" -> "AVS"
+                                "ammvdec_yuv" -> "YUV"
+                                "ammvdec_h264mvc" -> "H.264 MVC"
+                                "ammvdec_h264_4k2k" -> "H.264 4K/2K"
+                                "ammvdec_h265" -> "H.265"
+                                "amvenc_avc" -> "AVC"
+                                "ammvdec_vp9" -> "VP9"
+                                "ammvdec_avs2" -> "AVS2"
+                                "ammvdec_av1" -> "AV1"
+                                else -> videoFormat
+                            }
+                            appendLine(modifiedVideoFormat)
+                        }
+                    }
+
+                    if (!isHideEmptyVideoAudioLine && !isEmptyLine) {
+                        appendLine()
+                    }
+
+                    if (!isHideAudioTitle) {
+                        if (!isTitleLine) {
+                            appendLine("\u200E")
+                        }
+                    }
+
+                    if (!isHideAudioMode) {
+                        if (audioMode.isNotEmpty()) {
+                            val modifiedAudioMode = when (audioMode.trim()) {
+                                "AC3" -> "Dolby Digital"
+                                "AC4" -> "Dolby AC-4"
+                                "EAC3" -> "Dolby Digital+"
+                                "MULTI PCM" -> "Multi PCM"
+                                "PCM HIGH SR" -> "PCM High SR"
+                                "TRUE HD" -> "Dolby TrueHD"
+                                "DTS HD" -> "DTS-HD"
+                                "DTS HD MA" -> "DTS-HD Master Audio"
+                                "MAT" -> "Dolby MAT"
+                                "DDP ATMOS" -> "Dolby Digital+ (Atmos)"
+                                "TRUE HD ATMOS" -> "Dolby TrueHD (Atmos)"
+                                "AC4 ATMOS" -> "Dolby AC-4 (Atmos)"
+                                "DTS EXPRESS" -> "DTS Express"
+                                else -> audioMode
+                            }
+                            appendLine(modifiedAudioMode)
+                        }
+                    }
+
+                    if (!isHideAudioFormat) {
+                        if (digitalAudioFormat.isNotEmpty()) {
+                            val modifiedDigitalAudioFormat = when (digitalAudioFormat.trim()) {
+                                "Auto" -> getString(R.string.auto)
+                                "Passthrough" -> getString(R.string.passthrough)
+                                "Manual" -> getString(R.string.manual)
+                                else -> digitalAudioFormat
+                            }
+                            appendLine(modifiedDigitalAudioFormat)
+                        }
+                    }
+
+                    if (!isHideEmptyAudioDisplayLine && !isEmptyLine) {
+                        appendLine()
+                    }
+
+                    if (!isHideDisplayTitle) {
+                        if (!isTitleLine) {
+                            appendLine("\u200E")
+                        }
+                    }
+
+                    if (!isHideHdrStatus) {
+                        if (hdrStatus.isNotEmpty()) {
+                            val modifiedHdrStatus = when (hdrStatus.trim()) {
+                                "HDR10-GAMMA_ST2084" -> "HDR10"
+                                "HDR10-GAMMA_HLG" -> "HLG"
+                                "HDR10Plus-VSIF" -> "HDR10+"
+                                "DolbyVision-Lowlatency" -> "Dolby Vision (Low Latency)"
+                                "DolbyVision-Std" -> "Dolby Vision (Standard)"
+                                else -> hdrStatus
+                            }
+                            appendLine(modifiedHdrStatus)
+                        }
+                    }
+
+                    if (!isHideHdrPriority) {
+                        if (hdrPriority.isNotEmpty()) {
+                            appendLine(hdrPriority)
+                        }
+                    }
+
+                    if (!isHideHdrPolicy) {
+                        if (hdrPolicy.isNotEmpty()) {
+                            val modifiedHdrPolicy = when (hdrPolicy.trim()) {
+                                "Follow Source" -> getString(R.string.follow_source)
+                                "Follow Sink" -> getString(R.string.follow_sink)
+                                else -> hdrPolicy
+                            }
+                            appendLine(modifiedHdrPolicy)
+                        }
+                    }
+
+                    if (!isHideColorSpace) {
+                        if (colorSpace.isNotEmpty()) {
+                            val modifiedColorSpace = when (colorSpace.trim()) {
+                                "default" -> "YCbCr 4:2:2 (10 Bit)"
+                                "YCbCr422 8bit" -> "YCbCr 4:2:2 (8 Bit)"
+                                "YCbCr422 10bit" -> "YCbCr 4:2:2 (10 Bit)"
+                                "YCbCr422 12bit" -> "YCbCr 4:2:2 (12 Bit)"
+                                "YCbCr420 8bit" -> "YCbCr 4:2:0 (8 Bit)"
+                                "YCbCr420 10bit" -> "YCbCr 4:2:0 (10 Bit)"
+                                "YCbCr420 12bit" -> "YCbCr 4:2:0 (12 Bit)"
+                                "YCbCr444 8bit" -> "YCbCr 4:4:4 (8 Bit)"
+                                "YCbCr444 10bit" -> "YCbCr 4:4:4 (10 Bit)"
+                                "YCbCr444 12bit" -> "YCbCr 4:4:4 (12 Bit)"
+                                "RGB 8bit" -> "RGB (8 Bit)"
+                                "RGB 10bit" -> "RGB (10 Bit)"
+                                "RGB 12bit" -> "RGB (12 Bit)"
+                                else -> colorSpace
+                            }
+                            appendLine(modifiedColorSpace)
+                        }
+                    }
+
+                    if (!isHideEmptyDisplayProcessorLine && !isEmptyLine) {
+                        appendLine()
+                    }
+
+                    if (!isHideProcessorTitle) {
+                        if (!isTitleLine) {
+                            appendLine("\u200E")
+                        }
+                    }
+
+                    if (!isHideCpuLoad) {
+                        if (cpuUsage.isNotEmpty()) {
+                            appendLine(cpuUsage)
+                        }
+                    }
+
+                    if (!isHideCpuClock) {
+                        val cpuClockPreference = sharedPreferences.getString("cpu_clock_key", "currentPercentage")
+                        val displayText = when (cpuClockPreference) {
+                            "percentage" -> cpuPercentage
+                            "current" -> cpuCurr
+                            "currentPercentage" -> cpuCurrPerc
+                            "currentMaximal" -> cpuCurrMax
+                            "currentMaximalPerc" -> cpuCurrMaxPerc
+                            else -> cpuCurrPerc
                         }
 
-                        if (connectionSpeed.isNotEmpty()) {
-                            val isMbpsText = sharedPreferences.getBoolean(textMbpsKey, false)
+                        appendLine(displayText)
+                    }
 
-                            if (isMbpsText) {
-                                val speedInMbps = convertSpeedToMbps(connectionSpeed).replace(Regex(","), ".")
-                                val connectionInfo = "$modifiedgetConnectionState | $speedInMbps"
-                                if (modifiedgetConnectionState != getString(R.string.no_connectivity)) {
-                                    appendLine(connectionInfo)
+                    if (!isHideCpuTemperature) {
+                        if (cpuTemp.isNotEmpty()) {
+                            if (isRequest) {
+                                if (isCelFahr) {
+                                    appendLine(getHardwarePropertiesFahrenheit())
                                 } else {
-                                    appendLine(getString(R.string.no_connectivity))
+                                    appendLine(getHardwarePropertiesCelsius())
                                 }
                             } else {
-                                val formattedSpeed = connectionSpeed.replace(Regex("(\\d)([A-Za-z])"), "$1 $2")
-                                val connectionInfo = "$modifiedgetConnectionState | $formattedSpeed"
-                                if (modifiedgetConnectionState != getString(R.string.no_connectivity)) {
-                                    appendLine(connectionInfo)
+                                if (isCelFahr) {
+                                    appendLine(getThermalServiceFahrenheit())
                                 } else {
-                                    appendLine(getString(R.string.no_connectivity))
+                                    appendLine(getThermalServiceCelsius())
                                 }
                             }
                         }
                     }
+
+                    if (!isHideCpuGovernor) {
+                        if (cpuGovernor.isNotEmpty()) {
+                            appendLine(cpuGovernor)
+                        }
+                    }
+
+                    if (!isHideEmptyProcessorOtherLine && !isEmptyLine) {
+                        appendLine()
+                    }
+
+                    if (!isHideOtherTitle) {
+                        if (!isTitleLine) {
+                            appendLine("\u200E")
+                        }
+                    }
+
+                    if (!isHideTime) {
+                        if (localTime.isNotEmpty()) {
+                            appendLine(localTime)
+                        }
+                    }
+
+                    if (!isHideMemoryUsage) {
+                        if (memoryUsage.isNotEmpty()) {
+                            val isGbText = sharedPreferences.getBoolean(textGbKey, false)
+
+                            if (!isGbText) {
+                                val formattedMemoryUsage = memoryUsage.replace("(MB)", "MB").replace("/", "|")
+                                appendLine(formattedMemoryUsage)
+                            } else {
+                                val pattern = """(\d+) / (\d+) \(MB\)""".toRegex()
+                                val matchResult = pattern.find(memoryUsage)
+
+                                if (matchResult != null) {
+                                    val (usedMB, totalMB) = matchResult.destructured
+                                    val usedGB = usedMB.toInt() / 1000.0
+                                    val totalGB = totalMB.toInt() / 1000.0
+
+                                    val resultInGB = "%.2f | %.2f GB".format(usedGB, totalGB)
+                                    appendLine(resultInGB)
+                                } else {
+                                    appendLine(memoryUsage)
+                                }
+                            }
+                        }
+                    }
+
+                    if (!isHideConnection) {
+                        if (getConnectionState().isNotEmpty()) {
+                            val modifiedgetConnectionState = when (getConnectionState().trim()) {
+                                "WIFI" -> getString(R.string.wifi)
+                                "Ethernet" -> getString(R.string.ethernet)
+                                else -> getConnectionState()
+                            }
+
+                            if (connectionSpeed.isNotEmpty()) {
+                                val isMbpsText = sharedPreferences.getBoolean(textMbpsKey, false)
+
+                                if (isMbpsText) {
+                                    val speedInMbps = convertSpeedToMbps(connectionSpeed).replace(Regex(","), ".")
+                                    val connectionInfo = "$modifiedgetConnectionState | $speedInMbps"
+                                    if (modifiedgetConnectionState != getString(R.string.no_connectivity)) {
+                                        appendLine(connectionInfo)
+                                    } else {
+                                        appendLine(getString(R.string.no_connectivity))
+                                    }
+                                } else {
+                                    val formattedSpeed = connectionSpeed.replace(Regex("(\\d)([A-Za-z])"), "$1 $2")
+                                    val connectionInfo = "$modifiedgetConnectionState | $formattedSpeed"
+                                    if (modifiedgetConnectionState != getString(R.string.no_connectivity)) {
+                                        appendLine(connectionInfo)
+                                    } else {
+                                        appendLine(getString(R.string.no_connectivity))
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    if (!isHideAppName) {
+                        if (appName.isNotEmpty()) {
+                            appendLine(appName)
+                        }
+                    }
                 }
 
-                if (!isHideAppName) {
-                    if (appName.isNotEmpty()) {
-                        appendLine(appName)
+                val overlayText2 = buildString {
+                    if (!isHideVideoTitle) {
+                        if (!isTitleLine) {
+                            appendLine(getString(R.string.video))
+                        }
                     }
+
+                    if (!isHideDisplayResolution) {
+                        if (displayResolution.isNotEmpty()) {
+                            appendLine(getString(R.string.display_resolution))
+                        }
+                    }
+
+                    if (!isHideVideoResolution) {
+                        if (videoResolution.isNotEmpty()) {
+                            appendLine(getString(R.string.video_resolution))
+                        }
+                    }
+
+                    if (!isHideVideoFormat) {
+                        if (videoFormat.isNotEmpty()) {
+                            appendLine(getString(R.string.video_format))
+                        }
+                    }
+
+                    if (!isHideEmptyVideoAudioLine && !isEmptyLine) {
+                        appendLine()
+                    }
+
+                    if (!isHideAudioTitle) {
+                        if (!isTitleLine) {
+                            appendLine(getString(R.string.audio))
+                        }
+                    }
+
+                    if (!isHideAudioMode) {
+                        if (audioMode.isNotEmpty()) {
+                            appendLine(getString(R.string.audio_mode))
+                        }
+                    }
+
+                    if (!isHideAudioFormat) {
+                        if (digitalAudioFormat.isNotEmpty()) {
+                            appendLine(getString(R.string.audio_format))
+                        }
+                    }
+
+                    if (!isHideEmptyAudioDisplayLine && !isEmptyLine) {
+                        appendLine()
+                    }
+
+                    if (!isHideDisplayTitle) {
+                        if (!isTitleLine) {
+                            appendLine(getString(R.string.display))
+                        }
+                    }
+
+                    if (!isHideHdrStatus) {
+                        if (hdrStatus.isNotEmpty()) {
+                            appendLine(getString(R.string.hdr_status))
+                        }
+                    }
+
+                    if (!isHideHdrPriority) {
+                        if (hdrPriority.isNotEmpty()) {
+                            appendLine(getString(R.string.hdr_priority))
+                        }
+                    }
+
+                    if (!isHideHdrPolicy) {
+                        if (hdrPolicy.isNotEmpty()) {
+                            appendLine(getString(R.string.hdr_policy))
+                        }
+                    }
+
+                    if (!isHideColorSpace) {
+                        if (colorSpace.isNotEmpty()) {
+                            appendLine(getString(R.string.color_space))
+                        }
+                    }
+
+                    if (!isHideEmptyDisplayProcessorLine && !isEmptyLine) {
+                        appendLine()
+                    }
+
+                    if (!isHideProcessorTitle) {
+                        if (!isTitleLine) {
+                            appendLine(getString(R.string.cpu))
+                        }
+                    }
+
+                    if (!isHideCpuLoad) {
+                        if (cpuUsage.isNotEmpty()) {
+                            appendLine(getString(R.string.cpu_usage))
+                        }
+                    }
+
+                    if (!isHideCpuClock) {
+                        appendLine(printCpuIndex())
+                    }
+
+                    if (!isHideCpuTemperature) {
+                        if (cpuTemp.isNotEmpty()) {
+                            appendLine(getString(R.string.cpu_temperature))
+                        }
+                    }
+
+                    if (!isHideCpuGovernor) {
+                        if (cpuGovernor.isNotEmpty()) {
+                            appendLine(getString(R.string.cpu_governor))
+                        }
+                    }
+
+                    if (!isHideEmptyProcessorOtherLine && !isEmptyLine) {
+                        appendLine()
+                    }
+
+                    if (!isHideOtherTitle) {
+                        if (!isTitleLine) {
+                            appendLine(getString(R.string.other))
+                        }
+                    }
+
+                    if (!isHideTime) {
+                        if (localTime.isNotEmpty()) {
+                            appendLine(getString(R.string.time))
+                        }
+                    }
+
+                    if (!isHideMemoryUsage) {
+                        if (memoryUsage.isNotEmpty()) {
+                            appendLine(getString(R.string.memory_usage))
+                        }
+                    }
+
+                    if (!isHideConnection) {
+                        if (getConnectionState().isNotEmpty()) {
+                            appendLine(getString(R.string.connection))
+
+                        }
+                    }
+
+                    if (!isHideAppName) {
+                        if (appName.isNotEmpty()) {
+                            appendLine(getString(R.string.app_name_tv))
+                        }
+                    }
+                }
+
+                overlayTextView.text = overlayText.trim()
+                overlayTextView2.text = overlayText2.trim()
+
+                CoroutineScope(Dispatchers.Main).launch {
+                    handler.postDelayed(updateData, 750)
                 }
             }
-
-            val overlayText2 = buildString {
-                if (!isHideVideoTitle) {
-                    if (!isTitleLine) {
-                        appendLine(getString(R.string.video))
-                    }
-                }
-
-                if (!isHideDisplayResolution) {
-                    if (displayResolution.isNotEmpty()) {
-                        appendLine(getString(R.string.display_resolution))
-                    }
-                }
-
-                if (!isHideVideoResolution) {
-                    if (videoResolution.isNotEmpty()) {
-                        appendLine(getString(R.string.video_resolution))
-                    }
-                }
-
-                if (!isHideVideoFormat) {
-                    if (videoFormat.isNotEmpty()) {
-                        appendLine(getString(R.string.video_format))
-                    }
-                }
-
-                if (!isHideEmptyVideoAudioLine && !isEmptyLine) {
-                    appendLine()
-                }
-
-                if (!isHideAudioTitle) {
-                    if (!isTitleLine) {
-                        appendLine(getString(R.string.audio))
-                    }
-                }
-
-                if (!isHideAudioMode) {
-                    if (audioMode.isNotEmpty()) {
-                        appendLine(getString(R.string.audio_mode))
-                    }
-                }
-
-                if (!isHideAudioFormat) {
-                    if (digitalAudioFormat.isNotEmpty()) {
-                        appendLine(getString(R.string.audio_format))
-                    }
-                }
-
-                if (!isHideEmptyAudioDisplayLine && !isEmptyLine) {
-                    appendLine()
-                }
-
-                if (!isHideDisplayTitle) {
-                    if (!isTitleLine) {
-                        appendLine(getString(R.string.display))
-                    }
-                }
-
-                if (!isHideHdrStatus) {
-                    if (hdrStatus.isNotEmpty()) {
-                        appendLine(getString(R.string.hdr_status))
-                    }
-                }
-
-                if (!isHideHdrPriority) {
-                    if (hdrPriority.isNotEmpty()) {
-                        appendLine(getString(R.string.hdr_priority))
-                    }
-                }
-
-                if (!isHideHdrPolicy) {
-                    if (hdrPolicy.isNotEmpty()) {
-                        appendLine(getString(R.string.hdr_policy))
-                    }
-                }
-
-                if (!isHideColorSpace) {
-                    if (colorSpace.isNotEmpty()) {
-                        appendLine(getString(R.string.color_space))
-                    }
-                }
-
-                if (!isHideEmptyDisplayProcessorLine && !isEmptyLine) {
-                    appendLine()
-                }
-
-                if (!isHideProcessorTitle) {
-                    if (!isTitleLine) {
-                        appendLine(getString(R.string.cpu))
-                    }
-                }
-
-                if (!isHideCpuLoad) {
-                    if (cpuUsage.isNotEmpty()) {
-                        appendLine(getString(R.string.cpu_usage))
-                    }
-                }
-
-                if (!isHideCpuClock) {
-                    appendLine(printCpuIndex())
-                }
-
-                if (!isHideCpuGovernor) {
-                    if (cpuGovernor.isNotEmpty()) {
-                        appendLine(getString(R.string.cpu_governor))
-                    }
-                }
-
-                if (!isHideEmptyProcessorOtherLine && !isEmptyLine) {
-                    appendLine()
-                }
-
-                if (!isHideOtherTitle) {
-                    if (!isTitleLine) {
-                        appendLine(getString(R.string.other))
-                    }
-                }
-
-                if (!isHideTime) {
-                    if (localTime.isNotEmpty()) {
-                        appendLine(getString(R.string.time))
-                    }
-                }
-
-                if (!isHideMemoryUsage) {
-                    if (memoryUsage.isNotEmpty()) {
-                        appendLine(getString(R.string.memory_usage))
-                    }
-                }
-
-                if (!isHideConnection) {
-                    if (getConnectionState().isNotEmpty()) {
-                        appendLine(getString(R.string.connection))
-
-                    }
-                }
-
-                if (!isHideAppName) {
-                    if (appName.isNotEmpty()) {
-                        appendLine(getString(R.string.app_name_tv))
-                    }
-                }
-            }
-
-            overlayTextView.text = overlayText.trim()
-            overlayTextView2.text = overlayText2.trim()
-
-            handler.postDelayed(this, 750)
         }
     }
 
@@ -1145,7 +1201,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
     }
 
     @Suppress("DEPRECATION")
-    fun getConnectionState(): String {
+    private fun getConnectionState(): String {
         val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val networkInfo = connectivityManager.activeNetworkInfo
 
@@ -1367,11 +1423,204 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         return dp * density
     }
 
+    private fun onKeyCE() {
+        connection = null
+        stream = null
+
+        myAsyncTask?.cancel()
+        myAsyncTask = MyAsyncTask(this)
+        myAsyncTask?.execute(ipAddress)
+    }
+
+    suspend fun adbCommander(ip: String?) {
+        val socket = withContext(Dispatchers.IO) {
+            Socket(ip, 5555)
+        }
+        val crypto = readCryptoConfig(filesDir) ?: writeNewCryptoConfig(filesDir)
+
+        if (crypto == null) {
+            Log.d("TAG", "Failed to generate/load RSA key pair")
+            return
+        }
+
+        try {
+            val isRequest = sharedPreferences.getBoolean(requestKey, false)
+            val isCelFahr = sharedPreferences.getBoolean(celFahrKey, false)
+
+            if (stream == null || connection == null) {
+                connection = AdbConnection.create(socket, crypto)
+                connection?.connect()
+            }
+
+            if (isRequest) {
+                if (isCelFahr) {
+                    getHardwarePropertiesFahrenheit()
+                } else {
+                    getHardwarePropertiesCelsius()
+                }
+            } else {
+                if (isCelFahr) {
+                    getThermalServiceFahrenheit()
+                } else {
+                    getThermalServiceCelsius()
+                }
+            }
+        } catch (e: InterruptedException) {
+            e.printStackTrace()
+            Thread.currentThread().interrupt()
+        }
+    }
+
+    private suspend fun thermalServiceCelsius(): String {
+        return withContext(Dispatchers.IO) {
+            try {
+                val thermalServiceStream = connection?.open("shell:dumpsys thermalservice | awk -F= '/mValue/{printf \"%.1f\\n\", \$2}' | sed -n '2p'")
+                val thermalServiceOutputBytes = thermalServiceStream?.read()
+
+                return@withContext thermalServiceOutputBytes?.decodeToString()?.replace("\n", "") ?: "--"
+            } catch (e: Exception) {
+                e.printStackTrace()
+                return@withContext "Error: ${e.message}"
+            }
+        }
+    }
+
+    private suspend fun getThermalServiceCelsius(): String {
+        val thermalServiceCelsius = thermalServiceCelsius()
+        return "$thermalServiceCelsius°C"
+    }
+
+    private suspend fun hardwarePropertiesCelsius(): String {
+        return withContext(Dispatchers.IO) {
+            try {
+                val hardwarePropertiesStream = connection?.open("shell:dumpsys hardware_properties | grep \"CPU temperatures\" | cut -d \"[\" -f2 | cut -d \"]\" -f1 | awk '{printf(\"%.1f\", \$1)}'\n")
+                val hardwarePropertiesOutputBytes = hardwarePropertiesStream?.read()
+
+                return@withContext hardwarePropertiesOutputBytes?.decodeToString()?.replace("\n", "") ?: "--"
+            } catch (e: Exception) {
+                e.printStackTrace()
+                return@withContext "Error: ${e.message}"
+            }
+        }
+    }
+
+    private suspend fun getHardwarePropertiesCelsius(): String {
+        val hardwarePropertiesCelsius = hardwarePropertiesCelsius()
+        return "$hardwarePropertiesCelsius°C"
+    }
+
+    private suspend fun thermalServiceFahrenheit(): String {
+        return withContext(Dispatchers.IO) {
+            try {
+                val thermalServiceStream = connection?.open("shell:dumpsys thermalservice | awk -F= '/mValue/{printf \"%.1f\\n\", \$2}' | sed -n '2p'")
+                val thermalServiceOutputBytes = thermalServiceStream?.read()
+                var thermalServiceMessage: String = thermalServiceOutputBytes?.decodeToString() ?: "--"
+
+                thermalServiceMessage = thermalServiceMessage.replace("\n", "")
+
+                val decimalFormat = DecimalFormat("0.0", DecimalFormatSymbols(Locale.ENGLISH))
+                val celsiusTemperature = thermalServiceMessage.toDoubleOrNull() ?: 0.0
+                val fahrenheitTemperature = celsiusTemperature * 9/5 + 32
+
+                return@withContext decimalFormat.format(fahrenheitTemperature)
+            } catch (e: Exception) {
+                e.printStackTrace()
+                return@withContext "Error: ${e.message}"
+            }
+        }
+    }
+
+    private suspend fun getThermalServiceFahrenheit(): String {
+        val thermalServiceFahrenheit = thermalServiceFahrenheit()
+        return "$thermalServiceFahrenheit°F"
+    }
+
+    private suspend fun hardwarePropertiesFahrenheit(): String {
+        return withContext(Dispatchers.IO) {
+            try {
+                val hardwarePropertiesStream = connection?.open("shell:dumpsys hardware_properties | grep \"CPU temperatures\" | cut -d \"[\" -f2 | cut -d \"]\" -f1")
+                val hardwarePropertiesOutputBytes = hardwarePropertiesStream?.read()
+                var hardwarePropertiesMessage: String = hardwarePropertiesOutputBytes?.decodeToString() ?: "--"
+
+                hardwarePropertiesMessage = hardwarePropertiesMessage.replace("\n", "")
+
+                val decimalFormat = DecimalFormat("0.0", DecimalFormatSymbols(Locale.ENGLISH))
+                val celsiusTemperature = hardwarePropertiesMessage.toDoubleOrNull() ?: 0.0
+                val fahrenheitTemperature = celsiusTemperature * 9/5 + 32
+
+                return@withContext decimalFormat.format(fahrenheitTemperature)
+            } catch (e: Exception) {
+                e.printStackTrace()
+                return@withContext "Error: ${e.message}"
+            }
+        }
+    }
+
+    private suspend fun getHardwarePropertiesFahrenheit(): String {
+        val hardwarePropertiesFahrenheit = hardwarePropertiesFahrenheit()
+        return "$hardwarePropertiesFahrenheit°F"
+    }
+
+    private fun readCryptoConfig(dataDir: File?): AdbCrypto? {
+        val pubKey = File(dataDir, publicKeyName)
+        val privKey = File(dataDir, privateKeyName)
+
+        var crypto: AdbCrypto? = null
+        if (pubKey.exists() && privKey.exists()) {
+            crypto = try {
+                AdbCrypto.loadAdbKeyPair(AndroidBase64(), privKey, pubKey)
+            } catch (e: Exception) {
+                null
+            }
+        }
+
+        return crypto
+    }
+
+    private fun writeNewCryptoConfig(dataDir: File?): AdbCrypto? {
+        val pubKey = File(dataDir, publicKeyName)
+        val privKey = File(dataDir, privateKeyName)
+
+        var crypto: AdbCrypto?
+
+        try {
+            crypto = AdbCrypto.generateAdbKeyPair(AndroidBase64())
+            crypto.saveAdbKeyPair(privKey, pubKey)
+        } catch (e: Exception) {
+            crypto = null
+        }
+
+        return crypto
+    }
+
+    class MyAsyncTask internal constructor(context: MainActivity) {
+        private val activityReference: WeakReference<MainActivity> = WeakReference(context)
+        private var job: Job? = null
+
+        fun execute(ip: String?) {
+            val activity = activityReference.get() ?: return
+            job = CoroutineScope(Dispatchers.IO).launch {
+                activity.adbCommander(ip)
+            }
+            job?.start()
+        }
+
+        fun cancel() {
+            job?.cancel()
+        }
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         serviceConnection?.let { unbindService(it) }
 
         PreferenceManager.getDefaultSharedPreferences(this)
             .unregisterOnSharedPreferenceChangeListener(this)
+    }
+
+    class AndroidBase64 : AdbBase64 {
+        override fun encodeToString(bArr: ByteArray): String {
+            return Base64.encodeToString(bArr, Base64.NO_WRAP)
+        }
     }
 }
