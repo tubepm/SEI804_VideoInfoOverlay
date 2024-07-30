@@ -144,11 +144,11 @@
     <string name="hide_empty_line_between_display_und_processor">Приховати порожній рядок між секціями Дисплей та ЦП.</string>
     <string name="hide_empty_line_between_audio_and_display">Приховати порожній рядок між секціями Аудіо та Дисплей.</string>
     <string name="hide_empty_line_between_video_and_audio">Приховати порожній рядок між секціями Відео та Аудіо.</string>
-    <string name="temperature_request">Запит ЦП температури</string>
+    <string name="temperature_request">Запит температури ЦП</string>
     <string name="temperature_request_summary">Вимкнути: ThermalService\nУвімкнути: HardwareProperties</string>
-    <string name="temperature_unit">Одиниці виміру ЦП температури</string>
+    <string name="temperature_unit">Одиниці виміру температури ЦП</string>
     <string name="temperature_unit_summary">Вимкнути: Цельсій\nУвімкнути: Фаренгейт</string>
-    <string name="cpu_temperature">ЦП Температура:</string>
+    <string name="cpu_temperature">Температура ЦП:</string>
 
     <string-array name="key_code_labels">
         <item>Кнопка Закладки</item>
