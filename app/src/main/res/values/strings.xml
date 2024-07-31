@@ -83,6 +83,8 @@
     <string name="replacement_options">Replace</string>
     <string name="select_the_cpu_clock_output_for_the_overlay">Select the CPU clock output for the overlay.</string>
     <string name="cpu_clock_output">CPU clock output</string>
+    <string name="select_the_memory_usage_output_for_the_overlay">Select the Memory usage output for the overlay.</string>
+    <string name="memory_usage_output">Memory usage output</string>
     <string name="this_option_adds_seconds_to_the_time">Show Seconds for the time in the overlay.</string>
     <string name="display_seconds">Seconds in time</string>
     <string name="show_mbps_instead_of_mb_s_in_the_overlay">Show Mbps instead of MB/s for connection in the overlay.</string>
@@ -1752,5 +1754,21 @@
         <item>currentPercentage</item>
         <item>currentMaximal</item>
         <item>currentMaximalPerc</item>
+    </string-array>
+
+    <string-array name="memory_usage_options">
+        <item>%</item>
+        <item>MB</item>
+        <item>MB + (%)</item>
+        <item>GB</item>
+        <item>GB + (%)</item>
+    </string-array>
+
+    <string-array name="memory_usage_values">
+        <item>percentage</item>
+        <item>mb</item>
+        <item>mbPercentage</item>
+        <item>gb</item>
+        <item>gbPercentage</item>
     </string-array>
 </resources>

@@ -82,6 +82,8 @@
     <string name="replacement_options">Ersetzen</string>
     <string name="select_the_cpu_clock_output_for_the_overlay">Eine CPU Taktausgabe für das Overlay auswählen.</string>
     <string name="cpu_clock_output">CPU Taktausgabe</string>
+    <string name="select_the_memory_usage_output_for_the_overlay">Eine Speichernutzungsausgabe für das Overlay auswählen.</string>
+    <string name="memory_usage_output">Speichernutzungsausgabe</string>
     <string name="this_option_adds_seconds_to_the_time">Sekunden für die Uhrzeit im Overlay anzeigen lassen.</string>
     <string name="display_seconds">Sekunden für die Uhrzeit</string>
     <string name="show_mbps_instead_of_mb_s_in_the_overlay">Mbit/s anstelle von MB/s für Verbindungstyp im Overlay anzeigen.</string>
@@ -121,8 +123,8 @@
     <string name="hide_color_space">Farbraum ausblenden</string>
     <string name="hide_processor_title_in_the_overlay">Den Titel \"Prozessor\" im Overlay ausblenden.</string>
     <string name="hide_processor_title">Titel \"Prozessor\" ausblenden</string>
-    <string name="hide_cpu_load_in_the_overlay">Auslastung im Overlay ausblenden.</string>
-    <string name="hide_cpu_load">Auslastung ausblenden</string>
+    <string name="hide_cpu_load_in_the_overlay">CPU Auslastung im Overlay ausblenden.</string>
+    <string name="hide_cpu_load">CPU Auslastung ausblenden</string>
     <string name="hide_cpu_clock_in_the_overlay">CPU Taktrate im Overlay ausblenden.</string>
     <string name="hide_cpu_clock">CPU Taktrate ausblenden</string>
     <string name="hide_cpu_temperature_in_the_overlay">CPU Temperatur im Overlay ausblenden.</string>

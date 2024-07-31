@@ -82,6 +82,8 @@
     <string name="replacement_options">Опции замены</string>
     <string name="select_the_cpu_clock_output_for_the_overlay">Выберите варианты вывода CPU частоты при отображении.</string>
     <string name="cpu_clock_output">Вывод частоты ЦПУ</string>
+    <string name="select_the_memory_usage_output_for_the_overlay">Выберите варианты использования памяти для наложения.</string>
+    <string name="memory_usage_output">Вывод использовании памяти</string>
     <string name="this_option_adds_seconds_to_the_time">Показывать секунды при отображении времени</string>
     <string name="display_seconds">Показать секунды при отображении времени</string>
     <string name="show_mbps_instead_of_mb_s_in_the_overlay">Показывать Mbps вместо МБ/с для скорости соединения при отображении.</string>

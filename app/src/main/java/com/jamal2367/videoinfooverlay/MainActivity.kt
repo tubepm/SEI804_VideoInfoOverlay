@@ -38,7 +38,6 @@ import java.io.FileNotFoundException
 import java.io.IOException
 import java.lang.ref.WeakReference
 import java.net.Socket
-import java.text.DateFormat
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
 import java.text.SimpleDateFormat
@@ -89,7 +88,6 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
     private val roundedCornersRightKey = "rounded_corners_right_key"
     private val textFontKey = "text_font_key"
     private val textSecondsKey = "text_seconds_key"
-    private val textGbKey = "text_gb_key"
     private val textMbpsKey = "text_mbps_key"
     private val emptyLineKey = "empty_line_key"
     private val emptyTitleKey = "empty_title_key"
@@ -181,7 +179,6 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                             removeOverlay()
                             Log.d("TAG", "Overlay removed")
                         } else {
-                            onKeyCE()
                             createOverlay()
                             Log.d("TAG", "Overlay started")
                         }
@@ -192,7 +189,6 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                             removeOverlay()
                             Log.d("TAG", "Overlay removed")
                         } else {
-                            onKeyCE()
                             createOverlay()
                             Log.d("TAG", "Overlay started")
                         }
@@ -214,6 +210,8 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
             PixelFormat.TRANSLUCENT
         )
+
+        onKeyCE()
 
         overlayView = View.inflate(this, R.layout.activity_main, null)
         overlayTextView = overlayView!!.findViewById(R.id.overlayTextView)
@@ -250,7 +248,6 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             windowManager.removeView(overlayView)
 
             overlayView = null
-            handler.removeCallbacks(updateData)
         }
     }
 
@@ -383,9 +380,15 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                 val cpuUsage = getSystemProperty("sys.nes.info.cpu_usage")
                 val cpuGovernor = printCpuGovernor()
                 val memoryUsage = getSystemProperty("sys.nes.info.memory_usage")
+                val memoryPercentage = formatMemoryUsagePercentage(memoryUsage)
+                val memoryMb = formatMemoryUsageMB(memoryUsage)
+                val memoryMbPercentage = formatMemoryUsageMBPercentage(memoryUsage)
+                val memoryGb = formatMemoryUsageGB(memoryUsage)
+                val memoryGbPercentage = formatMemoryUsageGBPercentage(memoryUsage)
                 val connectionSpeed = getSystemProperty("sys.nes.info.connection_speed")
                 val localTime = getCurrentTimeFormatted(applicationContext)
                 val cpuTemp = getHardwarePropertiesCelsius()
+                val audioChannels = getAudioChannels()
 
                 val overlayText = buildString {
                     if (!isHideVideoTitle) {
@@ -581,7 +584,20 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                                 "DTS EXPRESS" -> "DTS Express"
                                 else -> audioMode
                             }
-                            appendLine(modifiedAudioMode)
+
+                            val modifiedAudioChannels = when (audioChannels.trim()) {
+                                "1" -> "1.0"
+                                "2" -> "2.0"
+                                "3" -> "2.1"
+                                "4" -> "3.1"
+                                "5" -> "4.1"
+                                "6" -> "5.1"
+                                "7" -> "6.1"
+                                "8" -> "7.1"
+                                else -> audioChannels
+                            }
+
+                            appendLine("$modifiedAudioMode $modifiedAudioChannels")
                         }
                     }
 
@@ -732,26 +748,18 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
                     if (!isHideMemoryUsage) {
                         if (memoryUsage.isNotEmpty()) {
-                            val isGbText = sharedPreferences.getBoolean(textGbKey, false)
+                        val memoryUsagePreference = sharedPreferences.getString("memory_usage_key", "mbPercentage")
 
-                            if (!isGbText) {
-                                val formattedMemoryUsage = memoryUsage.replace("(MB)", "MB").replace("/", "|")
-                                appendLine(formattedMemoryUsage)
-                            } else {
-                                val pattern = """(\d+) / (\d+) \(MB\)""".toRegex()
-                                val matchResult = pattern.find(memoryUsage)
+                        val displayText = when (memoryUsagePreference) {
+                            "percentage" -> memoryPercentage
+                            "mb" -> memoryMb
+                            "mbPercentage" -> memoryMbPercentage
+                            "gb" -> memoryGb
+                            "gbPercentage" -> memoryGbPercentage
+                            else -> memoryMbPercentage
+                        }
 
-                                if (matchResult != null) {
-                                    val (usedMB, totalMB) = matchResult.destructured
-                                    val usedGB = usedMB.toInt() / 1000.0
-                                    val totalGB = totalMB.toInt() / 1000.0
-
-                                    val resultInGB = "%.2f | %.2f GB".format(usedGB, totalGB)
-                                    appendLine(resultInGB)
-                                } else {
-                                    appendLine(memoryUsage)
-                                }
-                            }
+                        appendLine(displayText)
                         }
                     }
 
@@ -947,7 +955,11 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                 overlayTextView2.text = overlayText2.trim()
 
                 CoroutineScope(Dispatchers.Main).launch {
-                    handler.postDelayed(updateData, 750)
+                    if (overlayView != null) {
+                        handler.postDelayed(updateData, 750)
+                    } else {
+                        handler.removeCallbacks(updateData)
+                    }
                 }
             }
         }
@@ -1396,6 +1408,76 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         }
     }
 
+    private fun formatMemoryUsagePercentage(memoryUsage: String): String {
+        val pattern = """(\d+) / (\d+) \(MB\)""".toRegex()
+        val matchResult = pattern.find(memoryUsage)
+
+        return if (matchResult != null) {
+            val (usedMB, totalMB) = matchResult.destructured
+            val usedMBInt = usedMB.toInt()
+            val totalMBInt = totalMB.toInt()
+            val percentage = (usedMBInt.toDouble() / totalMBInt) * 100
+
+            "%d%%".format(percentage.toInt())
+        } else {
+            memoryUsage
+        }
+    }
+
+    private fun formatMemoryUsageMB(memoryUsage: String): String {
+        val formattedMemoryUsage = memoryUsage.replace("(MB)", "MB").replace("/", "|")
+        return formattedMemoryUsage
+    }
+
+    private fun formatMemoryUsageGB(memoryUsage: String): String {
+        val pattern = """(\d+) / (\d+) \(MB\)""".toRegex()
+        val matchResult = pattern.find(memoryUsage)
+
+        return if (matchResult != null) {
+            val (usedMB, totalMB) = matchResult.destructured
+            val usedGB = usedMB.toInt() / 1000.0
+            val totalGB = totalMB.toInt() / 1000.0
+
+            "%.2f | %.2f GB".format(usedGB, totalGB)
+        } else {
+            memoryUsage
+        }
+    }
+
+    private fun formatMemoryUsageMBPercentage(memoryUsage: String): String {
+        val pattern = """(\d+) / (\d+) \(MB\)""".toRegex()
+        val matchResult = pattern.find(memoryUsage)
+
+        return if (matchResult != null) {
+            val (usedMB, totalMB) = matchResult.destructured
+            val usedMBInt = usedMB.toInt()
+            val totalMBInt = totalMB.toInt()
+            val percentage = (usedMBInt.toDouble() / totalMBInt) * 100
+
+            "%d | %d MB (%d%%)".format(usedMBInt, totalMBInt, percentage.toInt())
+        } else {
+            memoryUsage
+        }
+    }
+
+    private fun formatMemoryUsageGBPercentage(memoryUsage: String): String {
+        val pattern = """(\d+) / (\d+) \(MB\)""".toRegex()
+        val matchResult = pattern.find(memoryUsage)
+
+        return if (matchResult != null) {
+            val (usedMB, totalMB) = matchResult.destructured
+            val usedMBInt = usedMB.toInt()
+            val totalMBInt = totalMB.toInt()
+            val usedGB = usedMBInt / 1024.0
+            val totalGB = totalMBInt / 1024.0
+            val percentage = (usedGB / totalGB) * 100
+
+            "%.2f | %.2f GB (%.0f%%)".format(usedGB, totalGB, percentage)
+        } else {
+            memoryUsage
+        }
+    }
+
     private fun getCurrentTimeFormatted(context: Context): String {
         val now = Date()
         val is24HourFormat = AndroidDateFormat.is24HourFormat(context)
@@ -1408,13 +1490,10 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             else -> "h:mm a"
         }
 
-        val dateFormat = DateFormat.getDateInstance(DateFormat.DEFAULT, Locale.getDefault())
         val timeFormat = SimpleDateFormat(timeFormatPattern, Locale.getDefault())
-
-        val formattedDate = dateFormat.format(now)
         val formattedTime = timeFormat.format(now)
 
-        return "$formattedTime | $formattedDate"
+        return formattedTime
     }
 
 
@@ -1444,31 +1523,33 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         }
 
         try {
-            val isRequest = sharedPreferences.getBoolean(requestKey, false)
-            val isCelFahr = sharedPreferences.getBoolean(celFahrKey, false)
-
             if (stream == null || connection == null) {
                 connection = AdbConnection.create(socket, crypto)
                 connection?.connect()
-            }
-
-            if (isRequest) {
-                if (isCelFahr) {
-                    getHardwarePropertiesFahrenheit()
-                } else {
-                    getHardwarePropertiesCelsius()
-                }
-            } else {
-                if (isCelFahr) {
-                    getThermalServiceFahrenheit()
-                } else {
-                    getThermalServiceCelsius()
-                }
             }
         } catch (e: InterruptedException) {
             e.printStackTrace()
             Thread.currentThread().interrupt()
         }
+    }
+
+    private suspend fun audioChannels(): String {
+        return withContext(Dispatchers.IO) {
+            try {
+                val audioChannelsStream = connection?.open("shell:dumpsys media.audio_flinger | grep 'Channel count:' | awk '{print $3}' | head -n 2 | awk 'BEGIN {found_one = 0; max = 0} {if ($1 == 1) found_one = 1; else if ($1 > max && $1 <= 9999) max = $1} END {print (found_one == 1) ? 1 : max}'")
+                val audioChannelsOutputBytes = audioChannelsStream?.read()
+
+                return@withContext audioChannelsOutputBytes?.decodeToString()?.replace("\n", "") ?: ""
+            } catch (e: Exception) {
+                e.printStackTrace()
+                return@withContext "Error: ${e.message}"
+            }
+        }
+    }
+
+    private suspend fun getAudioChannels(): String {
+        val audioChannels = audioChannels()
+        return audioChannels
     }
 
     private suspend fun thermalServiceCelsius(): String {

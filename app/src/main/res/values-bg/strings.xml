@@ -82,6 +82,8 @@
     <string name="replacement_options">Замяна</string>
     <string name="select_the_cpu_clock_output_for_the_overlay">Изберете изхода на тактовия генератор на процесора за наслагването.</string>
     <string name="cpu_clock_output">Изход на тактовия генератор на процесора</string>
+    <string name="select_the_memory_usage_output_for_the_overlay">Изберете изхода за използване на паметта за наслагването.</string>
+    <string name="memory_usage_output">Изход за използване на паметта</string>
     <string name="this_option_adds_seconds_to_the_time">Показвайте секундите за времето в наслагването.</string>
     <string name="display_seconds">Секунди във времето</string>
     <string name="show_mbps_instead_of_mb_s_in_the_overlay">Показвайте Mbps вместо MB/s за връзката в наслагването.</string>
