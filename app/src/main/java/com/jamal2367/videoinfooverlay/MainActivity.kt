@@ -388,7 +388,6 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                 val connectionSpeed = getSystemProperty("sys.nes.info.connection_speed")
                 val localTime = getCurrentTimeFormatted(applicationContext)
                 val cpuTemp = getHardwarePropertiesCelsius()
-                val audioChannels = getAudioChannels()
 
                 val overlayText = buildString {
                     if (!isHideVideoTitle) {
@@ -585,19 +584,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                                 else -> audioMode
                             }
 
-                            val modifiedAudioChannels = when (audioChannels.trim()) {
-                                "1" -> "1.0"
-                                "2" -> "2.0"
-                                "3" -> "2.1"
-                                "4" -> "3.1"
-                                "5" -> "4.1"
-                                "6" -> "5.1"
-                                "7" -> "6.1"
-                                "8" -> "7.1"
-                                else -> audioChannels
-                            }
-
-                            appendLine("$modifiedAudioMode $modifiedAudioChannels")
+                            appendLine(modifiedAudioMode)
                         }
                     }
 
@@ -1531,25 +1518,6 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             e.printStackTrace()
             Thread.currentThread().interrupt()
         }
-    }
-
-    private suspend fun audioChannels(): String {
-        return withContext(Dispatchers.IO) {
-            try {
-                val audioChannelsStream = connection?.open("shell:dumpsys media.audio_flinger | grep 'Channel count:' | awk '{print $3}' | head -n 2 | awk 'BEGIN {found_one = 0; max = 0} {if ($1 == 1) found_one = 1; else if ($1 > max && $1 <= 9999) max = $1} END {print (found_one == 1) ? 1 : max}'")
-                val audioChannelsOutputBytes = audioChannelsStream?.read()
-
-                return@withContext audioChannelsOutputBytes?.decodeToString()?.replace("\n", "") ?: ""
-            } catch (e: Exception) {
-                e.printStackTrace()
-                return@withContext "Error: ${e.message}"
-            }
-        }
-    }
-
-    private suspend fun getAudioChannels(): String {
-        val audioChannels = audioChannels()
-        return audioChannels
     }
 
     private suspend fun thermalServiceCelsius(): String {
