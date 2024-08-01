@@ -10,6 +10,7 @@
     <string name="audio_format">Аудиоформат:</string>
     <string name="audio_mode">Аудиокодек:</string>
     <string name="app_name_tv">Приложение:</string>
+    <string name="app_memory_usage">Память приложения:</string>
     <string name="cpu_usage">ЦПУ Загрузка:</string>
     <string name="cpu_index">ЦПУ %d тактовая:</string>
     <string name="cpu_governor">ЦПУ Governor:</string>
@@ -137,6 +138,8 @@
     <string name="hide_time">Скрыть показ времени</string>
     <string name="hide_memory_usage_in_the_overlay">Скрыть потребление памяти при выводе.</string>
     <string name="hide_memory_usage">Скрыть потребление памяти</string>
+    <string name="hide_app_memory_usage_in_the_overlay">Скрыть память приложения при выводе.</string>
+    <string name="hide_app_memory_usage">Скрыть память приложения</string>
     <string name="hide_connection_in_the_overlay">Скрыть скорость соединения при выводе.</string>
     <string name="hide_connection">Скрыть скорость соединения</string>
     <string name="hide_app_name_in_the_overlay">Скрыть название активного приложения при выводе.</string>

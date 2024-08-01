@@ -10,6 +10,7 @@
     <string name="audio_format">Аудио Формат:</string>
     <string name="audio_mode">Аудио режим:</string>
     <string name="app_name_tv">Приложение:</string>
+    <string name="app_memory_usage">Памет на приложението:</string>
     <string name="cpu_usage">Изплзване на CPU:</string>
     <string name="cpu_index">CPU %d тактово:</string>
     <string name="cpu_governor">CPU Governor:</string>
@@ -137,6 +138,8 @@
     <string name="hide_time">Скриване на времето</string>
     <string name="hide_memory_usage_in_the_overlay">Скриване на използването на паметта в наслагването.</string>
     <string name="hide_memory_usage">Скрива използването на паметта</string>
+    <string name="hide_app_memory_usage_in_the_overlay">Скриване на паметта на приложението в наслагването.</string>
+    <string name="hide_app_memory_usage">Скриване на паметта на приложението</string>
     <string name="hide_connection_in_the_overlay">Скриване на връзката в наслагването.</string>
     <string name="hide_connection">Скриване на връзката</string>
     <string name="hide_app_name_in_the_overlay">Скриване на името на приложението в наслагването.</string>

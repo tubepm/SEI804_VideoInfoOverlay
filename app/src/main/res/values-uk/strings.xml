@@ -10,6 +10,7 @@
     <string name="audio_format">Формат звуку:</string>
     <string name="audio_mode">Режим звуку:</string>
     <string name="app_name_tv">Назва застосунку:</string>
+    <string name="app_memory_usage">Пам\'ять застосунку:</string>
     <string name="cpu_usage">Використання ЦП:</string>
     <string name="cpu_index">Тактова частота ЦП %d:</string>
     <string name="cpu_governor">ЦП Governor:</string>
@@ -137,6 +138,8 @@
     <string name="hide_time">Приховати відображення часу</string>
     <string name="hide_memory_usage_in_the_overlay">Приховати Використання пам\'яті на оверлеї.</string>
     <string name="hide_memory_usage">Приховати Використання пам\'яті</string>
+    <string name="hide_app_memory_usage_in_the_overlay">Приховати пам\'ять застосунку на оверлеї.</string>
+    <string name="hide_app_memory_usage">Приховати пам\'ять застосунку</string>
     <string name="hide_connection_in_the_overlay">Приховати швидкість з\'єднання на оверлеї.</string>
     <string name="hide_connection">Приховати З\'єднання</string>
     <string name="hide_app_name_in_the_overlay">Приховати Назву застосунку на оверлеї.</string>
