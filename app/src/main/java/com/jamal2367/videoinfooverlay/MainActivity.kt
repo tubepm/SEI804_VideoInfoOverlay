@@ -13,6 +13,7 @@ import android.net.ConnectivityManager
 import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
+import android.provider.Settings
 import android.util.Base64
 import android.util.Log
 import android.view.KeyEvent
@@ -117,6 +118,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
     private val textHideMemoryUsageKey = "pref_hide_memory_usage_key"
     private val textHideConnectionKey = "pref_hide_connection_key"
     private val textHideAppNameKey = "pref_hide_app_name_key"
+    private val textHideAppMemoryUsageKey = "pref_hide_app_memory_usage_key"
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
     }
@@ -200,6 +202,10 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         return super.onKeyEvent(event)
     }
 
+    private fun isUsbDebuggingEnabled(): Boolean {
+        return Settings.Global.getInt(contentResolver, Settings.Global.ADB_ENABLED, 0) == 1
+    }
+
     private fun createOverlay() {
         val isHideLeftOverlay = sharedPreferences.getBoolean(hideLeftOverlay, false)
 
@@ -211,7 +217,9 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             PixelFormat.TRANSLUCENT
         )
 
-        onKeyCE()
+        if (isUsbDebuggingEnabled()) {
+            onKeyCE()
+        }
 
         overlayView = View.inflate(this, R.layout.activity_main, null)
         overlayTextView = overlayView!!.findViewById(R.id.overlayTextView)
@@ -359,6 +367,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                 val isHideMemoryUsage = sharedPreferences.getBoolean(textHideMemoryUsageKey, false)
                 val isHideConnection = sharedPreferences.getBoolean(textHideConnectionKey, false)
                 val isHideAppName = sharedPreferences.getBoolean(textHideAppNameKey, false)
+                val isHideAppMemoryUsage = sharedPreferences.getBoolean(textHideAppMemoryUsageKey, false)
                 val isRequest = sharedPreferences.getBoolean(requestKey, false)
                 val isCelFahr = sharedPreferences.getBoolean(celFahrKey, false)
                 val videoFormat = getSystemProperty("sys.nes.info.video_format")
@@ -388,6 +397,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                 val connectionSpeed = getSystemProperty("sys.nes.info.connection_speed")
                 val localTime = getCurrentTimeFormatted(applicationContext)
                 val cpuTemp = getHardwarePropertiesCelsius()
+                val appMemoryUsage = getAppMemoryUsage()
 
                 val overlayText = buildString {
                     if (!isHideVideoTitle) {
@@ -733,23 +743,6 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         }
                     }
 
-                    if (!isHideMemoryUsage) {
-                        if (memoryUsage.isNotEmpty()) {
-                        val memoryUsagePreference = sharedPreferences.getString("memory_usage_key", "mbPercentage")
-
-                        val displayText = when (memoryUsagePreference) {
-                            "percentage" -> memoryPercentage
-                            "mb" -> memoryMb
-                            "mbPercentage" -> memoryMbPercentage
-                            "gb" -> memoryGb
-                            "gbPercentage" -> memoryGbPercentage
-                            else -> memoryMbPercentage
-                        }
-
-                        appendLine(displayText)
-                        }
-                    }
-
                     if (!isHideConnection) {
                         if (getConnectionState().isNotEmpty()) {
                             val modifiedgetConnectionState = when (getConnectionState().trim()) {
@@ -779,6 +772,29 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                                     }
                                 }
                             }
+                        }
+                    }
+
+                    if (!isHideMemoryUsage) {
+                        if (memoryUsage.isNotEmpty()) {
+                        val memoryUsagePreference = sharedPreferences.getString("memory_usage_key", "mbPercentage")
+
+                        val displayText = when (memoryUsagePreference) {
+                            "percentage" -> memoryPercentage
+                            "mb" -> memoryMb
+                            "mbPercentage" -> memoryMbPercentage
+                            "gb" -> memoryGb
+                            "gbPercentage" -> memoryGbPercentage
+                            else -> memoryMbPercentage
+                        }
+
+                        appendLine(displayText)
+                        }
+                    }
+
+                    if (!isHideAppMemoryUsage) {
+                        if (appMemoryUsage.isNotEmpty()) {
+                            appendLine(appMemoryUsage)
                         }
                     }
 
@@ -918,16 +934,22 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         }
                     }
 
+                    if (!isHideConnection) {
+                        if (getConnectionState().isNotEmpty()) {
+                            appendLine(getString(R.string.connection))
+
+                        }
+                    }
+
                     if (!isHideMemoryUsage) {
                         if (memoryUsage.isNotEmpty()) {
                             appendLine(getString(R.string.memory_usage))
                         }
                     }
 
-                    if (!isHideConnection) {
-                        if (getConnectionState().isNotEmpty()) {
-                            appendLine(getString(R.string.connection))
-
+                    if (!isHideAppMemoryUsage) {
+                        if (appMemoryUsage.isNotEmpty()) {
+                            appendLine(getString(R.string.app_memory_usage))
                         }
                     }
 
@@ -1520,6 +1542,26 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         }
     }
 
+    private suspend fun appMemoryUsage(): String {
+        return withContext(Dispatchers.IO) {
+            try {
+                val appName = getSystemProperty("sys.nes.info.app_name")
+                val memoryUsageStream = connection?.open("shell:dumpsys meminfo $appName | awk '/TOTAL PSS/ {printf \"%.0f MB\", \$3/1024}'")
+                val memoryUsageOutputBytes = memoryUsageStream?.read()
+
+                return@withContext memoryUsageOutputBytes?.decodeToString() ?: "-- MB"
+            } catch (e: Exception) {
+                e.printStackTrace()
+                return@withContext "-- MB"
+            }
+        }
+    }
+
+    private suspend fun getAppMemoryUsage(): String {
+        val appMemoryUsage = appMemoryUsage()
+        return appMemoryUsage
+    }
+
     private suspend fun thermalServiceCelsius(): String {
         return withContext(Dispatchers.IO) {
             try {
@@ -1529,7 +1571,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                 return@withContext thermalServiceOutputBytes?.decodeToString()?.replace("\n", "") ?: "--"
             } catch (e: Exception) {
                 e.printStackTrace()
-                return@withContext "Error: ${e.message}"
+                return@withContext "--°C"
             }
         }
     }
@@ -1548,7 +1590,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                 return@withContext hardwarePropertiesOutputBytes?.decodeToString()?.replace("\n", "") ?: "--"
             } catch (e: Exception) {
                 e.printStackTrace()
-                return@withContext "Error: ${e.message}"
+                return@withContext "--°C"
             }
         }
     }
@@ -1574,7 +1616,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                 return@withContext decimalFormat.format(fahrenheitTemperature)
             } catch (e: Exception) {
                 e.printStackTrace()
-                return@withContext "Error: ${e.message}"
+                return@withContext "--°F"
             }
         }
     }
@@ -1600,7 +1642,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                 return@withContext decimalFormat.format(fahrenheitTemperature)
             } catch (e: Exception) {
                 e.printStackTrace()
-                return@withContext "Error: ${e.message}"
+                return@withContext "--°F"
             }
         }
     }

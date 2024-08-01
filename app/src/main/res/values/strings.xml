@@ -11,6 +11,7 @@
     <string name="audio_format">Audio Format:</string>
     <string name="audio_mode">Audio Mode:</string>
     <string name="app_name_tv">App Name:</string>
+    <string name="app_memory_usage">App Memory:</string>
     <string name="cpu_usage">CPU Load:</string>
     <string name="cpu_index">CPU %d Clock:</string>
     <string name="cpu_governor">CPU Governor:</string>
@@ -138,6 +139,8 @@
     <string name="hide_time">Hide time</string>
     <string name="hide_memory_usage_in_the_overlay">Hide memory usage in the overlay.</string>
     <string name="hide_memory_usage">Hide memory usage</string>
+    <string name="hide_app_memory_usage_in_the_overlay">Hide app memory in the overlay.</string>
+    <string name="hide_app_memory_usage">Hide app memory</string>
     <string name="hide_connection_in_the_overlay">Hide connection in the overlay.</string>
     <string name="hide_connection">Hide connection</string>
     <string name="hide_app_name_in_the_overlay">Hide app name in the overlay.</string>

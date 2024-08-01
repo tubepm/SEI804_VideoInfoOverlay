@@ -193,6 +193,13 @@
         <CheckBoxPreference
             android:defaultValue="false"
             android:icon="@drawable/ic_strikethrough_24dp"
+            android:key="pref_hide_connection_key"
+            android:summary="@string/hide_connection_in_the_overlay"
+            android:title="@string/hide_connection" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_strikethrough_24dp"
             android:key="pref_hide_memory_usage_key"
             android:summary="@string/hide_memory_usage_in_the_overlay"
             android:title="@string/hide_memory_usage" />
@@ -200,9 +207,9 @@
         <CheckBoxPreference
             android:defaultValue="false"
             android:icon="@drawable/ic_strikethrough_24dp"
-            android:key="pref_hide_connection_key"
-            android:summary="@string/hide_connection_in_the_overlay"
-            android:title="@string/hide_connection" />
+            android:key="pref_hide_app_memory_usage_key"
+            android:summary="@string/hide_app_memory_usage_in_the_overlay"
+            android:title="@string/hide_app_memory_usage" />
 
         <CheckBoxPreference
             android:defaultValue="false"
