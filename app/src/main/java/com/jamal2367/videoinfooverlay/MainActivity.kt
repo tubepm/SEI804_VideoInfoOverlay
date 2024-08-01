@@ -703,19 +703,21 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         appendLine(displayText)
                     }
 
-                    if (!isHideCpuTemperature) {
-                        if (cpuTemp.isNotEmpty()) {
-                            if (isRequest) {
-                                if (isCelFahr) {
-                                    appendLine(getHardwarePropertiesFahrenheit())
+                    if (isUsbDebuggingEnabled()) {
+                        if (!isHideCpuTemperature) {
+                            if (cpuTemp.isNotEmpty()) {
+                                if (isRequest) {
+                                    if (isCelFahr) {
+                                        appendLine(getHardwarePropertiesFahrenheit())
+                                    } else {
+                                        appendLine(getHardwarePropertiesCelsius())
+                                    }
                                 } else {
-                                    appendLine(getHardwarePropertiesCelsius())
-                                }
-                            } else {
-                                if (isCelFahr) {
-                                    appendLine(getThermalServiceFahrenheit())
-                                } else {
-                                    appendLine(getThermalServiceCelsius())
+                                    if (isCelFahr) {
+                                        appendLine(getThermalServiceFahrenheit())
+                                    } else {
+                                        appendLine(getThermalServiceCelsius())
+                                    }
                                 }
                             }
                         }
@@ -792,9 +794,11 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         }
                     }
 
-                    if (!isHideAppMemoryUsage) {
-                        if (appMemoryUsage.isNotEmpty()) {
-                            appendLine(appMemoryUsage)
+                    if (isUsbDebuggingEnabled()) {
+                        if (!isHideAppMemoryUsage) {
+                            if (appMemoryUsage.isNotEmpty()) {
+                                appendLine(appMemoryUsage)
+                            }
                         }
                     }
 
@@ -906,9 +910,11 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         appendLine(printCpuIndex())
                     }
 
-                    if (!isHideCpuTemperature) {
-                        if (cpuTemp.isNotEmpty()) {
-                            appendLine(getString(R.string.cpu_temperature))
+                    if (isUsbDebuggingEnabled()) {
+                        if (!isHideCpuTemperature) {
+                            if (cpuTemp.isNotEmpty()) {
+                                appendLine(getString(R.string.cpu_temperature))
+                            }
                         }
                     }
 
@@ -947,9 +953,11 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                         }
                     }
 
-                    if (!isHideAppMemoryUsage) {
-                        if (appMemoryUsage.isNotEmpty()) {
-                            appendLine(getString(R.string.app_memory_usage))
+                    if (isUsbDebuggingEnabled()) {
+                        if (!isHideAppMemoryUsage) {
+                            if (appMemoryUsage.isNotEmpty()) {
+                                appendLine(getString(R.string.app_memory_usage))
+                            }
                         }
                     }
 
@@ -1571,7 +1579,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                 return@withContext thermalServiceOutputBytes?.decodeToString()?.replace("\n", "") ?: "--"
             } catch (e: Exception) {
                 e.printStackTrace()
-                return@withContext "--°C"
+                return@withContext "--"
             }
         }
     }
@@ -1590,7 +1598,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                 return@withContext hardwarePropertiesOutputBytes?.decodeToString()?.replace("\n", "") ?: "--"
             } catch (e: Exception) {
                 e.printStackTrace()
-                return@withContext "--°C"
+                return@withContext "--"
             }
         }
     }
@@ -1616,7 +1624,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                 return@withContext decimalFormat.format(fahrenheitTemperature)
             } catch (e: Exception) {
                 e.printStackTrace()
-                return@withContext "--°F"
+                return@withContext "--"
             }
         }
     }
@@ -1642,7 +1650,7 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
                 return@withContext decimalFormat.format(fahrenheitTemperature)
             } catch (e: Exception) {
                 e.printStackTrace()
-                return@withContext "--°F"
+                return@withContext "--"
             }
         }
     }
