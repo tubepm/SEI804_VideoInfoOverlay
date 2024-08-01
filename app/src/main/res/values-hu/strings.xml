@@ -10,7 +10,7 @@
     <string name="audio_format">Hangformátum:</string>
     <string name="audio_mode">Audió mód:</string>
     <string name="app_name_tv">Futó alkalmazásnév:</string>
-    <string name="app_memory_usage">Memória használat:</string>
+    <string name="app_memory_usage">Jelenlegi app memória használat:</string>
     <string name="cpu_usage">CPU használat:</string>
     <string name="cpu_index">CPU %d sebesség:</string>
     <string name="cpu_governor">CPU Governor:</string>
@@ -138,8 +138,8 @@
     <string name="hide_time">Idő elrejtése</string>
     <string name="hide_memory_usage_in_the_overlay">Memória használat elrejtése az infóablakon.</string>
     <string name="hide_memory_usage">Memória használat elrejtése</string>
-    <string name="hide_app_memory_usage_in_the_overlay">Memória használat elrejtése az infóablakon.</string>
-    <string name="hide_app_memory_usage">Memória használat elrejtése</string>
+    <string name="hide_app_memory_usage_in_the_overlay">App memória használat elrejtése az infóablakon.</string>
+    <string name="hide_app_memory_usage">App memória használat elrejtése</string>
     <string name="hide_connection_in_the_overlay">Csatlakozás elrejtése az infóablakon.</string>
     <string name="hide_connection">Csatlakozás elrejtése</string>
     <string name="hide_app_name_in_the_overlay">Alkalmazásnév elrejtése az infóablakon.</string>
