@@ -9,8 +9,8 @@
     <string name="hdr_priority">HDR Priorität:</string>
     <string name="audio_format">Audioformat:</string>
     <string name="audio_mode">Audiomodus:</string>
-    <string name="app_name_tv">Appname:</string>
-    <string name="app_memory_usage">Appspeicher:</string>
+    <string name="app_name_tv">Anwendungsname:</string>
+    <string name="app_memory_usage">Anwendungsspeicher:</string>
     <string name="cpu_usage">CPU Auslastung:</string>
     <string name="cpu_index">CPU %d Taktrate:</string>
     <string name="cpu_governor">CPU Governor:</string>
@@ -138,12 +138,12 @@
     <string name="hide_time">Aktuelle Zeit ausblenden</string>
     <string name="hide_memory_usage_in_the_overlay">Speichernutzung im Overlay ausblenden.</string>
     <string name="hide_memory_usage">Speichernutzung ausblenden</string>
-    <string name="hide_app_memory_usage_in_the_overlay">Appspeicher im Overlay ausblenden.</string>
-    <string name="hide_app_memory_usage">Appspeicher ausblenden</string>
+    <string name="hide_app_memory_usage_in_the_overlay">Anwendungsspeicher im Overlay ausblenden.</string>
+    <string name="hide_app_memory_usage">Anwendungsspeicher ausblenden</string>
     <string name="hide_connection_in_the_overlay">Verbindungstyp im Overlay ausblenden.</string>
     <string name="hide_connection">Verbindungstyp ausblenden</string>
-    <string name="hide_app_name_in_the_overlay">Appname im Overlay ausblenden.</string>
-    <string name="hide_app_name">Appname ausblenden</string>
+    <string name="hide_app_name_in_the_overlay">Anwendungsname im Overlay ausblenden.</string>
+    <string name="hide_app_name">Anwendungsname ausblenden</string>
     <string name="hide_empty_line">Leere Zeile ausblenden</string>
     <string name="hide_empty_line_between_processor_und_other">Leere Zeile zwischen Prozessor und Sonstiges ausblenden.</string>
     <string name="hide_empty_line_between_display_und_processor">Leere Zeile zwischen Display und Prozessor ausblenden.</string>
