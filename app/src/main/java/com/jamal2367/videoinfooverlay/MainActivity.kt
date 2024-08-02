@@ -208,6 +208,8 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
 
     private fun createOverlay() {
         val isHideLeftOverlay = sharedPreferences.getBoolean(hideLeftOverlay, false)
+        val isHideCpuTemperature = sharedPreferences.getBoolean(textHideCpuTemperatureKey, true)
+        val isHideAppMemoryUsage = sharedPreferences.getBoolean(textHideAppMemoryUsageKey, true)
 
         val params = WindowManager.LayoutParams(
             WindowManager.LayoutParams.MATCH_PARENT,
@@ -218,7 +220,15 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         )
 
         if (isUsbDebuggingEnabled()) {
-            onKeyCE()
+            if (!isHideCpuTemperature || !isHideAppMemoryUsage) {
+                onKeyCE()
+            } else {
+                connection = null
+                stream = null
+
+                myAsyncTask = MyAsyncTask(this)
+                myAsyncTask?.cancel()
+            }
         }
 
         overlayView = View.inflate(this, R.layout.activity_main, null)
@@ -1523,8 +1533,8 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         connection = null
         stream = null
 
-        myAsyncTask?.cancel()
         myAsyncTask = MyAsyncTask(this)
+        myAsyncTask?.cancel()
         myAsyncTask?.execute(ipAddress)
     }
 
