@@ -156,7 +156,7 @@
             android:title="@string/hide_cpu_clock" />
 
         <CheckBoxPreference
-            android:defaultValue="false"
+            android:defaultValue="true"
             android:icon="@drawable/ic_strikethrough_24dp"
             android:key="pref_hide_cpu_temperature_key"
             android:summary="@string/hide_cpu_temperature_in_the_overlay"
@@ -205,7 +205,7 @@
             android:title="@string/hide_memory_usage" />
 
         <CheckBoxPreference
-            android:defaultValue="false"
+            android:defaultValue="true"
             android:icon="@drawable/ic_strikethrough_24dp"
             android:key="pref_hide_app_memory_usage_key"
             android:summary="@string/hide_app_memory_usage_in_the_overlay"

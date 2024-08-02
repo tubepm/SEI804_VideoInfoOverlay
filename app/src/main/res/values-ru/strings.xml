@@ -129,7 +129,7 @@
     <string name="hide_cpu_clock_in_the_overlay">Скрыть частоту ЦПУ при выводе.</string>
     <string name="hide_cpu_clock">Скрыть частоту ЦПУ</string>
     <string name="hide_cpu_temperature_in_the_overlay">Скрыть температуру ЦПУ при выводе.</string>
-    <string name="hide_cpu_temperature">Скрыть температуру ЦПУ</string>
+    <string name="hide_cpu_temperature">Скрыть температуру ЦПУ (ADB)</string>
     <string name="hide_cpu_governor_in_the_overlay">Скрыть политику управления частотой ЦПУ при выводе.</string>
     <string name="hide_cpu_governor">Скрыть политику управления частотой ЦПУ</string>
     <string name="hide_other_title_in_the_overlay">Скрыть название \"Прочее\" при выводе.</string>
@@ -137,7 +137,7 @@
     <string name="hide_time_in_the_overlay">Скрыть показ времени при выводе.</string>
     <string name="hide_time">Скрыть показ времени</string>
     <string name="hide_memory_usage_in_the_overlay">Скрыть потребление памяти при выводе.</string>
-    <string name="hide_memory_usage">Скрыть потребление памяти</string>
+    <string name="hide_memory_usage">Скрыть потребление памяти (ADB)</string>
     <string name="hide_app_memory_usage_in_the_overlay">Скрыть память приложения при выводе.</string>
     <string name="hide_app_memory_usage">Скрыть память приложения</string>
     <string name="hide_connection_in_the_overlay">Скрыть скорость соединения при выводе.</string>

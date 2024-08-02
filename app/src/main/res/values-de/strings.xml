@@ -129,7 +129,7 @@
     <string name="hide_cpu_clock_in_the_overlay">CPU Taktrate im Overlay ausblenden.</string>
     <string name="hide_cpu_clock">CPU Taktrate ausblenden</string>
     <string name="hide_cpu_temperature_in_the_overlay">CPU Temperatur im Overlay ausblenden.</string>
-    <string name="hide_cpu_temperature">CPU Temperatur ausblenden</string>
+    <string name="hide_cpu_temperature">CPU Temperatur ausblenden (ADB)</string>
     <string name="hide_cpu_governor_in_the_overlay">CPU Governor im Overlay ausblenden.</string>
     <string name="hide_cpu_governor">CPU Governor ausblenden</string>
     <string name="hide_other_title_in_the_overlay">Den Titel \"Sonstiges\" im Overlay ausblenden.</string>
@@ -139,7 +139,7 @@
     <string name="hide_memory_usage_in_the_overlay">Speichernutzung im Overlay ausblenden.</string>
     <string name="hide_memory_usage">Speichernutzung ausblenden</string>
     <string name="hide_app_memory_usage_in_the_overlay">Anwendungsspeicher im Overlay ausblenden.</string>
-    <string name="hide_app_memory_usage">Anwendungsspeicher ausblenden</string>
+    <string name="hide_app_memory_usage">Anwendungsspeicher ausblenden (ADB)</string>
     <string name="hide_connection_in_the_overlay">Verbindungstyp im Overlay ausblenden.</string>
     <string name="hide_connection">Verbindungstyp ausblenden</string>
     <string name="hide_app_name_in_the_overlay">Anwendungsname im Overlay ausblenden.</string>

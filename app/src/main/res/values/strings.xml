@@ -130,7 +130,7 @@
     <string name="hide_cpu_clock_in_the_overlay">Hide CPU clock in the overlay.</string>
     <string name="hide_cpu_clock">Hide CPU clock</string>
     <string name="hide_cpu_temperature_in_the_overlay">Hide CPU temperature in the overlay.</string>
-    <string name="hide_cpu_temperature">Hide CPU temperature</string>
+    <string name="hide_cpu_temperature">Hide CPU temperature (ADB)</string>
     <string name="hide_cpu_governor_in_the_overlay">Hide CPU governor in the overlay.</string>
     <string name="hide_cpu_governor">Hide CPU governor</string>
     <string name="hide_other_title_in_the_overlay">Hide other title in the overlay.</string>
@@ -140,7 +140,7 @@
     <string name="hide_memory_usage_in_the_overlay">Hide memory usage in the overlay.</string>
     <string name="hide_memory_usage">Hide memory usage</string>
     <string name="hide_app_memory_usage_in_the_overlay">Hide app memory in the overlay.</string>
-    <string name="hide_app_memory_usage">Hide app memory</string>
+    <string name="hide_app_memory_usage">Hide app memory (ADB)</string>
     <string name="hide_connection_in_the_overlay">Hide connection in the overlay.</string>
     <string name="hide_connection">Hide connection</string>
     <string name="hide_app_name_in_the_overlay">Hide app name in the overlay.</string>

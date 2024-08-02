@@ -129,7 +129,7 @@
     <string name="hide_cpu_clock_in_the_overlay">Приховати Тактову частоту ЦП на оверлеї.</string>
     <string name="hide_cpu_clock">Приховати Тактову частоту ЦП</string>
     <string name="hide_cpu_temperature_in_the_overlay">Приховати температуру ЦП на оверлеї.</string>
-    <string name="hide_cpu_temperature">Приховати температуру ЦП</string>
+    <string name="hide_cpu_temperature">Приховати температуру ЦП (ADB)</string>
     <string name="hide_cpu_governor_in_the_overlay">Приховати Governor ЦП на оверлеї.</string>
     <string name="hide_cpu_governor">Приховати Governor ЦП</string>
     <string name="hide_other_title_in_the_overlay">Приховати заголовок секції Інше на оверлеї.</string>
@@ -139,7 +139,7 @@
     <string name="hide_memory_usage_in_the_overlay">Приховати Використання пам\'яті на оверлеї.</string>
     <string name="hide_memory_usage">Приховати Використання пам\'яті</string>
     <string name="hide_app_memory_usage_in_the_overlay">Приховати пам\'ять застосунку на оверлеї.</string>
-    <string name="hide_app_memory_usage">Приховати пам\'ять застосунку</string>
+    <string name="hide_app_memory_usage">Приховати пам\'ять застосунку (ADB)</string>
     <string name="hide_connection_in_the_overlay">Приховати швидкість з\'єднання на оверлеї.</string>
     <string name="hide_connection">Приховати З\'єднання</string>
     <string name="hide_app_name_in_the_overlay">Приховати Назву застосунку на оверлеї.</string>

@@ -129,7 +129,7 @@
     <string name="hide_cpu_clock_in_the_overlay">CPU sebesség elrejtése az infóablakon.</string>
     <string name="hide_cpu_clock">CPU sebesség elrejtése</string>
     <string name="hide_cpu_temperature_in_the_overlay">CPU hőmérséklet elrejtése az infóablakon.</string>
-    <string name="hide_cpu_temperature">CPU hőmérséklet elrejtése</string>
+    <string name="hide_cpu_temperature">CPU hőmérséklet elrejtése (ADB)</string>
     <string name="hide_cpu_governor_in_the_overlay">CPU governor elrejtése az infóablakon.</string>
     <string name="hide_cpu_governor">CPU governor elrejtése</string>
     <string name="hide_other_title_in_the_overlay">Rendszer cím elrejtése az infóablakon.</string>
@@ -139,7 +139,7 @@
     <string name="hide_memory_usage_in_the_overlay">Memória használat elrejtése az infóablakon.</string>
     <string name="hide_memory_usage">Memória használat elrejtése</string>
     <string name="hide_app_memory_usage_in_the_overlay">App memória használat elrejtése az infóablakon.</string>
-    <string name="hide_app_memory_usage">App memória használat elrejtése</string>
+    <string name="hide_app_memory_usage">App memória használat elrejtése (ADB)</string>
     <string name="hide_connection_in_the_overlay">Csatlakozás elrejtése az infóablakon.</string>
     <string name="hide_connection">Csatlakozás elrejtése</string>
     <string name="hide_app_name_in_the_overlay">Alkalmazásnév elrejtése az infóablakon.</string>

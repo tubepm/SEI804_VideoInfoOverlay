@@ -129,7 +129,7 @@
     <string name="hide_cpu_clock_in_the_overlay">Скрива часовника на процесора в наслагването.</string>
     <string name="hide_cpu_clock">Скриване на часовника на процесора</string>
     <string name="hide_cpu_temperature_in_the_overlay">Скриване на температурата на процесора в наслагването.</string>
-    <string name="hide_cpu_temperature">Скриване на температурата на процесора</string>
+    <string name="hide_cpu_temperature">Скриване на температурата на процесора (ADB)</string>
     <string name="hide_cpu_governor_in_the_overlay">Скриване на процесорния регулатор в наслагването.</string>
     <string name="hide_cpu_governor">Скриване на CPU гуверньора</string>
     <string name="hide_other_title_in_the_overlay">Скриване на друго заглавие в горното покритие.</string>
@@ -139,7 +139,7 @@
     <string name="hide_memory_usage_in_the_overlay">Скриване на използването на паметта в наслагването.</string>
     <string name="hide_memory_usage">Скрива използването на паметта</string>
     <string name="hide_app_memory_usage_in_the_overlay">Скриване на паметта на приложението в наслагването.</string>
-    <string name="hide_app_memory_usage">Скриване на паметта на приложението</string>
+    <string name="hide_app_memory_usage">Скриване на паметта на приложението (ADB)</string>
     <string name="hide_connection_in_the_overlay">Скриване на връзката в наслагването.</string>
     <string name="hide_connection">Скриване на връзката</string>
     <string name="hide_app_name_in_the_overlay">Скриване на името на приложението в наслагването.</string>
