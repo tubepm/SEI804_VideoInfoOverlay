@@ -1032,7 +1032,8 @@ class MainActivity : AccessibilityService(), SharedPreferences.OnSharedPreferenc
             14 -> KeyEvent.KEYCODE_8
             15 -> KeyEvent.KEYCODE_9
             16 -> KeyEvent.KEYCODE_NUMPAD_MULTIPLY
-            17 -> KeyEvent.KEYCODE_UNKNOWN
+            17 -> KeyEvent.KEYCODE_F5
+            18 -> KeyEvent.KEYCODE_UNKNOWN
             else -> KeyEvent.KEYCODE_BOOKMARK
         }
 
