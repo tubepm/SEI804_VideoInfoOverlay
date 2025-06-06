@@ -29,10 +29,8 @@ jobs:
         run: ./gradlew assembleRelease
 
       - name: Upload Release APK
-        uses: actions:upload-artifact@v4
+        uses: actions/upload-artifact@v4 # CORRECTED LINE HERE
         with:
           name: app-release
-          # 根据你的 build.gradle 配置和实际生成的APK文件名进行修改
+          # Make sure this path is accurate based on your actual APK filename
           path: app/build/outputs/apk/release/SEI804_VideoInfoOverlay_21.0.apk
-          # 或者，如果你希望它更通用，可以尝试使用通配符（但这依赖于目录中只有一个APK）
-          # path: app/build/outputs/apk/release/*.apk
