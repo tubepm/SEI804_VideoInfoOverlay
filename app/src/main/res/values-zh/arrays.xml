@@ -22,134 +22,134 @@
     </string-array>
 
     <string-array name="text_color_left_options">
-        <item>White</item>
-        <item>Red</item>
-        <item>Pink</item>
-        <item>Purple</item>
-        <item>Deep Purple</item>
-        <item>Indigo</item>
-        <item>Blue</item>
-        <item>Light Blue</item>
-        <item>Cyan</item>
-        <item>Teal</item>
-        <item>Green</item>
-        <item>Light Green</item>
-        <item>Lime</item>
-        <item>Yellow</item>
-        <item>Amber</item>
-        <item>Orange</item>
-        <item>Deep Orange</item>
-        <item>Brown</item>
-        <item>Grey</item>
-        <item>Blue Grey</item>
-        <item>Gold</item>
-        <item>Silver</item>
-        <item>Rose Gold</item>
-        <item>Mint Green</item>
-        <item>Coral</item>
-        <item>Burgundy</item>
-        <item>Dark Blue</item>
-        <item>Forest Green</item>
-        <item>Black</item>
+        <item>白色</item>
+        <item>红色</item>
+        <item>粉色</item>
+        <item>紫色</item>
+        <item>深紫色</item>
+        <item>靛蓝色</item>
+        <item>蓝色</item>
+        <item>浅蓝色</item>
+        <item>青色</item>
+        <item>鸭绿色</item>
+        <item>绿色</item>
+        <item>浅绿色</item>
+        <item>酸橙色</item>
+        <item>黄色</item>
+        <item>琥珀色</item>
+        <item>橙色</item>
+        <item>深橙色</item>
+        <item>棕色</item>
+        <item>灰色</item>
+        <item>蓝灰色</item>
+        <item>金色</item>
+        <item>银色</item>
+        <item>玫瑰金</item>
+        <item>薄荷绿</item>
+        <item>珊瑚色</item>
+        <item>酒红色</item>
+        <item>深蓝色</item>
+        <item>森林绿</item>
+        <item>黑色</item>
     </string-array>
 
     <string-array name="text_color_right_options">
-        <item>White</item>
-        <item>Red</item>
-        <item>Pink</item>
-        <item>Purple</item>
-        <item>Deep Purple</item>
-        <item>Indigo</item>
-        <item>Blue</item>
-        <item>Light Blue</item>
-        <item>Cyan</item>
-        <item>Teal</item>
-        <item>Green</item>
-        <item>Light Green</item>
-        <item>Lime</item>
-        <item>Yellow</item>
-        <item>Amber</item>
-        <item>Orange</item>
-        <item>Deep Orange</item>
-        <item>Brown</item>
-        <item>Grey</item>
-        <item>Blue Grey</item>
-        <item>Gold</item>
-        <item>Silver</item>
-        <item>Rose Gold</item>
-        <item>Mint Green</item>
-        <item>Coral</item>
-        <item>Burgundy</item>
-        <item>Dark Blue</item>
-        <item>Forest Green</item>
-        <item>Black</item>
+        <item>白色</item>
+        <item>红色</item>
+        <item>粉色</item>
+        <item>紫色</item>
+        <item>深紫色</item>
+        <item>靛蓝色</item>
+        <item>蓝色</item>
+        <item>浅蓝色</item>
+        <item>青色</item>
+        <item>鸭绿色</item>
+        <item>绿色</item>
+        <item>浅绿色</item>
+        <item>酸橙色</item>
+        <item>黄色</item>
+        <item>琥珀色</item>
+        <item>橙色</item>
+        <item>深橙色</item>
+        <item>棕色</item>
+        <item>灰色</item>
+        <item>蓝灰色</item>
+        <item>金色</item>
+        <item>银色</item>
+        <item>玫瑰金</item>
+        <item>薄荷绿</item>
+        <item>珊瑚色</item>
+        <item>酒红色</item>
+        <item>深蓝色</item>
+        <item>森林绿</item>
+        <item>黑色</item>
     </string-array>
 
     <string-array name="text_align_left_options">
-        <item>Left</item>
-        <item>Center</item>
-        <item>Right</item>
+        <item>左对齐</item>
+        <item>居中</item>
+        <item>右对齐</item>
     </string-array>
 
     <string-array name="text_align_right_options">
-        <item>Left</item>
-        <item>Center</item>
-        <item>Right</item>
+        <item>左对齐</item>
+        <item>居中</item>
+        <item>右对齐</item>
     </string-array>
 
     <string-array name="background_color_left_options">
-        <item>Black</item>
-        <item>White</item>
-        <item>Red</item>
-        <item>Pink</item>
-        <item>Purple</item>
-        <item>Deep Purple</item>
-        <item>Indigo</item>
-        <item>Blue</item>
-        <item>Light Blue</item>
-        <item>Cyan</item>
-        <item>Teal</item>
-        <item>Green</item>
-        <item>Light Green</item>
-        <item>Lime</item>
-        <item>Yellow</item>
-        <item>Amber</item>
-        <item>Orange</item>
-        <item>Deep Orange</item>
-        <item>Brown</item>
-        <item>Grey</item>
-        <item>Blue Grey</item>
+        <item>黑色</item>
+        <item>白色</item>
+        <item>红色</item>
+        <item>粉色</item>
+        <item>紫色</item>
+        <item>深紫色</item>
+        <item>靛蓝色</item>
+        <item>蓝色</item>
+        <item>浅蓝色</item>
+        <item>青色</item>
+        <item>鸭绿色</item>
+        <item>绿色</item>
+        <item>浅绿色</item>
+        <item>酸橙色</item>
+        <item>黄色</item>
+        <item>琥珀色</item>
+        <item>橙色</item>
+        <item>深橙色</item>
+        <item>棕色</item>
+        <item>灰色</item>
+        <item>蓝灰色</item>
     </string-array>
 
     <string-array name="background_color_right_options">
-        <item>Black</item>
-        <item>White</item>
-        <item>Red</item>
-        <item>Pink</item>
-        <item>Purple</item>
-        <item>Deep Purple</item>
-        <item>Indigo</item>
-        <item>Blue</item>
-        <item>Light Blue</item>
-        <item>Cyan</item>
-        <item>Teal</item>
-        <item>Green</item>
-        <item>Light Green</item>
-        <item>Lime</item>
-        <item>Yellow</item>
-        <item>Amber</item>
-        <item>Orange</item>
-        <item>Deep Orange</item>
-        <item>Brown</item>
-        <item>Grey</item>
-        <item>Blue Grey</item>
+        <item>黑色</item>
+        <item>白色</item>
+        <item>红色</item>
+        <item>粉色</item>
+        <item>紫色</item>
+        <item>深紫色</item>
+        <item>靛蓝色</item>
+        <item>蓝色</item>
+        <item>浅蓝色</item>
+        <item>青色</item>
+        <item>鸭绿色</item>
+        <item>绿色</item>
+        <item>浅绿色</item>
+        <item>酸橙色</item>
+        <item>黄色</item>
+        <item>琥珀色</item>
+        <item>橙色</item>
+        <item>深橙色</item>
+        <item>棕色</item>
+        <item>灰色</item>
+        <item>蓝灰色</item>
     </string-array>
     
     <string-array name="cpu_clock_options">
         <item>%</item>
-        <item>Current MHz</item>
-        <item>Current MHz + (%)</item>
-        <item>Current MHz + Max MHz</item>
-        <item>Current MHz + Max MHz + (%)</item>
+        <item>当前 MHz</item>
+        <item>当前 MHz + (%)</item>
+        <item>当前 MHz + 最大 MHz</item>
+        <item>当前 MHz + 最大 MHz + (%)</item>
     </string-array>
 </resources>
