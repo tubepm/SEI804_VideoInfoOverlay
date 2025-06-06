@@ -16,6 +16,8 @@
         <item>Ziffer 7</item>
         <item>Ziffer 8</item>
         <item>Ziffer 9</item>
+        <item>Ziffer *</item>
+        <item>Ziffer F5</item>
         <item>Keine Taste</item>
     </string-array>
 
