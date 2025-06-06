@@ -1,0 +1,67 @@
+name: Android CI - 构建含中文资源的APK
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 修复Gradle权限
+        run: |
+          chmod +x gradlew
+          [ -x ./gradlew ] || (echo "❌ gradlew权限问题"; exit 1)
+      - name: 设置JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'gradle'
+
+      - name: 构建APK
+        run: |
+          ./gradlew assembleDebug \
+            --no-daemon \
+            --stacktrace \
+            --info \
+            -Dorg.gradle.jvmargs="-Xmx2048m -Dfile.encoding=UTF-8"
+          
+          # 构建后立即检查结果
+          if [ ! -d "app/build/outputs/apk" ]; then
+            echo "❌ 构建失败，检查Gradle日志"
+            exit 1
+          fi
+      - name: 验证APK内容
+        run: |
+          echo "=== APK验证开始 ==="
+          
+          # 查找最新APK
+          APK_PATH=$(find app/build/outputs/apk -name '*.apk' -print -quit)
+          [ -f "$APK_PATH" ] || (echo "❌ 未找到APK文件"; exit 1)
+          
+          echo "验证文件: $APK_PATH"
+          echo "文件大小: $(du -h "$APK_PATH" | cut -f1)"
+          
+          # 检查中文资源
+          echo "资源列表:"
+          if unzip -l "$APK_PATH" | grep -E 'values-zh/|values/'; then
+            echo "✅ 资源验证通过"
+          else
+            echo "⚠️ 未找到预期资源"
+            echo "完整资源结构:"
+            unzip -l "$APK_PATH" | grep 'res/'
+            # 不退出失败，仅警告
+          fi
+      - name: 上传APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-debug
+          path: app/build/outputs/apk/**/*.apk
