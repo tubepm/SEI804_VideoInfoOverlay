@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest # You can use macos-latest or windows-latest if preferred
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: '17'
-          distribution: 'temurin' # Recommended distribution for OpenJDK
+          distribution: 'temurin'
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
@@ -29,7 +29,7 @@ jobs:
         run: ./gradlew assembleRelease
 
       - name: Upload Release APK
-        uses: actions/upload-artifact@v4
+        uses: actions:upload-artifact@v4
         with:
           name: app-release
-          path: app/build/outputs/apk/release/app-release.apk # Adjust path if your app module is named differently or if you have multiple flavors.
+          path: app/build/outputs/apk/release/SEI804_VideoInfoOverlay_21.0.apk
