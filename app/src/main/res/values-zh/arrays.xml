@@ -1,4 +1,5 @@
-<string-array name="key_code_labels">
+<resources>
+    <string-array name="key_code_labels">
         <item>书签按键</item>
         <item>导航按键</item>
         <item>红色按键</item>
