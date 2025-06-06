@@ -1,69 +1,35 @@
-# 此工作流的名称，将显示在 GitHub Actions 选项卡中
-name: Android CI Build
+name: Android CI
 
-# 控制工作流触发的事件
 on:
-  # 当有代码推送到 main 分支时触发
   push:
-    branches: [ "main" ]
-  # 也可以手动触发此工作流
-  workflow_dispatch:
+    branches:
+      - main # Or your default branch like 'master'
+  pull_request:
+    branches:
+      - main # Or your default branch like 'master'
 
-# 定义工作流中运行的一个或多个作业
 jobs:
-  # 此工作流只包含一个名为 "build" 的作业
   build:
-    # 作业运行的虚拟机环境
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # You can use macos-latest or windows-latest if preferred
 
-    # 作业中执行的一系列步骤
     steps:
-      # 步骤 1: 检出您的仓库代码，以便工作流可以访问它
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 步骤 2: 设置 Java Development Kit (JDK) 17
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
           java-version: '17'
-          distribution: 'temurin' # 使用 Eclipse Temurin 发行版
+          distribution: 'temurin' # Recommended distribution for OpenJDK
 
-      # 步骤 3: 配置 Gradle 缓存
-      - name: Gradle Cache
-        uses: gradle/actions/setup-gradle@v3
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
 
-      # 步骤 4: 授予 Gradle Wrapper 执行权限
-      - name: Grant execute permission to gradlew
-        run: chmod +x ./gradlew
-
-      # 步骤 5: 构建 Debug 版本的 APK
-      # 该命令会根据 build.gradle 中的 'debug' 构建类型进行构建
-      - name: Build with Gradle (Debug)
-        run: ./gradlew assembleDebug
-
-      # 步骤 6: 构建 Release 版本的 APK
-      # 该命令会根据 build.gradle 中的 'release' 构建类型进行构建
       - name: Build with Gradle (Release)
         run: ./gradlew assembleRelease
-
-      # 步骤 7: 上传 Debug APK 作为构建产物
-      # 构建产物的名称将基于 build.gradle 中的 versionName
-      - name: Upload Debug APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: SEI804_VideoInfoOverlay_debug-${{ env.VERSION_NAME }}
-          path: app/build/outputs/apk/debug/app-debug.apk
-
-      # 步骤 8: 上传 Release APK 作为构建产物
-      # 从 build.gradle 中读取 versionName 并将其用于产物命名
-      - name: Get project version name for Release
-        id: version
-        run: echo "VERSION_NAME=$(./gradlew -q printVersionName)" >> $GITHUB_ENV
 
       - name: Upload Release APK
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.VERSION_NAME }}
-          path: app/build/outputs/apk/release/app-release.apk
-
+          name: app-release
+          path: app/build/outputs/apk/release/app-release.apk # Adjust path if your app module is named differently or if you have multiple flavors.
