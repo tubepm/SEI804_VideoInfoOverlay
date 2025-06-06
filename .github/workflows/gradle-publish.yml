@@ -32,6 +32,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: app-release
-          # Use a wildcard - this is often safer if the filename changes based on version,
-          # as long as only one APK is expected in this directory.
           path: app/build/outputs/apk/release/*.apk
