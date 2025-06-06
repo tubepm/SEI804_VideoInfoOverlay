@@ -17,6 +17,7 @@
         <item>Button 8</item>
         <item>Button 9</item>
         <item>Button *</item>
+        <item>Button F5</item>
         <item>None</item>
     </string-array>
 
@@ -39,6 +40,8 @@
         <item>15</item>
         <item>16</item>
         <item>17</item>
+        <item>18</item>
+        <item>19</item>
     </string-array>
 
     <string-array name="margin_width_options">
