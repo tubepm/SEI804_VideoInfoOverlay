@@ -1,20 +1,20 @@
 <resources>
-    <string name="app_name" translatable="false">SEI804视频信息浮层</string>
+    <string name="app_name" translatable="false">SEI804 视频信息浮层</string>
     <string name="starting">正在启动…</string>
     <string name="video_format">视频格式：</string>
     <string name="video_resolution">视频分辨率：</string>
     <string name="display_resolution">显示分辨率：</string>
     <string name="color_space">色彩空间：</string>
-    <string name="hdr_status">HDR状态：</string>
-    <string name="hdr_policy">HDR策略：</string>
-    <string name="hdr_priority">HDR优先级：</string>
+    <string name="hdr_status">HDR 状态：</string>
+    <string name="hdr_policy">HDR 策略：</string>
+    <string name="hdr_priority">HDR 优先级：</string>
     <string name="audio_format">音频格式：</string>
     <string name="audio_mode">音频模式：</string>
     <string name="app_name_tv">应用名称：</string>
     <string name="app_memory_usage">应用内存：</string>
-    <string name="cpu_usage">CPU负载：</string>
-    <string name="cpu_index">CPU %d时钟：</string>
-    <string name="cpu_governor">CPU管理器：</string>
+    <string name="cpu_usage">CPU 负载：</string>
+    <string name="cpu_index">CPU %d 时钟：</string>
+    <string name="cpu_governor">CPU 管理器：</string>
     <string name="memory_usage">内存使用：</string>
     <string name="time">时间：</string>
     <string name="connection">连接：</string>
@@ -156,4 +156,3 @@
     <string name="temperature_unit_summary">关：摄氏度\n开：华氏度</string>
     <string name="cpu_temperature">CPU 温度：</string>
 </resources>
-
