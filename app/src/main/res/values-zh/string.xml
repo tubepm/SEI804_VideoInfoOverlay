@@ -155,5 +155,26 @@
     <string name="temperature_unit">CPU 温度单位</string>
     <string name="temperature_unit_summary">关：摄氏度\n开：华氏度</string>
     <string name="cpu_temperature">CPU 温度：</string>
+
+    <string-array name="key_code_labels">
+        <item>书签按键</item>
+        <item>导航按键</item>
+        <item>红色按键</item>
+        <item>绿色按键</item>
+        <item>黄色按键</item>
+        <item>蓝色按键</item>
+        <item>按键0</item>
+        <item>按键1</item>
+        <item>按键2</item>
+        <item>按键3</item>
+        <item>按键4</item>
+        <item>按键5</item>
+        <item>按键6</item>
+        <item>按键7</item>
+        <item>按键8</item>
+        <item>按键9</item>
+        <item>按键*</item>
+        <item>不设置</item>
+    </string-array>
 </resources>
 
