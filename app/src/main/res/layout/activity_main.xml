@@ -1,10 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:padding="8dp">
 
+    <!-- 数据容器 - 两列布局 -->
+    <LinearLayout
+        android:id="@+id/data_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/overlayTextView2"
+        android:orientation="vertical"
+        android:paddingTop="16dp">
+
+        <!-- 视频信息行 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingVertical="4dp">
+            
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="显示分辨率:"
+                android:textColor="#FFF"
+                android:textSize="14sp"/>
+                
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="3840 x 2160, 30hz"
+                android:textColor="#AAA"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <!-- 音频信息行 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingVertical="4dp">
+            
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="音频模式:"
+                android:textColor="#FFF"
+                android:textSize="14sp"/>
+                
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="PCM"
+                android:textColor="#AAA"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <!-- 处理器信息行 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingVertical="4dp">
+            
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="CPU负载:"
+                android:textColor="#FFF"
+                android:textSize="14sp"/>
+                
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="93%"
+                android:textColor="#AAA"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <!-- 更多数据行... -->
+    </LinearLayout>
+
+    <!-- 顶部状态栏 -->
     <TextView
         android:id="@+id/overlayTextView"
         android:layout_width="wrap_content"
@@ -12,21 +97,23 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:padding="12dp"
-        android:text="@string/starting" />
+        android:text="系统状态"
+        android:textColor="#FF9800"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
 
+    <!-- 标题栏 -->
     <TextView
-    android:id="@+id/overlayTextView2"
-    android:layout_width="0dp" <!-- 关键修改：宽度自适应 -->
-    android:layout_height="wrap_content"
-    android:layout_alignParentTop="true"
-    android:layout_toStartOf="@id/overlayTextView"
-    android:layout_alignParentStart="true" <!-- 锚定左侧边界 -->
-    android:layout_marginEnd="8dp" <!-- 与主文本间隔 -->
-    android:padding="12dp"
-    android:background="#33000000" <!-- 添加轻量背景 -->
-    android:text="状态监控"
-    android:maxLines="1"
-    android:ellipsize="end"
-    android:textColor="#FFF"/>
-
+        android:id="@+id/overlayTextView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:padding="12dp"
+        android:background="#33000000"
+        android:text="监控信息 - 海西蒙古族藏族自治州"
+        android:textColor="#4CAF50"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:ellipsize="end"
+        android:maxLines="1"/>
 </RelativeLayout>
