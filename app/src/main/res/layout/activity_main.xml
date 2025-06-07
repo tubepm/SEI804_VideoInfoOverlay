@@ -1,29 +1,42 @@
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentEnd="true"
-    android:orientation="horizontal"
-    android:gravity="center_vertical"
-    android:padding="12dp">
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/overlayTextView2"
-        android:layout_width="wrap_content"
+    <!-- 使用FrameLayout作为外层容器 -->
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:maxLines="1"
-        android:ellipsize="end"
-        android:maxWidth="150dp"
-        android:includeFontPadding="false"
-        android:fontFamily="monospace"
-        android:gravity="center_vertical|end"/>
+        android:layout_alignParentTop="true">
+        
+        <!-- 左侧TextView -->
+        <TextView
+            android:id="@+id/overlayTextView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:paddingTop="12dp"
+            android:paddingEnd="12dp"
+            android:textSize="14sp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            android:fontFamily="monospace"/>
+        
+        <!-- 右侧TextView -->
+        <TextView
+            android:id="@+id/overlayTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:paddingTop="12dp"
+            android:paddingEnd="12dp"
+            android:text="@string/starting"
+            android:textSize="14sp"
+            android:includeFontPadding="false"
+            android:layout_marginEnd="8dp"/>
+    </FrameLayout>
 
-    <TextView
-        android:id="@+id/overlayTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:includeFontPadding="false"
-        android:layout_marginStart="8dp"
-        android:gravity="center_vertical"/>
-</LinearLayout>
+</RelativeLayout>
