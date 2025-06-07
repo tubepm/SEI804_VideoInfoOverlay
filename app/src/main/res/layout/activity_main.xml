@@ -1,31 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <TextView
-        android:id="@+id/overlayTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:padding="12dp"
-        android:maxLines="1"
-        android:ellipsize="end"
-        android:text="@string/starting" />
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentEnd="true"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:padding="12dp">
 
     <TextView
         android:id="@+id/overlayTextView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@id/overlayTextView"
-        android:layout_below="@id/overlayTextView"
-        android:padding="12dp"
-        android:gravity="end"
+        android:textSize="14sp"
         android:maxLines="1"
         android:ellipsize="end"
-        android:text="New Text Here" />
+        android:maxWidth="150dp"
+        android:includeFontPadding="false"
+        android:fontFamily="monospace"
+        android:gravity="center_vertical|end"/>
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/overlayTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:includeFontPadding="false"
+        android:layout_marginStart="8dp"
+        android:gravity="center_vertical"/>
+</LinearLayout>
