@@ -7,15 +7,25 @@
 
     <TextView
         android:id="@+id/overlayTextView"
-        android:layout_width="wrap_content"  android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:padding="12dp"
+        android:maxLines="1"
+        android:ellipsize="end"
         android:text="@string/starting" />
 
     <TextView
         android:id="@+id/overlayTextView2"
-        android:layout_width="match_parent"  android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toStartOf="@id/overlayTextView"
-        android:maxLines="1"                  android:ellipsize="end" />            </RelativeLayout>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/overlayTextView"
+        android:layout_below="@id/overlayTextView"
+        android:padding="12dp"
+        android:gravity="end"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:text="New Text Here" />
+
+</RelativeLayout>
