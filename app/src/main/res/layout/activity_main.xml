@@ -8,21 +8,13 @@
     <TextView
         android:id="@+id/overlayTextView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_height="wrap_content"  android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:padding="12dp"
-        android:text="@string/starting"
-        android:background="#80000000"  android:textColor="#FFFFFF"     android:textSize="14sp"         android:layout_marginEnd="16dp" />
+        android:text="@string/starting" />
 
     <TextView
         android:id="@+id/overlayTextView2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toStartOf="@id/overlayTextView"
-        android:text="一些中文文本" android:background="#80FF0000"  android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        android:layout_marginEnd="8dp" android:paddingStart="12dp" />
-
-</RelativeLayout>
+        android:layout_height="0dp"  android:layout_toStartOf="@id/overlayTextView"
+        android:layout_alignTop="@id/overlayTextView"      android:layout_alignBottom="@id/overlayTextView"   android:background="#880000FF"  android:text="这里是右侧浮层的内容，它将与左侧浮层高度一致。" android:padding="12dp" /> </RelativeLayout>
